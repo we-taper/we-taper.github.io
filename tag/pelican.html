@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>WE-TapEr's First Blog - Pelican</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">WE-TapEr's First Blog </a></h1>
+                <nav><ul>
+                    <li><a href="/category/jykell.html">Jykell</a></li>
+                    <li><a href="/category/pelican.html">Pelican</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/Using Pelican and Github to Blog.html">Using Pelican and Github to Blog</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2014-02-20T02:00:00">
+                周四 20 二月 2014
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/wetaper.html">we.taper</a>
+        </address>
+<p>In <a href="/category/pelican.html">Pelican</a>. </p>
+<p>tags: <a href="/tag/pelican.html">Pelican</a><a href="/tag/python.html">Python</a></p>
+</footer><!-- /.post-info --><h1>Install Pelican</h1>
+<h1>Which static website generator?</h1>
+<p>A great website: <a href="http://staticsitegenerators.net/">Static Site Generators - The definitive listing of Static Site Generators</a></p>
+<p>I choose: Pelican.</p>
+<h2>1. Install</h2>
+<ul>
+<li>Tried: install pelican through <code>pip</code></li>
+</ul>
+<p>See: <a href="http://pip.readthedocs.org/en/latest/installing.html">Installation pip</a></p>
+<p>Failed: <code>pip</code> always reports Failure.</p>
+<ul>
+<li>Tried: Switched to easy_install</li>
+</ul>
+<p>See <a href="https://pypi.python.org/pypi/setuptools#windows">Link 1</a> to install easy_install and find easy_install inside python 
+    installation directory (usually under folder "Scripts"), </p>
+<p>Succeed.</p>
+<ul>
+<li>
+<p>Install Markdown package to support markdown syntax</p>
+<p>easy_install Markdown</p>
+</li>
+</ul>
+<p>There seemed to be a problem. Easy_install downloaded the installed but failed to
+run it. So I run it manually. (Discovered the downloaded folder inside the errors
+reported by easy_install)</p>
+<ul>
+<li>
+<p>Error:</p>
+<p>'utf-8' codec can't decode byte 0xa1 in position 5428: invalid start byte
+ERROR: Skipping .\hyde markdown_original.md: could not find information about 't
+itle'
+WARNING: Could not process .\jykell.md
+'utf-8' codec can't decode byte 0xbe in position 2458: invalid start byte
+WARNING: Could not process .\MarkdownShowCase.md
+'utf-8' codec can't decode byte 0xb3 in position 2677: invalid start byte
+ERROR: Skipping .\markdown_original.md: could not find information about 'title'</p>
+</li>
+</ul>                </article>
+<p class="paginator">
+    Page 1 / 1
+</p>
+            </aside><!-- /#featured -->
+            </ol><!-- /#posts-list -->
+            </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
