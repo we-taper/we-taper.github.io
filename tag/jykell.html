@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>WE-TapEr's First Blog - Jykell</title>
+        <title>WE-TapEr's Blog - Jykell</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
@@ -12,56 +12,59 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="/">WE-TapEr's First Blog </a></h1>
+                <h1><a href="/">WE-TapEr's Blog </a></h1>
                 <nav><ul>
-                    <li><a href="/category/jykell.html">Jykell</a></li>
-                    <li><a href="/category/pelican.html">Pelican</a></li>
+                    <li><a href="/category/blogging.html">Blogging</a></li>
+                    <li><a href="/category/programming.html">Programming</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/writing.html">Writing</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/Jykell.html">Using Jekyll and Github to Blog</a></h1>
+                    <h1 class="entry-title"><a href="/Using Jekyll and Github to Blog.html">Using Jekyll and Github to Blog v0.1 (Failed)</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2014-02-20T02:00:00">
-                周四 20 二月 2014
+        <abbr class="published" title="2014-02-21T14:00:00">
+                周五 21 二月 2014
         </abbr>
 
         <address class="vcard author">
                 By <a class="url fn" href="/author/wetaper.html">we.taper</a>
         </address>
-<p>In <a href="/category/jykell.html">Jykell</a>. </p>
-<p>tags: <a href="/tag/jykell.html">Jykell</a><a href="/tag/ruby.html">Ruby</a></p>
+<p>In <a href="/category/blogging.html">Blogging</a>. </p>
+<p>tags: <a href="/tag/jykell.html">Jykell</a><a href="/tag/unfinished.html">unFinished</a></p>
 </footer><!-- /.post-info --><h1>Using Jekyll to Blog</h1>
 <p><strong>Note :</strong><br />
 At last, i got myself fired by using Jykell. Ruby and Python's Pygments modulus 
 just don't work with each other. And installing these softwares on windows is just
 another nightmare for me. If you are a windows user, I sincerely advise you stop
-trying Jekyll now! Another option is: Pelican!</p>
-<p>If you really want to continue, please do refer to my recommended blogs and websites
+trying Jekyll now! Another option is: Pelican!<br />
+If you really want to continue, please do refer to my recommended blogs and websites
 before you start rock, especially the <a href="https://github.com/juthilo/run-jekyll-on-windows/#install-the-jekyll-gem">official guide</a></p>
 <h2>What??</h2>
-<p>Jekyll is a static website generator. Github Page is a service provided by github.com which hosts user-uploaded static websites and display them, for <strong>free</strong>! This two combined - A Free Web blog host under perfect control. (Note: Everything on Github is open unless you purchase some plans. So there is no privacy concerns - You simply don't private content on it!)</p>
+<p>Jekyll is a static website generator. Github Page is a service provided by github.com which hosts user-uploaded static websites and display them, for <strong>free</strong>! This two combined - <strong>A Free Web blog host under perfect control</strong>. (Note: Everything on Github is open unless you purchase some plans. So there is no privacy concerns - You simply don't put private content on it!)</p>
 <p>Github officially support Jykell. Everything hosted on Github Pages will be processed by Jykell. Since standard HTML files is also Jykell capable, you can use Github Pages without Jykell of course.</p>
 <p><em>Note :</em> </p>
 <p>This is a hardcore, time-consuming task which require much patience and time. Never try this if you are not a geek.</p>
 <p><em>Note 2:</em> </p>
 <p>Because I want to blog something but is tired of using existing blog services, I searched for a bit and find Jekyll 
 as well as Hyde. They are both "static webpage generator" (See: <a href="https://github.com/hyde/hyde">Wikipedia Static Webpage</a>). Jekyll is based on Ruby while Hyde is based on python. There are two excellent articles comparing these two engines: 1.<a href="http://www.distractable.net/tech/static-site-generators-jekyll-vs-hyde">Static Website Generators - Jekyll vs Hyde</a>, and 2.<a href="http://philipm.at/2011/jekyll_vs_hyde.html">Jekyll vs. Hyde - A Comparison Of Two Static Site Generators</a> (Both stored in my Evernote for backup). </p>
-<p>I choosed Jekyll because:<br />
-    1. It is under active development, the <a href="https://github.com/jekyll/jekyll">Github Jekyll</a> has many recent commits just days ago. The last commit of Hyde is somewhat 6 months ago!
-    2. There are many default templetes that I can simply <code>git clone xxx</code> to use for Jykell. As for Hyde, few were found.
-    3. Author of Jekyll is also co-founder of Github! Therefore the future maintenance is guaranteed.</p>
-<p><strong>Important</strong></p>
-<h2>Pre-requirements</h2>
+<p>I choosed Jekyll because:  </p>
+<ol>
+<li>It is under active development, the <a href="https://github.com/jekyll/jekyll">Github Jekyll</a> has many recent commits just days ago. The last commit of Hyde is somewhat 6 months ago!  </li>
+<li>There are many default templetes that I can simply <code>git clone xxx</code> to use for Jykell. As for Hyde, few were found.  </li>
+<li>Author of Jekyll is also co-founder of Github! Therefore the future maintenance is guaranteed.  </li>
+</ol>
+<h2>Pre-requirements (Important)</h2>
 <ol>
 <li>
 <p>Installed Ruby<br />
-        For simplicity, I choosed <a href="http://rubyinstaller.org">RubyInstaller</a> to install Ruby on my Windows. Once installed, you will got a powerful tool: <code>gem</code> to install ruby modulus.</p>
+    For simplicity, I choosed <a href="http://rubyinstaller.org">RubyInstaller</a> to install Ruby on my Windows. Once installed, you will got a powerful tool: <code>gem</code> to install ruby modulus.</p>
 <ul>
 <li>
-<p>Switch <code>gem</code> Source to <em>http://ruby.taobao.org/</em> to improve downloading speed. 
-    See: [RubyGems 镜像 - 淘宝网][rugm_tb] for more.</p>
+<p>Switch <strong>gem</strong> Source to <em>http://ruby.taobao.org/</em> to improve downloading speed. <br />
+    See: <a href="http://ruby.taobao.org/">RubyGems 镜像 - 淘宝网</a> for more.</p>
 </li>
 <li>
 <p>Installed DevKit 
@@ -71,19 +74,19 @@ as well as Hyde. They are both "static webpage generator" (See: <a href="https:/
 </li>
 <li>
 <p>Installed Python<br />
-        Compared with Ruby, installing python on windows is just a simple. As for linux and mac, they already have python come within system. See <a href="http://www.python.org/download/">Python</a></p>
+    Compared with Ruby, installing python on windows is just simple. As for Linux and Mac, they already have python come within system. See: <a href="http://www.python.org/download/">Python Download</a></p>
 </li>
 </ol>
 <h2>Let's Rock</h2>
 <ol>
 <li>
 <p>Installed Bundler<br />
-    Yet another ruby modulus installation tool. Recommended on <a href="https://help.github.com/articles/using-jekyll-with-pages#installing-jekyll">Github Official help</a>. It said," you can still install Jekyll with the command gem install github-pages, but you may run into trouble down the line.", But I haven't tried that.
+    Yet another ruby modulus installation tool. Recommended on <a href="https://help.github.com/articles/using-jekyll-with-pages#installing-jekyll">Github Official help</a>. It said,<em>"You can still install Jekyll with the command gem install github-pages, but you may run into trouble down the line."</em>, But I haven't tried that.
     Follow the tips on <a href="https://help.github.com/articles/using-jekyll-with-pages#installing-jekyll">Github Official help</a>.</p>
 </li>
 <li>
 <p>Install Jekyll with Bundler<br />
-    Just folow tips on <a href="https://help.github.com/articles/using-jekyll-with-pages#installing-jekyll">Github Official help</a>. Becareful about <code>cd</code> into the directory where the <code>Gemfile</code> exists, or you will always get a <code>Bundler::GemfileNotFound</code> error. Also, remember to change the source to ruby.taobao.org as mentioned in <strong>Pre-requirements</strong>.</p>
+    Just folow tips on <a href="https://help.github.com/articles/using-jekyll-with-pages#installing-jekyll">Github Official help</a>. Becareful that your should <code>cd</code> into the directory where the <code>Gemfile</code> exists, or you will always get a <code>Bundler::GemfileNotFound</code> error. Also, remember to change the source to ruby.taobao.org as mentioned in <strong>Pre-requirements</strong>.</p>
 </li>
 <li>
 <p>Install easy_install and Pygments
@@ -93,12 +96,12 @@ as well as Hyde. They are both "static webpage generator" (See: <a href="https:/
 </li>
 <li>
 <p>Cook the Git Book<br />
-    Learn about git from <a href="http://git-scm.com/book/en/">Git Guide</a>, I also wrote an artical about it: <a href="">My Git Guide</a></p>
+    Learn about git from <a href="http://git-scm.com/book/en/">Git Guide</a>, I also wrote an article about it: <a href="/Git Book Note.html">My Git Guide</a></p>
 </li>
 <li>
 <p>Clone others' work<br />
-    Well, My time is limited (I've already spent a whole day on it). And open source is fanscinatin. Why not copy?</p>
-<p>Some personal recommandations:<br />
+    Well, My time is limited (I've already spent a whole day on it). And open source is fascinating. Why not copy?</p>
+<p>Some personal recommendations:<br />
 1. <a href="https://github.com/JeremyWei/jeremywei.github.com">https://github.com/JeremyWei/jeremywei.github.com</a>
 2. <a href="http://www.madhur.co.in">http://www.madhur.co.in</a></p>
 <p>A really good List of Websites build on Jekyll:<a href="https://github.com/jekyll/jekyll/wiki/Sites">Jekyll Sites</a></p>
@@ -116,19 +119,21 @@ Solution:
 See: <a href="http://stackoverflow.com/questions/21137096/jekyll-error-running-jekyll-serve">StackOverflow Ask</a></p>
 </li>
 <li>
-<p>Error:  <code>Liquid Exception: Failed to get header. in xxx.markdown</code><br />
-      or <code>spawn.rb:162: warning: cannot close fd before spawn</code></p>
-<p>Problem: 
-    1. The new version of pygments.rb (&gt;0.5.0) doesn't cooperate with this Jekyll. Downgrade!<br />
-        Note: According the official guide (<a href="https://github.com/juthilo/run-jekyll-on-windows/#install-the-jekyll-gem">Link</a>), version 0.5.0 and o.5.4 are OK.
-    2. The new Python 3 don't work with Jekyll. Use Python 2.7.5.
-Solution:
-    1. ?
+<p>Error:  <code>Liquid Exception: Failed to get header. in xxx.markdown</code> <br />
+or <code>spawn.rb:162: warning: cannot close fd before spawn</code></p>
+<p>Problem: </p>
+<ol>
+<li>The new version of pygments.rb (&gt;0.5.0) doesn't cooperate with this Jekyll. Downgrade!<br />
+Note: According the official guide (<a href="https://github.com/juthilo/run-jekyll-on-windows/#install-the-jekyll-gem">Link</a>), version 0.5.0 and o.5.4 are OK.</li>
+<li>The new Python 3 don't work with Jekyll. Use Python 2.7.5.</li>
+</ol>
+<p>Solution:
+1.
         gem uninstall pygments.rb<br />
         gem install pygments.rb --version "=0.5.0"<br />
-    2. Install Python 2.7.x (remember to install Pygments later)
-        You can with both 2.7.x and 3.x version installed but use %PATH% environment to change the default python intepretor. Google about "Changing Path on Windows"
-See: <a href="http://stackoverflow.com/questions/17364028/jekyll-on-windows-pygments-not-working">Jekyll on Windows: Pygments not working</a></p>
+2. Install Python 2.7.x (remember to install Pygments later)<br />
+    You can with both 2.7.x and 3.x version installed but use %PATH% environment to change the default python intepretor. Google about "Changing Path on Windows"</p>
+<p>See: <a href="http://stackoverflow.com/questions/17364028/jekyll-on-windows-pygments-not-working">Jekyll on Windows: Pygments not working</a></p>
 </li>
 <li>
 <p>Note: Do not install Ruby in a complicated path including characters like "(", ")", etc. I got errors when doing so. Instead installing to the default "X:\Rubyxx\" is OK.</p>

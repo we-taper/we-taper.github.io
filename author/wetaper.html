@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>WE-TapEr's First Blog - we.taper</title>
+        <title>WE-TapEr's Blog - we.taper</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
@@ -12,158 +12,436 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="/">WE-TapEr's First Blog </a></h1>
+                <h1><a href="/">WE-TapEr's Blog </a></h1>
                 <nav><ul>
-                    <li><a href="/category/jykell.html">Jykell</a></li>
-                    <li><a href="/category/pelican.html">Pelican</a></li>
+                    <li><a href="/category/blogging.html">Blogging</a></li>
+                    <li><a href="/category/programming.html">Programming</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/writing.html">Writing</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/Jykell.html">Using Jekyll and Github to Blog</a></h1>
+                    <h1 class="entry-title"><a href="/Git Book Note.html">Git Book Note (Last update: 2014-2-21)</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2014-02-20T02:00:00">
-                周四 20 二月 2014
+        <abbr class="published" title="2014-02-21T14:00:00">
+                周五 21 二月 2014
         </abbr>
 
         <address class="vcard author">
                 By <a class="url fn" href="/author/wetaper.html">we.taper</a>
         </address>
-<p>In <a href="/category/jykell.html">Jykell</a>. </p>
-<p>tags: <a href="/tag/jykell.html">Jykell</a><a href="/tag/ruby.html">Ruby</a></p>
-</footer><!-- /.post-info --><h1>Using Jekyll to Blog</h1>
-<p><strong>Note :</strong><br />
-At last, i got myself fired by using Jykell. Ruby and Python's Pygments modulus 
-just don't work with each other. And installing these softwares on windows is just
-another nightmare for me. If you are a windows user, I sincerely advise you stop
-trying Jekyll now! Another option is: Pelican!</p>
-<p>If you really want to continue, please do refer to my recommended blogs and websites
-before you start rock, especially the <a href="https://github.com/juthilo/run-jekyll-on-windows/#install-the-jekyll-gem">official guide</a></p>
-<h2>What??</h2>
-<p>Jekyll is a static website generator. Github Page is a service provided by github.com which hosts user-uploaded static websites and display them, for <strong>free</strong>! This two combined - A Free Web blog host under perfect control. (Note: Everything on Github is open unless you purchase some plans. So there is no privacy concerns - You simply don't private content on it!)</p>
-<p>Github officially support Jykell. Everything hosted on Github Pages will be processed by Jykell. Since standard HTML files is also Jykell capable, you can use Github Pages without Jykell of course.</p>
-<p><em>Note :</em> </p>
-<p>This is a hardcore, time-consuming task which require much patience and time. Never try this if you are not a geek.</p>
-<p><em>Note 2:</em> </p>
-<p>Because I want to blog something but is tired of using existing blog services, I searched for a bit and find Jekyll 
-as well as Hyde. They are both "static webpage generator" (See: <a href="https://github.com/hyde/hyde">Wikipedia Static Webpage</a>). Jekyll is based on Ruby while Hyde is based on python. There are two excellent articles comparing these two engines: 1.<a href="http://www.distractable.net/tech/static-site-generators-jekyll-vs-hyde">Static Website Generators - Jekyll vs Hyde</a>, and 2.<a href="http://philipm.at/2011/jekyll_vs_hyde.html">Jekyll vs. Hyde - A Comparison Of Two Static Site Generators</a> (Both stored in my Evernote for backup). </p>
-<p>I choosed Jekyll because:<br />
-    1. It is under active development, the <a href="https://github.com/jekyll/jekyll">Github Jekyll</a> has many recent commits just days ago. The last commit of Hyde is somewhat 6 months ago!
-    2. There are many default templetes that I can simply <code>git clone xxx</code> to use for Jykell. As for Hyde, few were found.
-    3. Author of Jekyll is also co-founder of Github! Therefore the future maintenance is guaranteed.</p>
-<p><strong>Important</strong></p>
-<h2>Pre-requirements</h2>
+<p>In <a href="/category/programming.html">Programming</a>. </p>
+<p>tags: <a href="/tag/git.html">Git</a><a href="/tag/vcs.html">VCS</a></p>
+</footer><!-- /.post-info --><h1>Git Start</h1>
+<p><strong>Note: </strong> Most of the content below are based on the book available on Git Documentation: <a href="http://git-scm.com/doc">Git book</a>
+<br></p>
+<h2>1. Basic concept</h2>
+<p><em>See: </em><a href="http://git-scm.com/book/en/Getting-Started-Git-Basics">Git book - chapter 1.3</a></p>
 <ol>
 <li>
-<p>Installed Ruby<br />
-        For simplicity, I choosed <a href="http://rubyinstaller.org">RubyInstaller</a> to install Ruby on my Windows. Once installed, you will got a powerful tool: <code>gem</code> to install ruby modulus.</p>
-<ul>
-<li>
-<p>Switch <code>gem</code> Source to <em>http://ruby.taobao.org/</em> to improve downloading speed. 
-    See: [RubyGems 镜像 - 淘宝网][rugm_tb] for more.</p>
+<p>Git is a "mini file system"</p>
+<p>Git use a special <em>"snapshot"</em> to store changes made to file(see Git book, chapter 1.3).
+Git knows every change you made to the file by calculating a SHA-1 checksum of files. Git 
+does most things locally so you can work without a network connection. Nearly all operations 
+on git are "adding files", which means you can experiment on anything without worrying if 
+you can get back to the original state. Also, every git clone copies everything on the 
+<em>"master"</em> branch, therefore even the main server where <em>"master"</em> code resides is shot, 
+everything can be recovered.</p>
 </li>
 <li>
-<p>Installed DevKit 
-    Otherwise you can't just install Jykell with bundle (see below). See <a href="https://github.com/oneclick/rubyinstaller/wiki/Development-Kit">Github DevKit</a>.</p>
-</li>
-</ul>
-</li>
-<li>
-<p>Installed Python<br />
-        Compared with Ruby, installing python on windows is just a simple. As for linux and mac, they already have python come within system. See <a href="http://www.python.org/download/">Python</a></p>
+<p>The three states of files inside <em>"Git file system"</em></p>
+<p>One simple diagram:</p>
 </li>
 </ol>
-<h2>Let's Rock</h2>
+<p><img alt="Three states" src="http://git-scm.com/figures/18333fig0106-tn.png" /></p>
+<p><strong>  What we do on git?</strong></p>
+<p><strong>  A General Workflow on Git</strong></p>
+<blockquote>
 <ol>
-<li>
-<p>Installed Bundler<br />
-    Yet another ruby modulus installation tool. Recommended on <a href="https://help.github.com/articles/using-jekyll-with-pages#installing-jekyll">Github Official help</a>. It said," you can still install Jekyll with the command gem install github-pages, but you may run into trouble down the line.", But I haven't tried that.
-    Follow the tips on <a href="https://help.github.com/articles/using-jekyll-with-pages#installing-jekyll">Github Official help</a>.</p>
-</li>
-<li>
-<p>Install Jekyll with Bundler<br />
-    Just folow tips on <a href="https://help.github.com/articles/using-jekyll-with-pages#installing-jekyll">Github Official help</a>. Becareful about <code>cd</code> into the directory where the <code>Gemfile</code> exists, or you will always get a <code>Bundler::GemfileNotFound</code> error. Also, remember to change the source to ruby.taobao.org as mentioned in <strong>Pre-requirements</strong>.</p>
-</li>
-<li>
-<p>Install easy_install and Pygments
-    Using the right python (2.7.x) and install Pygments through easy_install scripts. 
-    See <a href="https://pypi.python.org/pypi/setuptools#windows">Link 1</a> to install easy_install and find easy_install inside python 
-    installation directory (usually under folder "Scripts"), run <code>easy_install Pygments</code>.</p>
-</li>
-<li>
-<p>Cook the Git Book<br />
-    Learn about git from <a href="http://git-scm.com/book/en/">Git Guide</a>, I also wrote an artical about it: <a href="">My Git Guide</a></p>
-</li>
-<li>
-<p>Clone others' work<br />
-    Well, My time is limited (I've already spent a whole day on it). And open source is fanscinatin. Why not copy?</p>
-<p>Some personal recommandations:<br />
-1. <a href="https://github.com/JeremyWei/jeremywei.github.com">https://github.com/JeremyWei/jeremywei.github.com</a>
-2. <a href="http://www.madhur.co.in">http://www.madhur.co.in</a></p>
-<p>A really good List of Websites build on Jekyll:<a href="https://github.com/jekyll/jekyll/wiki/Sites">Jekyll Sites</a></p>
-</li>
+<li>You modify files in your working directory.</li>
+<li>You stage the files, adding snapshots of them to your staging area.</li>
+<li>You do a commit, which takes the files as they are in the staging area 
+and stores that snapshot permanently to your Git directory.</li>
 </ol>
-<h2>Some Notes to solve problems:</h2>
-<p><strong>Note :</strong> The error message below have been simplified to save space. Watch your error output carefully, perhaps mine solution applies to your too!</p>
+</blockquote>
+<h3>1.1 Install Git</h3>
+<p><em>See  </em><a href="http://git-scm.com/book/en/Getting-Started-Installing-Git">Git book - chapter 1.4</a></p>
+<p>I personally like the git plugin <em>EGit</em> (found on Eclipse Market) for Eclipse 
+since I use Eclipse on Windows.</p>
+<h3>1.2 Configure Git</h3>
+<p>*See  * <a href="http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup">Git book - chapter 1.5</a></p>
+<p>Since I don't want to consider too much about git, skip this.</p>
+<h3>1.3 Get help</h3>
+<hr />
+<p><em>see  </em><a href="http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup">Git book - chapter 1.6</a></p>
+<p>Code:</p>
+<div class="highlight"><pre><span class="nx">git</span> <span class="nx">help</span> <span class="o">&lt;</span><span class="nx">verb</span><span class="o">&gt;</span>
+<span class="nx">git</span> <span class="o">&lt;</span><span class="nx">verb</span><span class="o">&gt;</span> <span class="o">--</span><span class="nx">help</span>
+<span class="nx">man</span> <span class="nx">git</span><span class="o">-&lt;</span><span class="nx">verb</span><span class="o">&gt;</span>     <span class="vi">#For</span> <span class="nx">Linux</span> <span class="nx">manual</span> <span class="nx">page</span>
+</pre></div>
+
+
+<h2>2. Let's Rock</h2>
+<h3>2.1 Get a Git Repository</h3>
+<p><em>See :</em> <a href="http://git-scm.com/book/en/Git-Basics-Getting-a-Git-Repository">Git book - chapter 2.1</a></p>
+<p>Basically, we first <em>create</em> a repository somewhere, then others can <em>clone</em> this repository. After
+cloning or creating, you can <em>add</em> files and then commit to the repository.</p>
+<h4>Command List</h4>
+<div class="highlight"><pre><span class="cp"># Create</span>
+<span class="n">git</span> <span class="n">init</span>
+<span class="cp"># Add</span>
+<span class="n">git</span> <span class="n">add</span> <span class="n">FileName</span><span class="p">(</span><span class="n">support</span> <span class="o">*</span><span class="p">)</span>
+<span class="cp"># Commit</span>
+<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="err">&#39;</span><span class="n">Commit</span> <span class="n">Comment</span><span class="err">&#39;</span>
+<span class="cp"># Clone</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="p">[</span><span class="n">url</span><span class="p">]</span>
+<span class="cp"># Clone Examples</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="o">:</span><span class="c1">//github.com/schacon/grit.git NameOfDirectory # Git transfer protocol</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">http</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">:</span><span class="c1">//github.com/schacon/grit.git # HTTP(s)</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">user</span><span class="err">@</span><span class="n">server</span><span class="o">:/</span><span class="n">path</span><span class="p">.</span><span class="n">git</span> <span class="err">#</span> <span class="n">SSH</span>
+</pre></div>
+
+
+<h3>2.2 Record change to Repository</h3>
+<p><em>See :</em><a href="http://git-scm.com/book/en/Git-Basics-Recording-Changes-to-the-Repository">Git book - chapter 2.2</a></p>
+<p>The full Life Cycle of a File:</p>
+<p><img alt="Life Cycle" src="http://git-scm.com/figures/18333fig0201-tn.png" /></p>
+<p><strong>Note: </strong> Unadded file are <strong>not</strong> tracked, so Git <strong>doesn't care</strong> about this files.</p>
+<h4>Staged</h4>
+<p>When files added (under the control of Git) once modified, it need to be staged to the staging
+area. Command of stage is the same as add:</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">add</span> <span class="n">FileName</span> <span class="err">#</span> <span class="s">&quot;add&quot;</span> <span class="n">is</span> <span class="n">multi</span><span class="o">-</span><span class="n">purpose</span><span class="p">,</span> <span class="n">can</span> <span class="n">add</span> <span class="n">and</span> <span class="n">stage</span> <span class="n">files</span><span class="p">.</span>
+</pre></div>
+
+
+<h4>Ignored files.</h4>
+<p>File <em>.gitignore</em> store patterns of file names which will be ignored by git. Rules
+are as follows:</p>
 <ul>
+<li>Blank lines or lines starting with # are ignored.</li>
+<li>Standard glob patterns work.</li>
+<li>You can end patterns with a forward slash (/) to specify a directory.</li>
 <li>
-<p>Error: <code>... fileutils.rb:247:in</code>mkdir': Invalid argument ...`  </p>
-<p>Problem: The new versioin of jekyll (&gt;1.4.2) isn't stable enough! Downgrade!<br />
-Solution:
-    gem uninstall jekyll<br />
-    gem install jekyll --version "=1.4.2"<br />
-See: <a href="http://stackoverflow.com/questions/21137096/jekyll-error-running-jekyll-serve">StackOverflow Ask</a></p>
-</li>
-<li>
-<p>Error:  <code>Liquid Exception: Failed to get header. in xxx.markdown</code><br />
-      or <code>spawn.rb:162: warning: cannot close fd before spawn</code></p>
-<p>Problem: 
-    1. The new version of pygments.rb (&gt;0.5.0) doesn't cooperate with this Jekyll. Downgrade!<br />
-        Note: According the official guide (<a href="https://github.com/juthilo/run-jekyll-on-windows/#install-the-jekyll-gem">Link</a>), version 0.5.0 and o.5.4 are OK.
-    2. The new Python 3 don't work with Jekyll. Use Python 2.7.5.
-Solution:
-    1. ?
-        gem uninstall pygments.rb<br />
-        gem install pygments.rb --version "=0.5.0"<br />
-    2. Install Python 2.7.x (remember to install Pygments later)
-        You can with both 2.7.x and 3.x version installed but use %PATH% environment to change the default python intepretor. Google about "Changing Path on Windows"
-See: <a href="http://stackoverflow.com/questions/17364028/jekyll-on-windows-pygments-not-working">Jekyll on Windows: Pygments not working</a></p>
-</li>
-<li>
-<p>Note: Do not install Ruby in a complicated path including characters like "(", ")", etc. I got errors when doing so. Instead installing to the default "X:\Rubyxx\" is OK.</p>
+<p>You can negate a pattern by starting it with an exclamation point (!).</p>
+<p><strong>Glob patterns</strong> are like simplified regular expressions that shells use. An <strong>asterisk (*)</strong>
+matches zero or more characters; <strong>[abc]</strong> matches any character inside the brackets (in this 
+case a, b, or c); a <strong>question mark (?)</strong> matches a single character; and <strong>brackets</strong> enclosing 
+characters separated by a hyphen([0-9]) matches any character in the range (in this case
+0 through 9) .</p>
+<p><em>See:  </em><a href="http://unixhelp.ed.ac.uk/CGI/man-cgi?glob+7">Unix Man Page</a> and <a href="http://en.wikipedia.org/wiki/Glob_%28programming%29">Wikipedia Page</a></p>
 </li>
 </ul>
-<h2>Some Good Articles to help you smooth through this process:</h2>
+<h4>See <em>"What happens?"</em></h4>
+<p>To see the general status of <em>"Which file have been modified but unstatged"</em> or <em>"Which file have
+been staged but uncommited?"</em>, use:</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">statue</span>
+</pre></div>
+
+
+<p>For more detailed information about what actually changed inside files, use <code>diff</code>:</p>
+<p>See the difference between <strong>Working Directory</strong> and <strong>Staging Area</strong></p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">diff</span>
+</pre></div>
+
+
+<p>See the difference between <strong>Staging</strong> and <strong>Repository(Commited)</strong></p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">diff</span> <span class="o">--</span><span class="n">staged</span>
+</pre></div>
+
+
+<h4>Now Commit</h4>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">commit</span>  
+<span class="cp"># Will open a editor to edit the &quot;Commiting Message&quot;</span>
+
+<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">a</span>  
+<span class="cp"># Will makes Git automatically stage every file that is already tracked  </span>
+<span class="n">before</span> <span class="n">doing</span> <span class="n">the</span> <span class="n">commit</span><span class="p">,</span> <span class="n">letting</span> <span class="n">you</span> <span class="n">skip</span> <span class="n">the</span> <span class="n">git</span> <span class="n">add</span> <span class="n">part</span>
+</pre></div>
+
+
+<h4>Remove files</h4>
+<p>Remove from tracked file list:</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">rm</span> <span class="n">FileName</span>
+</pre></div>
+
+
+<p>Remove from staged directory (file is kept in working directory):</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">rm</span> <span class="o">--</span><span class="n">cached</span> <span class="n">FileName</span>
+</pre></div>
+
+
+<p><strong>Note: </strong>Deleting files on harddrive doesn't delete them from git's tracked file list.
+Instead ther are marked "delete" when you type <code>git status</code></p>
+<h4>Moving Files</h4>
+<p><strong>Note :</strong> "Rename" == "Moving to the <em>Same</em> directory"</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">mv</span> <span class="n">file_from</span> <span class="n">file_to</span>
+</pre></div>
+
+
+<p>Above is equal to:</p>
+<div class="highlight"><pre><span class="n">mv</span> <span class="n">file_from</span> <span class="n">file_to</span>
+<span class="n">git</span> <span class="n">rm</span> <span class="n">file_from</span>
+<span class="n">git</span> <span class="n">add</span> <span class="n">file_to</span>
+</pre></div>
+
+
+<h3>2.3 : Skipped</h3>
+<h3>2.4 Git Basics - Undoing Things</h3>
+<p><em>See </em>: <a href="http://git-scm.com/book/en/Git-Basics-Undoing-Things">Git book- chapter 2.4</a></p>
+<h4>Git Command</h4>
+<ul>
+<li>
+<p>Change last commit  </p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">commit</span> <span class="o">--</span><span class="n">amend</span>
+</pre></div>
+
+
+<p>This command takes your staging area and uses it for the commit. If you’ve made no
+changes since your last commit (for instance, you run this command immediately after
+your previous commit), then your snapshot will look exactly the same and all you’ll 
+change is your commit message. The same commit-message editor fires up, but it already
+contains the message of your previous commit. You can edit the message the same as
+always, but it overwrites your previous commit.</p>
+</li>
+<li>
+<p>Unstage File</p>
+<div class="highlight"><pre><span class="nx">git</span> <span class="nb">reset</span> <span class="nb">HEAD</span> <span class="o">&lt;</span><span class="nb">file</span><span class="o">&gt;</span><span class="nx">...</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Unmodifyed a File</p>
+<div class="highlight"><pre><span class="nx">git</span> <span class="nx">checkout</span> <span class="o">--</span> <span class="o">&lt;</span><span class="nb">file</span><span class="o">&gt;</span><span class="nx">...</span>  
+<span class="err">#</span> <span class="nx">Note</span><span class="p">:</span> <span class="nx">This</span> <span class="nx">cannot</span> <span class="nx">be</span> <span class="nx">undone</span> <span class="nx">since</span> <span class="nx">the</span> <span class="nb">file</span> <span class="nx">hasn</span><span class="s1">&#39;t be commited</span>
+<span class="s1">and therefore not recorded by git.</span>
+</pre></div>
+
+
+</li>
+</ul>
+<h2>Branching</h2>
+<h3>What a Branch Is</h3>
+<p><em>See :</em> <a href="http://git-scm.com/book/en/Git-Branching-What-a-Branch-Is"> Git book - chapter 3.1</a></p>
+<p><strong>Note :</strong> Here I tried to make everything simple but if you wnat a true picture
+of how  branch works in Git, please refer to the original document.</p>
+<p>Git take <strong>snapshot</strong> of every version (commit) of your files. A <strong>Branch</strong> is just a 
+diverged series of snapshots. Think of a tree which start with a <strong>master</strong> trunk, then
+it can stretches out different <strong>branches</strong>. All this branches are linked with their 
+parent (either a <strong>master</strong> trunk or a derived <strong>branch</strong>) with <strong>nodes</strong> - the mother 
+snapshot they all share. To go back to a older version or another branch, just trace 
+back to the <em>mother snapshot</em> and choose a different route.</p>
+<p>Diagram of branches (named in <em>pointer</em> style):</p>
+<p><img alt="Branch" src="http://git-scm.com/figures/18333fig0309-tn.png" /></p>
+<h2>Basic Branching and Merging</h2>
+<p><em>See :</em> <a href="http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging0">Git book - chapter 3.2</a></p>
+<p><strong>Git commands:</strong></p>
+<ul>
+<li>
+<p>Create a branch:</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">branch</span> <span class="n">NAME</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Switch to a branch:</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">checkout</span> <span class="n">NAME</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Create and Switch (shortened):</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">iss53</span> <span class="err">#</span><span class="n">equal</span><span class="o">:</span><span class="n">git</span> <span class="n">branch</span> <span class="n">iss53</span> <span class="err">\</span> <span class="n">git</span> <span class="n">checkout</span> <span class="n">iss53</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Delete a branch:</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">d</span> <span class="n">NAME</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Merge a branch:</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">merge</span> <span class="n">NAME</span> 
+<span class="cp"># Note: the &quot;NAME&quot; branch will be merged into current branch you are working on.</span>
+</pre></div>
+
+
+</li>
+</ul>
+<p><strong>Note :</strong> </p>
 <ol>
 <li>
-<p>A blog by 阮一峰<a href="http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html">搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门</a><br />
-    Contains much about how to setup standard Jekyll websites. Good for those who want to hack the Websites themselves.</p>
+<p>Switch (chekout):</p>
+<p>Git resets your working directory to look like the snapshot of the commit that the 
+branch you check out points to. It adds, removes, and modifies files automatically 
+to make sure your working copy is what the branch looked like on your last commit 
+to it.</p>
 </li>
 <li>
-<p>A blog teaches installing Jykell on Windows:<a href="http://www.madhur.co.in/blog/2011/09/01/runningjekyllwindows.html">Running Jekyll on Windows</a></p>
+<p>Merge:</p>
+<ol>
+<li>
+<p>"Fast-forward":</p>
+<p>When the commit pointed to by the branch you merged in is directly upstream of 
+the commit you’re on, Git moves the pointer forward. To phrase that another way,
+when you try to merge one commit with a commit that can be reached by following
+the first commit’s history, Git simplifies things by moving the pointer forward
+because there is no divergent work to merge together — this is called a "fast 
+forward".</p>
 </li>
 <li>
-<p>A comprehensive tutor to run Jykell on Windows (also Official): <a href="https://github.com/juthilo/run-jekyll-on-windows/#install-the-jekyll-gem">How to Run Jekyll on Windows</a>
-    <strong>Recommended!</strong></p>
+<p>Resolve Conflicts:
+    If you changed the same part of the same file differently in the two branches 
+    you’re merging together, Git won’t be able to merge them cleanly. Git hasn’t 
+    automatically created a new merge commit. It has paused the process while you 
+    resolve the conflict. If you want to see which files are unmerged at any point 
+    after a merge conflict, you can run <code>git status</code></p>
+<p>Git adds standard conflict-resolution markers to the files that have conflicts, 
+so you can open them manually and resolve those conflicts. Your file contains a 
+section that looks something like this:</p>
+<div class="highlight"><pre><span class="err">&lt;&lt;&lt;&lt;&lt;&lt;</span><span class="nt">&lt; HEAD</span>
+<span class="na">contact</span> <span class="na">:</span> <span class="na">email</span><span class="err">.</span><span class="na">support</span><span class="err">@</span><span class="na">github</span><span class="err">.</span><span class="na">com</span><span class="err">&lt;</span><span class="na">br</span><span class="nt">&gt;</span>
+=======
+please contact us at support@github.com<span class="nt">&lt;br&gt;</span>
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; iss53
+</pre></div>
+
+
+<p>This means the version in <strong>HEAD</strong> (your master branch, because that was what 
+you had checked out when you ran your merge command) is the top part of that 
+block (everything above the <code>=======</code>), while the version in your <strong>iss53</strong> 
+branch looks like everything in the bottom part. In order to resolve the conflict,
+you have to either choose one side or the other or merge the contents yourself.</p>
+<p>After you’ve resolved each of these sections in each conflicted file, run <code>git add</code> 
+to add each file to mark it as resolved. Staging the file marks it as resolved in 
+Git. If you want to use a graphical tool to resolve these issues, you can run 
+<code>git mergetool</code>, which fires up an appropriate visual merge tool and walks you 
+through the conflicts</p>
+<p>After you exit the merge tool, Git asks you if the merge was successful. If you 
+tell the script that it was, it stages the file to mark it as resolved for you.</p>
+<p>If you’re happy with that, and you verify that everything that had conflicts has 
+been staged, you can type <code>git commit</code> to finalize the merge commit.</p>
+</li>
+</ol>
+</li>
+</ol>
+<h3>Working with remote branch</h3>
+<p><em>See :</em><a href="http://git-scm.com/book/en/Git-Branching-Remote-Branches">Git book - chapter 3.5</a> 
+as well as <a href="http://git-scm.com/book/en/Git-Basics-Working-with-Remotes">Git book - chapter 2.5</a></p>
+<p><strong>What ? :</strong> Remote branches are just branches pointed to remote serves, taking the form 
+of <code>(remote)/(branch)</code>. However, remote branches can be modified without noticing, so please
+synchronize it frequently.</p>
+<ol>
+<li>
+<p>See Status</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">remote</span> <span class="n">command</span>
+</pre></div>
+
+
+<p>It lists the shortnames of each remote handle you’ve specified. If you’ve 
+cloned your repository, you should at least see origin — that is the default 
+name Git gives to the server you cloned from.</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">remote</span> <span class="o">-</span><span class="n">v</span>
+</pre></div>
+
+
+<p>It shows you the URL that Git has stored for the shortname to be expanded to.</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">remote</span> <span class="n">show</span> <span class="p">[</span><span class="n">remote</span><span class="o">-</span><span class="n">name</span><span class="p">]</span>
+</pre></div>
+
+
+<p>It lists the URL for the remote repository as well as the tracking branch information. </p>
 </li>
 <li>
-<p><a href="http://site.douban.com/196781/widget/notes/12161495/note/264946576/">写作环境搭建(git+github+markdown+jekyll)</a></p>
+<p>Add<br />
+        git remote add [shortname] [url]<br />
+    e.g.<br />
+        git remote add pb git://github.com/paulboone/ticgit.git<br />
+    Now you can use the string <em>pb</em> on the command line in lieu of the whole URL.</p>
 </li>
 <li>
-<p><a href="http://beiyuu.com/github-pages/">使用Github Pages建独立博客</a></p>
+<p>Fetch<br />
+        git fetch [remote-name]<br />
+    e.g.<br />
+        git fetch pb<br />
+<strong>Note :</strong> The fetch command pulls the data to your local repository — it 
+    doesn’t automatically merge it with any of your work or modify what you’re 
+    currently working on. You have to merge it manually into your work when 
+    you’re ready.<br />
+    It’s important to note that when you do a fetch that brings down new remote 
+    branches, you don’t automatically have local, editable copies of them. You 
+    only have an <code>origin/remote</code> pointer that you can’t modify.<br />
+    To merge this work into your current working branch, you can run <code>git merge 
+    origin/remote</code>. If you want your own remote branch that you can work on, you
+    can base it off your remote branch:<br />
+        git checkout -b local_remote origin/remote</p>
 </li>
 <li>
-<p><a href="http://blog.skydark.info/programming/2012/03/23/play-with-jekyll/">Play with Jekyll</a></p>
+<p>Push to Upstream<br />
+        git push [remote-name] [branch-name]<br />
+    This command works only if you cloned from a server to which you have write
+    access and if nobody has pushed in the meantime. If you and someone else clone
+    at the same time and they push upstream and then you push upstream, your push
+    will rightly be rejected. You’ll have to pull down their work first and
+    incorporate it into yours before you’ll be allowed to push. </p>
+<p>You can push a local branch into a remote branch that is named differently.<br />
+    git push [remotename] [localbranch]:[remotebranch]<br />
+Like, if you didn’t want it to be called <em>a</em> on the remote, you could instead run: <br />
+    git push origin a:awesomebranch<br />
+to push your local <em>a</em> branch to the <em>awesomebranch</em> branch on the remote project.</p>
 </li>
 <li>
-<p><a href="http://www.cnblogs.com/yevon/p/3310857.html">完善本地搭建的jekyll环境(Windows)</a>
-    <strong>Recommended!</strong></p>
+<p>Rename  </p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">remote</span> <span class="n">rename</span> <span class="n">OLD_NAME</span> <span class="n">NEW_NAME</span>
+</pre></div>
+
+
 </li>
 <li>
-<p><a href="http://www.cnblogs.com/aleda/articles/Jekyll-in-Windows-following-Chinese-encoding-problem-solutions.html">Jekyll在Windows下面中文编码问题解决方案</a></p>
+<p>Remove  </p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">remote</span> <span class="n">rm</span> <span class="n">paul</span> <span class="p">[</span><span class="n">remote</span><span class="o">-</span><span class="n">name</span><span class="p">]</span>
+</pre></div>
+
+
+<p>It removes a reference for the remote branch.</p>
 </li>
-</ol>                </article>
+<li>
+<p>Delete Remote Branch</p>
+<div class="highlight"><pre> <span class="n">git</span> <span class="n">push</span> <span class="p">[</span><span class="n">remotename</span><span class="p">]</span> <span class="o">:</span><span class="p">[</span><span class="n">bran</span>   <span class="n">ch</span><span class="p">]</span>
+</pre></div>
+
+
+<p>e.g, If you want to delete your serverfix branch from the server, you run 
+ the following:<br />
+    git push origin :serverfix</p>
+<p><strong>Note: </strong>  A way to remember this command is by recalling the <code>git push 
+ [remotename] [localbranch]:[remotebranch]</code> syntax that we went over a bit 
+ earlier. If you leave off the [localbranch] portion, then you’re basically 
+ saying, “Take nothing on my side and make it be [remotebranch].”</p>
+</li>
+<li>
+<p>Clone it.</p>
+<div class="highlight"><pre> <span class="n">git</span> <span class="n">clone</span> <span class="p">[</span><span class="n">url</span><span class="p">]</span>
+</pre></div>
+
+
+<p>If you clone from this, Git automatically names it origin for you, pulls down 
+ all its data, creates a pointer to where its master branch is, and names it 
+ origin/master locally; and you can’t move it. Git also gives you your own master 
+ branch starting at the same place as origin’s master branch, so you have something
+ to work from. See:<br />
+<img alt="Clone Remote" src="http://git-scm.com/figures/18333fig0322-tn.png" /></p>
+</li>
+</ol>
+<p><strong><em>To Be Conitnued</em></strong></p>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
@@ -172,28 +450,29 @@ See: <a href="http://stackoverflow.com/questions/17364028/jekyll-on-windows-pygm
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/Using Pelican and Github to Blog.html" rel="bookmark"
-                           title="Permalink to Using Pelican and Github to Blog">Using Pelican and Github to Blog</a></h1>
+                    <h1><a href="/Markdown Showcase.html" rel="bookmark"
+                           title="Permalink to Markdown Showcase">Markdown Showcase</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2014-02-20T02:00:00">
-                周四 20 二月 2014
+        <abbr class="published" title="2014-02-21T14:00:00">
+                周五 21 二月 2014
         </abbr>
 
         <address class="vcard author">
                 By <a class="url fn" href="/author/wetaper.html">we.taper</a>
         </address>
-<p>In <a href="/category/pelican.html">Pelican</a>. </p>
-<p>tags: <a href="/tag/pelican.html">Pelican</a><a href="/tag/python.html">Python</a></p>
-</footer><!-- /.post-info -->                <p>Using Pelican to generate static website and push to github to blog.</p>
-                <a class="readmore" href="/Using Pelican and Github to Blog.html">read more</a>
+<p>In <a href="/category/writing.html">Writing</a>. </p>
+<p>tags: <a href="/tag/markup-language.html">Markup Language</a></p>
+</footer><!-- /.post-info -->                <p>Show how to use Markdown.</p>
+                <a class="readmore" href="/Markdown Showcase.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->
 <p class="paginator">
-    Page 1 / 1
+    Page 1 / 3
+        <a href="/author\wetaper2.html">&raquo;</a>
 </p>
             </section><!-- /#content -->
         <section id="extras" class="body">
