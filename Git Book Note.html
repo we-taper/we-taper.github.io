@@ -397,11 +397,17 @@ name Git gives to the server you cloned from.</p>
     at the same time and they push upstream and then you push upstream, your push
     will rightly be rejected. You’ll have to pull down their work first and
     incorporate it into yours before you’ll be allowed to push. </p>
-<p>You can push a local branch into a remote branch that is named differently.<br />
-    git push [remotename] [localbranch]:[remotebranch]<br />
-Like, if you didn’t want it to be called <em>a</em> on the remote, you could instead run: <br />
-    git push origin a:awesomebranch<br />
-to push your local <em>a</em> branch to the <em>awesomebranch</em> branch on the remote project.</p>
+<p>You can push a local branch into a remote branch that is named differently.  </p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">push</span> <span class="p">[</span><span class="n">remotename</span><span class="p">]</span> <span class="p">[</span><span class="n">localbranch</span><span class="p">]</span><span class="o">:</span><span class="p">[</span><span class="n">remotebranch</span><span class="p">]</span>
+</pre></div>
+
+
+<p>Like, if you didn’t want it to be called <em>a</em> on the remote, you could instead run:   </p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">a</span><span class="o">:</span><span class="n">awesomebranch</span>
+</pre></div>
+
+
+<p>to push your local <em>a</em> branch to the <em>awesomebranch</em> branch on the remote project.</p>
 </li>
 <li>
 <p>Rename  </p>
