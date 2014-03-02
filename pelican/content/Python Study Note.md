@@ -57,3 +57,27 @@ so basically it's simply `x`.
 If the subject is mutable and supports this operation, an augmented assignment 
 may run even quicker by choosing an in-place update operation instead of an 
 object copy. 
+
+**About Divide and Mod**
+
+See the difference of `3/10` and `3//10`. `/` means divide and result in decimal number, `//` means "mod" and results in integer. (A new feature in python 3)
+
+##2014-02-26
+
+**The strange loop:else**:
+
+Try this code:
+
+	x = 1
+	while x < 3:
+		x = int( input('Int(try > 3 and = 1):') )
+		if x == 1:
+			break
+	else:
+		print('Wow!')
+
+And see this two article:[For/else](http://nedbatchelder.com/blog/201110/forelse.html),[python的while loop中的else多余吗？](http://bbs.csdn.net/topics/350231499)
+
+The `else` will only be executed when `for` loop finishes normally or `while` loop is entered but not `break`ed.	
+
+Python really wants to keep code simple.

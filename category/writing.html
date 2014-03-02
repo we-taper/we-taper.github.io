@@ -17,150 +17,149 @@
                     <li><a href="/category/blogging.html">Blogging</a></li>
                     <li><a href="/category/programming.html">Programming</a></li>
                     <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/studynote.html">StudyNote</a></li>
                     <li class="active"><a href="/category/writing.html">Writing</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/Markdown Showcase.html">Markdown Showcase</a></h1>
+                    <h1 class="entry-title"><a href="/transform-to-restructuredtext.html">Transform to reStructuredText</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2014-02-21T14:00:00">
-                周五 21 二月 2014
+        <abbr class="published" title="2014-03-02T14:00:00">
+                周日 02 三月 2014
         </abbr>
 
         <address class="vcard author">
                 By <a class="url fn" href="/author/wetaper.html">we.taper</a>
         </address>
 <p>In <a href="/category/writing.html">Writing</a>. </p>
-<p>tags: <a href="/tag/markup-language.html">Markup Language</a></p>
-</footer><!-- /.post-info --><h1>Show how to use Markdown</h1>
-<h1>This is a title, level 1</h1>
-<h2>Next level title, level 2</h2>
-<h2>Paragrapht</h2>
+<p>tags: <a href="/tag/markup.html">Markup</a></p>
+</footer><!-- /.post-info --><h1>Transform to reStructuredText</h1>
+<p>*Because the Markdown language no longer satisfy my requirements, I started to learn reStructuredText,
+another markup language initially built for writing python documentation just like in javadoc or etc.</p>
+<h2>Prepare some Editors</h2>
+<h3>For Windows</h3>
+<p>Because I have an Windows 8 OS on my PC, there is much trouble to get me some ready-to-use reStructuredText
+editors. After some search, found:</p>
 <ul>
-<li>
-<p>Intro</p>
-<blockquote>
-<p>I
-am
-on the same
-line.</p>
-<p>I am on two<br />
-lines.</p>
-</blockquote>
-</li>
+<li><a href="http://sourceforge.net/p/retext/home/ReText/">ReText</a>, a WYSIWYG reStructuredText editor (also supports
+  Markdown, what a surprise!)</li>
+<li><a href="http://rst.ninjs.org/">Online reStructuredText Editor</a>, well, Internet is a great tool for those who
+  does not want to bother installing software. But for me, Internet access sometimes could be troublesome.</li>
+<li>Also <a href="http://markitup.jaysalvat.com/home/">MarkItUp</a>, a universal markup jQuery editor. I don't know 
+  jQuery but this is interesting.</li>
 </ul>
-<p>Can you figure out why?</p>
-<h2>Code blocks</h2>
-<div class="highlight"><pre><span class="n">public</span> <span class="k">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(){</span>
-    <span class="n">System</span><span class="p">.</span><span class="n">out</span><span class="p">.</span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello Markdown!&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+<h4>Install ReText</h4>
+<p>ReText is written in python using PyQT4, so theoretically it could run on any OS. It could be downloaded
+from sourceforge's <a href="http://sourceforge.net/p/retext/home/ReText/">homepage</a>, or from <a href="http://sourceforge.net/p/retext/git/">git</a>.</p>
+<ol>
+<li>
+<p>Basic Requirements</p>
+<p>Package needed:</p>
+<p><a href="http://python.org/">python</a> — we recommend using version 3.2 or higher<br />
+<a href="http://www.riverbankcomputing.co.uk/software/pyqt/intro">python-qt4</a><br />
+<a href="http://pypi.python.org/pypi/Markups">python-markups</a>  </p>
+<ol>
+<li>Install python(Skipped);</li>
+<li>
+<p>Install python-qt4</p>
+<p>There exits PyQT4 Windows installers :<a href="http://www.riverbankcomputing.co.uk/software/pyqt/download">Find it here</a>. Be careful to choose the corresponding edition.</p>
+<p>Follow the installation guide and installing could be just "clicks".</p>
+</li>
+<li>
+<p>Install python-markups</p>
+<p>Code:</p>
+<div class="highlight"><pre><span class="n">easy_install</span> <span class="o">-</span><span class="n">i</span>  <span class="n">http</span><span class="o">:</span><span class="c1">//pypi.douban.com/simple/ markups</span>
 </pre></div>
 
 
-<p>And a code inside text <code>println("I love she");</code> Do you know who is <code>she</code>?</p>
-<p>A code to display "`":</p>
-<p><code>This is ` used to add in-text code blocks</code>.</p>
-<h3>HTML codes</h3>
-<p><strong> Yes!! </strong></p>
-<p>&#8212; is the decimal-encoded equivalent of &mdash;</p>
-<h2>For those who are tired of HTML escape mark</h2>
-<p>See this: &amp;copy, isn't it simple. And another <em>AT&amp;T</em>. Yeah!</p>
-<div class="footer">
-    &copy; 2004 Foo Corporation
-</div>
-
-<p><em>link:</em><a href="http://www.google.com/">http://www.google.com/</a></p>
-<p><em>E-Mail:</em><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#119;&#101;&#46;&#116;&#97;&#112;&#101;&#114;&#64;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#119;&#101;&#46;&#116;&#97;&#112;&#101;&#114;&#64;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a></p>
-<p><em>(Actually I don't quite understand HTML, but it's fun!)</em></p>
-<h2>Let's construct some list:</h2>
-<ol>
-<li>List one;</li>
-<li>Oops, a wrong but acceptable;</li>
-<li>Oh, this is cool.</li>
-<li>Wow, the Markdown interpreter is really intelligent.</li>
-<li>This may spoil me.</li>
-<li>Let's get back to the right way.</li>
-<li>Yes.(should be 8)</li>
-<li>Another list 1</li>
-<li>2</li>
-<li>3<ul>
-<li>Indent.</li>
-<li>Let's have dinner.<ul>
-<li>More indent!</li>
+<p>Note: <code>-i  http://pypi.douban.com/simple/</code> for better speed in China.</p>
+</li>
 <li>
-<blockquote>
-<p>And mix things together. (This seems to failed)</p>
-</blockquote>
-</li>
-<li><code>System.out.print("Text");</code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<p>1. I'm bit tired.
-3. Yes.</p>
-<h2>Quotation</h2>
-<p>Let me learn from the masters:</p>
-<blockquote>
-<p>Quote: <em>Keep It Simple Stupid</em> -&gt; <strong>K.I.S.S</strong></p>
-<p>And This: <em>Learn from your failure</em></p>
-<p>And: <strong>Look for the masters</strong></p>
-</blockquote>
-<p>See how to escape special characters: * A star! * Another star.</p>
-<h2>***</h2>
-<hr />
-<h2>At last, Let's get some visual image.</h2>
-<h3>Pictures</h3>
-<p><strong>A inline picture</strong></p>
-<p><img alt="Replace text if no picture" src="http://img.21cbh.com/uploadfile/2013/0325/20130325091356249.jpg" title="Optional title" /></p>
-<p><strong>A referenced picture</strong></p>
-<p><img alt="Again, replace text: unsupported png" src="http://img.21cbh.com/uploadfile/2013/0325/20130325091356249.jpg" title="Title" /></p>
-<p><strong>Picture With Link</strong></p>
-<p><a href="http://www.google.com.hk"><img alt="IMAGE TEXT HERE" src="http://img.21cbh.com/uploadfile/2013/0325/20130325091356249.jpg" /></a></p>
-<h3>Links</h3>
-<p>I love Google:<a href="http://www.google.com.hk/" title="Google's Title">Google</a></p>
-<p><strong>Three types of links</strong></p>
-<ol>
-<li>In-line: look above!</li>
-<li>Referenced:<ol>
-<li><a href="http://www.google.co.jp/" title="Google Japan">Text_1</a></li>
-<li><a href="http://www.google.co.uk/" title="Google UK">Text_1</a></li>
-<li><a href="http://www.google.com/" title="Google Original">Text_3</a></li>
-<li><em>You will understand how I love Google when you clicked the above links.</em></li>
-</ol>
-</li>
-</ol>
-<h2>Some Syntax of HTML</h2>
+<p>Some recommended packages in <em>README</em></p>
+<p>We also recommend having these packages installed:</p>
 <ul>
-<li>Use &lt; br &gt; to do "line feed"</li>
+<li><a href="http://packages.python.org/Markdown/">python-markdown</a> — for Markdown
+  language support</li>
+<li><a href="http://docutils.sourceforge.net/">python-docutils</a> — for reStructuredText
+  language support</li>
+<li><a href="http://pypi.python.org/pypi/pyenchant">python-enchant</a> — for spell checking
+  support</li>
 </ul>
-<h1>Last but not least, Escape The Markers</h1>
-<p>*literal asterisks*</p>
-<p><strong>Markdown</strong> 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：</p>
-<div class="highlight"><pre>    <span class="err">\</span>   <span class="err">反斜线</span>
-    <span class="err">`</span>   <span class="err">反引号</span>
-    <span class="o">*</span>   <span class="err">星号</span>
-    <span class="n">_</span>   <span class="err">底线</span>
-    <span class="p">{}</span>  <span class="err">花括号</span>
-    <span class="p">[]</span>  <span class="err">方括号</span>
-    <span class="p">()</span>  <span class="err">括弧</span>
-    <span class="err">#</span>   <span class="err">井字号</span>
-    <span class="o">+</span>   <span class="err">加号</span>
-    <span class="o">-</span>   <span class="err">减号</span>
-    <span class="p">.</span>   <span class="err">英文句点</span>
-    <span class="o">!</span>   <span class="err">惊叹号</span>
+</li>
+</ol>
+<p>Since installation maybe just a line of code <code>pip install xxx</code> or <code>easy_install xxx</code>, I skipped this part.</p>
+</li>
+<li>
+<p>Run ReText</p>
+<p>Running a python program is simple. After downloading and unpackaging the source code, you just have you tell python to start this program by:</p>
+<div class="highlight"><pre><span class="n">python</span> <span class="n">retext</span><span class="p">.</span><span class="n">py</span>
 </pre></div>
 
 
-<h1>Thanks</h1>
-<p>Who has taught me:</p>
+<p>Then everything done and enjoy it.</p>
+</li>
+</ol>
+<p>After words: To be honest, ReText is really ... too simple, the real time display is too troublesome - you have to scroll the webpage yourself to go to the editing place. Even the online editor (metioned above) is far better.</p>
+<h3>For Linux</h3>
+<h4>Also ReText</h4>
+<h5>Ubuntu PPA Source</h5>
+<p>PPA Link: <a href="https://launchpad.net/~mitya57/+archive/ppa">PPA for Dmitry Shachnev</a></p>
+<p><em>HowTo Add PPA Source?</em></p>
+<p>Code:</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="o">:</span><span class="n">user</span><span class="o">/</span><span class="n">ppa</span><span class="o">-</span><span class="n">name</span>  
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>  
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">xxx</span>
+</pre></div>
+
+
+<p>So now:</p>
+<p>Code:</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="o">:</span><span class="n">mitya57</span><span class="o">/</span><span class="n">ppa</span>  
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>  
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span>
+</pre></div>
+
+
+<p><strong>Note :</strong></p>
+<p>ReText is provided in ubuntu source, there is no need to add extra ppa-source!</p>
+<p>Installed Package:</p>
+<div class="highlight"><pre><span class="n">python3</span><span class="o">-</span><span class="n">markups</span> <span class="p">(</span><span class="n">version</span> <span class="mf">0.3</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="n">will</span> <span class="n">be</span> <span class="n">installed</span>  
+<span class="n">python3</span><span class="o">-</span><span class="n">pyqt4</span> <span class="p">(</span><span class="n">version</span> <span class="mf">4.10.3</span><span class="o">-</span><span class="mi">1u</span><span class="n">buntu1</span><span class="p">)</span> <span class="n">will</span> <span class="n">be</span> <span class="n">installed</span>  
+<span class="n">python3</span><span class="o">-</span><span class="n">sip</span> <span class="p">(</span><span class="n">version</span> <span class="mf">4.15.2</span><span class="o">-</span><span class="mi">1u</span><span class="n">buntu1</span><span class="p">)</span> <span class="n">will</span> <span class="n">be</span> <span class="n">installed</span>  
+<span class="n">retext</span> <span class="p">(</span><span class="n">version</span> <span class="mf">4.1.0</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="n">will</span> <span class="n">be</span> <span class="n">installed</span>
+</pre></div>
+
+
+<p>However, extra packages are required to parse files.Please choose the right version of package. For example, following package does not meet the requirements:</p>
+<div class="highlight"><pre><span class="n">docutils</span><span class="o">-</span><span class="n">common</span> <span class="p">(</span><span class="n">version</span> <span class="mf">0.11</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="n">will</span> <span class="n">be</span> <span class="n">installed</span>  
+<span class="n">python</span><span class="o">-</span><span class="n">docutils</span> <span class="p">(</span><span class="n">version</span> <span class="mf">0.11</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="n">will</span> <span class="n">be</span> <span class="n">installed</span>  
+<span class="n">python</span><span class="o">-</span><span class="n">enchant</span> <span class="p">(</span><span class="n">version</span> <span class="mf">1.6.5</span><span class="o">-</span><span class="mi">2</span><span class="n">build1</span><span class="p">)</span> <span class="n">will</span> <span class="n">be</span> <span class="n">installed</span>  
+<span class="n">python</span><span class="o">-</span><span class="n">markdown</span> <span class="p">(</span><span class="n">version</span> <span class="mf">2.3.1</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="n">will</span> <span class="n">be</span> <span class="n">installed</span>  
+<span class="n">python</span><span class="o">-</span><span class="n">roman</span> <span class="p">(</span><span class="n">version</span> <span class="mf">1.4.0</span><span class="o">-</span><span class="mi">2u</span><span class="n">buntu1</span><span class="p">)</span> <span class="n">will</span> <span class="n">be</span> <span class="n">installed</span>
+</pre></div>
+
+
+<p>Instead, I should install the version for python 3:</p>
+<div class="highlight"><pre><span class="n">Installed</span> <span class="n">packages</span><span class="o">:</span>  
+<span class="n">python3</span><span class="o">-</span><span class="n">docutils</span> <span class="p">(</span><span class="mf">0.11</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>  
+<span class="n">python3</span><span class="o">-</span><span class="n">enchant</span> <span class="p">(</span><span class="mf">1.6.5</span><span class="o">-</span><span class="mi">2</span><span class="n">build1</span><span class="p">)</span>  
+<span class="n">python3</span><span class="o">-</span><span class="n">markdown</span> <span class="p">(</span><span class="mf">2.3.1</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>   
+<span class="n">python3</span><span class="o">-</span><span class="n">roman</span> <span class="p">(</span><span class="mf">1.4.0</span><span class="o">-</span><span class="mi">2u</span><span class="n">buntu1</span><span class="p">)</span>
+</pre></div>
+
+
+<h2>reStructuredText Syntax</h2>
+<p>Compared with Markdown, reStructuredText is rather big and comprehensive. There are many good documents to read, I personally suggest:</p>
 <ol>
-<li><em>wowubuntu.com</em> : <a href="http://http://wowubuntu.com/markdown/" title="wowubuntu">wowubuntu</a></li>
-<li>Other Websites found via Google</li>
-</ol>                </article>
+<li><a href="http://docutils.sourceforge.net/docs/user/rst/quickstart.html">A quick start</a></li>
+<li>The <a href="http://docutils.sourceforge.net/docs/user/rst/quickref.html">Quick Reference</a></li>
+<li>And crack the <a href="http://docutils.sourceforge.net/docs/user/rst/cheatsheet.txt">Cheat Sheet</a></li>
+<li>A good Introduction in Chinese <a href="http://jwch.sdut.edu.cn/book/rst.html">reStructuredText简明教程</a></li>
+<li>Another Introduction in Chinese <a href="http://gsnippet.googlecode.com/svn/blog/html/reStructuredTEXT.html">reStructuredText 简明教程</a></li>
+</ol>
+<h2>Some Notes</h2>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
@@ -169,8 +168,8 @@ lines.</p>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/Markdown Tips.html" rel="bookmark"
-                           title="Permalink to Markdown Tips">Markdown Tips</a></h1>
+                    <h1><a href="/Markdown Showcase.html" rel="bookmark"
+                           title="Permalink to Markdown Showcase">Markdown Showcase</a></h1>
                 </header>
 
                 <div class="entry-content">
@@ -183,14 +182,15 @@ lines.</p>
                 By <a class="url fn" href="/author/wetaper.html">we.taper</a>
         </address>
 <p>In <a href="/category/writing.html">Writing</a>. </p>
-<p>tags: <a href="/tag/markup-language.html">Markup Language</a><a href="/tag/unfinished.html">unFinished</a></p>
-</footer><!-- /.post-info -->                <p>Tips on Markdown Language.</p>
-                <a class="readmore" href="/Markdown Tips.html">read more</a>
+<p>tags: <a href="/tag/markup-language.html">Markup Language</a></p>
+</footer><!-- /.post-info -->                <p>Show how to use Markdown.</p>
+                <a class="readmore" href="/Markdown Showcase.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->
 <p class="paginator">
-    Page 1 / 1
+    Page 1 / 2
+        <a href="/category\writing2.html">&raquo;</a>
 </p>
             </section><!-- /#content -->
         <section id="extras" class="body">

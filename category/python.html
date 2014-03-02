@@ -17,6 +17,7 @@
                     <li><a href="/category/blogging.html">Blogging</a></li>
                     <li><a href="/category/programming.html">Programming</a></li>
                     <li class="active"><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/studynote.html">StudyNote</a></li>
                     <li><a href="/category/writing.html">Writing</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
@@ -72,7 +73,25 @@ so basically it's simply <code>x</code>.</p>
 <p><strong>Argumented Assignment, Performance</strong></p>
 <p>If the subject is mutable and supports this operation, an augmented assignment 
 may run even quicker by choosing an in-place update operation instead of an 
-object copy. </p>                </article>
+object copy. </p>
+<p><strong>About Divide and Mod</strong></p>
+<p>See the difference of <code>3/10</code> and <code>3//10</code>. <code>/</code> means divide and result in decimal number, <code>//</code> means "mod" and results in integer. (A new feature in python 3)</p>
+<h2>2014-02-26</h2>
+<p><strong>The strange loop:else</strong>:</p>
+<p>Try this code:</p>
+<div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="o">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="kt">int</span><span class="p">(</span> <span class="n">input</span><span class="p">(</span><span class="err">&#39;</span><span class="n">Int</span><span class="p">(</span><span class="n">try</span> <span class="o">&gt;</span> <span class="mi">3</span> <span class="n">and</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span><span class="o">:</span><span class="err">&#39;</span><span class="p">)</span> <span class="p">)</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="o">:</span>
+        <span class="k">break</span>
+<span class="nl">else:</span>
+    <span class="n">print</span><span class="p">(</span><span class="err">&#39;</span><span class="n">Wow</span><span class="o">!</span><span class="err">&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>And see this two article:<a href="http://nedbatchelder.com/blog/201110/forelse.html">For/else</a>,<a href="http://bbs.csdn.net/topics/350231499">python的while loop中的else多余吗？</a></p>
+<p>The <code>else</code> will only be executed when <code>for</code> loop finishes normally or <code>while</code> loop is entered but not <code>break</code>ed.    </p>
+<p>Python really wants to keep code simple.</p>                </article>
 <p class="paginator">
     Page 1 / 1
 </p>

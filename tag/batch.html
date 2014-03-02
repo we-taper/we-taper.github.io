@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>WE-TapEr's Blog - we.taper</title>
+        <title>WE-TapEr's Blog - Batch</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
@@ -22,15 +22,9 @@
                 </ul></nav>
         </header><!-- /#banner -->
 
-                <section id="content" class="body">
-                    <ol id="posts-list" class="hfeed" start="1">
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/psychology-and-life.html" rel="bookmark"
-                           title="Permalink to ﻿Psychology and Life">﻿Psychology and Life</a></h1>
-                </header>
-
-                <div class="entry-content">
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/ms-windows-cmd-command-note.html">﻿MS Windows &quot;cmd&quot; Command Note</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2014-03-02T00:00:00">
                 周日 02 三月 2014
@@ -40,33 +34,51 @@
                 By <a class="url fn" href="/author/wetaper.html">we.taper</a>
         </address>
 <p>In <a href="/category/studynote.html">StudyNote</a>. </p>
-<p>tags: <a href="/tag/psychology.html">Psychology</a></p>
-</footer><!-- /.post-info -->                <div class="section" id="psychology-and-life-first-lesson">
-<h2>Psychology and Life First Lesson</h2>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Lecture:</th><td class="field-body">孙志凤</td>
-</tr>
-<tr class="field"><th class="field-name">Email:</th><td class="field-body"><a class="reference external" href="mailto:zhifengsun2006&#64;126.com">zhifengsun2006&#64;126.com</a></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Assessment</strong></p>
-<ol class="arabic simple">
-<li>Assignments 20%</li>
-<li>Group Assignments 30%</li>
-<li>Preparation &amp; Attendivity 20%</li>
-<li>Course Paper 30%</li>
-</ol>
-<p>Email: <a class="reference external" href="mailto:psychologysustc&#64;163.com">psychologysustc&#64;163.com</a></p>
-<p>PD: 20140224</p>
+<p>tags: <a href="/tag/ms-windows.html">MS Windows</a><a href="/tag/batch.html">Batch</a></p>
+</footer><!-- /.post-info --><p>Convention:</p>
+<div class="line-block">
+<div class="line"># with overline, for parts</div>
+<div class="line">* with overline, for chapters</div>
+<div class="line">=, for sections</div>
+<div class="line">-, for subsections</div>
+<div class="line">^, for subsubsections</div>
+<div class="line">&quot;, for paragraphs</div>
 </div>
-
-                <a class="readmore" href="/psychology-and-life.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
+<div class="section" id="id1">
+<h2>2014-02-26</h2>
+<p>Because I don't know how to open a file by a batch script. I studied the grammar of batch file in windows.</p>
+<blockquote>
+<dl class="docutils">
+<dt>%: 批处理变量引导符</dt>
+<dd>这个百分号严格来说是算不上命令的，它只是批处理中的参数而已（多个%一起使用的情况除外）
+引用变量用%var%，调用程序外部参数用%1至%9等等
+%0  %1  %2  %3  %4  %5  %6  %7  %8  %9  %*为命令行传递给批处理的参数
+%0 批处理文件本身，包括完整的路径和扩展名
+%1 第一个参数
+%9 第九个参数
+%* 从第一个参数开始的所有参数
+参数%0具有特殊的功能，可以调用批处理自身，以达到批处理本身循环的目的，也可以复制文件自身等等。
+<em>Note:</em> Dealing with %var% could be toublesome, I just use %1 to gets the first parameter.</dd>
+</dl>
+</blockquote>
+<p>This is a script to show the first parameter:</p>
+<pre class="literal-block">
+&#64;echo off
+echo %1
+pause
+</pre>
+<p>So to open &quot;.rst&quot; file with ReText:</p>
+<pre class="literal-block">
+cd /d d:\Apps\ReText-4.1.1\
+python retext.py %1
+</pre>
+</div>
+                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
 
             <li><article class="hentry">
                 <header>
@@ -137,9 +149,7 @@
             </article></li>
             </ol><!-- /#posts-list -->
 <p class="paginator">
-        <a href="/author\wetaper2.html">&laquo;</a>
-    Page 3 / 6
-        <a href="/author\wetaper4.html">&raquo;</a>
+    Page 1 / 1
 </p>
             </section><!-- /#content -->
         <section id="extras" class="body">

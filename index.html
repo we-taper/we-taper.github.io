@@ -17,437 +17,149 @@
                     <li><a href="/category/blogging.html">Blogging</a></li>
                     <li><a href="/category/programming.html">Programming</a></li>
                     <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/studynote.html">StudyNote</a></li>
                     <li><a href="/category/writing.html">Writing</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/Git Book Note.html">Git Book Note (Last update: 2014-2-21)</a></h1>
+                    <h1 class="entry-title"><a href="/transform-to-restructuredtext.html">Transform to reStructuredText</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2014-02-21T14:00:00">
-                周五 21 二月 2014
+        <abbr class="published" title="2014-03-02T14:00:00">
+                周日 02 三月 2014
         </abbr>
 
         <address class="vcard author">
                 By <a class="url fn" href="/author/wetaper.html">we.taper</a>
         </address>
-<p>In <a href="/category/programming.html">Programming</a>. </p>
-<p>tags: <a href="/tag/git.html">Git</a><a href="/tag/vcs.html">VCS</a></p>
-</footer><!-- /.post-info --><h1>Git Start</h1>
-<p><strong>Note: </strong> Most of the content below are based on the book available on Git Documentation: <a href="http://git-scm.com/doc">Git book</a>
-<br></p>
-<h2>1. Basic concept</h2>
-<p><em>See: </em><a href="http://git-scm.com/book/en/Getting-Started-Git-Basics">Git book - chapter 1.3</a></p>
+<p>In <a href="/category/writing.html">Writing</a>. </p>
+<p>tags: <a href="/tag/markup.html">Markup</a></p>
+</footer><!-- /.post-info --><h1>Transform to reStructuredText</h1>
+<p>*Because the Markdown language no longer satisfy my requirements, I started to learn reStructuredText,
+another markup language initially built for writing python documentation just like in javadoc or etc.</p>
+<h2>Prepare some Editors</h2>
+<h3>For Windows</h3>
+<p>Because I have an Windows 8 OS on my PC, there is much trouble to get me some ready-to-use reStructuredText
+editors. After some search, found:</p>
+<ul>
+<li><a href="http://sourceforge.net/p/retext/home/ReText/">ReText</a>, a WYSIWYG reStructuredText editor (also supports
+  Markdown, what a surprise!)</li>
+<li><a href="http://rst.ninjs.org/">Online reStructuredText Editor</a>, well, Internet is a great tool for those who
+  does not want to bother installing software. But for me, Internet access sometimes could be troublesome.</li>
+<li>Also <a href="http://markitup.jaysalvat.com/home/">MarkItUp</a>, a universal markup jQuery editor. I don't know 
+  jQuery but this is interesting.</li>
+</ul>
+<h4>Install ReText</h4>
+<p>ReText is written in python using PyQT4, so theoretically it could run on any OS. It could be downloaded
+from sourceforge's <a href="http://sourceforge.net/p/retext/home/ReText/">homepage</a>, or from <a href="http://sourceforge.net/p/retext/git/">git</a>.</p>
 <ol>
 <li>
-<p>Git is a "mini file system"</p>
-<p>Git use a special <em>"snapshot"</em> to store changes made to file(see Git book, chapter 1.3).
-Git knows every change you made to the file by calculating a SHA-1 checksum of files. Git 
-does most things locally so you can work without a network connection. Nearly all operations 
-on git are "adding files", which means you can experiment on anything without worrying if 
-you can get back to the original state. Also, every git clone copies everything on the 
-<em>"master"</em> branch, therefore even the main server where <em>"master"</em> code resides is shot, 
-everything can be recovered.</p>
+<p>Basic Requirements</p>
+<p>Package needed:</p>
+<p><a href="http://python.org/">python</a> — we recommend using version 3.2 or higher<br />
+<a href="http://www.riverbankcomputing.co.uk/software/pyqt/intro">python-qt4</a><br />
+<a href="http://pypi.python.org/pypi/Markups">python-markups</a>  </p>
+<ol>
+<li>Install python(Skipped);</li>
+<li>
+<p>Install python-qt4</p>
+<p>There exits PyQT4 Windows installers :<a href="http://www.riverbankcomputing.co.uk/software/pyqt/download">Find it here</a>. Be careful to choose the corresponding edition.</p>
+<p>Follow the installation guide and installing could be just "clicks".</p>
 </li>
 <li>
-<p>The three states of files inside <em>"Git file system"</em></p>
-<p>One simple diagram:</p>
-</li>
-</ol>
-<p><img alt="Three states" src="http://git-scm.com/figures/18333fig0106-tn.png" /></p>
-<p><strong>  What we do on git?</strong></p>
-<p><strong>  A General Workflow on Git</strong></p>
-<blockquote>
-<ol>
-<li>You modify files in your working directory.</li>
-<li>You stage the files, adding snapshots of them to your staging area.</li>
-<li>You do a commit, which takes the files as they are in the staging area 
-and stores that snapshot permanently to your Git directory.</li>
-</ol>
-</blockquote>
-<h3>1.1 Install Git</h3>
-<p><em>See  </em><a href="http://git-scm.com/book/en/Getting-Started-Installing-Git">Git book - chapter 1.4</a></p>
-<p>I personally like the git plugin <em>EGit</em> (found on Eclipse Market) for Eclipse 
-since I use Eclipse on Windows.</p>
-<h3>1.2 Configure Git</h3>
-<p>*See  * <a href="http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup">Git book - chapter 1.5</a></p>
-<p>Since I don't want to consider too much about git, skip this.</p>
-<h3>1.3 Get help</h3>
-<hr />
-<p><em>see  </em><a href="http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup">Git book - chapter 1.6</a></p>
+<p>Install python-markups</p>
 <p>Code:</p>
-<div class="highlight"><pre><span class="nx">git</span> <span class="nx">help</span> <span class="o">&lt;</span><span class="nx">verb</span><span class="o">&gt;</span>
-<span class="nx">git</span> <span class="o">&lt;</span><span class="nx">verb</span><span class="o">&gt;</span> <span class="o">--</span><span class="nx">help</span>
-<span class="nx">man</span> <span class="nx">git</span><span class="o">-&lt;</span><span class="nx">verb</span><span class="o">&gt;</span>     <span class="vi">#For</span> <span class="nx">Linux</span> <span class="nx">manual</span> <span class="nx">page</span>
+<div class="highlight"><pre><span class="n">easy_install</span> <span class="o">-</span><span class="n">i</span>  <span class="n">http</span><span class="o">:</span><span class="c1">//pypi.douban.com/simple/ markups</span>
 </pre></div>
 
 
-<h2>2. Let's Rock</h2>
-<h3>2.1 Get a Git Repository</h3>
-<p><em>See :</em> <a href="http://git-scm.com/book/en/Git-Basics-Getting-a-Git-Repository">Git book - chapter 2.1</a></p>
-<p>Basically, we first <em>create</em> a repository somewhere, then others can <em>clone</em> this repository. After
-cloning or creating, you can <em>add</em> files and then commit to the repository.</p>
-<h4>Command List</h4>
-<div class="highlight"><pre><span class="cp"># Create</span>
-<span class="n">git</span> <span class="n">init</span>
-<span class="cp"># Add</span>
-<span class="n">git</span> <span class="n">add</span> <span class="n">FileName</span><span class="p">(</span><span class="n">support</span> <span class="o">*</span><span class="p">)</span>
-<span class="cp"># Commit</span>
-<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="err">&#39;</span><span class="n">Commit</span> <span class="n">Comment</span><span class="err">&#39;</span>
-<span class="cp"># Clone</span>
-<span class="n">git</span> <span class="n">clone</span> <span class="p">[</span><span class="n">url</span><span class="p">]</span>
-<span class="cp"># Clone Examples</span>
-<span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="o">:</span><span class="c1">//github.com/schacon/grit.git NameOfDirectory # Git transfer protocol</span>
-<span class="n">git</span> <span class="n">clone</span> <span class="n">http</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">:</span><span class="c1">//github.com/schacon/grit.git # HTTP(s)</span>
-<span class="n">git</span> <span class="n">clone</span> <span class="n">user</span><span class="err">@</span><span class="n">server</span><span class="o">:/</span><span class="n">path</span><span class="p">.</span><span class="n">git</span> <span class="err">#</span> <span class="n">SSH</span>
-</pre></div>
-
-
-<h3>2.2 Record change to Repository</h3>
-<p><em>See :</em><a href="http://git-scm.com/book/en/Git-Basics-Recording-Changes-to-the-Repository">Git book - chapter 2.2</a></p>
-<p>The full Life Cycle of a File:</p>
-<p><img alt="Life Cycle" src="http://git-scm.com/figures/18333fig0201-tn.png" /></p>
-<p><strong>Note: </strong> Unadded file are <strong>not</strong> tracked, so Git <strong>doesn't care</strong> about this files.</p>
-<h4>Staged</h4>
-<p>When files added (under the control of Git) once modified, it need to be staged to the staging
-area. Command of stage is the same as add:</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">add</span> <span class="n">FileName</span> <span class="err">#</span> <span class="s">&quot;add&quot;</span> <span class="n">is</span> <span class="n">multi</span><span class="o">-</span><span class="n">purpose</span><span class="p">,</span> <span class="n">can</span> <span class="n">add</span> <span class="n">and</span> <span class="n">stage</span> <span class="n">files</span><span class="p">.</span>
-</pre></div>
-
-
-<h4>Ignored files.</h4>
-<p>File <em>.gitignore</em> store patterns of file names which will be ignored by git. Rules
-are as follows:</p>
+<p>Note: <code>-i  http://pypi.douban.com/simple/</code> for better speed in China.</p>
+</li>
+<li>
+<p>Some recommended packages in <em>README</em></p>
+<p>We also recommend having these packages installed:</p>
 <ul>
-<li>Blank lines or lines starting with # are ignored.</li>
-<li>Standard glob patterns work.</li>
-<li>You can end patterns with a forward slash (/) to specify a directory.</li>
-<li>
-<p>You can negate a pattern by starting it with an exclamation point (!).</p>
-<p><strong>Glob patterns</strong> are like simplified regular expressions that shells use. An <strong>asterisk (*)</strong>
-matches zero or more characters; <strong>[abc]</strong> matches any character inside the brackets (in this 
-case a, b, or c); a <strong>question mark (?)</strong> matches a single character; and <strong>brackets</strong> enclosing 
-characters separated by a hyphen([0-9]) matches any character in the range (in this case
-0 through 9) .</p>
-<p><em>See:  </em><a href="http://unixhelp.ed.ac.uk/CGI/man-cgi?glob+7">Unix Man Page</a> and <a href="http://en.wikipedia.org/wiki/Glob_%28programming%29">Wikipedia Page</a></p>
-</li>
+<li><a href="http://packages.python.org/Markdown/">python-markdown</a> — for Markdown
+  language support</li>
+<li><a href="http://docutils.sourceforge.net/">python-docutils</a> — for reStructuredText
+  language support</li>
+<li><a href="http://pypi.python.org/pypi/pyenchant">python-enchant</a> — for spell checking
+  support</li>
 </ul>
-<h4>See <em>"What happens?"</em></h4>
-<p>To see the general status of <em>"Which file have been modified but unstatged"</em> or <em>"Which file have
-been staged but uncommited?"</em>, use:</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">statue</span>
-</pre></div>
-
-
-<p>For more detailed information about what actually changed inside files, use <code>diff</code>:</p>
-<p>See the difference between <strong>Working Directory</strong> and <strong>Staging Area</strong></p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">diff</span>
-</pre></div>
-
-
-<p>See the difference between <strong>Staging</strong> and <strong>Repository(Commited)</strong></p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">diff</span> <span class="o">--</span><span class="n">staged</span>
-</pre></div>
-
-
-<h4>Now Commit</h4>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">commit</span>  
-<span class="cp"># Will open a editor to edit the &quot;Commiting Message&quot;</span>
-
-<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">a</span>  
-<span class="cp"># Will makes Git automatically stage every file that is already tracked  </span>
-<span class="n">before</span> <span class="n">doing</span> <span class="n">the</span> <span class="n">commit</span><span class="p">,</span> <span class="n">letting</span> <span class="n">you</span> <span class="n">skip</span> <span class="n">the</span> <span class="n">git</span> <span class="n">add</span> <span class="n">part</span>
-</pre></div>
-
-
-<h4>Remove files</h4>
-<p>Remove from tracked file list:</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">rm</span> <span class="n">FileName</span>
-</pre></div>
-
-
-<p>Remove from staged directory (file is kept in working directory):</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">rm</span> <span class="o">--</span><span class="n">cached</span> <span class="n">FileName</span>
-</pre></div>
-
-
-<p><strong>Note: </strong>Deleting files on harddrive doesn't delete them from git's tracked file list.
-Instead ther are marked "delete" when you type <code>git status</code></p>
-<h4>Moving Files</h4>
-<p><strong>Note :</strong> "Rename" == "Moving to the <em>Same</em> directory"</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">mv</span> <span class="n">file_from</span> <span class="n">file_to</span>
-</pre></div>
-
-
-<p>Above is equal to:</p>
-<div class="highlight"><pre><span class="n">mv</span> <span class="n">file_from</span> <span class="n">file_to</span>
-<span class="n">git</span> <span class="n">rm</span> <span class="n">file_from</span>
-<span class="n">git</span> <span class="n">add</span> <span class="n">file_to</span>
-</pre></div>
-
-
-<h3>2.3 : Skipped</h3>
-<h3>2.4 Git Basics - Undoing Things</h3>
-<p><em>See </em>: <a href="http://git-scm.com/book/en/Git-Basics-Undoing-Things">Git book- chapter 2.4</a></p>
-<h4>Git Command</h4>
-<ul>
-<li>
-<p>Change last commit  </p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">commit</span> <span class="o">--</span><span class="n">amend</span>
-</pre></div>
-
-
-<p>This command takes your staging area and uses it for the commit. If you’ve made no
-changes since your last commit (for instance, you run this command immediately after
-your previous commit), then your snapshot will look exactly the same and all you’ll 
-change is your commit message. The same commit-message editor fires up, but it already
-contains the message of your previous commit. You can edit the message the same as
-always, but it overwrites your previous commit.</p>
-</li>
-<li>
-<p>Unstage File</p>
-<div class="highlight"><pre><span class="nx">git</span> <span class="nb">reset</span> <span class="nb">HEAD</span> <span class="o">&lt;</span><span class="nb">file</span><span class="o">&gt;</span><span class="nx">...</span>
-</pre></div>
-
-
-</li>
-<li>
-<p>Unmodifyed a File</p>
-<div class="highlight"><pre><span class="nx">git</span> <span class="nx">checkout</span> <span class="o">--</span> <span class="o">&lt;</span><span class="nb">file</span><span class="o">&gt;</span><span class="nx">...</span>  
-<span class="err">#</span> <span class="nx">Note</span><span class="p">:</span> <span class="nx">This</span> <span class="nx">cannot</span> <span class="nx">be</span> <span class="nx">undone</span> <span class="nx">since</span> <span class="nx">the</span> <span class="nb">file</span> <span class="nx">hasn</span><span class="s1">&#39;t be commited</span>
-<span class="s1">and therefore not recorded by git.</span>
-</pre></div>
-
-
-</li>
-</ul>
-<h2>Branching</h2>
-<h3>What a Branch Is</h3>
-<p><em>See :</em> <a href="http://git-scm.com/book/en/Git-Branching-What-a-Branch-Is"> Git book - chapter 3.1</a></p>
-<p><strong>Note :</strong> Here I tried to make everything simple but if you wnat a true picture
-of how  branch works in Git, please refer to the original document.</p>
-<p>Git take <strong>snapshot</strong> of every version (commit) of your files. A <strong>Branch</strong> is just a 
-diverged series of snapshots. Think of a tree which start with a <strong>master</strong> trunk, then
-it can stretches out different <strong>branches</strong>. All this branches are linked with their 
-parent (either a <strong>master</strong> trunk or a derived <strong>branch</strong>) with <strong>nodes</strong> - the mother 
-snapshot they all share. To go back to a older version or another branch, just trace 
-back to the <em>mother snapshot</em> and choose a different route.</p>
-<p>Diagram of branches (named in <em>pointer</em> style):</p>
-<p><img alt="Branch" src="http://git-scm.com/figures/18333fig0309-tn.png" /></p>
-<h2>Basic Branching and Merging</h2>
-<p><em>See :</em> <a href="http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging0">Git book - chapter 3.2</a></p>
-<p><strong>Git commands:</strong></p>
-<ul>
-<li>
-<p>Create a branch:</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">branch</span> <span class="n">NAME</span>
-</pre></div>
-
-
-</li>
-<li>
-<p>Switch to a branch:</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">checkout</span> <span class="n">NAME</span>
-</pre></div>
-
-
-</li>
-<li>
-<p>Create and Switch (shortened):</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">iss53</span> <span class="err">#</span><span class="n">equal</span><span class="o">:</span><span class="n">git</span> <span class="n">branch</span> <span class="n">iss53</span> <span class="err">\</span> <span class="n">git</span> <span class="n">checkout</span> <span class="n">iss53</span>
-</pre></div>
-
-
-</li>
-<li>
-<p>Delete a branch:</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">d</span> <span class="n">NAME</span>
-</pre></div>
-
-
-</li>
-<li>
-<p>Merge a branch:</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">merge</span> <span class="n">NAME</span> 
-<span class="cp"># Note: the &quot;NAME&quot; branch will be merged into current branch you are working on.</span>
-</pre></div>
-
-
-</li>
-</ul>
-<p><strong>Note :</strong> </p>
-<ol>
-<li>
-<p>Switch (chekout):</p>
-<p>Git resets your working directory to look like the snapshot of the commit that the 
-branch you check out points to. It adds, removes, and modifies files automatically 
-to make sure your working copy is what the branch looked like on your last commit 
-to it.</p>
-</li>
-<li>
-<p>Merge:</p>
-<ol>
-<li>
-<p>"Fast-forward":</p>
-<p>When the commit pointed to by the branch you merged in is directly upstream of 
-the commit you’re on, Git moves the pointer forward. To phrase that another way,
-when you try to merge one commit with a commit that can be reached by following
-the first commit’s history, Git simplifies things by moving the pointer forward
-because there is no divergent work to merge together — this is called a "fast 
-forward".</p>
-</li>
-<li>
-<p>Resolve Conflicts:
-    If you changed the same part of the same file differently in the two branches 
-    you’re merging together, Git won’t be able to merge them cleanly. Git hasn’t 
-    automatically created a new merge commit. It has paused the process while you 
-    resolve the conflict. If you want to see which files are unmerged at any point 
-    after a merge conflict, you can run <code>git status</code></p>
-<p>Git adds standard conflict-resolution markers to the files that have conflicts, 
-so you can open them manually and resolve those conflicts. Your file contains a 
-section that looks something like this:</p>
-<div class="highlight"><pre><span class="err">&lt;&lt;&lt;&lt;&lt;&lt;</span><span class="nt">&lt; HEAD</span>
-<span class="na">contact</span> <span class="na">:</span> <span class="na">email</span><span class="err">.</span><span class="na">support</span><span class="err">@</span><span class="na">github</span><span class="err">.</span><span class="na">com</span><span class="err">&lt;</span><span class="na">br</span><span class="nt">&gt;</span>
-=======
-please contact us at support@github.com<span class="nt">&lt;br&gt;</span>
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; iss53
-</pre></div>
-
-
-<p>This means the version in <strong>HEAD</strong> (your master branch, because that was what 
-you had checked out when you ran your merge command) is the top part of that 
-block (everything above the <code>=======</code>), while the version in your <strong>iss53</strong> 
-branch looks like everything in the bottom part. In order to resolve the conflict,
-you have to either choose one side or the other or merge the contents yourself.</p>
-<p>After you’ve resolved each of these sections in each conflicted file, run <code>git add</code> 
-to add each file to mark it as resolved. Staging the file marks it as resolved in 
-Git. If you want to use a graphical tool to resolve these issues, you can run 
-<code>git mergetool</code>, which fires up an appropriate visual merge tool and walks you 
-through the conflicts</p>
-<p>After you exit the merge tool, Git asks you if the merge was successful. If you 
-tell the script that it was, it stages the file to mark it as resolved for you.</p>
-<p>If you’re happy with that, and you verify that everything that had conflicts has 
-been staged, you can type <code>git commit</code> to finalize the merge commit.</p>
 </li>
 </ol>
+<p>Since installation maybe just a line of code <code>pip install xxx</code> or <code>easy_install xxx</code>, I skipped this part.</p>
+</li>
+<li>
+<p>Run ReText</p>
+<p>Running a python program is simple. After downloading and unpackaging the source code, you just have you tell python to start this program by:</p>
+<div class="highlight"><pre><span class="n">python</span> <span class="n">retext</span><span class="p">.</span><span class="n">py</span>
+</pre></div>
+
+
+<p>Then everything done and enjoy it.</p>
 </li>
 </ol>
-<h3>Working with remote branch</h3>
-<p><em>See :</em><a href="http://git-scm.com/book/en/Git-Branching-Remote-Branches">Git book - chapter 3.5</a> 
-as well as <a href="http://git-scm.com/book/en/Git-Basics-Working-with-Remotes">Git book - chapter 2.5</a></p>
-<p><strong>What ? :</strong> Remote branches are just branches pointed to remote serves, taking the form 
-of <code>(remote)/(branch)</code>. However, remote branches can be modified without noticing, so please
-synchronize it frequently.</p>
+<p>After words: To be honest, ReText is really ... too simple, the real time display is too troublesome - you have to scroll the webpage yourself to go to the editing place. Even the online editor (metioned above) is far better.</p>
+<h3>For Linux</h3>
+<h4>Also ReText</h4>
+<h5>Ubuntu PPA Source</h5>
+<p>PPA Link: <a href="https://launchpad.net/~mitya57/+archive/ppa">PPA for Dmitry Shachnev</a></p>
+<p><em>HowTo Add PPA Source?</em></p>
+<p>Code:</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="o">:</span><span class="n">user</span><span class="o">/</span><span class="n">ppa</span><span class="o">-</span><span class="n">name</span>  
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>  
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">xxx</span>
+</pre></div>
+
+
+<p>So now:</p>
+<p>Code:</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="o">:</span><span class="n">mitya57</span><span class="o">/</span><span class="n">ppa</span>  
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>  
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span>
+</pre></div>
+
+
+<p><strong>Note :</strong></p>
+<p>ReText is provided in ubuntu source, there is no need to add extra ppa-source!</p>
+<p>Installed Package:</p>
+<div class="highlight"><pre><span class="n">python3</span><span class="o">-</span><span class="n">markups</span> <span class="p">(</span><span class="n">version</span> <span class="mf">0.3</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="n">will</span> <span class="n">be</span> <span class="n">installed</span>  
+<span class="n">python3</span><span class="o">-</span><span class="n">pyqt4</span> <span class="p">(</span><span class="n">version</span> <span class="mf">4.10.3</span><span class="o">-</span><span class="mi">1u</span><span class="n">buntu1</span><span class="p">)</span> <span class="n">will</span> <span class="n">be</span> <span class="n">installed</span>  
+<span class="n">python3</span><span class="o">-</span><span class="n">sip</span> <span class="p">(</span><span class="n">version</span> <span class="mf">4.15.2</span><span class="o">-</span><span class="mi">1u</span><span class="n">buntu1</span><span class="p">)</span> <span class="n">will</span> <span class="n">be</span> <span class="n">installed</span>  
+<span class="n">retext</span> <span class="p">(</span><span class="n">version</span> <span class="mf">4.1.0</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="n">will</span> <span class="n">be</span> <span class="n">installed</span>
+</pre></div>
+
+
+<p>However, extra packages are required to parse files.Please choose the right version of package. For example, following package does not meet the requirements:</p>
+<div class="highlight"><pre><span class="n">docutils</span><span class="o">-</span><span class="n">common</span> <span class="p">(</span><span class="n">version</span> <span class="mf">0.11</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="n">will</span> <span class="n">be</span> <span class="n">installed</span>  
+<span class="n">python</span><span class="o">-</span><span class="n">docutils</span> <span class="p">(</span><span class="n">version</span> <span class="mf">0.11</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="n">will</span> <span class="n">be</span> <span class="n">installed</span>  
+<span class="n">python</span><span class="o">-</span><span class="n">enchant</span> <span class="p">(</span><span class="n">version</span> <span class="mf">1.6.5</span><span class="o">-</span><span class="mi">2</span><span class="n">build1</span><span class="p">)</span> <span class="n">will</span> <span class="n">be</span> <span class="n">installed</span>  
+<span class="n">python</span><span class="o">-</span><span class="n">markdown</span> <span class="p">(</span><span class="n">version</span> <span class="mf">2.3.1</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="n">will</span> <span class="n">be</span> <span class="n">installed</span>  
+<span class="n">python</span><span class="o">-</span><span class="n">roman</span> <span class="p">(</span><span class="n">version</span> <span class="mf">1.4.0</span><span class="o">-</span><span class="mi">2u</span><span class="n">buntu1</span><span class="p">)</span> <span class="n">will</span> <span class="n">be</span> <span class="n">installed</span>
+</pre></div>
+
+
+<p>Instead, I should install the version for python 3:</p>
+<div class="highlight"><pre><span class="n">Installed</span> <span class="n">packages</span><span class="o">:</span>  
+<span class="n">python3</span><span class="o">-</span><span class="n">docutils</span> <span class="p">(</span><span class="mf">0.11</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>  
+<span class="n">python3</span><span class="o">-</span><span class="n">enchant</span> <span class="p">(</span><span class="mf">1.6.5</span><span class="o">-</span><span class="mi">2</span><span class="n">build1</span><span class="p">)</span>  
+<span class="n">python3</span><span class="o">-</span><span class="n">markdown</span> <span class="p">(</span><span class="mf">2.3.1</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>   
+<span class="n">python3</span><span class="o">-</span><span class="n">roman</span> <span class="p">(</span><span class="mf">1.4.0</span><span class="o">-</span><span class="mi">2u</span><span class="n">buntu1</span><span class="p">)</span>
+</pre></div>
+
+
+<h2>reStructuredText Syntax</h2>
+<p>Compared with Markdown, reStructuredText is rather big and comprehensive. There are many good documents to read, I personally suggest:</p>
 <ol>
-<li>
-<p>See Status</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">remote</span> <span class="n">command</span>
-</pre></div>
-
-
-<p>It lists the shortnames of each remote handle you’ve specified. If you’ve 
-cloned your repository, you should at least see origin — that is the default 
-name Git gives to the server you cloned from.</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">remote</span> <span class="o">-</span><span class="n">v</span>
-</pre></div>
-
-
-<p>It shows you the URL that Git has stored for the shortname to be expanded to.</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">remote</span> <span class="n">show</span> <span class="p">[</span><span class="n">remote</span><span class="o">-</span><span class="n">name</span><span class="p">]</span>
-</pre></div>
-
-
-<p>It lists the URL for the remote repository as well as the tracking branch information. </p>
-</li>
-<li>
-<p>Add<br />
-        git remote add [shortname] [url]<br />
-    e.g.<br />
-        git remote add pb git://github.com/paulboone/ticgit.git<br />
-    Now you can use the string <em>pb</em> on the command line in lieu of the whole URL.</p>
-</li>
-<li>
-<p>Fetch<br />
-        git fetch [remote-name]<br />
-    e.g.<br />
-        git fetch pb<br />
-<strong>Note :</strong> The fetch command pulls the data to your local repository — it 
-    doesn’t automatically merge it with any of your work or modify what you’re 
-    currently working on. You have to merge it manually into your work when 
-    you’re ready.<br />
-    It’s important to note that when you do a fetch that brings down new remote 
-    branches, you don’t automatically have local, editable copies of them. You 
-    only have an <code>origin/remote</code> pointer that you can’t modify.<br />
-    To merge this work into your current working branch, you can run <code>git merge 
-    origin/remote</code>. If you want your own remote branch that you can work on, you
-    can base it off your remote branch:<br />
-        git checkout -b local_remote origin/remote</p>
-</li>
-<li>
-<p>Push to Upstream<br />
-        git push [remote-name] [branch-name]<br />
-    This command works only if you cloned from a server to which you have write
-    access and if nobody has pushed in the meantime. If you and someone else clone
-    at the same time and they push upstream and then you push upstream, your push
-    will rightly be rejected. You’ll have to pull down their work first and
-    incorporate it into yours before you’ll be allowed to push. </p>
-<p>You can push a local branch into a remote branch that is named differently.  </p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">push</span> <span class="p">[</span><span class="n">remotename</span><span class="p">]</span> <span class="p">[</span><span class="n">localbranch</span><span class="p">]</span><span class="o">:</span><span class="p">[</span><span class="n">remotebranch</span><span class="p">]</span>
-</pre></div>
-
-
-<p>Like, if you didn’t want it to be called <em>a</em> on the remote, you could instead run:   </p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">a</span><span class="o">:</span><span class="n">awesomebranch</span>
-</pre></div>
-
-
-<p>to push your local <em>a</em> branch to the <em>awesomebranch</em> branch on the remote project.</p>
-</li>
-<li>
-<p>Rename  </p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">remote</span> <span class="n">rename</span> <span class="n">OLD_NAME</span> <span class="n">NEW_NAME</span>
-</pre></div>
-
-
-</li>
-<li>
-<p>Remove  </p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">remote</span> <span class="n">rm</span> <span class="n">paul</span> <span class="p">[</span><span class="n">remote</span><span class="o">-</span><span class="n">name</span><span class="p">]</span>
-</pre></div>
-
-
-<p>It removes a reference for the remote branch.</p>
-</li>
-<li>
-<p>Delete Remote Branch</p>
-<div class="highlight"><pre> <span class="n">git</span> <span class="n">push</span> <span class="p">[</span><span class="n">remotename</span><span class="p">]</span> <span class="o">:</span><span class="p">[</span><span class="n">bran</span>   <span class="n">ch</span><span class="p">]</span>
-</pre></div>
-
-
-<p>e.g, If you want to delete your serverfix branch from the server, you run 
- the following:<br />
-    git push origin :serverfix</p>
-<p><strong>Note: </strong>  A way to remember this command is by recalling the <code>git push 
- [remotename] [localbranch]:[remotebranch]</code> syntax that we went over a bit 
- earlier. If you leave off the [localbranch] portion, then you’re basically 
- saying, “Take nothing on my side and make it be [remotebranch].”</p>
-</li>
-<li>
-<p>Clone it.</p>
-<div class="highlight"><pre> <span class="n">git</span> <span class="n">clone</span> <span class="p">[</span><span class="n">url</span><span class="p">]</span>
-</pre></div>
-
-
-<p>If you clone from this, Git automatically names it origin for you, pulls down 
- all its data, creates a pointer to where its master branch is, and names it 
- origin/master locally; and you can’t move it. Git also gives you your own master 
- branch starting at the same place as origin’s master branch, so you have something
- to work from. See:<br />
-<img alt="Clone Remote" src="http://git-scm.com/figures/18333fig0322-tn.png" /></p>
-</li>
+<li><a href="http://docutils.sourceforge.net/docs/user/rst/quickstart.html">A quick start</a></li>
+<li>The <a href="http://docutils.sourceforge.net/docs/user/rst/quickref.html">Quick Reference</a></li>
+<li>And crack the <a href="http://docutils.sourceforge.net/docs/user/rst/cheatsheet.txt">Cheat Sheet</a></li>
+<li>A good Introduction in Chinese <a href="http://jwch.sdut.edu.cn/book/rst.html">reStructuredText简明教程</a></li>
+<li>Another Introduction in Chinese <a href="http://gsnippet.googlecode.com/svn/blog/html/reStructuredTEXT.html">reStructuredText 简明教程</a></li>
 </ol>
-<p><strong><em>To Be Conitnued</em></strong></p>                </article>
+<h2>Some Notes</h2>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
@@ -456,28 +168,44 @@ name Git gives to the server you cloned from.</p>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/Markdown Showcase.html" rel="bookmark"
-                           title="Permalink to Markdown Showcase">Markdown Showcase</a></h1>
+                    <h1><a href="/english-word-of-the-day.html" rel="bookmark"
+                           title="Permalink to ﻿English Word of the Day">﻿English Word of the Day</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2014-02-21T14:00:00">
-                周五 21 二月 2014
+        <abbr class="published" title="2014-03-02T00:00:00">
+                周日 02 三月 2014
         </abbr>
 
         <address class="vcard author">
                 By <a class="url fn" href="/author/wetaper.html">we.taper</a>
         </address>
-<p>In <a href="/category/writing.html">Writing</a>. </p>
-<p>tags: <a href="/tag/markup-language.html">Markup Language</a></p>
-</footer><!-- /.post-info -->                <p>Show how to use Markdown.</p>
-                <a class="readmore" href="/Markdown Showcase.html">read more</a>
+<p>In <a href="/category/studynote.html">StudyNote</a>. </p>
+<p>tags: <a href="/tag/english.html">English</a></p>
+</footer><!-- /.post-info -->                <dl class="docutils">
+<dt>Morpheus</dt>
+<dd>The Greek God of dreams</dd>
+<dt>Blue</dt>
+<dd>Sad feelings, without hope.</dd>
+<dt>curve wrecker</dt>
+<dd>你懂的</dd>
+<dt>Remedy</dt>
+<dd>A cure to something, either problems or dieases.</dd>
+<dt>Post Holiday Blues</dt>
+<dd>A kind of diease you must have known.</dd>
+<dt>党委书记</dt>
+<dd>secretary of the Party committee</dd>
+<dt>小康社会</dt>
+<dd>Well-off Society</dd>
+</dl>
+
+                <a class="readmore" href="/english-word-of-the-day.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->
 <p class="paginator">
-    Page 1 / 3
+    Page 1 / 6
         <a href="/index2.html">&raquo;</a>
 </p>
             </section><!-- /#content -->
