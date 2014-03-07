@@ -1,4 +1,4 @@
-﻿MS Windows "cmd" Command Note
+MS Windows "cmd" Command Note
 ###############################
 
 :date: 2014-03-02

@@ -1,4 +1,4 @@
-﻿Let's Begin the Journey of rsStructuredText
+Let's Begin the Journey of rsStructuredText
 ============================================
 The Subtitle
 -------------

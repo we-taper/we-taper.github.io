@@ -1,4 +1,4 @@
-﻿Title: Python Study Note (Last update: 2014-2-21)
+Title: Python Study Note (Last update: 2014-2-21)
 Date: 2014-2-21 14:00
 Category: Python
 Tags: Python

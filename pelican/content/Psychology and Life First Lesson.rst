@@ -1,4 +1,4 @@
-﻿Psychology and Life
+Psychology and Life
 ===============================
 
 :date: 2014-03-02

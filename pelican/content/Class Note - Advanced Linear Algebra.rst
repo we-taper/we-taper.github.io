@@ -1,8 +1,8 @@
 Class Note - Advanced Linear Algebra
 ===========================================
 
-:lecture:Zhang Xianke
 :date: 2014-02-26
+:lecture:Zhang Xianke
 
 *Traditional Startup*
 

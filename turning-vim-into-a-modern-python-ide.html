@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Turning Vim into a modern Python IDE</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">WE-TapEr's Blog </a></h1>
+                <nav><ul>
+                    <li><a href="/category/blogging.html">Blogging</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li class="active"><a href="/category/programming.html">Programming</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/studynote.html">StudyNote</a></li>
+                    <li><a href="/category/writing.html">Writing</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/turning-vim-into-a-modern-python-ide.html" rel="bookmark"
+           title="Permalink to Turning Vim into a modern Python IDE">Turning Vim into a modern Python IDE</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-03-07T23:00:00">
+                周五 07 三月 2014
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/wetaper.html">we.taper</a>
+        </address>
+<p>In <a href="/category/programming.html">Programming</a>. </p>
+<p>tags: <a href="/tag/vim.html">Vim</a><a href="/tag/ide.html">IDE</a></p>
+</footer><!-- /.post-info -->      <h1>Turning Vim into a modern Python IDE</h1>
+<p>This is an annotated version of the original website:<a href="http://sontek.net/blog/detail/turning-vim-into-a-modern-python-ide">Turning Vim into a modern Python IDE</a></p>
+<p><strong>Note: </strong> This commenting isn't finished and is unlikly to be finished in the future. Please scroll down to get the reason.
+Contents</p>
+<ul>
+<li>Intro</li>
+<li>Basic Editing and Debugging<ul>
+<li>Code Folding</li>
+<li>Window Splits</li>
+<li>Snippets</li>
+<li>Task lists</li>
+<li>Revision History</li>
+</ul>
+</li>
+<li>Syntax Highlighting and Validation<ul>
+<li>Pep8</li>
+</ul>
+</li>
+<li>Tab Completion and Documentation</li>
+<li>Code Navigation<ul>
+<li>Buffers</li>
+<li>Fuzzy Text File Search</li>
+<li>File Browser</li>
+<li>Refactoring and Go to definition</li>
+<li>Searching</li>
+</ul>
+</li>
+<li>Integration with Git</li>
+<li>Test Integration<ul>
+<li>django nose</li>
+<li>py.test</li>
+</ul>
+</li>
+<li>Virtualenv</li>
+<li>Django</li>
+<li>Random Tips</li>
+</ul>
+<h2>Intro</h2>
+<p>Back in 2008, I wrote the article Python with a modular IDE (Vim). Years later, 
+I have people e-mailing me and commenting daily asking for more information, e
+ven though most of the information in it is outdated. Here is the modern way t
+o work with Python and Vim to achieve the perfect environment</p>
+<p>Because one of the most important parts about a development environment is the a
+bility to easily reproduce across machines, we are going to store our vim conf
+iguration in git:</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">mkdir</span> <span class="o">~/</span><span class="p">.</span><span class="n">vim</span><span class="o">/</span>
+<span class="err">$</span> <span class="n">mkdir</span> <span class="o">~/</span><span class="p">.</span><span class="n">vim</span><span class="o">/</span><span class="p">{</span><span class="n">autoload</span><span class="p">,</span><span class="n">bundle</span><span class="p">}</span>
+<span class="err">$</span> <span class="n">cd</span> <span class="o">~/</span><span class="p">.</span><span class="n">vim</span><span class="o">/</span>
+<span class="err">$</span> <span class="n">git</span> <span class="n">init</span>
+</pre></div>
+
+
+<p><strong>Comment: </strong><br />
+1. Under Windows, the <code>.vim</code> should be <code>vimfiles</code><br />
+2. <code>~</code> means the home directory in <code>*nix</code>, which is typically <code>C:\Users\USER_NAME\</code> under Windows 7 or later. (Run <code>echo %homepath%</code> in <code>cmd</code> to see yours).<br />
+3. The second line <code>mkdir ~/.vim/{autoload,bundle</code> is to create two folder <code>autoload</code> and <code>bundle</code>, which will be used in another Vim plugin <em><a href="https://github.com/tpope/vim-pathogen/">Pathogen</a></em>. This plugin quite easy to install. Just follow the instruction on its GitHub Homepage.</p>
+<h3>Install Pathogen</h3>
+<ol>
+<li><code>git clone</code> it. (Don't know git? Then just goto the website and download the <code>pathogen.vim</code> file inside <code>autoload</code>.)  </li>
+<li>Copy <code>pathogen.vim</code> into <code>~/.vim</code> or <code>%homepath%\vimfiles</code> or etc. (See <code>:help runtimepath</code> under vim for more information about this.  </li>
+<li>
+<p>Add this to <code>vimrc</code>:  </p>
+<p>execute pathogen#infect()
+syntax on
+filetype plugin indent on</p>
+<p>(Don't know <code>vimrc</code>? Type <code>:help vimrc</code> in vim to get helped.)<br />
+About <code>filetype</code>: In Vim <code>:help filetype</code></p>
+</li>
+<li>
+<p>Now any plugins you wish to install can be extracted to a subdirectory under <code>~/.vim/bundle</code>, and they will be added to the <code>'runtimepath'</code>.</p>
+</li>
+</ol>
+<h2>Back to Intro</h2>
+<p>You'll need to add the following to your ~/.vimrc so that pathogen will be loaded properly. Filetype detection must be off when you run the commands so its best to execute them first:</p>
+<div class="highlight"><pre><span class="n">filetype</span> <span class="n">off</span>
+<span class="n">call</span> <span class="n">pathogen</span><span class="err">#</span><span class="n">runtime_append_all_bundles</span><span class="p">()</span>
+<span class="n">call</span> <span class="n">pathogen</span><span class="err">#</span><span class="n">helptags</span><span class="p">()</span>
+</pre></div>
+
+
+<p><strong>Comment: </strong>  </p>
+<ol>
+<li>
+<p>Although <code>filetype</code> is off, the <code>filetype plugin</code> and <code>filetype indent</code> can still be on.  </p>
+</li>
+<li>
+<p><code>pathogen#runtime_append_all_bundles()</code> is alias for <code>pathogen#incubate()</code>. It means (found this inside the <code>pathogen.vim</code> file):</p>
+<blockquote>
+<p>For each directory in the runtime path, add a second entry with the given
+argument appended.  If the argument ends in '/{}', add a separate entry for
+each subdirectory.  The default argument is 'bundle/{}', which means that
+.vim/bundle/<em>, $VIM/vimfiles/bundle/</em>, $VIMRUNTIME/bundle/<em>,
+$VIM/vim/files/bundle/</em>/after, and .vim/bundle/*/after will be added (on
+UNIX).</p>
+</blockquote>
+<p>(Sorry that I don't under stand this...)</p>
+<p>I personally suggest your change this to <code>pathogen#incubate</code></p>
+</li>
+<li>
+<p>About <code>pathogen#helptags()</code></p>
+<blockquote>
+<p>Invoke <code>:helptags</code> on all non-$VIM doc directories in <code>runtimepath</code>.</p>
+</blockquote>
+</li>
+</ol>
+<p>Now lets add all of the vim plugins we plan on using as submodules to our git repository:</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">submodule</span> <span class="n">add</span> <span class="n">http</span><span class="o">:</span><span class="c1">//github.com/tpope/vim-fugitive.git bundle/fugitive</span>
+<span class="n">git</span> <span class="n">submodule</span> <span class="n">add</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/msanders/snipmate.vim.git bundle/snipmate</span>
+<span class="n">git</span> <span class="n">submodule</span> <span class="n">add</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/tpope/vim-surround.git bundle/surround</span>
+<span class="n">git</span> <span class="n">submodule</span> <span class="n">add</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/tpope/vim-git.git bundle/git</span>
+<span class="n">git</span> <span class="n">submodule</span> <span class="n">add</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/ervandew/supertab.git bundle/supertab</span>
+<span class="n">git</span> <span class="n">submodule</span> <span class="n">add</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/sontek/minibufexpl.vim.git bundle/minibufexpl</span>
+<span class="n">git</span> <span class="n">submodule</span> <span class="n">add</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/wincent/Command-T.git bundle/command-t</span>
+<span class="n">git</span> <span class="n">submodule</span> <span class="n">add</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/mitechie/pyflakes-pathogen.git</span>
+<span class="n">git</span> <span class="n">submodule</span> <span class="n">add</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/mileszs/ack.vim.git bundle/ack</span>
+<span class="n">git</span> <span class="n">submodule</span> <span class="n">add</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/sjl/gundo.vim.git bundle/gundo</span>
+<span class="n">git</span> <span class="n">submodule</span> <span class="n">add</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/fs111/pydoc.vim.git bundle/pydoc</span>
+<span class="n">git</span> <span class="n">submodule</span> <span class="n">add</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/vim-scripts/pep8.git bundle/pep8</span>
+<span class="n">git</span> <span class="n">submodule</span> <span class="n">add</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/alfredodeza/pytest.vim.git bundle/py.test</span>
+<span class="n">git</span> <span class="n">submodule</span> <span class="n">add</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/reinh/vim-makegreen bundle/makegreen</span>
+<span class="n">git</span> <span class="n">submodule</span> <span class="n">add</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/vim-scripts/TaskList.vim.git bundle/tasklist</span>
+<span class="n">git</span> <span class="n">submodule</span> <span class="n">add</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/vim-scripts/The-NERD-tree.git bundle/nerdtree</span>
+<span class="n">git</span> <span class="n">submodule</span> <span class="n">add</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/sontek/rope-vim.git bundle/ropevim</span>
+<span class="n">git</span> <span class="n">submodule</span> <span class="n">init</span>
+<span class="n">git</span> <span class="n">submodule</span> <span class="n">update</span>
+<span class="n">git</span> <span class="n">submodule</span> <span class="n">foreach</span> <span class="n">git</span> <span class="n">submodule</span> <span class="n">init</span>
+<span class="n">git</span> <span class="n">submodule</span> <span class="n">foreach</span> <span class="n">git</span> <span class="n">submodule</span> <span class="n">update</span>
+</pre></div>
+
+
+<p>(Typing above commands one by one could be really tedious. If you can, write a script yourself to accomplish this.)</p>
+<p><strong>About Git Submodule</strong></p>
+<p>The <code>submodule</code> functions as if there are some other git repositories in your git repository. It helps programmers to control the plugin they depend on and keep them all up-to-date.</p>
+<p>Thats it! Now that we've got our vim configuration in git!</p>
+<p>Now lets look at how to use each of these plugins to improve the power of vim:</p>
+<h2>Basic Editing and Debugging</h2>
+<h3>Code Folding</h3>
+<p>Lets first enable code folding. This makes it a lot easier to organize your code and hide portions that you aren't interested in working on. This is quite easy for Python, since whitespace is required.</p>
+<p>In your ~/.vimrc just add:</p>
+<div class="highlight"><pre><span class="n">set</span> <span class="n">foldmethod</span><span class="o">=</span><span class="n">indent</span>
+<span class="n">set</span> <span class="n">foldlevel</span><span class="o">=</span><span class="mi">99</span>
+</pre></div>
+
+
+<p>Then you will be able to be inside a method and type <code>'za'</code> to open and close a fold.</p>
+<p><strong>Comment: </strong></p>
+<ol>
+<li>
+<p><code>foldmethod</code></p>
+<p>Set the kind of folding used for the current window. Possible values:
+    |fold-manual|   manual      Folds are created manually.
+    |fold-indent|   indent      Lines with equal indent form a fold.
+    |fold-expr|     expr        'foldexpr' gives the fold level of a line.
+    |fold-marker|   marker      Markers are used to specify folds.
+    |fold-syntax|   syntax      Syntax highlighting items specify folds.
+    |fold-diff|     diff        Fold text that is not changed.</p>
+</li>
+<li>
+<p><code>foldlevel</code></p>
+<p>Sets the fold level: Folds with a higher level will be closed.
+Setting this option to zero will close all folds.  Higher numbers will
+close fewer folds.
+This option is set by commands like |zm|, |zM| and |zR|.</p>
+</li>
+</ol>
+<h3>Window Splits</h3>
+<p>Sometimes code folding isn't enough; you may need to start opening up multiple windows and working on multiple files at once or different locations within the same file. To do this in vim, you can use these shortcuts:</p>
+<div class="highlight"><pre><span class="n">Vertical</span> <span class="n">Split</span> <span class="o">:</span> <span class="n">Ctrl</span><span class="o">+</span><span class="n">w</span> <span class="o">+</span> <span class="n">v</span>
+<span class="n">Horizontal</span> <span class="n">Split</span><span class="o">:</span> <span class="n">Ctrl</span><span class="o">+</span><span class="n">w</span> <span class="o">+</span> <span class="n">s</span>
+<span class="n">Close</span> <span class="n">current</span> <span class="n">windows</span><span class="o">:</span> <span class="n">Ctrl</span><span class="o">+</span><span class="n">w</span> <span class="o">+</span> <span class="n">q</span>
+</pre></div>
+
+
+<p>I <em>(the author. But taper also favours this)</em> also like to bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>:</p>
+<div class="highlight"><pre><span class="n">map</span> <span class="o">&lt;</span><span class="n">c</span><span class="o">-</span><span class="n">j</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">c</span><span class="o">-</span><span class="n">w</span><span class="o">&gt;</span><span class="n">j</span>
+<span class="n">map</span> <span class="o">&lt;</span><span class="n">c</span><span class="o">-</span><span class="n">k</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">c</span><span class="o">-</span><span class="n">w</span><span class="o">&gt;</span><span class="n">k</span>
+<span class="n">map</span> <span class="o">&lt;</span><span class="n">c</span><span class="o">-</span><span class="n">l</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">c</span><span class="o">-</span><span class="n">w</span><span class="o">&gt;</span><span class="n">l</span>
+<span class="n">map</span> <span class="o">&lt;</span><span class="n">c</span><span class="o">-</span><span class="n">h</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">c</span><span class="o">-</span><span class="n">w</span><span class="o">&gt;</span><span class="n">h</span>
+</pre></div>
+
+
+<h3>Snippets</h3>
+<p>The next tweak that really speeds up development is using snipmate. We've already included it in our bundle/ folder so its already enabled. Try opening up a python file and typing 'def<tab>'. It should stub out a method definition for you and allow you to tab through and fill out the arguments, doc string, etc.</p>
+<p>I also like to create my own snippets folder to put in some custom snippets:</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">mkdir</span> <span class="o">~/</span><span class="p">.</span><span class="n">vim</span><span class="o">/</span><span class="n">snippets</span>
+<span class="err">$</span> <span class="n">vim</span> <span class="o">~/</span><span class="p">.</span><span class="n">vim</span><span class="o">/</span><span class="n">snippets</span><span class="o">/</span><span class="n">python</span><span class="p">.</span><span class="n">snippets</span>
+</pre></div>
+
+
+<p>Put this in the file:</p>
+<div class="highlight"><pre><span class="n">snippet</span> <span class="n">pdb</span>
+    <span class="n">import</span> <span class="n">pdb</span><span class="p">;</span> <span class="n">pdb</span><span class="p">.</span><span class="n">set_trace</span><span class="p">()</span>
+</pre></div>
+
+
+<p>Now you can type pdb<tab> and it'll insert your breakpoint!</p>
+<p><strong>Comment: </strong> I didn't try this. Seems useless for me now.</p>
+<h3>Task lists</h3>
+<p>Task lists</p>
+<p>Another really useful thing is to mark some of your code as TODO or FIXME! I know we all like to think we write perfect code, but sometimes you just have to settle and leave a note for yourself to come back later. One of the plugins we included was the tasklist plugin that will allow us to search all open buffers for things to fix. Just add a mapping to open it in ~/.vimrc:</p>
+<div class="highlight"><pre><span class="kt">map</span> <span class="o">&lt;</span><span class="nx">leader</span><span class="o">&gt;</span><span class="nx">td</span> <span class="o">&lt;</span><span class="nx">Plug</span><span class="o">&gt;</span><span class="nx">TaskList</span>
+</pre></div>
+
+
+<p>Now you can hit <leader>td to open your task list and hit 'q' to close it. You can also hit enter on the task to jump to the buffer and line that it is placed on.</p>
+<p><strong>Comment: </strong></p>
+<ol>
+<li>
+<p>If you don't this, there maybe a Error Message everytime starting GVim:</p>
+<div class="highlight"><pre><span class="n">Error</span> <span class="n">detected</span> <span class="k">while</span> <span class="n">processing</span> <span class="n">XXXXXXX</span><span class="err">\</span><span class="n">vimfiles</span><span class="err">\</span><span class="n">bundle</span><span class="err">\</span><span class="n">t</span>
+<span class="n">asklist</span><span class="err">\</span><span class="n">plugin</span><span class="err">\</span><span class="n">tasklist</span><span class="p">.</span><span class="n">vim</span><span class="o">:</span>
+<span class="n">line</span>  <span class="mi">369</span><span class="o">:</span>
+<span class="nl">E227:</span> <span class="n">mapping</span> <span class="n">already</span> <span class="n">exists</span> <span class="k">for</span> <span class="err">\</span><span class="n">t</span>
+</pre></div>
+
+
+<p>It may be caused by mapping keys which is already mapped to something else. So remap it will solve this problem.</p>
+</li>
+<li>
+<p>A description of this plugin found:</p>
+<div class="highlight"><pre><span class="n">This</span> <span class="n">script</span> <span class="n">is</span> <span class="n">based</span> <span class="n">on</span> <span class="n">the</span> <span class="n">eclipse</span> <span class="n">Task</span> <span class="n">List</span><span class="p">.</span> <span class="n">It</span> <span class="n">will</span> <span class="n">search</span> <span class="n">the</span> <span class="n">file</span> <span class="k">for</span> <span class="n">FIXME</span><span class="p">,</span> <span class="n">TODO</span><span class="p">,</span> <span class="n">and</span> <span class="n">XXX</span> <span class="p">(</span><span class="n">or</span> <span class="n">a</span> <span class="n">custom</span> <span class="n">list</span><span class="p">)</span> <span class="n">and</span> <span class="n">put</span> <span class="n">them</span> <span class="n">in</span> <span class="n">a</span> <span class="n">handy</span> <span class="n">list</span> <span class="k">for</span> <span class="n">you</span> <span class="n">to</span> <span class="n">browse</span> <span class="n">which</span> <span class="n">at</span> <span class="n">the</span> <span class="n">same</span> <span class="n">time</span> <span class="n">will</span> <span class="n">update</span> <span class="n">the</span> <span class="n">location</span> <span class="n">in</span> <span class="n">the</span> <span class="n">document</span> <span class="n">so</span> <span class="n">you</span> <span class="n">can</span> <span class="n">see</span> <span class="n">exactly</span> <span class="n">where</span> <span class="n">the</span> <span class="n">tag</span> <span class="n">is</span> <span class="n">located</span><span class="p">.</span> <span class="n">Something</span> <span class="n">like</span> <span class="n">an</span> <span class="n">interactive</span> <span class="err">&#39;</span><span class="n">cw</span><span class="err">&#39;</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>About <code>&lt;leader&gt;</code></p>
+<p><code>&lt;leader&gt;</code> is a key name in vim, usually means "\" on keyboard.</p>
+</li>
+</ol>
+<h3>Revision History</h3>
+<p>The final basic editing tweak I suggest everyone start utilizing is the Gundo plugin. It'll allow you to view diff's of every save on a file you've made and allow you to quickly revert back and forth:</p>
+<p><img alt="Pic1" src="http://i.imgur.com/2NrPS.png" /></p>
+<p>Just bind a key in your .vimrc to toggle the Gundo window:</p>
+<div class="highlight"><pre><span class="kt">map</span> <span class="o">&lt;</span><span class="nx">leader</span><span class="o">&gt;</span><span class="nx">g</span> <span class="p">:</span><span class="nx">GundoToggle</span><span class="o">&lt;</span><span class="nx">CR</span><span class="o">&gt;</span>
+</pre></div>
+
+
+<h3>Syntax Highlighting and Validation</h3>
+<p>Simply enable syntax highlighting in your ~/.vimrc:</p>
+<div class="highlight"><pre><span class="n">syntax</span> <span class="n">on</span>                           <span class="s">&quot; syntax highlighing</span>
+<span class="n">filetype</span> <span class="n">on</span>                          <span class="s">&quot; try to detect filetypes</span>
+<span class="n">filetype</span> <span class="n">plugin</span> <span class="n">indent</span> <span class="n">on</span>    <span class="s">&quot; enable loading indent file for filetype</span>
+</pre></div>
+
+
+<p>Because we enabled pyflakes when we added it as a submodule in ~/.vim/bundle, it will notify you about unused imports and invalid syntax. It will save you a lot of time saving and running just to find out you missed a colon. I like to tell it not use the quickfix window:</p>
+<div class="highlight"><pre><span class="n">let</span> <span class="n">g</span><span class="o">:</span><span class="n">pyflakes_use_quickfix</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+
+
+<p><img alt="Pic2" src="http://i.imgur.com/ZfjFe.png" /></p>
+<h3>Pep8</h3>
+<p>The final plugin that really helps validate your code is the pep8 plugin, it'll make sure your code is consistent across all projects. Add a key mapping to your ~/.vimrc and then you'll be able to jump to each of the pep8 violations in the quickfix window:</p>
+<div class="highlight"><pre><span class="k">let</span> <span class="n">g</span><span class="p">:</span><span class="n">pep8_map</span><span class="o">=</span><span class="s1">&#39;&lt;leader&gt;8&#39;</span>
+</pre></div>
+
+
+<h3>Tab Completion and Documentation</h3>
+<p>Vim has many different code completion options. We are going to use the SuperTab plugin to check the context of the code you are working on and choose the best for the situation. We've already enabled the SuperTab plugin in the bundle/ folder, so we just have to configure it to be context sensitive and to enable omni code completion in your ~/.vimrc:</p>
+<div class="highlight"><pre><span class="n">au</span> <span class="n">FileType</span> <span class="n">python</span> <span class="n">set</span> <span class="n">omnifunc</span><span class="o">=</span><span class="n">pythoncomplete</span><span class="err">#</span><span class="n">Complete</span>
+<span class="n">let</span> <span class="n">g</span><span class="o">:</span><span class="n">SuperTabDefaultCompletionType</span> <span class="o">=</span> <span class="s">&quot;context&quot;</span>
+</pre></div>
+
+
+<p>Now we just enable the menu and pydoc preview to get the most useful information out of the code completion:</p>
+<div class="highlight"><pre><span class="n">set</span> <span class="n">completeopt</span><span class="o">=</span><span class="n">menuone</span><span class="p">,</span><span class="n">longest</span><span class="p">,</span><span class="n">preview</span>
+</pre></div>
+
+
+<p><img alt="Pic3" src="http://i.imgur.com/g4lxP.png" /></p>
+<p>We also enabled the pydoc plugin at the beginning with all the submodules; that gives us the ability to hit <leader>pw when our cursor is on a module and have a new window open with the whole documentation page for it.  </p>
+<h1>EOF - END</h1>
+<p>Why? I ended this commenting just because I want to explorer about the functionality about Vim Scripts myself - not to be led by someone else without knowing anything detailed about Vim.</p>
+<p>Actually, it's never good to get things done in a hurry by following other's guidance - You will lose the fun and skill acquired when really <em>hack</em> into something!</p>
+<p>Sorry, though.</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

@@ -1,4 +1,4 @@
-﻿Title: Markdown Tips
+Title: Markdown Tips
 Date: 2014-2-21 14:00
 Category: Writing
 Tags: Markup Language, unFinished

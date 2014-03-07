@@ -1,4 +1,4 @@
-﻿Title: Using Jekyll and Github to Blog v0.1 (Failed)
+Title: Using Jekyll and Github to Blog v0.1 (Failed)
 Date: 2014-2-21 14:00
 Category: Blogging
 Tags: Jykell, unFinished

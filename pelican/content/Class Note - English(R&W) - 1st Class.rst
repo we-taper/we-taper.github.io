@@ -1,4 +1,4 @@
-﻿Class Note - English(R&W) - 1st Class
+Class Note - English(R&W) - 1st Class
 =======================================
 
 :date: 2014-02-25

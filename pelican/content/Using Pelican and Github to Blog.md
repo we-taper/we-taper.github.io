@@ -1,4 +1,4 @@
-﻿Title: Using Pelican and Github to Blog, v0.1
+Title: Using Pelican and Github to Blog, v0.1
 Date: 2014-2-21 2:00
 Category: Blogging
 Tags: Pelican, unFinished

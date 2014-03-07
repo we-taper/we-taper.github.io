@@ -1,4 +1,4 @@
-﻿English Word of the Day
+English Word of the Day
 =================================
 
 :date: 2014-03-02
