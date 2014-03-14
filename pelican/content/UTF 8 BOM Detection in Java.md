@@ -18,8 +18,9 @@ BOM is, put simply, some marks used to identify the encoding of text, but it is 
 
 > While there is obviously no need for a byte order signature when using UTF-8, there are occasions when processes convert UTF-16 or UTF-32 data containing a byte order mark into UTF-8. When represented in UTF-8, the byte order mark turns into the byte sequence. Its usage at the beginning of a UTF-8 data stream is neither required nor recommended by the Unicode Standard, but its presence does not affect conformance to the UTF-8 encoding scheme. Identification of the byte sequence at the beginning of a data stream can, however, be taken as a near-certain indication that the data stream is using the UTF-8 encoding scheme.
 
-[Link](http://www.unicode.org/versions/Unicode6.0.0/ch03.pdf)
-[A discussion on ZhiHu](http://www.zhihu.com/question/20167122)
+[Link To Document](http://www.unicode.org/versions/Unicode6.0.0/ch03.pdf)
+
+Plus: [A discussion on ZhiHu](http://www.zhihu.com/question/20167122)
 
 How to Deal with BOM
 -----------------------

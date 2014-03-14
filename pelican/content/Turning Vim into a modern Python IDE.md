@@ -1,15 +1,16 @@
-Title: Turning Vim into a modern Python IDE
+Title: Commented: Turning Vim into a modern Python IDE
 Date: 2014-3-7 23:00
 Category: Programming
 Tags: Vim, IDE
 Author: we.taper
 
-Turning Vim into a modern Python IDE
+Commented: Turning Vim into a modern Python IDE
 ============================================
 
 This is an annotated version of the original website:[Turning Vim into a modern Python IDE](http://sontek.net/blog/detail/turning-vim-into-a-modern-python-ide)
 
-**Note: ** This commenting isn't finished and is unlikly to be finished in the future. Please scroll down to get the reason.
+**Note: ** This commenting isn't finished and is unlikly to be finished in the future. Please scroll to the bottom to get the reason.
+
 Contents
 
 + Intro
