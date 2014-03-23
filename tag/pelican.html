@@ -15,17 +15,58 @@
                 <h1><a href="/">WE-TapEr's Blog </a></h1>
                 <nav><ul>
                     <li><a href="/category/blogging.html">Blogging</a></li>
-                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/computer_tips.html">Computer_Tips</a></li>
+                    <li><a href="/category/coursenote.html">CourseNote</a></li>
                     <li><a href="/category/programming.html">Programming</a></li>
-                    <li><a href="/category/python.html">Python</a></li>
-                    <li><a href="/category/studynote.html">StudyNote</a></li>
-                    <li><a href="/category/writing.html">Writing</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/Using Pelican and Github to Blog.html">Using Pelican and Github to Blog, v0.1</a></h1>
+                    <h1 class="entry-title"><a href="/pelican-configuration.html">Pelican Configuration</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2014-03-23T00:00:00">
+                周日 23 三月 2014
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/wetaper.html">we.taper</a>
+        </address>
+<p>In <a href="/category/blogging.html">Blogging</a>. </p>
+<p>tags: <a href="/tag/pelican.html">Pelican</a></p>
+</footer><!-- /.post-info --><h1>Pelican Configuration</h1>
+<p>Pelican is rather simple. Please refer to the original document for more detailed instructions : <a href="http://docs.getpelican.com/en/3.3.0/settings.html#basic-settings">Settings - Pelican</a>.</p>
+<p>Here's what I did:</p>
+<p><em>Note: * The settings should be changed mainly in the pelican configuration file. </em>How to locate the configuration?<em>: If you have </em>kick start* your website using quick starter, you will find the auto-generated configuration file <code>pelicanconf.py</code> in your website directory. Otherwise, create one with name you like.</p>
+<h3>What I have changed.</h3>
+<div class="highlight"><pre><span class="n">AUTHOR</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">WE</span><span class="o">-</span><span class="n">TapEr</span><span class="err">&#39;</span>
+<span class="n">SITENAME</span> <span class="o">=</span> <span class="s">&quot;WE-TapEr&#39;s Blog&quot;</span>
+
+<span class="n">USE_FOLDER_AS_CATEGORY</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">True</span><span class="err">&#39;</span>
+<span class="cp"># Blogroll</span>
+<span class="n">LINKS</span> <span class="o">=</span>  <span class="p">((</span><span class="err">&#39;</span><span class="n">Name</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">http</span><span class="o">:</span><span class="c1">//linkaddress.com/&#39;),)</span>
+
+<span class="cp"># Social widget</span>
+<span class="n">SOCIAL</span> <span class="o">=</span> <span class="p">((</span><span class="s">&quot;E-Mail name&quot;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">xxx</span><span class="err">@</span><span class="n">xx</span><span class="p">.</span><span class="n">com</span><span class="err">&#39;</span><span class="p">),)</span>
+
+<span class="n">TIMEZONE</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">Asia</span><span class="o">/</span><span class="n">Shanghai</span><span class="err">&#39;</span>
+
+<span class="cp"># Set the maximum length (in words) of summary.</span>
+<span class="n">SUMMARY_MAX_LENGTH</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/Using Pelican and Github to Blog.html" rel="bookmark"
+                           title="Permalink to Using Pelican and Github to Blog, v0.1">Using Pelican and Github to Blog, v0.1</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2014-02-21T02:00:00">
                 周五 21 二月 2014
@@ -36,173 +77,28 @@
         </address>
 <p>In <a href="/category/blogging.html">Blogging</a>. </p>
 <p>tags: <a href="/tag/pelican.html">Pelican</a><a href="/tag/unfinished.html">unFinished</a></p>
-</footer><!-- /.post-info --><h1>1. Install Pelican</h1>
-<p><strong>Note :</strong> Before reading this article, a quick scan over 
-<a href="/Using Jekyll and Github to Blog.html">Jykell Install</a> would be very helpful in building a basic knowledge.</p>
-<h2>1.1 What, <em>"Static Website"</em> ?</h2>
-<p>See: <a href="http://en.wikipedia.org/wiki/Website#Static_website">Wikipedia: Static Website</a></p>
-<h2>1.2 Which static website generator?</h2>
-<p>A great website: <a href="http://staticsitegenerators.net/">Static Site Generators - The definitive listing of Static Site Generators</a></p>
-<p>I choose: Pelican, because it's the best one written in python. Getting those written
-in Ruby run on windows could be a nightmare. </p>
-<h2>1.3 Install</h2>
-<p>See: <a href="http://pip.readthedocs.org/en/latest/installing.html">Installation pip</a></p>
-<p>I Tried install pelican through <strong>pip</strong> but failed. <strong>pip</strong> reports Failure every time I tried.</p>
-<p>So I switched to <strong>easy_install</strong></p>
-<p>See <a href="https://pypi.python.org/pypi/setuptools#windows">Link 1</a> to install easy_install. Then find easy_install inside python 
-    installation directory (usually under folder "Scripts"), </p>
-<p>Some WARNINGs:</p>
-<div class="highlight"><pre><span class="o">==========================================================================</span>
-<span class="nl">WARNING:</span> <span class="n">The</span> <span class="n">C</span> <span class="n">extension</span> <span class="n">could</span> <span class="n">not</span> <span class="n">be</span> <span class="n">compiled</span><span class="p">,</span> <span class="n">speedups</span> <span class="n">are</span> <span class="n">not</span> <span class="n">enabled</span><span class="p">.</span>
-<span class="n">Failure</span> <span class="n">information</span><span class="p">,</span> <span class="k">if</span> <span class="n">any</span><span class="p">,</span> <span class="n">is</span> <span class="n">above</span><span class="p">.</span>
-<span class="n">Retrying</span> <span class="n">the</span> <span class="n">build</span> <span class="n">without</span> <span class="n">the</span> <span class="n">C</span> <span class="n">extension</span> <span class="n">now</span><span class="p">.</span>
-
-<span class="o">==========================================================================</span>
-<span class="nl">WARNING:</span> <span class="n">The</span> <span class="n">C</span> <span class="n">extension</span> <span class="n">could</span> <span class="n">not</span> <span class="n">be</span> <span class="n">compiled</span><span class="p">,</span> <span class="n">speedups</span> <span class="n">are</span> <span class="n">not</span> <span class="n">enabled</span><span class="p">.</span>
-<span class="n">Plain</span><span class="o">-</span><span class="n">Python</span> <span class="n">installation</span> <span class="n">succeeded</span><span class="p">.</span>
-<span class="o">==========================================================================</span>
-<span class="n">Adding</span> <span class="n">MarkupSafe</span> <span class="mf">0.18</span> <span class="n">to</span> <span class="n">easy</span><span class="o">-</span><span class="n">install</span><span class="p">.</span><span class="n">pth</span> <span class="n">file</span>
-</pre></div>
-
-
-<p>It seemed everything work fine. So I ignored above warnings.</p>
-<h3>Install Markdown package to support markdown syntax</h3>
-<div class="highlight"><pre><span class="n">easy_install</span> <span class="n">Markdown</span>
-</pre></div>
-
-
-<p>There seemed to be a problem on my Windows 8. Easy_install downloaded the installed but failed to
-run it. So I run it manually. (Discovered the downloaded folder inside the errors
-reported by <strong>easy_install</strong>)</p>
-<h1>2. Configure</h1>
-<h2>2.1 Learn Markdown (or something else)</h2>
-<p>Pelican supports many simply-markup language including markdown and reStructured Text etc.
-I chose markdown because I have previous experience with them. See <a href="/Markdown Showcase.html">my markdown show 
-case</a>. Choose whatever you like by Google it.</p>
-<h2>2.2 Learn Pelican</h2>
-<h2>2.2.1 Kick Start</h2>
-<p><em>See :</em><a href="http://docs.getpelican.com/en/3.3.0/getting_started.html#basic-usage">Basic Usage</a> and <a href="http://docs.getpelican.com/en/3.3.0/getting_started.html#kickstart-your-site">Kickstart Your Site</a></p>
-<p>You can create a skeleton project via the pelican-quickstart command, which 
-begins by asking some questions about your site:  </p>
-<div class="highlight"><pre><span class="n">pelican</span><span class="o">-</span><span class="n">quickstart</span>
-</pre></div>
-
-
-<p>Then view the output page:   </p>
-<div class="highlight"><pre><span class="n">firefox</span><span class="p">(</span><span class="n">or</span> <span class="n">something</span> <span class="k">else</span><span class="p">)</span> <span class="n">output</span><span class="err">\</span><span class="n">index</span><span class="p">.</span><span class="n">html</span>
-</pre></div>
-
-
-<p>However, Because the above method may have trouble locating your CSS and other
-linked assets, running a simple web server using Python will often provide a 
-more reliable previewing experience:<br />
-    cd output &amp;&amp; python -m SimpleHTTPServer<br />
-<em>Note :</em> In python 3, modulus <code>SimpleHTTPServer</code> has been replaced by <code>http.server</code></p>
-<h3>2.2.2 Some automation tools</h3>
-<p><em>See :</em><a href="http://docs.getpelican.com/en/3.3.0/getting_started.html#automation-tools">Automation Tools</a></p>
-<p>To easy my way of editing and publishing, I choose <em>Fabric</em></p>
-<h3>2.2.3 Link to internal content.</h3>
-<p><em>See :</em><a href="http://docs.getpelican.com/en/3.3.0/getting_started.html#linking-to-internal-content">Linking to internal content</a></p>
-<p>Replace URL with these:</p>
-<p>To file:  </p>
-<div class="highlight"><pre><span class="p">{</span><span class="n">filename</span><span class="p">}</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">file</span>
-</pre></div>
-
-
-<p>To tags:  </p>
-<div class="highlight"><pre><span class="p">{</span><span class="n">tag</span><span class="p">}</span><span class="n">tagname</span>
-</pre></div>
-
-
-<p>To Category:  </p>
-<div class="highlight"><pre><span class="p">{</span><span class="n">category</span><span class="p">}</span><span class="n">foobar</span>
-</pre></div>
-
-
-<p><strong>Note :</strong>
-1. Pelican does not support referenced link of this type.
-2. The <code>{filaname}</code> is actually <code>{filaname}</code>, don't put some real file name here or pelican will recognize it as Category name.</p>
-<p><strong>Note 2:</strong> Pelican do not clear the content of "output" when running <code>pelican CONTENT_PATH</code>. By this user can setup git repo in "output" and push them to somewhere like <strong>Gighub Pages</strong>.</p>
-<h3>2.2.2 Push to Github Pages</h3>
-<ul>
-<li>Change the output directory:</li>
-</ul>
-<p>Because the I want to use git to control my blogs, I setup something.</p>
-<ol>
-<li>
-<p>Put the files to be read by pelican into a sub folder where html files are generated. Now,
-website generated by Pelican reside in the parent folder and the content read by Pelican is in
-a sub folder. This seperates the websites and files to be read by Pelican and in the mean time
-allow both Github Page to read file <code>index.html</code> as well as Pelican to read its files without
-interface each other.</p>
-</li>
-<li>
-<p>Change the output directory to parent folder.
-    In default setting file <code>pelicanconf.py</code>, add:</p>
-<div class="highlight"><pre><span class="n">OUTPUT_PATH</span> <span class="o">=</span> <span class="err">&#39;</span><span class="p">..</span><span class="o">/</span><span class="err">&#39;</span>
-</pre></div>
-
-
-</li>
-<li>
-<p>Generate files.</p>
-<p>Skipped.</p>
-</li>
-<li>
-<p>Push to Github</p>
-<p>Follow guide <a href="http://pages.github.com/">Here</a> to create a "User or organization site".</p>
-<p>Then clone the the source, copy your prepared Pelican generated websites (including where you store
-the files read by Pelican) to the cloned folder. Commit and Push and Done with your first blog!</p>
-</li>
-</ol>
-<p>Detailed settings of Pelican can be seen here:<a href="http://docs.getpelican.com/en/3.3.0/settings.html">Pelican Settings</a></p>
-<h3>2.2.3 Using other's themes.</h3>
-<blockquote>
-<p>The only way to become a master is to learn from the master.  </p>
-</blockquote>
-<p><em>(so to learn, copy first)</em></p>
-<p>Some websites built on Pelican:<a href="https://github.com/getpelican/pelican/wiki/Powered-by-Pelican">Powered by Pelican</a></p>
-<p>Some good themes:<br />
-Site:<a href="http://omphalosskeptic.github.io">http://omphalosskeptic.github.io</a><br />
-Source: <a href="https://github.com/omphalosskeptic/omphalosskeptic.github.io">https://github.com/omphalosskeptic/omphalosskeptic.github.io</a>  </p>
-<p>Site: <a href="http://kylefuller.co.uk/">http://kylefuller.co.uk/</a><br />
-Source: <a href="https://github.com/kylef/kylefuller.co.uk">https://github.com/kylef/kylefuller.co.uk</a></p>
-<h1>Some websites:</h1>
-<ul>
-<li><strong>Recommend</strong> <a href="http://docs.getpelican.com/en/3.3.0/">Pelican Official Doc</a></li>
-<li><strong>Recommend</strong> Some cases you can learn from [Powered by Pelican]
-(https://github.com/getpelican/pelican/wiki/Powered-by-Pelican)</li>
-</ul>
-<h1>Problem Solver:</h1>
-<ul>
-<li>In Pelican: <code>'utf-8' codec can't decode byte 0xbe in position 2458: invalid start byte</code><br />
-<strong>Why:</strong> Some files are stored in encoding GBK (or something else other than 
-UTF-8). Since python (and almost everything else) suppports utf-8, use some text
-editor (mine is notepad++) to change encoding to utf-8. [SOLVED]</li>
-</ul>
-<p><strong><em>To Be Continued</em></strong></p>                </article>
+</footer><!-- /.post-info -->                <p>Using Pelican to generate static website and push to Github to blog.</p>
+                <a class="readmore" href="/Using Pelican and Github to Blog.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+            </ol><!-- /#posts-list -->
 <p class="paginator">
     Page 1 / 1
 </p>
-            </aside><!-- /#featured -->
-            </ol><!-- /#posts-list -->
             </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>blogroll</h2>
                         <ul>
                             <li><a href="http://getpelican.com/">Pelican</a></li>
-                            <li><a href="http://python.org/">Python.org</a></li>
-                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-                            <li><a href="#">You can modify those links in your config file</a></li>
+                            <li><a href="http://ovelinux.blog.sohu.com/">My Previous Blog</a></li>
                         </ul>
                 </div><!-- /.blogroll -->
                 <div class="social">
                         <h2>social</h2>
                         <ul>
 
-                            <li><a href="#">You can add links in your config file</a></li>
-                            <li><a href="#">Another social link</a></li>
+                            <li><a href="we.taper[在]qq.com">My E-Mail (Don't click, copy link and alter it to correct form, thx)</a></li>
                         </ul>
                 </div><!-- /.social -->
         </section><!-- /#extras -->

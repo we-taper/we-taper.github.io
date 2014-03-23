@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>WE-TapEr's Blog</title>
+        <title>Pelican Configuration</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
@@ -14,16 +14,21 @@
         <header id="banner" class="body">
                 <h1><a href="/">WE-TapEr's Blog </a></h1>
                 <nav><ul>
-                    <li><a href="/category/blogging.html">Blogging</a></li>
+                    <li class="active"><a href="/category/blogging.html">Blogging</a></li>
                     <li><a href="/category/computer_tips.html">Computer_Tips</a></li>
                     <li><a href="/category/coursenote.html">CourseNote</a></li>
                     <li><a href="/category/programming.html">Programming</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/pelican-configuration.html" rel="bookmark"
+           title="Permalink to Pelican Configuration">Pelican Configuration</a></h1>
+    </header>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/pelican-configuration.html">Pelican Configuration</a></h1>
+    <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2014-03-23T00:00:00">
                 周日 23 三月 2014
@@ -34,7 +39,7 @@
         </address>
 <p>In <a href="/category/blogging.html">Blogging</a>. </p>
 <p>tags: <a href="/tag/pelican.html">Pelican</a></p>
-</footer><!-- /.post-info --><h1>Pelican Configuration</h1>
+</footer><!-- /.post-info -->      <h1>Pelican Configuration</h1>
 <p>Pelican is rather simple. Please refer to the original document for more detailed instructions : <a href="http://docs.getpelican.com/en/3.3.0/settings.html#basic-settings">Settings - Pelican</a>.</p>
 <p>Here's what I did:</p>
 <p><em>Note: * The settings should be changed mainly in the pelican configuration file. </em>How to locate the configuration?<em>: If you have </em>kick start* your website using quick starter, you will find the auto-generated configuration file <code>pelicanconf.py</code> in your website directory. Otherwise, create one with name you like.</p>
@@ -53,87 +58,11 @@
 
 <span class="cp"># Set the maximum length (in words) of summary.</span>
 <span class="n">SUMMARY_MAX_LENGTH</span> <span class="o">=</span> <span class="mi">10</span>
-</pre></div>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+</pre></div>
+    </div><!-- /.entry-content -->
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/vim-ide-note-last-update-2013-03-08.html" rel="bookmark"
-                           title="Permalink to Vim IDE Note (last update: 2013-03-08)">Vim IDE Note (last update: 2013-03-08)</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2014-03-08T11:00:00">
-                周六 08 三月 2014
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/wetaper.html">we.taper</a>
-        </address>
-<p>In <a href="/category/programming.html">Programming</a>. </p>
-<p>tags: <a href="/tag/ide.html">IDE</a><a href="/tag/vim.html">Vim</a></p>
-</footer><!-- /.post-info -->                <h1>Vim IDE Note</h1>
-<p>Here's how I turned VIM into ...</p>
-                <a class="readmore" href="/vim-ide-note-last-update-2013-03-08.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/commented-turning-vim-into-a-modern-python-ide.html" rel="bookmark"
-                           title="Permalink to Commented: Turning Vim into a modern Python IDE">Commented: Turning Vim into a modern Python IDE</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2014-03-07T23:00:00">
-                周五 07 三月 2014
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/wetaper.html">we.taper</a>
-        </address>
-<p>In <a href="/category/programming.html">Programming</a>. </p>
-<p>tags: <a href="/tag/vim.html">Vim</a><a href="/tag/ide.html">IDE</a></p>
-</footer><!-- /.post-info -->                <h1>Commented: Turning Vim into a modern Python IDE</h1>
-<p>This is ...</p>
-                <a class="readmore" href="/commented-turning-vim-into-a-modern-python-ide.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/utf-8-bom-detection-in-java.html" rel="bookmark"
-                           title="Permalink to UTF 8 BOM Detection in Java">UTF 8 BOM Detection in Java</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2014-03-06T23:00:00">
-                周四 06 三月 2014
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/wetaper.html">we.taper</a>
-        </address>
-<p>In <a href="/category/programming.html">Programming</a>. </p>
-<p>tags: <a href="/tag/java.html">Java</a><a href="/tag/utf-8.html">UTF-8</a></p>
-</footer><!-- /.post-info -->                <h1>UTF 8 BOM Detection in Java</h1>
-<p>Have you ever encountered ...</p>
-                <a class="readmore" href="/utf-8-bom-detection-in-java.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-            </ol><!-- /#posts-list -->
-<p class="paginator">
-    Page 1 / 5
-        <a href="/index2.html">&raquo;</a>
-</p>
-            </section><!-- /#content -->
+  </article>
+</section>
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>blogroll</h2>

@@ -5,11 +5,12 @@ from __future__ import unicode_literals
 AUTHOR = 'WE-TapEr'
 SITENAME = "WE-TapEr's Blog"
 SITEURL = ''
+USE_FOLDER_AS_CATEGORY = 'True'
 
-TIMEZONE = 'Europe/Paris'
+TIMEZONE = 'Asia/Shanghai'
 
 DEFAULT_LANG = 'en'
-
+	
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
@@ -17,18 +18,18 @@ TRANSLATION_FEED_ATOM = None
 
 # Blogroll
 LINKS =  (('Pelican', 'http://getpelican.com/'),
-          ('Python.org', 'http://python.org/'),
-          ('Jinja2', 'http://jinja.pocoo.org/'),
-          ('You can modify those links in your config file', '#'),)
+          ('My Previous Blog', 'http://ovelinux.blog.sohu.com/'),)
 
 # Social widget
-SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
+SOCIAL = (("My E-Mail (Don't click, copy link and alter it to correct form, thx)", 'we.taper[在]qq.com'),)
 
-DEFAULT_PAGINATION = 2
+DEFAULT_PAGINATION = 4
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
 
 # Set output path to parent folder
 OUTPUT_PATH = '../'
+
+# Set the maximum length (in words) of summary.
+SUMMARY_MAX_LENGTH = 10

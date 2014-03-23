@@ -1,6 +1,5 @@
 Title: Using Jekyll and Github to Blog v0.1 (Failed)
 Date: 2014-2-21 14:00
-Category: Blogging
 Tags: Jykell, unFinished
 Slug: Using Jekyll and Github to Blog
 Author: we.taper
@@ -67,7 +66,8 @@ I choosed Jekyll because:
 	installation directory (usually under folder "Scripts"), run `easy_install Pygments`.
 
 3. Cook the Git Book  
-	Learn about git from [Git Guide][gt_gi], I also wrote an article about it: [My Git Guide]({filename}/Git Book Note.md)
+	Learn about git from [Git Guide][gt_gi], I also wrote an article about it: [My Git Guide]({filename}../Programming/Git Book Note.md)
+	<!-- Here is a internal link to Git Book Note.md --> 
 
 4. Clone others' work  
 	Well, My time is limited (I've already spent a whole day on it). And open source is fascinating. Why not copy?

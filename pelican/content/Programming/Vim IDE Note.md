@@ -1,6 +1,5 @@
 Title: Vim IDE Note (last update: 2013-03-08)
 Date: 2014-3-8 11:00
-Category: Programming
 Tags: IDE, Vim
 Author: we.taper
 

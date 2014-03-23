@@ -1,6 +1,5 @@
 Title: Commented: Turning Vim into a modern Python IDE
 Date: 2014-3-7 23:00
-Category: Programming
 Tags: Vim, IDE
 Author: we.taper
 

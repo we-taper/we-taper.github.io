@@ -3,7 +3,6 @@ MS Windows "cmd" Command Note
 
 :date: 2014-03-02
 :tags: MS Windows, Batch
-:category: StudyNote
 :author: we.taper
 
 Convention:

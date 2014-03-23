@@ -1,7 +1,6 @@
 Title: Transform to reStructuredText
 Date: 2014-3-2 14:00
-Category: Writing
-Tags: Markup
+Tags: Markup Language
 Author: we.taper
 
 #Transform to reStructuredText

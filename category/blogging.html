@@ -15,17 +15,58 @@
                 <h1><a href="/">WE-TapEr's Blog </a></h1>
                 <nav><ul>
                     <li class="active"><a href="/category/blogging.html">Blogging</a></li>
-                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/computer_tips.html">Computer_Tips</a></li>
+                    <li><a href="/category/coursenote.html">CourseNote</a></li>
                     <li><a href="/category/programming.html">Programming</a></li>
-                    <li><a href="/category/python.html">Python</a></li>
-                    <li><a href="/category/studynote.html">StudyNote</a></li>
-                    <li><a href="/category/writing.html">Writing</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/Using Jekyll and Github to Blog.html">Using Jekyll and Github to Blog v0.1 (Failed)</a></h1>
+                    <h1 class="entry-title"><a href="/pelican-configuration.html">Pelican Configuration</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2014-03-23T00:00:00">
+                周日 23 三月 2014
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/wetaper.html">we.taper</a>
+        </address>
+<p>In <a href="/category/blogging.html">Blogging</a>. </p>
+<p>tags: <a href="/tag/pelican.html">Pelican</a></p>
+</footer><!-- /.post-info --><h1>Pelican Configuration</h1>
+<p>Pelican is rather simple. Please refer to the original document for more detailed instructions : <a href="http://docs.getpelican.com/en/3.3.0/settings.html#basic-settings">Settings - Pelican</a>.</p>
+<p>Here's what I did:</p>
+<p><em>Note: * The settings should be changed mainly in the pelican configuration file. </em>How to locate the configuration?<em>: If you have </em>kick start* your website using quick starter, you will find the auto-generated configuration file <code>pelicanconf.py</code> in your website directory. Otherwise, create one with name you like.</p>
+<h3>What I have changed.</h3>
+<div class="highlight"><pre><span class="n">AUTHOR</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">WE</span><span class="o">-</span><span class="n">TapEr</span><span class="err">&#39;</span>
+<span class="n">SITENAME</span> <span class="o">=</span> <span class="s">&quot;WE-TapEr&#39;s Blog&quot;</span>
+
+<span class="n">USE_FOLDER_AS_CATEGORY</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">True</span><span class="err">&#39;</span>
+<span class="cp"># Blogroll</span>
+<span class="n">LINKS</span> <span class="o">=</span>  <span class="p">((</span><span class="err">&#39;</span><span class="n">Name</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">http</span><span class="o">:</span><span class="c1">//linkaddress.com/&#39;),)</span>
+
+<span class="cp"># Social widget</span>
+<span class="n">SOCIAL</span> <span class="o">=</span> <span class="p">((</span><span class="s">&quot;E-Mail name&quot;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">xxx</span><span class="err">@</span><span class="n">xx</span><span class="p">.</span><span class="n">com</span><span class="err">&#39;</span><span class="p">),)</span>
+
+<span class="n">TIMEZONE</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">Asia</span><span class="o">/</span><span class="n">Shanghai</span><span class="err">&#39;</span>
+
+<span class="cp"># Set the maximum length (in words) of summary.</span>
+<span class="n">SUMMARY_MAX_LENGTH</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/Using Jekyll and Github to Blog.html" rel="bookmark"
+                           title="Permalink to Using Jekyll and Github to Blog v0.1 (Failed)">Using Jekyll and Github to Blog v0.1 (Failed)</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2014-02-21T14:00:00">
                 周五 21 二月 2014
@@ -36,146 +77,10 @@
         </address>
 <p>In <a href="/category/blogging.html">Blogging</a>. </p>
 <p>tags: <a href="/tag/jykell.html">Jykell</a><a href="/tag/unfinished.html">unFinished</a></p>
-</footer><!-- /.post-info --><h1>Using Jekyll to Blog</h1>
-<p><strong>Note :</strong><br />
-At last, i got myself fired by using Jykell. Ruby and Python's Pygments modulus 
-just don't work with each other. And installing these softwares on windows is just
-another nightmare for me. If you are a windows user, I sincerely advise you stop
-trying Jekyll now! Another option is: Pelican!<br />
-If you really want to continue, please do refer to my recommended blogs and websites
-before you start rock, especially the <a href="https://github.com/juthilo/run-jekyll-on-windows/#install-the-jekyll-gem">official guide</a></p>
-<h2>What??</h2>
-<p>Jekyll is a static website generator. Github Page is a service provided by github.com which hosts user-uploaded static websites and display them, for <strong>free</strong>! This two combined - <strong>A Free Web blog host under perfect control</strong>. (Note: Everything on Github is open unless you purchase some plans. So there is no privacy concerns - You simply don't put private content on it!)</p>
-<p>Github officially support Jykell. Everything hosted on Github Pages will be processed by Jykell. Since standard HTML files is also Jykell capable, you can use Github Pages without Jykell of course.</p>
-<p><em>Note :</em> </p>
-<p>This is a hardcore, time-consuming task which require much patience and time. Never try this if you are not a geek.</p>
-<p><em>Note 2:</em> </p>
-<p>Because I want to blog something but is tired of using existing blog services, I searched for a bit and find Jekyll 
-as well as Hyde. They are both "static webpage generator" (See: <a href="https://github.com/hyde/hyde">Wikipedia Static Webpage</a>). Jekyll is based on Ruby while Hyde is based on python. There are two excellent articles comparing these two engines: 1.<a href="http://www.distractable.net/tech/static-site-generators-jekyll-vs-hyde">Static Website Generators - Jekyll vs Hyde</a>, and 2.<a href="http://philipm.at/2011/jekyll_vs_hyde.html">Jekyll vs. Hyde - A Comparison Of Two Static Site Generators</a> (Both stored in my Evernote for backup). </p>
-<p>I choosed Jekyll because:  </p>
-<ol>
-<li>It is under active development, the <a href="https://github.com/jekyll/jekyll">Github Jekyll</a> has many recent commits just days ago. The last commit of Hyde is somewhat 6 months ago!  </li>
-<li>There are many default templetes that I can simply <code>git clone xxx</code> to use for Jykell. As for Hyde, few were found.  </li>
-<li>Author of Jekyll is also co-founder of Github! Therefore the future maintenance is guaranteed.  </li>
-</ol>
-<h2>Pre-requirements (Important)</h2>
-<ol>
-<li>
-<p>Installed Ruby<br />
-    For simplicity, I choosed <a href="http://rubyinstaller.org">RubyInstaller</a> to install Ruby on my Windows. Once installed, you will got a powerful tool: <code>gem</code> to install ruby modulus.</p>
-<ul>
-<li>
-<p>Switch <strong>gem</strong> Source to <em>http://ruby.taobao.org/</em> to improve downloading speed. <br />
-    See: <a href="http://ruby.taobao.org/">RubyGems 镜像 - 淘宝网</a> for more.</p>
-</li>
-<li>
-<p>Installed DevKit 
-    Otherwise you can't just install Jykell with bundle (see below). See <a href="https://github.com/oneclick/rubyinstaller/wiki/Development-Kit">Github DevKit</a>.</p>
-</li>
-</ul>
-</li>
-<li>
-<p>Installed Python<br />
-    Compared with Ruby, installing python on windows is just simple. As for Linux and Mac, they already have python come within system. See: <a href="http://www.python.org/download/">Python Download</a></p>
-</li>
-</ol>
-<h2>Let's Rock</h2>
-<ol>
-<li>
-<p>Installed Bundler<br />
-    Yet another ruby modulus installation tool. Recommended on <a href="https://help.github.com/articles/using-jekyll-with-pages#installing-jekyll">Github Official help</a>. It said,<em>"You can still install Jekyll with the command gem install github-pages, but you may run into trouble down the line."</em>, But I haven't tried that.
-    Follow the tips on <a href="https://help.github.com/articles/using-jekyll-with-pages#installing-jekyll">Github Official help</a>.</p>
-</li>
-<li>
-<p>Install Jekyll with Bundler<br />
-    Just folow tips on <a href="https://help.github.com/articles/using-jekyll-with-pages#installing-jekyll">Github Official help</a>. Becareful that your should <code>cd</code> into the directory where the <code>Gemfile</code> exists, or you will always get a <code>Bundler::GemfileNotFound</code> error. Also, remember to change the source to ruby.taobao.org as mentioned in <strong>Pre-requirements</strong>.</p>
-</li>
-<li>
-<p>Install easy_install and Pygments
-    Using the right python (2.7.x) and install Pygments through easy_install scripts. 
-    See <a href="https://pypi.python.org/pypi/setuptools#windows">Link 1</a> to install easy_install and find easy_install inside python 
-    installation directory (usually under folder "Scripts"), run <code>easy_install Pygments</code>.</p>
-</li>
-<li>
-<p>Cook the Git Book<br />
-    Learn about git from <a href="http://git-scm.com/book/en/">Git Guide</a>, I also wrote an article about it: <a href="/Git Book Note.html">My Git Guide</a></p>
-</li>
-<li>
-<p>Clone others' work<br />
-    Well, My time is limited (I've already spent a whole day on it). And open source is fascinating. Why not copy?</p>
-<p>Some personal recommendations:<br />
-1. <a href="https://github.com/JeremyWei/jeremywei.github.com">https://github.com/JeremyWei/jeremywei.github.com</a>
-2. <a href="http://www.madhur.co.in">http://www.madhur.co.in</a></p>
-<p>A really good List of Websites build on Jekyll:<a href="https://github.com/jekyll/jekyll/wiki/Sites">Jekyll Sites</a></p>
-</li>
-</ol>
-<h2>Some Notes to solve problems:</h2>
-<p><strong>Note :</strong> The error message below have been simplified to save space. Watch your error output carefully, perhaps mine solution applies to your too!</p>
-<ul>
-<li>
-<p>Error: <code>... fileutils.rb:247:in</code>mkdir': Invalid argument ...`  </p>
-<p>Problem: The new versioin of jekyll (&gt;1.4.2) isn't stable enough! Downgrade!<br />
-Solution:
-    gem uninstall jekyll<br />
-    gem install jekyll --version "=1.4.2"<br />
-See: <a href="http://stackoverflow.com/questions/21137096/jekyll-error-running-jekyll-serve">StackOverflow Ask</a></p>
-</li>
-<li>
-<p>Error:  <code>Liquid Exception: Failed to get header. in xxx.markdown</code> <br />
-or <code>spawn.rb:162: warning: cannot close fd before spawn</code></p>
-<p>Problem: </p>
-<ol>
-<li>The new version of pygments.rb (&gt;0.5.0) doesn't cooperate with this Jekyll. Downgrade!<br />
-Note: According the official guide (<a href="https://github.com/juthilo/run-jekyll-on-windows/#install-the-jekyll-gem">Link</a>), version 0.5.0 and o.5.4 are OK.</li>
-<li>The new Python 3 don't work with Jekyll. Use Python 2.7.5.</li>
-</ol>
-<p>Solution:
-1.
-        gem uninstall pygments.rb<br />
-        gem install pygments.rb --version "=0.5.0"<br />
-2. Install Python 2.7.x (remember to install Pygments later)<br />
-    You can with both 2.7.x and 3.x version installed but use %PATH% environment to change the default python intepretor. Google about "Changing Path on Windows"</p>
-<p>See: <a href="http://stackoverflow.com/questions/17364028/jekyll-on-windows-pygments-not-working">Jekyll on Windows: Pygments not working</a></p>
-</li>
-<li>
-<p>Note: Do not install Ruby in a complicated path including characters like "(", ")", etc. I got errors when doing so. Instead installing to the default "X:\Rubyxx\" is OK.</p>
-</li>
-</ul>
-<h2>Some Good Articles to help you smooth through this process:</h2>
-<ol>
-<li>
-<p>A blog by 阮一峰<a href="http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html">搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门</a><br />
-    Contains much about how to setup standard Jekyll websites. Good for those who want to hack the Websites themselves.</p>
-</li>
-<li>
-<p>A blog teaches installing Jykell on Windows:<a href="http://www.madhur.co.in/blog/2011/09/01/runningjekyllwindows.html">Running Jekyll on Windows</a></p>
-</li>
-<li>
-<p>A comprehensive tutor to run Jykell on Windows (also Official): <a href="https://github.com/juthilo/run-jekyll-on-windows/#install-the-jekyll-gem">How to Run Jekyll on Windows</a>
-    <strong>Recommended!</strong></p>
-</li>
-<li>
-<p><a href="http://site.douban.com/196781/widget/notes/12161495/note/264946576/">写作环境搭建(git+github+markdown+jekyll)</a></p>
-</li>
-<li>
-<p><a href="http://beiyuu.com/github-pages/">使用Github Pages建独立博客</a></p>
-</li>
-<li>
-<p><a href="http://blog.skydark.info/programming/2012/03/23/play-with-jekyll/">Play with Jekyll</a></p>
-</li>
-<li>
-<p><a href="http://www.cnblogs.com/yevon/p/3310857.html">完善本地搭建的jekyll环境(Windows)</a>
-    <strong>Recommended!</strong></p>
-</li>
-<li>
-<p><a href="http://www.cnblogs.com/aleda/articles/Jekyll-in-Windows-following-Chinese-encoding-problem-solutions.html">Jekyll在Windows下面中文编码问题解决方案</a></p>
-</li>
-</ol>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+</footer><!-- /.post-info -->                <p>Spent a whole day on Jykell, but failed. Turned to Pelican instead.</p>
+                <a class="readmore" href="/Using Jekyll and Github to Blog.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -208,17 +113,14 @@ Note: According the official guide (<a href="https://github.com/juthilo/run-jeky
                         <h2>blogroll</h2>
                         <ul>
                             <li><a href="http://getpelican.com/">Pelican</a></li>
-                            <li><a href="http://python.org/">Python.org</a></li>
-                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-                            <li><a href="#">You can modify those links in your config file</a></li>
+                            <li><a href="http://ovelinux.blog.sohu.com/">My Previous Blog</a></li>
                         </ul>
                 </div><!-- /.blogroll -->
                 <div class="social">
                         <h2>social</h2>
                         <ul>
 
-                            <li><a href="#">You can add links in your config file</a></li>
-                            <li><a href="#">Another social link</a></li>
+                            <li><a href="we.taper[在]qq.com">My E-Mail (Don't click, copy link and alter it to correct form, thx)</a></li>
                         </ul>
                 </div><!-- /.social -->
         </section><!-- /#extras -->

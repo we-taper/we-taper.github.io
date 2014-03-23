@@ -1,6 +1,5 @@
 Title: Using Pelican and Github to Blog, v0.1
 Date: 2014-2-21 2:00
-Category: Blogging
 Tags: Pelican, unFinished
 Slug: Using Pelican and Github to Blog
 Author: we.taper
@@ -9,7 +8,8 @@ Summary: Using Pelican to generate static website and push to Github to blog.
 #1. Install Pelican
 
 **Note :** Before reading this article, a quick scan over 
-[Jykell Install]({filename}/Using Jekyll and Github to Blog (Failed).md) would be very helpful in building a basic knowledge.
+[Jykell Install]({filename}../Blogging/Using Jekyll and Github to Blog (Failed).md) would be very helpful in building a basic knowledge.
+<!-- Here's a internal link to Using Jekyll and Github to Blog (Failed).md -->
 
 ##1.1 What, *"Static Website"* ?
 
@@ -65,7 +65,7 @@ reported by **easy_install**)
 
 Pelican supports many simply-markup language including markdown and reStructured Text etc.
 I chose markdown because I have previous experience with them. See [my markdown show 
-case]({filename}/Markdown Showcase.md). Choose whatever you like by Google it.
+case]({filename}../Computer_Tips/Markdown Showcase.md). Choose whatever you like by Google it.
 
 
 ##2.2 Learn Pelican
@@ -99,21 +99,27 @@ To easy my way of editing and publishing, I choose *Fabric*
 
 Replace URL with these:
 
-To file:  
+To file: 	 
 
 	{filename}path/to/file  
+
 To tags:  
 
 	{tag}tagname  
+
 To Category:  
 
 	{category}foobar  
 
 **Note :**
+
 1. Pelican does not support referenced link of this type.
 2. The `{filaname}` is actually `{filaname}`, don't put some real file name here or pelican will recognize it as Category name.
 
-**Note 2:** Pelican do not clear the content of "output" when running `pelican CONTENT_PATH`. By this user can setup git repo in "output" and push them to somewhere like **Gighub Pages**.
+**Note 2:** 
+
+Pelican do not clear the content of "output" when running `pelican CONTENT_PATH`. By this user can setup git repo in "output" and push them to somewhere like **Gighub Pages**.
+
 ###2.2.2 Push to Github Pages
 
 + Change the output directory:
@@ -173,6 +179,10 @@ Source: <https://github.com/kylef/kylefuller.co.uk>
 UTF-8). Since python (and almost everything else) suppports utf-8, use some text
 editor (mine is notepad++) to change encoding to utf-8. [SOLVED]
 
+
+# Tips
+
+1. Pelican does not provide a overall view of tags or categories already exist. However, you can find all the tags and categories in the output folder easily.
 ***To Be Continued***
 
 

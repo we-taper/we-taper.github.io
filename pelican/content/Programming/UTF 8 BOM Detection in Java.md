@@ -1,6 +1,5 @@
 Title: UTF 8 BOM Detection in Java
 Date: 2014-3-6 23:00
-Category: Programming
 Tags: Java, UTF-8
 Author: we.taper
 

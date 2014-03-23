@@ -1,6 +1,5 @@
 Title: Git Book Note (Last update: 2014-2-21)
 Date: 2014-2-21 14:00
-Category: Programming
 Tags: Git, VCS
 Slug: Git Book Note
 Author: we.taper

@@ -15,11 +15,9 @@
                 <h1><a href="/">WE-TapEr's Blog </a></h1>
                 <nav><ul>
                     <li class="active"><a href="/category/blogging.html">Blogging</a></li>
-                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/computer_tips.html">Computer_Tips</a></li>
+                    <li><a href="/category/coursenote.html">CourseNote</a></li>
                     <li><a href="/category/programming.html">Programming</a></li>
-                    <li><a href="/category/python.html">Python</a></li>
-                    <li><a href="/category/studynote.html">StudyNote</a></li>
-                    <li><a href="/category/writing.html">Writing</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 <section id="content" class="body">
@@ -43,7 +41,8 @@
 <p>tags: <a href="/tag/pelican.html">Pelican</a><a href="/tag/unfinished.html">unFinished</a></p>
 </footer><!-- /.post-info -->      <h1>1. Install Pelican</h1>
 <p><strong>Note :</strong> Before reading this article, a quick scan over 
-<a href="/Using Jekyll and Github to Blog.html">Jykell Install</a> would be very helpful in building a basic knowledge.</p>
+<a href="/Using Jekyll and Github to Blog.html">Jykell Install</a> would be very helpful in building a basic knowledge.
+<!-- Here's a internal link to Using Jekyll and Github to Blog (Failed).md --></p>
 <h2>1.1 What, <em>"Static Website"</em> ?</h2>
 <p>See: <a href="http://en.wikipedia.org/wiki/Website#Static_website">Wikipedia: Static Website</a></p>
 <h2>1.2 Which static website generator?</h2>
@@ -109,7 +108,7 @@ more reliable previewing experience:<br />
 <h3>2.2.3 Link to internal content.</h3>
 <p><em>See :</em><a href="http://docs.getpelican.com/en/3.3.0/getting_started.html#linking-to-internal-content">Linking to internal content</a></p>
 <p>Replace URL with these:</p>
-<p>To file:  </p>
+<p>To file:     </p>
 <div class="highlight"><pre><span class="p">{</span><span class="n">filename</span><span class="p">}</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">file</span>
 </pre></div>
 
@@ -124,10 +123,13 @@ more reliable previewing experience:<br />
 </pre></div>
 
 
-<p><strong>Note :</strong>
-1. Pelican does not support referenced link of this type.
-2. The <code>{filaname}</code> is actually <code>{filaname}</code>, don't put some real file name here or pelican will recognize it as Category name.</p>
-<p><strong>Note 2:</strong> Pelican do not clear the content of "output" when running <code>pelican CONTENT_PATH</code>. By this user can setup git repo in "output" and push them to somewhere like <strong>Gighub Pages</strong>.</p>
+<p><strong>Note :</strong></p>
+<ol>
+<li>Pelican does not support referenced link of this type.</li>
+<li>The <code>{filaname}</code> is actually <code>{filaname}</code>, don't put some real file name here or pelican will recognize it as Category name.</li>
+</ol>
+<p><strong>Note 2:</strong> </p>
+<p>Pelican do not clear the content of "output" when running <code>pelican CONTENT_PATH</code>. By this user can setup git repo in "output" and push them to somewhere like <strong>Gighub Pages</strong>.</p>
 <h3>2.2.2 Push to Github Pages</h3>
 <ul>
 <li>Change the output directory:</li>
@@ -185,7 +187,11 @@ Source: <a href="https://github.com/kylef/kylefuller.co.uk">https://github.com/k
 UTF-8). Since python (and almost everything else) suppports utf-8, use some text
 editor (mine is notepad++) to change encoding to utf-8. [SOLVED]</li>
 </ul>
-<p><strong><em>To Be Continued</em></strong></p>
+<h1>Tips</h1>
+<ol>
+<li>Pelican does not provide a overall view of tags or categories already exist. However, you can find all the tags and categories in the output folder easily.
+<strong><em>To Be Continued</em></strong></li>
+</ol>
     </div><!-- /.entry-content -->
 
   </article>
@@ -195,17 +201,14 @@ editor (mine is notepad++) to change encoding to utf-8. [SOLVED]</li>
                         <h2>blogroll</h2>
                         <ul>
                             <li><a href="http://getpelican.com/">Pelican</a></li>
-                            <li><a href="http://python.org/">Python.org</a></li>
-                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-                            <li><a href="#">You can modify those links in your config file</a></li>
+                            <li><a href="http://ovelinux.blog.sohu.com/">My Previous Blog</a></li>
                         </ul>
                 </div><!-- /.blogroll -->
                 <div class="social">
                         <h2>social</h2>
                         <ul>
 
-                            <li><a href="#">You can add links in your config file</a></li>
-                            <li><a href="#">Another social link</a></li>
+                            <li><a href="we.taper[在]qq.com">My E-Mail (Don't click, copy link and alter it to correct form, thx)</a></li>
                         </ul>
                 </div><!-- /.social -->
         </section><!-- /#extras -->

@@ -1,6 +1,5 @@
 Title: Read Different Encoding in Java
 Date: 2014-3-4
-Category: Programming
 Tags: Java
 Author: we.taper
 Summary: Show how to read files in different encodings in Java

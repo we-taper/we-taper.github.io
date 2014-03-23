@@ -3,7 +3,6 @@ English Word of the Day
 
 :date: 2014-03-02
 :tags: English
-:category: StudyNote
 :author: we.taper
 
 Morpheus

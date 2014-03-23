@@ -2,8 +2,7 @@ Class Note - English(R&W) - 1st Class
 =======================================
 
 :date: 2014-02-25
-:tags: MS Windows, Batch
-:category: StudyNote
+:tags: English
 :author: we.taper
 
 

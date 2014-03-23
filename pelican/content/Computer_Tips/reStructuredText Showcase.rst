@@ -5,7 +5,6 @@ The Subtitle
 
 :date: 2014-03-02
 :tags: English
-:category: StudyNote
 :author: we.taper
 
 -----------------------------------
