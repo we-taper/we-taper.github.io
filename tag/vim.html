@@ -23,7 +23,58 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/vim-ide-note-last-update-2013-03-08.html">Vim IDE Note (last update: 2013-03-08)</a></h1>
+                    <h1 class="entry-title"><a href="/pentadactyl-use-vim-in-firefox.html">Pentadactyl - Use Vim in Firefox</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2014-03-23T00:00:00">
+                周日 23 三月 2014
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/wetaper.html">we.taper</a>
+        </address>
+<p>In <a href="/category/computer_tips.html">Computer_Tips</a>. </p>
+<p>tags: <a href="/tag/firefox.html">Firefox</a><a href="/tag/vim.html">Vim</a></p>
+</footer><!-- /.post-info --><h1>Pentadactyl - Use Vim in Firefox</h1>
+<h2>Introduction</h2>
+<p>As a crazy lover in Vim, You will expect Vim-like key-bindings everywhere. Here's a firefox plugin to embed Vim into my favorite browser firefox. This plugin is developed by the original maintainer of Vimperator - another plugin in firefox to implement Vim into firefox. They changed to this new plugin to make the best of new js engine in firefox 4 (and later).</p>
+<p><strong>Note: </strong> You should at least have used Vim before to read throught this guide, otherwise there would be many unfamiliar things which would caused quite a pain if you continue.</p>
+<h2>Usage</h2>
+<h1>Basic</h1>
+<p>Install it from official firefox plugin center.</p>
+<p>You might get quite confused when you first use Pentadactyl since it hide almost everything inside firefox. So, to bring back something familiar, use command:</p>
+<div class="highlight"><pre><span class="o">:</span><span class="n">set</span> <span class="n">guioptions</span><span class="o">+=</span><span class="n">xxxxx</span>
+</pre></div>
+
+
+<p>If you have some familarity of Vim, you certainly understands how to type this command into firefox. Pentadactyl provides a very user-friendly input window for you. As you type the command, some suggestions show up automatically. You will find, in these suggestions, some parameter you can put to replace the "xxxxx" in above command. For example, you can add Bookmark bar , Toolbar and Status bar to current window by:</p>
+<div class="highlight"><pre><span class="o">:</span><span class="n">set</span> <span class="n">guioptions</span><span class="o">+=</span><span class="n">BsT</span>
+</pre></div>
+
+
+<p>Actually, you will certain guess if there is a <code>set guioptions-=xx</code>. Yes, there is! What does it mean? Guess it yourself.</p>
+<h1>Quick Start</h1>
+<p>Using Pentadactyl is really easy for those who has already use Vim. I always like first look at the <em>Quick-Start tutorial</em> os everything. Here's the quick start guide for Pentadactyl: <a href="dactyl://help/tutorial">Quick-Start</a> (You should have Pentadactyl installed to open this link.)</p>
+<p>Tip:</p>
+<ul>
+<li>Normal scrolling mode in Vim command mode works the same for Pentadactyl.</li>
+<li>Use <code>Ctrl+n</code>, <code>Ctrl+p</code> for navigating between tabs and <code>H</code>, <code>L</code> for history.</li>
+<li>Use <code>y</code> to copy text. <strong>Note: </strong> Use <code>Y</code> (captalized) to copy current text into system clipboard instead of <code>y</code>. (See more at <code>:help copying</code>).</li>
+<li>At start up, Pentadactyl will execute contents inside <code>~/.pentadactylrc</code>. This is the place where you can prepare your own working environment (just like <code>vimrc</code>). <code>~</code> means the home path, which depends on the underlaying OS.</li>
+<li>Sometimes we get so familiar with the default key-bindings in firefox, here <code>Ctrl-V</code> will pass all the following commends directly to firefox. (This is called <code>pass through</code> mode.)</li>
+</ul>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/vim-ide-note-last-update-2013-03-08.html" rel="bookmark"
+                           title="Permalink to Vim IDE Note (last update: 2013-03-08)">Vim IDE Note (last update: 2013-03-08)</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2014-03-08T11:00:00">
                 周六 08 三月 2014
@@ -34,43 +85,11 @@
         </address>
 <p>In <a href="/category/programming.html">Programming</a>. </p>
 <p>tags: <a href="/tag/ide.html">IDE</a><a href="/tag/vim.html">Vim</a></p>
-</footer><!-- /.post-info --><h1>Vim IDE Note</h1>
-<p>Here's how I turned VIM into a modern IDE.</p>
-<p><strong>Content</strong></p>
-<ul>
-<li>Overall<ul>
-<li>Plugin Management - Pathogen</li>
-</ul>
-</li>
-<li>Java Part<ul>
-<li>Java code completion - VJDE</li>
-</ul>
-</li>
-</ul>
-<h2>Overall</h2>
-<h3>Plugin Management - Pathogen</h3>
-<p>Download from github: <a href="https://github.com/tpope/vim-pathogen">https://github.com/tpope/vim-pathogen</a></p>
-<p>Extract to <code>~/.vim/autoload</code> or <code>%homepath%\vimfiles\autoload</code>.</p>
-<p>Edit <code>vimrc</code>, add following:</p>
-<div class="highlight"><pre><span class="s">&quot; For Pathogen Plugin manager</span>
-<span class="n">call</span> <span class="n">pathogen</span><span class="err">#</span><span class="n">infect</span><span class="p">()</span> <span class="s">&quot; Infect so that pathogen auto-install all plugins</span>
-<span class="n">call</span> <span class="n">pathogen</span><span class="err">#</span><span class="n">helptags</span><span class="p">()</span> <span class="s">&quot; Build up things inside &#39;doc&#39; directory.</span>
-</pre></div>
-
-
-<p>Then add plugins into <code>bundle</code> folder inside vimfiles. Pathogen will does everything else for you.
-Java Part</p>
-<hr />
-<h3>Java code completion - VJDE</h3>
-<p><strong>Note: </strong> To make the bes to modern IDE like Eclipse, I strongly suggest you to try <a href="http://eclim.org">eclim</a>, a great tool which embed vim directly into Eclipse.</p>
-<p>Using Script: <a href="http://www.vim.org/scripts/script.php?script_id=1213">Vim JDE</a></p>
-<p>Download and extract to into <code>bundle</code> folder inside default folder (e.g. <code>~/.vim</code> under Linux) within a new <code>vjde</code> folder (so we can manage plugins better).</p>
-<p>Then when editing Java files we can use <Ctrl+x><Ctrl+u> to invode auto completion (vjde will find all possible methods/fields inside).</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+</footer><!-- /.post-info -->                <h1>Vim IDE Note</h1>
+<p>Here's how I turned VIM into ...</p>
+                <a class="readmore" href="/vim-ide-note-last-update-2013-03-08.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>

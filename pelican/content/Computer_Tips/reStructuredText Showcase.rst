@@ -4,7 +4,6 @@ The Subtitle
 -------------
 
 :date: 2014-03-02
-:tags: English
 :author: we.taper
 
 -----------------------------------

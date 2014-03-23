@@ -37,6 +37,8 @@ Using Pentadactyl is really easy for those who has already use Vim. I always lik
 
 Tip:
 
-	+ Normal scrolling mode in Vim command mode works the same for Pentadactyl.
-	+ Use `Ctrl+n`, `Ctrl+p` for navigating between tabs and `H`, `L` for history.
-	+ Use `y` to copy text. **Note: ** Use `Y` (captalized) to copy current text into system clipboard instead of `y`. (See more at `:help copying`).
++ Normal scrolling mode in Vim command mode works the same for Pentadactyl.
++ Use `Ctrl+n`, `Ctrl+p` for navigating between tabs and `H`, `L` for history.
++ Use `y` to copy text. **Note: ** Use `Y` (captalized) to copy current text into system clipboard instead of `y`. (See more at `:help copying`).
++ At start up, Pentadactyl will execute contents inside `~/.pentadactylrc`. This is the place where you can prepare your own working environment (just like `vimrc`). `~` means the home path, which depends on the underlaying OS.
++ Sometimes we get so familiar with the default key-bindings in firefox, here `Ctrl-V` will pass all the following commends directly to firefox. (This is called `pass through` mode.)
