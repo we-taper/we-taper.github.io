@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>WE-TapEr's Blog - unFinished</title>
+        <title>A Blog - unFinished</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
@@ -11,9 +11,13 @@
 </head>
 
 <body id="index" class="home">
+<a href="https://github.com/we-taper">
+<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
+</a>
         <header id="banner" class="body">
-                <h1><a href="/">WE-TapEr's Blog </a></h1>
+                <h1><a href="/">A Blog  <strong>about Coding.</strong></a></h1>
                 <nav><ul>
+                    <li><a href="/pages/who-am-i.html">Who am I?</a></li>
                     <li><a href="/category/blogging.html">Blogging</a></li>
                     <li><a href="/category/computer_tips.html">Computer_Tips</a></li>
                     <li><a href="/category/coursenote.html">CourseNote</a></li>
@@ -23,43 +27,81 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/Markdown Tips.html">Markdown Tips</a></h1>
+                    <h1 class="entry-title"><a href="/using-pelican-and-github-to-blog-configuration.html">Using Pelican and Github to Blog - Configuration</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2014-02-21T14:00:00">
-                周五 21 二月 2014
+        <abbr class="published" title="2014-03-23T00:00:00">
+                周日 23 三月 2014
         </abbr>
 
         <address class="vcard author">
                 By <a class="url fn" href="/author/wetaper.html">we.taper</a>
         </address>
-<p>In <a href="/category/computer_tips.html">Computer_Tips</a>. </p>
-<p>tags: <a href="/tag/markup-language.html">Markup Language</a><a href="/tag/unfinished.html">unFinished</a></p>
-</footer><!-- /.post-info --><h1>Markdown Tips</h1>
-<ul>
-<li>
-<p>Using Markdown On Notepad++</p>
-<p>At first I want to using markdown inside Vim. However, the 
-configuration and learning cost force me to turn to notepad++.
-After some search, found two plugins:</p>
+<p>In <a href="/category/blogging.html">Blogging</a>. </p>
+<p>tags: <a href="/tag/pelican.html">Pelican</a><a href="/tag/unfinished.html">unFinished</a><a href="/tag/unpolished.html">unPolished</a></p>
+</footer><!-- /.post-info --><h2>Configuration File</h2>
+<p>Pelican is rather simple. Please refer to the original document for more detailed instructions : <a href="http://docs.getpelican.com/en/3.3.0/settings.html#basic-settings">Settings - Pelican</a>.</p>
+<p>Here's what I did:</p>
+<p><em>Note: * The settings should be changed mainly in the pelican configuration file. </em>How to locate the configuration?<em>: If you have </em>kick start* your website using quick starter, you will find the auto-generated configuration file <code>pelicanconf.py</code> in your website directory. Otherwise, create one with name you like.</p>
+<h3>What I have changed.</h3>
+<div class="highlight"><pre><span class="n">AUTHOR</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">xxxx</span><span class="err">&#39;</span>
+<span class="n">SITENAME</span> <span class="o">=</span> <span class="s">&quot;Your Blog&#39;s Name&quot;</span>
+<span class="cp"># See, &#39; and &quot;, both can be used for String literals. These is the feature of Python.</span>
+
+<span class="n">USE_FOLDER_AS_CATEGORY</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">True</span><span class="err">&#39;</span>
+<span class="cp"># Blogroll</span>
+<span class="n">LINKS</span> <span class="o">=</span>  <span class="p">((</span><span class="err">&#39;</span><span class="n">Name</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">http</span><span class="o">:</span><span class="c1">//linkaddress.com/&#39;),)</span>
+
+<span class="cp"># Social widget</span>
+<span class="n">SOCIAL</span> <span class="o">=</span> <span class="p">((</span><span class="s">&quot;E-Mail name&quot;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">xxx</span><span class="err">@</span><span class="n">xx</span><span class="p">.</span><span class="n">com</span><span class="err">&#39;</span><span class="p">),)</span>
+
+<span class="n">TIMEZONE</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">Asia</span><span class="o">/</span><span class="n">Shanghai</span><span class="err">&#39;</span>
+
+<span class="cp"># Set the maximum length (in words) of summary.</span>
+<span class="n">SUMMARY_MAX_LENGTH</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div>
+
+
+<h3>Configure Themes</h3>
+<p>Changing themes in pelican can be quite convenient. Just download the theme and setting up in Pelican cofiguration file. </p>
+<h4>Where to find themes?</h4>
+<p>Several methods: Try Google. Copy other's website. Download themes in pelican's github page:<a href="https://github.com/getpelican/pelican-themes">Pelican Themes</a> </p>
+<h4>Pelican-themes</h4>
+<p>Pelican provide a built-in theme manager which you can assess by command:</p>
+<div class="highlight"><pre><span class="n">pelican</span><span class="o">-</span><span class="n">themes</span> <span class="o">-</span><span class="n">h</span>  <span class="err">#</span> <span class="n">This</span> <span class="n">calles</span> <span class="n">the</span> <span class="n">help</span><span class="p">.</span>
+<span class="n">pelican</span><span class="o">-</span><span class="n">themes</span> <span class="o">-</span><span class="n">l</span>  <span class="err">#</span> <span class="n">This</span> <span class="n">lists</span> <span class="n">all</span> <span class="n">the</span> <span class="n">themes</span> <span class="n">installed</span><span class="p">.</span>
+<span class="n">pelican</span><span class="o">-</span><span class="n">themes</span> <span class="o">-</span><span class="n">vl</span> <span class="err">#</span> <span class="n">The</span> <span class="o">-</span><span class="n">v</span> <span class="p">(</span><span class="n">verbose</span><span class="p">)</span> <span class="n">gives</span> <span class="n">us</span> <span class="n">more</span> <span class="n">detailed</span> <span class="n">information</span> <span class="n">to</span> <span class="n">the</span> <span class="n">output</span> <span class="o">-</span> <span class="n">here</span> <span class="n">it</span> <span class="n">lists</span> <span class="n">the</span> <span class="n">place</span> <span class="n">where</span> <span class="n">themes</span> <span class="n">locate</span><span class="p">.</span>
+</pre></div>
+
+
+<p>There exist, by default, two themes in pelican - <em>notmyidea</em> and <em>simple</em>. You can install additional theme by running command</p>
+<p>See more at <a href="http://docs.getpelican.com/en/3.3.0/settings.html#basic-settings">Pelican Doc - Theme</a></p>
+<h1>Something about edit Blogs</h1>
+<h2>Link to internal content.</h2>
+<p><em>See :</em><a href="http://docs.getpelican.com/en/3.3.0/getting_started.html#linking-to-internal-content">Linking to internal content</a></p>
+<p>Replace URL with these:</p>
+<p>To file:     </p>
+<div class="highlight"><pre><span class="p">{</span><span class="n">filename</span><span class="p">}</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">file</span>
+</pre></div>
+
+
+<p>To tags:  </p>
+<div class="highlight"><pre><span class="p">{</span><span class="n">tag</span><span class="p">}</span><span class="n">tagname</span>
+</pre></div>
+
+
+<p>To Category:  </p>
+<div class="highlight"><pre><span class="p">{</span><span class="n">category</span><span class="p">}</span><span class="n">foobar</span>
+</pre></div>
+
+
+<p><strong>Note :</strong></p>
 <ol>
-<li>ViSimulator - Make notepad++ vim-like.
-    Provide some basic functions, enough for me. Available at
-    <a href="http://sourceforge.net/apps/mediawiki/notepad-plus/index.php?title=Plugin_Central">Notepad++ Plugin Site</a> as well as the built-in
-    Plugin Manager.</li>
-<li>NppMarkdown - Preview markdown instantly inside notepad++.
-    Good. Although the parsing engine doesn't recognize "#"
-    as title mark. Alse, referenced link also not support. Pity.
-    Available at <a href="http://sourceforge.net/apps/mediawiki/notepad-plus/index.php?title=Plugin_Central">Notepad++ Plugin Site</a>.  </li>
+<li>Pelican does not support referenced link of this type.</li>
+<li>The <code>{filaname}</code> is actually <code>{filaname}</code>, don't put some real file name here or pelican will recognize it as Category name.</li>
 </ol>
-<p>Installing is quite stright forward, guidance available at: <a href="http://sourceforge.net/apps/mediawiki/notepad-plus/index.php?title=Plugin_Central">Np++ Wiki - Plugin</a><br />
-(Actually, a little guess would be enough to install plugins.)  </p>
-</li>
-<li>
-<p>Markup Language Translator</p>
-<p>A tool to translate between different markup languages: <a href="http://marksy.arc90.com/">_Marksy</a>
-(Also available as a Chrome Plugin)</p>
-</li>
-</ul>                </article>
+<h2>Creating Pages</h2>
+<p>In Pelican, user can generate some special webpage which will have its own link in your homepage like the traditional <em>About Me</em> page seen in most blogs.</p>
+<p>To do this, you simple put webpage of these kind inside a special folder named <code>pages</code>. All webpage there will have its own link on your homepage.</p>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
@@ -68,8 +110,8 @@ After some search, found two plugins:</p>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/Using Jekyll and Github to Blog.html" rel="bookmark"
-                           title="Permalink to Using Jekyll and Github to Blog v0.1 (Failed)">Using Jekyll and Github to Blog v0.1 (Failed)</a></h1>
+                    <h1><a href="/Markdown Tips.html" rel="bookmark"
+                           title="Permalink to Markdown Tips">Markdown Tips</a></h1>
                 </header>
 
                 <div class="entry-content">
@@ -81,17 +123,17 @@ After some search, found two plugins:</p>
         <address class="vcard author">
                 By <a class="url fn" href="/author/wetaper.html">we.taper</a>
         </address>
-<p>In <a href="/category/blogging.html">Blogging</a>. </p>
-<p>tags: <a href="/tag/jykell.html">Jykell</a><a href="/tag/unfinished.html">unFinished</a></p>
-</footer><!-- /.post-info -->                <p>Spent a whole day on Jykell, but failed. Turned to Pelican instead.</p>
-                <a class="readmore" href="/Using Jekyll and Github to Blog.html">read more</a>
+<p>In <a href="/category/computer_tips.html">Computer_Tips</a>. </p>
+<p>tags: <a href="/tag/markup-language.html">Markup Language</a><a href="/tag/unfinished.html">unFinished</a></p>
+</footer><!-- /.post-info -->                <p>Tips on Markdown Language.</p>
+                <a class="readmore" href="/Markdown Tips.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/Using Pelican and Github to Blog.html" rel="bookmark"
-                           title="Permalink to Using Pelican and Github to Blog, v0.1">Using Pelican and Github to Blog, v0.1</a></h1>
+                    <h1><a href="/using-pelican-and-github-to-blog-start.html" rel="bookmark"
+                           title="Permalink to Using Pelican and Github to Blog - Start">Using Pelican and Github to Blog - Start</a></h1>
                 </header>
 
                 <div class="entry-content">
@@ -104,9 +146,9 @@ After some search, found two plugins:</p>
                 By <a class="url fn" href="/author/wetaper.html">we.taper</a>
         </address>
 <p>In <a href="/category/blogging.html">Blogging</a>. </p>
-<p>tags: <a href="/tag/pelican.html">Pelican</a><a href="/tag/unfinished.html">unFinished</a></p>
+<p>tags: <a href="/tag/pelican.html">Pelican</a><a href="/tag/unfinished.html">unFinished</a><a href="/tag/unpolished.html">unPolished</a></p>
 </footer><!-- /.post-info -->                <p>Using Pelican to generate static website and push to Github to blog.</p>
-                <a class="readmore" href="/Using Pelican and Github to Blog.html">read more</a>
+                <a class="readmore" href="/using-pelican-and-github-to-blog-start.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->

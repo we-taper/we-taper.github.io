@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>WE-TapEr's Blog - Pelican</title>
+        <title>A Blog - Pelican</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
@@ -11,9 +11,13 @@
 </head>
 
 <body id="index" class="home">
+<a href="https://github.com/we-taper">
+<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
+</a>
         <header id="banner" class="body">
-                <h1><a href="/">WE-TapEr's Blog </a></h1>
+                <h1><a href="/">A Blog  <strong>about Coding.</strong></a></h1>
                 <nav><ul>
+                    <li><a href="/pages/who-am-i.html">Who am I?</a></li>
                     <li><a href="/category/blogging.html">Blogging</a></li>
                     <li><a href="/category/computer_tips.html">Computer_Tips</a></li>
                     <li><a href="/category/coursenote.html">CourseNote</a></li>
@@ -23,7 +27,7 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/pelican-configuration.html">Pelican Configuration</a></h1>
+                    <h1 class="entry-title"><a href="/using-pelican-and-github-to-blog-configuration.html">Using Pelican and Github to Blog - Configuration</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2014-03-23T00:00:00">
                 周日 23 三月 2014
@@ -33,14 +37,15 @@
                 By <a class="url fn" href="/author/wetaper.html">we.taper</a>
         </address>
 <p>In <a href="/category/blogging.html">Blogging</a>. </p>
-<p>tags: <a href="/tag/pelican.html">Pelican</a></p>
-</footer><!-- /.post-info --><h1>Pelican Configuration</h1>
+<p>tags: <a href="/tag/pelican.html">Pelican</a><a href="/tag/unfinished.html">unFinished</a><a href="/tag/unpolished.html">unPolished</a></p>
+</footer><!-- /.post-info --><h2>Configuration File</h2>
 <p>Pelican is rather simple. Please refer to the original document for more detailed instructions : <a href="http://docs.getpelican.com/en/3.3.0/settings.html#basic-settings">Settings - Pelican</a>.</p>
 <p>Here's what I did:</p>
 <p><em>Note: * The settings should be changed mainly in the pelican configuration file. </em>How to locate the configuration?<em>: If you have </em>kick start* your website using quick starter, you will find the auto-generated configuration file <code>pelicanconf.py</code> in your website directory. Otherwise, create one with name you like.</p>
 <h3>What I have changed.</h3>
-<div class="highlight"><pre><span class="n">AUTHOR</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">WE</span><span class="o">-</span><span class="n">TapEr</span><span class="err">&#39;</span>
-<span class="n">SITENAME</span> <span class="o">=</span> <span class="s">&quot;WE-TapEr&#39;s Blog&quot;</span>
+<div class="highlight"><pre><span class="n">AUTHOR</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">xxxx</span><span class="err">&#39;</span>
+<span class="n">SITENAME</span> <span class="o">=</span> <span class="s">&quot;Your Blog&#39;s Name&quot;</span>
+<span class="cp"># See, &#39; and &quot;, both can be used for String literals. These is the feature of Python.</span>
 
 <span class="n">USE_FOLDER_AS_CATEGORY</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">True</span><span class="err">&#39;</span>
 <span class="cp"># Blogroll</span>
@@ -53,7 +58,50 @@
 
 <span class="cp"># Set the maximum length (in words) of summary.</span>
 <span class="n">SUMMARY_MAX_LENGTH</span> <span class="o">=</span> <span class="mi">10</span>
-</pre></div>                </article>
+</pre></div>
+
+
+<h3>Configure Themes</h3>
+<p>Changing themes in pelican can be quite convenient. Just download the theme and setting up in Pelican cofiguration file. </p>
+<h4>Where to find themes?</h4>
+<p>Several methods: Try Google. Copy other's website. Download themes in pelican's github page:<a href="https://github.com/getpelican/pelican-themes">Pelican Themes</a> </p>
+<h4>Pelican-themes</h4>
+<p>Pelican provide a built-in theme manager which you can assess by command:</p>
+<div class="highlight"><pre><span class="n">pelican</span><span class="o">-</span><span class="n">themes</span> <span class="o">-</span><span class="n">h</span>  <span class="err">#</span> <span class="n">This</span> <span class="n">calles</span> <span class="n">the</span> <span class="n">help</span><span class="p">.</span>
+<span class="n">pelican</span><span class="o">-</span><span class="n">themes</span> <span class="o">-</span><span class="n">l</span>  <span class="err">#</span> <span class="n">This</span> <span class="n">lists</span> <span class="n">all</span> <span class="n">the</span> <span class="n">themes</span> <span class="n">installed</span><span class="p">.</span>
+<span class="n">pelican</span><span class="o">-</span><span class="n">themes</span> <span class="o">-</span><span class="n">vl</span> <span class="err">#</span> <span class="n">The</span> <span class="o">-</span><span class="n">v</span> <span class="p">(</span><span class="n">verbose</span><span class="p">)</span> <span class="n">gives</span> <span class="n">us</span> <span class="n">more</span> <span class="n">detailed</span> <span class="n">information</span> <span class="n">to</span> <span class="n">the</span> <span class="n">output</span> <span class="o">-</span> <span class="n">here</span> <span class="n">it</span> <span class="n">lists</span> <span class="n">the</span> <span class="n">place</span> <span class="n">where</span> <span class="n">themes</span> <span class="n">locate</span><span class="p">.</span>
+</pre></div>
+
+
+<p>There exist, by default, two themes in pelican - <em>notmyidea</em> and <em>simple</em>. You can install additional theme by running command</p>
+<p>See more at <a href="http://docs.getpelican.com/en/3.3.0/settings.html#basic-settings">Pelican Doc - Theme</a></p>
+<h1>Something about edit Blogs</h1>
+<h2>Link to internal content.</h2>
+<p><em>See :</em><a href="http://docs.getpelican.com/en/3.3.0/getting_started.html#linking-to-internal-content">Linking to internal content</a></p>
+<p>Replace URL with these:</p>
+<p>To file:     </p>
+<div class="highlight"><pre><span class="p">{</span><span class="n">filename</span><span class="p">}</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">file</span>
+</pre></div>
+
+
+<p>To tags:  </p>
+<div class="highlight"><pre><span class="p">{</span><span class="n">tag</span><span class="p">}</span><span class="n">tagname</span>
+</pre></div>
+
+
+<p>To Category:  </p>
+<div class="highlight"><pre><span class="p">{</span><span class="n">category</span><span class="p">}</span><span class="n">foobar</span>
+</pre></div>
+
+
+<p><strong>Note :</strong></p>
+<ol>
+<li>Pelican does not support referenced link of this type.</li>
+<li>The <code>{filaname}</code> is actually <code>{filaname}</code>, don't put some real file name here or pelican will recognize it as Category name.</li>
+</ol>
+<h2>Creating Pages</h2>
+<p>In Pelican, user can generate some special webpage which will have its own link in your homepage like the traditional <em>About Me</em> page seen in most blogs.</p>
+<p>To do this, you simple put webpage of these kind inside a special folder named <code>pages</code>. All webpage there will have its own link on your homepage.</p>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
@@ -62,8 +110,8 @@
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/Using Pelican and Github to Blog.html" rel="bookmark"
-                           title="Permalink to Using Pelican and Github to Blog, v0.1">Using Pelican and Github to Blog, v0.1</a></h1>
+                    <h1><a href="/using-pelican-and-github-to-blog-start.html" rel="bookmark"
+                           title="Permalink to Using Pelican and Github to Blog - Start">Using Pelican and Github to Blog - Start</a></h1>
                 </header>
 
                 <div class="entry-content">
@@ -76,9 +124,9 @@
                 By <a class="url fn" href="/author/wetaper.html">we.taper</a>
         </address>
 <p>In <a href="/category/blogging.html">Blogging</a>. </p>
-<p>tags: <a href="/tag/pelican.html">Pelican</a><a href="/tag/unfinished.html">unFinished</a></p>
+<p>tags: <a href="/tag/pelican.html">Pelican</a><a href="/tag/unfinished.html">unFinished</a><a href="/tag/unpolished.html">unPolished</a></p>
 </footer><!-- /.post-info -->                <p>Using Pelican to generate static website and push to Github to blog.</p>
-                <a class="readmore" href="/Using Pelican and Github to Blog.html">read more</a>
+                <a class="readmore" href="/using-pelican-and-github-to-blog-start.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->

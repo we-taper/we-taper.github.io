@@ -1,6 +1,6 @@
 Title: Using Jekyll and Github to Blog v0.1 (Failed)
 Date: 2014-2-21 14:00
-Tags: Jykell, unFinished
+Tags: Jykell, unPolished
 Slug: Using Jekyll and Github to Blog
 Author: we.taper
 Summary: Spent a whole day on Jykell, but failed. Turned to Pelican instead.

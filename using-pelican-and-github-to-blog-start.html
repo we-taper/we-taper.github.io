@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>Using Pelican and Github to Blog, v0.1</title>
+        <title>Using Pelican and Github to Blog - Start</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
@@ -11,11 +11,13 @@
 </head>
 
 <body id="index" class="home">
+<a href="https://github.com/we-taper">
+<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
+</a>
         <header id="banner" class="body">
-                <h1><a href="/">WE-TapEr's Blog </a></h1>
+                <h1><a href="/">A Blog  <strong>about Coding.</strong></a></h1>
                 <nav><ul>
-                    <li><a href="/pages/about-me.html">About Me</a></li>
-                    <li><a href="/pages/test-pages.html">Test Pages</a></li>
+                    <li><a href="/pages/who-am-i.html">Who am I?</a></li>
                     <li class="active"><a href="/category/blogging.html">Blogging</a></li>
                     <li><a href="/category/computer_tips.html">Computer_Tips</a></li>
                     <li><a href="/category/coursenote.html">CourseNote</a></li>
@@ -26,8 +28,8 @@
   <article>
     <header>
       <h1 class="entry-title">
-        <a href="/Using Pelican and Github to Blog.html" rel="bookmark"
-           title="Permalink to Using Pelican and Github to Blog, v0.1">Using Pelican and Github to Blog, v0.1</a></h1>
+        <a href="/using-pelican-and-github-to-blog-start.html" rel="bookmark"
+           title="Permalink to Using Pelican and Github to Blog - Start">Using Pelican and Github to Blog - Start</a></h1>
     </header>
 
     <div class="entry-content">
@@ -40,7 +42,7 @@
                 By <a class="url fn" href="/author/wetaper.html">we.taper</a>
         </address>
 <p>In <a href="/category/blogging.html">Blogging</a>. </p>
-<p>tags: <a href="/tag/pelican.html">Pelican</a><a href="/tag/unfinished.html">unFinished</a></p>
+<p>tags: <a href="/tag/pelican.html">Pelican</a><a href="/tag/unfinished.html">unFinished</a><a href="/tag/unpolished.html">unPolished</a></p>
 </footer><!-- /.post-info -->      <h1>1. Install Pelican</h1>
 <p><strong>Note :</strong> Before reading this article, a quick scan over 
 <a href="/Using Jekyll and Github to Blog.html">Jykell Install</a> would be very helpful in building a basic knowledge.
@@ -107,31 +109,6 @@ more reliable previewing experience:<br />
 <h3>2.2.2 Some automation tools</h3>
 <p><em>See :</em><a href="http://docs.getpelican.com/en/3.3.0/getting_started.html#automation-tools">Automation Tools</a></p>
 <p>To easy my way of editing and publishing, I choose <em>Fabric</em></p>
-<h3>2.2.3 Link to internal content.</h3>
-<p><em>See :</em><a href="http://docs.getpelican.com/en/3.3.0/getting_started.html#linking-to-internal-content">Linking to internal content</a></p>
-<p>Replace URL with these:</p>
-<p>To file:     </p>
-<div class="highlight"><pre><span class="p">{</span><span class="n">filename</span><span class="p">}</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">file</span>
-</pre></div>
-
-
-<p>To tags:  </p>
-<div class="highlight"><pre><span class="p">{</span><span class="n">tag</span><span class="p">}</span><span class="n">tagname</span>
-</pre></div>
-
-
-<p>To Category:  </p>
-<div class="highlight"><pre><span class="p">{</span><span class="n">category</span><span class="p">}</span><span class="n">foobar</span>
-</pre></div>
-
-
-<p><strong>Note :</strong></p>
-<ol>
-<li>Pelican does not support referenced link of this type.</li>
-<li>The <code>{filaname}</code> is actually <code>{filaname}</code>, don't put some real file name here or pelican will recognize it as Category name.</li>
-</ol>
-<p><strong>Note 2:</strong> </p>
-<p>Pelican do not clear the content of "output" when running <code>pelican CONTENT_PATH</code>. By this user can setup git repo in "output" and push them to somewhere like <strong>Gighub Pages</strong>.</p>
 <h3>2.2.2 Push to Github Pages</h3>
 <ul>
 <li>Change the output directory:</li>
@@ -186,7 +163,7 @@ Source: <a href="https://github.com/kylef/kylefuller.co.uk">https://github.com/k
 <ul>
 <li>In Pelican: <code>'utf-8' codec can't decode byte 0xbe in position 2458: invalid start byte</code><br />
 <strong>Why:</strong> Some files are stored in encoding GBK (or something else other than 
-UTF-8). Since python (and almost everything else) suppports utf-8, use some text
+UTF-8) which is not supported by Pelican by default. Since python (and almost everything else) suppports utf-8, use some text
 editor (mine is notepad++) to change encoding to utf-8. [SOLVED]</li>
 </ul>
 <h1>Tips</h1>

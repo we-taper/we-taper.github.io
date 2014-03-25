@@ -1,7 +1,6 @@
-Title: Using Pelican and Github to Blog, v0.1
+Title: Using Pelican and Github to Blog - Start
 Date: 2014-2-21 2:00
-Tags: Pelican, unFinished
-Slug: Using Pelican and Github to Blog
+Tags: Pelican, unFinished, unPolished
 Author: we.taper
 Summary: Using Pelican to generate static website and push to Github to blog.
 
@@ -89,36 +88,14 @@ linked assets, running a simple web server using Python will often provide a
 more reliable previewing experience:  
 	cd output && python -m SimpleHTTPServer  
 *Note :* In python 3, modulus `SimpleHTTPServer` has been replaced by `http.server`
-###2.2.2 Some automation tools  
+
+
+
+###2.2.2 Some automation tools
+
 *See :*[Automation Tools][a_t]
 
 To easy my way of editing and publishing, I choose *Fabric*
-
-###2.2.3 Link to internal content.
-*See :*[Linking to internal content][ltic]
-
-Replace URL with these:
-
-To file: 	 
-
-	{filename}path/to/file  
-
-To tags:  
-
-	{tag}tagname  
-
-To Category:  
-
-	{category}foobar  
-
-**Note :**
-
-1. Pelican does not support referenced link of this type.
-2. The `{filaname}` is actually `{filaname}`, don't put some real file name here or pelican will recognize it as Category name.
-
-**Note 2:** 
-
-Pelican do not clear the content of "output" when running `pelican CONTENT_PATH`. By this user can setup git repo in "output" and push them to somewhere like **Gighub Pages**.
 
 ###2.2.2 Push to Github Pages
 
@@ -176,7 +153,7 @@ Source: <https://github.com/kylef/kylefuller.co.uk>
 
 * In Pelican: `'utf-8' codec can't decode byte 0xbe in position 2458: invalid start byte`  
 	**Why:** Some files are stored in encoding GBK (or something else other than 
-UTF-8). Since python (and almost everything else) suppports utf-8, use some text
+UTF-8) which is not supported by Pelican by default. Since python (and almost everything else) suppports utf-8, use some text
 editor (mine is notepad++) to change encoding to utf-8. [SOLVED]
 
 
@@ -190,6 +167,5 @@ editor (mine is notepad++) to change encoding to utf-8. [SOLVED]
 [ssg_list]:http://staticsitegenerators.net/
 [l_1]:https://pypi.python.org/pypi/setuptools#windows
 [a_t]:http://docs.getpelican.com/en/3.3.0/getting_started.html#automation-tools
-[ltic]:http://docs.getpelican.com/en/3.3.0/getting_started.html#linking-to-internal-content
 [ped_by_pc]:https://github.com/getpelican/pelican/wiki/Powered-by-Pelican
 [pel_help_set]:http://docs.getpelican.com/en/3.3.0/settings.html
