@@ -102,8 +102,19 @@
 
 <p>For more details, please visit: <a href="docs.getpelican.com/en/3.3.0/settings.html#themes">Pelican Doc - themes</a></p>
 <h2>Using Disqus</h2>
-<p>You can add commenting functionality suppport by add Disqus to your blog. Disqus is a blog comment hosting service for websites and online communities that uses a networked platform. See <a href="http://en.wikipedia.org/wiki/Disqus">Wikipedia Disqus</a>
-Something about Editing Blogs</p>
+<p>You can add commenting functionality suppport by add Disqus to your blog. Disqus is a blog comment hosting service for websites and online communities that uses a networked platform. See <a href="http://en.wikipedia.org/wiki/Disqus">Wikipedia Disqus</a></p>
+<ol>
+<li>Register an account on Disqus</li>
+<li>On Disqus, choose <em>"Add Disqus to Your Site"</em> and finish the process.</li>
+<li>Find your shorname, which is ususally the same as in : <code>http://xxx.disqus.com/</code> (xxx is your shortname).</li>
+<li>In Pelican configuration file, add following:<div class="highlight"><pre><span class="n">DISQUS_SITENAME</span> <span class="o">=</span> <span class="s">&quot;Your Short Name Here&quot;</span>
+</pre></div>
+
+
+</li>
+</ol>
+<p>Done!</p>
+<p>Something about Editing Blogs</p>
 <p>=====================</p>
 <h2>Link to internal content.</h2>
 <p><em>See :</em><a href="http://docs.getpelican.com/en/3.3.0/getting_started.html#linking-to-internal-content">Linking to internal content</a></p>
@@ -139,7 +150,7 @@ Something about Editing Blogs</p>
         var disqus_identifier = "using-pelican-and-github-to-blog-configuration.html";
         (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://taper.disqus.com.disqus.com/embed.js';
+        dsq.src = 'http://taper.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
       </script>
@@ -173,7 +184,7 @@ Something about Editing Blogs</p>
         </footer><!-- /#contentinfo -->
 
 <script type="text/javascript">
-    var disqus_shortname = 'taper.disqus.com';
+    var disqus_shortname = 'taper';
     (function () {
         var s = document.createElement('script'); s.async = true;
         s.type = 'text/javascript';

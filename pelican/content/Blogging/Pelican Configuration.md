@@ -78,6 +78,16 @@ For more details, please visit: [Pelican Doc - themes](docs.getpelican.com/en/3.
 ## Using Disqus
 
 You can add commenting functionality suppport by add Disqus to your blog. Disqus is a blog comment hosting service for websites and online communities that uses a networked platform. See [Wikipedia Disqus](http://en.wikipedia.org/wiki/Disqus)
+
+1. Register an account on Disqus
+2. On Disqus, choose *"Add Disqus to Your Site"* and finish the process.
+3. Find your shorname, which is ususally the same as in : `http://xxx.disqus.com/` (xxx is your shortname).
+4. In Pelican configuration file, add following:
+
+		DISQUS_SITENAME = "Your Short Name Here"
+
+Done!
+
 Something about Editing Blogs
 
 =====================

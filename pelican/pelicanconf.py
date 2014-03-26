@@ -52,8 +52,8 @@ OUTPUT_PATH = '../'
 #----------------------------------------------------------------------------------
 # Others
 
-# Add comment function via Disqus
-DISQUS_SITENAME = 'taper.disqus.com'
+# Add comment function via Disqus. (Theme dependent)
+DISQUS_SITENAME = "taper"
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
 
