@@ -44,7 +44,8 @@
 <p>tags: <a href="/tag/pelican.html">Pelican</a><a href="/tag/unfinished.html">unFinished</a><a href="/tag/unpolished.html">unPolished</a></p></footer><!-- /.post-info --><h1>Configuration File</h1>
 <p>Pelican is rather simple to configure. Please refer to the original document for more detailed instructions : <a href="http://docs.getpelican.com/en/3.3.0/settings.html#basic-settings">Settings - Pelican</a>.</p>
 <p>Here's what I did:</p>
-<p><em>Note: * The settings should be changed mainly in the pelican configuration file. </em>How to locate the configuration?<em>: If you have </em>kick start* your website using quick starter, you will find the auto-generated configuration file <code>pelicanconf.py</code> in your website directory. Otherwise, create one with name you like.</p>
+<p><strong>Note: </strong> The settings should be changed mainly in the pelican configuration file.<br />
+<em>How to locate the configuration?</em>: If you have <em>kick start</em> your website using quick starter, you will find the auto-generated configuration file <code>pelicanconf.py</code> in your website directory. Otherwise, create one with name you like.</p>
 <h3>What I have changed.</h3>
 <div class="highlight"><pre><span class="n">AUTHOR</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">xxxx</span><span class="err">&#39;</span>
 <span class="n">SITENAME</span> <span class="o">=</span> <span class="s">&quot;Your Blog&#39;s Name&quot;</span>
@@ -64,18 +65,18 @@
 </pre></div>
 
 
-<h3>Configure Themes</h3>
+<h2>Configure Themes</h2>
 <p>Changing themes in pelican can be quite convenient. Just download the theme and setting up in Pelican cofiguration file. </p>
-<h4>Where to find themes?</h4>
+<h3>Where to find themes?</h3>
 <p>Several methods: </p>
 <ul>
 <li>Try Google. </li>
 <li>Copy other's website. </li>
 <li>Download themes in pelican's github page:<a href="https://github.com/getpelican/pelican-themes">Pelican Themes</a>. Here's a website to preview these themes: <a href="http://pelicanthemes.com">Pelican themes</a> (In fact, this website is just a previewer of screenshot.png located inside the pelican-themes repository.)</li>
 </ul>
-<p><em>Note :</em> When cloning pelican-themes, make sure to add <code>--recursive</code> option to git so that all submodules linked by these repository will be cloned (Othervise you will find some folders empty after cloning). And this might take some time.</p>
+<p><strong>Note: </strong> When cloning pelican-themes, make sure to add <code>--recursive</code> option to git so that all submodules linked by these repository will be cloned (Othervise you will find some folders empty after cloning). And this might take some time so the best policy would be have a look of the screenshot first directly inside github.</p>
 <p>I personally recommand the <strong>brownstone</strong> or <strong>cebong</strong> theme.</p>
-<h4>Pelican-themes</h4>
+<h3>Pelican-themes</h3>
 <p>Pelican provide a built-in theme manager which you can assess by command:</p>
 <div class="highlight"><pre><span class="n">pelican</span><span class="o">-</span><span class="n">themes</span> <span class="o">-</span><span class="n">h</span>  <span class="err">#</span> <span class="n">This</span> <span class="n">calles</span> <span class="n">the</span> <span class="n">help</span><span class="p">.</span>
 <span class="n">pelican</span><span class="o">-</span><span class="n">themes</span> <span class="o">-</span><span class="n">l</span>  <span class="err">#</span> <span class="n">This</span> <span class="n">lists</span> <span class="n">all</span> <span class="n">the</span> <span class="n">themes</span> <span class="n">installed</span><span class="p">.</span>
@@ -85,8 +86,8 @@
 
 <p>There exist, by default, two themes in pelican - <em>notmyidea</em> and <em>simple</em>. You can install additional theme by running command</p>
 <p>See more at <a href="http://docs.getpelican.com/en/3.3.0/settings.html#basic-settings">Pelican Doc - Pelican-theme</a></p>
-<p><em>Note :</em> I don't recommend you to install themes for compatibility reasons: If you switch to another computer or OS, you will have to reinstall these themes so that pelican can recognize them. Instead, you can copy the theme you want into blog folder and push them to github. Therefore, when you clone your own blog some elsewhere, you theme will always be ready for use.</p>
-<h4>Setting up themes in Pelican configuration</h4>
+<p><strong>Note: </strong> I don't recommend you to install themes for compatibility reasons: If you switch to another computer or OS, you will have to reinstall these themes so that pelican can recognize them. Instead, you can copy the theme you want into blog folder and push them to github. Therefore, when you clone your own blog some elsewhere, you theme will always be ready for use.</p>
+<h3>Setting up themes in Pelican configuration</h3>
 <p>To specify a theme:</p>
 <div class="highlight"><pre><span class="n">THEME</span> <span class="o">=</span> <span class="s">&quot;Name Of Theme Installed&quot;</span>
 <span class="cp"># You can view installed themes by pelican-themes - vl</span>
@@ -97,7 +98,10 @@
 
 
 <p>For more details, please visit: <a href="docs.getpelican.com/en/3.3.0/settings.html#themes">Pelican Doc - themes</a></p>
-<h1>Something about Editing Blogs</h1>
+<h2>Using Disqus</h2>
+<p>You can add commenting functionality suppport by add Disqus to your blog. Disqus is a blog comment hosting service for websites and online communities that uses a networked platform. See <a href="http://en.wikipedia.org/wiki/Disqus">Wikipedia Disqus</a>
+Something about Editing Blogs</p>
+<p>=====================</p>
 <h2>Link to internal content.</h2>
 <p><em>See :</em><a href="http://docs.getpelican.com/en/3.3.0/getting_started.html#linking-to-internal-content">Linking to internal content</a></p>
 <p>Replace URL with these:</p>
@@ -116,14 +120,14 @@
 </pre></div>
 
 
-<p><strong>Note :</strong></p>
+<p><strong>Note: </strong></p>
 <ol>
 <li>Pelican does not support referenced link of this type.</li>
 <li>The <code>{filaname}</code> is actually <code>{filaname}</code>, don't put some real file name here or pelican will recognize it as Category name.</li>
 </ol>
 <h2>Creating Pages</h2>
 <p>In Pelican, user can generate some special webpage which will have its own link in your homepage like the traditional <em>About Me</em> page seen in most blogs.</p>
-<p>To do this, you simple put webpage of these kind inside a special folder named <code>pages</code>. All webpage there will have its own link on your homepage.</p>                </article>
+<p>To do this, you simple put webpage of these kind inside a special folder named <code>pages</code>. All webpage there will have its own link on your homepage.</p><p>There are <a href="/using-pelican-and-github-to-blog-configuration.html#disqus_thread">comments</a>.</p>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <hr />
@@ -174,7 +178,7 @@
                         <ul>
                             <li><a href="/" type="application/atom+xml" rel="alternate">atom feed</a></li>
 
-                            <li><a href="we.taper[在]qq.com">My E-Mail (Don't click, copy link and alter it to correct form, thx)</a></li>
+                            <li><a href="we.taper[WhateverInsideIsUseless]qq.com">My E-Mail (Don't click, copy link and alter it to correct form, thx)</a></li>
                         </ul>
                 </div><!-- /.social -->
         </section><!-- /#extras -->
@@ -186,5 +190,14 @@
 
         </footer><!-- /#contentinfo -->
 
+<script type="text/javascript">
+    var disqus_shortname = 'taper.disqus.com';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
 </body>
 </html>

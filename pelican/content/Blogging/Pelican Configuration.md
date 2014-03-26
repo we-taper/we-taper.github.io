@@ -11,7 +11,8 @@ Pelican is rather simple to configure. Please refer to the original document for
 
 Here's what I did:
 
-*Note: * The settings should be changed mainly in the pelican configuration file. *How to locate the configuration?*: If you have *kick start* your website using quick starter, you will find the auto-generated configuration file `pelicanconf.py` in your website directory. Otherwise, create one with name you like.
+**Note: ** The settings should be changed mainly in the pelican configuration file.  
+*How to locate the configuration?*: If you have *kick start* your website using quick starter, you will find the auto-generated configuration file `pelicanconf.py` in your website directory. Otherwise, create one with name you like.
 
 ### What I have changed.
 
@@ -32,11 +33,11 @@ Here's what I did:
 	SUMMARY_MAX_LENGTH = 10
 
 
-### Configure Themes
+## Configure Themes
 
 Changing themes in pelican can be quite convenient. Just download the theme and setting up in Pelican cofiguration file. 
 
-#### Where to find themes?
+### Where to find themes?
 
 Several methods: 
 
@@ -44,11 +45,11 @@ Several methods:
 + Copy other's website. 
 + Download themes in pelican's github page:[Pelican Themes](https://github.com/getpelican/pelican-themes). Here's a website to preview these themes: [Pelican themes](http://pelicanthemes.com) (In fact, this website is just a previewer of screenshot.png located inside the pelican-themes repository.)
 
-*Note :* When cloning pelican-themes, make sure to add `--recursive` option to git so that all submodules linked by these repository will be cloned (Othervise you will find some folders empty after cloning). And this might take some time.
+**Note: ** When cloning pelican-themes, make sure to add `--recursive` option to git so that all submodules linked by these repository will be cloned (Othervise you will find some folders empty after cloning). And this might take some time so the best policy would be have a look of the screenshot first directly inside github.
 
 I personally recommand the **brownstone** or **cebong** theme.
 
-#### Pelican-themes
+### Pelican-themes
 
 Pelican provide a built-in theme manager which you can assess by command:
 
@@ -60,9 +61,9 @@ There exist, by default, two themes in pelican - *notmyidea* and *simple*. You c
 
 See more at [Pelican Doc - Pelican-theme](http://docs.getpelican.com/en/3.3.0/settings.html#basic-settings)
 
-*Note :* I don't recommend you to install themes for compatibility reasons: If you switch to another computer or OS, you will have to reinstall these themes so that pelican can recognize them. Instead, you can copy the theme you want into blog folder and push them to github. Therefore, when you clone your own blog some elsewhere, you theme will always be ready for use.
+**Note: ** I don't recommend you to install themes for compatibility reasons: If you switch to another computer or OS, you will have to reinstall these themes so that pelican can recognize them. Instead, you can copy the theme you want into blog folder and push them to github. Therefore, when you clone your own blog some elsewhere, you theme will always be ready for use.
 
-#### Setting up themes in Pelican configuration
+### Setting up themes in Pelican configuration
 
 To specify a theme:
 
@@ -74,7 +75,11 @@ To specify a theme:
 
 For more details, please visit: [Pelican Doc - themes](docs.getpelican.com/en/3.3.0/settings.html#themes)
 
+## Using Disqus
+
+You can add commenting functionality suppport by add Disqus to your blog. Disqus is a blog comment hosting service for websites and online communities that uses a networked platform. See [Wikipedia Disqus](http://en.wikipedia.org/wiki/Disqus)
 Something about Editing Blogs
+
 =====================
 
 ##Link to internal content.
@@ -95,7 +100,7 @@ To Category:
 
 	{category}foobar  
 
-**Note :**
+**Note: **
 
 1. Pelican does not support referenced link of this type.
 2. The `{filaname}` is actually `{filaname}`, don't put some real file name here or pelican will recognize it as Category name.

@@ -55,7 +55,7 @@
 <p>There could be many ways to do it but I found a simple solution. I figured out the unicode representation of BOM is <code>\uFEFF</code>. Therefore, if any UTF-8 file started with character <code>\uFEFF</code>, just remove the first character from it will sovle this problem.</p>
 <h2>How to Write files without BOM</h2>
 <p>Well, most text editors under Windows will automatically add BOMs to your UTF-8 files because this is favoured by Microsoft, the only exception I know of is notepad++, a great text editor for programmers (other exception? Feel free to inform me by E-mail). So basically you have to live with it on Windows.</p>
-<p>Things get much better in Linux. With UTF-8 everywhere, Linux never use this BOM to identify a UTF-8-based file from ANSI-based file. Maybe I will never got to worry about BOM in Linux. Thanks for Microsoft's stupid idea to remind me of BOMs.</p>                </article>
+<p>Things get much better in Linux. With UTF-8 everywhere, Linux never use this BOM to identify a UTF-8-based file from ANSI-based file. Maybe I will never got to worry about BOM in Linux. Thanks for Microsoft's stupid idea to remind me of BOMs.</p><p>There are <a href="/utf-8-bom-detection-in-java.html#disqus_thread">comments</a>.</p>                </article>
 <p class="paginator">
     Page 1 / 1
 </p>
@@ -75,7 +75,7 @@
                         <ul>
                             <li><a href="/" type="application/atom+xml" rel="alternate">atom feed</a></li>
 
-                            <li><a href="we.taper[在]qq.com">My E-Mail (Don't click, copy link and alter it to correct form, thx)</a></li>
+                            <li><a href="we.taper[WhateverInsideIsUseless]qq.com">My E-Mail (Don't click, copy link and alter it to correct form, thx)</a></li>
                         </ul>
                 </div><!-- /.social -->
         </section><!-- /#extras -->
@@ -87,5 +87,14 @@
 
         </footer><!-- /#contentinfo -->
 
+<script type="text/javascript">
+    var disqus_shortname = 'taper.disqus.com';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
 </body>
 </html>
