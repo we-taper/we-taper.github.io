@@ -36,12 +36,12 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/Git Book Note.html">Git Book Note (Last update: 2014-2-21)</a></h1> 
+                    <h1 class="entry-title"><a href="/git-book-note.html">Git Book Note</a></h1> 
 <footer class="post-info">
-        <abbr class="published" title="2014-02-21T14:00:00">
-                周五 21 二月 2014
+        <abbr class="published" title="2014-03-29T00:00:00">
+                周六 29 三月 2014
         </abbr>
-<p>tags: <a href="/tag/git.html">Git</a><a href="/tag/vcs.html">VCS</a></p></footer><!-- /.post-info --><h1>Git Start</h1>
+<p>tags: <a href="/tag/git.html">Git</a></p></footer><!-- /.post-info --><h1>Git Start</h1>
 <p><strong>Note: </strong> Most of the content below are based on the book available on Git Documentation: <a href="http://git-scm.com/doc">Git book</a>
 <br></p>
 <h2>1. Basic concept</h2>
@@ -75,8 +75,7 @@ and stores that snapshot permanently to your Git directory.</li>
 </blockquote>
 <h3>1.1 Install Git</h3>
 <p><em>See  </em><a href="http://git-scm.com/book/en/Getting-Started-Installing-Git">Git book - chapter 1.4</a></p>
-<p>I personally like the git plugin <em>EGit</em> (found on Eclipse Market) for Eclipse 
-since I use Eclipse on Windows.</p>
+<p>I personally like the git plugin <em>EGit</em> (found on Eclipse Market) for Eclipse since I use Eclipse on Windows. However, I still remcommend a commandline git for exercising.</p>
 <h3>1.2 Configure Git</h3>
 <p>*See  * <a href="http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup">Git book - chapter 1.5</a></p>
 <p>Since I don't want to consider too much about git, skip this.</p>
@@ -194,8 +193,7 @@ Instead ther are marked "delete" when you type <code>git status</code></p>
 </pre></div>
 
 
-<h3>2.3 : Skipped</h3>
-<h3>2.4 Git Basics - Undoing Things</h3>
+<h3>2.3 Git Basics - Undoing Things</h3>
 <p><em>See </em>: <a href="http://git-scm.com/book/en/Git-Basics-Undoing-Things">Git book- chapter 2.4</a></p>
 <h4>Git Command</h4>
 <ul>
@@ -229,8 +227,8 @@ always, but it overwrites your previous commit.</p>
 
 </li>
 </ul>
-<h2>Branching</h2>
-<h3>What a Branch Is</h3>
+<h2>3 Branching</h2>
+<h3>3.1 What a Branch Is</h3>
 <p><em>See :</em> <a href="http://git-scm.com/book/en/Git-Branching-What-a-Branch-Is"> Git book - chapter 3.1</a></p>
 <p><strong>Note :</strong> Here I tried to make everything simple but if you wnat a true picture
 of how  branch works in Git, please refer to the original document.</p>
@@ -242,7 +240,7 @@ snapshot they all share. To go back to a older version or another branch, just t
 back to the <em>mother snapshot</em> and choose a different route.</p>
 <p>Diagram of branches (named in <em>pointer</em> style):</p>
 <p><img alt="Branch" src="http://git-scm.com/figures/18333fig0309-tn.png" /></p>
-<h2>Basic Branching and Merging</h2>
+<h3>3.2 Basic Branching and Merging</h3>
 <p><em>See :</em> <a href="http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging0">Git book - chapter 3.2</a></p>
 <p><strong>Git commands:</strong></p>
 <ul>
@@ -270,6 +268,7 @@ back to the <em>mother snapshot</em> and choose a different route.</p>
 <li>
 <p>Delete a branch:</p>
 <div class="highlight"><pre><span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">d</span> <span class="n">NAME</span>
+<span class="cp"># Note: Delete a branch. The branch must be fully merged in its upstream branch, or in HEAD if no upstream was set with --track or --set-upstream.</span>
 </pre></div>
 
 
@@ -305,15 +304,9 @@ because there is no divergent work to merge together — this is called a "fast
 forward".</p>
 </li>
 <li>
-<p>Resolve Conflicts:
-    If you changed the same part of the same file differently in the two branches 
-    you’re merging together, Git won’t be able to merge them cleanly. Git hasn’t 
-    automatically created a new merge commit. It has paused the process while you 
-    resolve the conflict. If you want to see which files are unmerged at any point 
-    after a merge conflict, you can run <code>git status</code></p>
-<p>Git adds standard conflict-resolution markers to the files that have conflicts, 
-so you can open them manually and resolve those conflicts. Your file contains a 
-section that looks something like this:</p>
+<p>Resolve Conflicts:</p>
+<p>If you changed the same part of the same file differently in the two branches you’re merging together, Git won’t be able to merge them cleanly. Git has paused the process while you should resolve the conflict. Now you should see which files are unmerged at any point after a merge conflict running <code>git status</code></p>
+<p>Git adds standard conflict-resolution markers to the files that have conflicts, so when you open them you can manually resolve those conflicts. Your file contains a section that looks something like this:</p>
 <div class="highlight"><pre><span class="err">&lt;&lt;&lt;&lt;&lt;&lt;</span><span class="nt">&lt; HEAD</span>
 <span class="na">contact</span> <span class="na">:</span> <span class="na">email</span><span class="err">.</span><span class="na">support</span><span class="err">@</span><span class="na">github</span><span class="err">.</span><span class="na">com</span><span class="err">&lt;</span><span class="na">br</span><span class="nt">&gt;</span>
 =======
@@ -322,30 +315,21 @@ please contact us at support@github.com<span class="nt">&lt;br&gt;</span>
 </pre></div>
 
 
-<p>This means the version in <strong>HEAD</strong> (your master branch, because that was what 
-you had checked out when you ran your merge command) is the top part of that 
-block (everything above the <code>=======</code>), while the version in your <strong>iss53</strong> 
-branch looks like everything in the bottom part. In order to resolve the conflict,
-you have to either choose one side or the other or merge the contents yourself.</p>
-<p>After you’ve resolved each of these sections in each conflicted file, run <code>git add</code> 
-to add each file to mark it as resolved. Staging the file marks it as resolved in 
-Git. If you want to use a graphical tool to resolve these issues, you can run 
-<code>git mergetool</code>, which fires up an appropriate visual merge tool and walks you 
-through the conflicts</p>
-<p>After you exit the merge tool, Git asks you if the merge was successful. If you 
-tell the script that it was, it stages the file to mark it as resolved for you.</p>
-<p>If you’re happy with that, and you verify that everything that had conflicts has 
-been staged, you can type <code>git commit</code> to finalize the merge commit.</p>
+<p>This means the version in <strong>HEAD</strong> (The branch where you are working in, which is what you had checked out when you ran your merge command) is the top part of that block (everything above the <code>=======</code>), while the version in your <strong>iss53</strong> branch looks like everything in the bottom part. In order to resolve the conflict, you have to either choose one side or the other or merge the contents yourself. You resovle conflicts by editing and then staging the file.</p>
+<p>After you’ve resolved each of these sections in each conflicted file, run <code>git add</code> to add each file to mark it as resolved. Staging the file marks it as resolved in Git. </p>
 </li>
 </ol>
+<p>If you want to use a graphical tool to resolve these issues, you can run <code>git mergetool</code>, which fires up an appropriate visual merge tool and walks you through the conflicts. After you exit the merge tool, Git asks you if the merge was successful. If you tell the script that it was, it stages the file to mark it as resolved for you.</p>
+<div class="highlight"><pre><span class="n">If</span> <span class="n">you</span><span class="err">’</span><span class="n">re</span> <span class="n">happy</span> <span class="n">with</span> <span class="n">that</span><span class="p">,</span> <span class="n">and</span> <span class="n">you</span> <span class="n">verify</span> <span class="n">that</span> <span class="n">everything</span> <span class="n">that</span> <span class="n">had</span> <span class="n">conflicts</span> <span class="n">has</span> <span class="n">been</span> <span class="n">staged</span><span class="p">,</span> <span class="n">you</span> <span class="n">can</span> <span class="n">type</span> <span class="err">`</span><span class="n">git</span> <span class="n">commit</span><span class="err">`</span> <span class="n">to</span> <span class="n">finalize</span> <span class="n">the</span> <span class="n">merge</span> <span class="n">commit</span><span class="p">.</span>
+</pre></div>
+
+
 </li>
 </ol>
-<h3>Working with remote branch</h3>
+<h3>3.3 Working with remote branch</h3>
 <p><em>See :</em><a href="http://git-scm.com/book/en/Git-Branching-Remote-Branches">Git book - chapter 3.5</a> 
 as well as <a href="http://git-scm.com/book/en/Git-Basics-Working-with-Remotes">Git book - chapter 2.5</a></p>
-<p><strong>What ? :</strong> Remote branches are just branches pointed to remote serves, taking the form 
-of <code>(remote)/(branch)</code>. However, remote branches can be modified without noticing, so please
-synchronize it frequently.</p>
+<p><strong>What ? :</strong> Remote branches are just branches pointed to remote serves, taking the form of <code>(remote)/(branch)</code> except that you can not move them as fre as the local one. However, remote branches can be modified without noticing, so please synchronize it frequently.</p>
 <ol>
 <li>
 <p>See Status</p>
@@ -353,14 +337,12 @@ synchronize it frequently.</p>
 </pre></div>
 
 
-<p>It lists the shortnames of each remote handle you’ve specified. If you’ve 
-cloned your repository, you should at least see origin — that is the default 
-name Git gives to the server you cloned from.</p>
+<p>It lists the shortnames of each remote handle you’ve specified. If you’ve cloned your repository, you should at least see origin — that is the default name Git gives to the server you cloned from.</p>
 <div class="highlight"><pre><span class="n">git</span> <span class="n">remote</span> <span class="o">-</span><span class="n">v</span>
 </pre></div>
 
 
-<p>It shows you the URL that Git has stored for the shortname to be expanded to.</p>
+<p>It shows you the URL that Git has stored for the shortname to be expanded to.  </p>
 <div class="highlight"><pre><span class="n">git</span> <span class="n">remote</span> <span class="n">show</span> <span class="p">[</span><span class="n">remote</span><span class="o">-</span><span class="n">name</span><span class="p">]</span>
 </pre></div>
 
@@ -379,17 +361,12 @@ name Git gives to the server you cloned from.</p>
         git fetch [remote-name]<br />
     e.g.<br />
         git fetch pb<br />
-<strong>Note :</strong> The fetch command pulls the data to your local repository — it 
-    doesn’t automatically merge it with any of your work or modify what you’re 
-    currently working on. You have to merge it manually into your work when 
-    you’re ready.<br />
-    It’s important to note that when you do a fetch that brings down new remote 
-    branches, you don’t automatically have local, editable copies of them. You 
-    only have an <code>origin/remote</code> pointer that you can’t modify.<br />
-    To merge this work into your current working branch, you can run <code>git merge 
-    origin/remote</code>. If you want your own remote branch that you can work on, you
-    can base it off your remote branch:<br />
-        git checkout -b local_remote origin/remote</p>
+<strong>Note :</strong> The fetch command pulls the data to your local repository — it doesn’t automatically merge it with any of your work or modify what you’re currently working on. You only have an <code>origin/remote</code> pointer that you can’t modify. You have to merge it manually into your work when you’re ready.  </p>
+<p>To merge this work into your current working branch, you can run <code>git merge origin/remote</code>. If you want your own remote branch that you can work on, you can base it off your remote branch:  </p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">remote_in_local</span> <span class="n">origin</span><span class="o">/</span><span class="n">remote</span>
+</pre></div>
+
+
 </li>
 <li>
 <p>Push to Upstream<br />
@@ -404,12 +381,12 @@ name Git gives to the server you cloned from.</p>
 </pre></div>
 
 
-<p>Like, if you didn’t want it to be called <em>a</em> on the remote, you could instead run:   </p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">a</span><span class="o">:</span><span class="n">awesomebranch</span>
+<p>Like, if you didn’t want it to be called <em>"aaaaa"</em> on the remote, you could instead run:   </p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">aaaaa</span><span class="o">:</span><span class="n">awesomebranch</span>
 </pre></div>
 
 
-<p>to push your local <em>a</em> branch to the <em>awesomebranch</em> branch on the remote project.</p>
+<p>to push your local <em>"aaaaa"</em> branch to the <em>"awesomebranch"</em> branch on the remote project.</p>
 </li>
 <li>
 <p>Rename  </p>
@@ -419,7 +396,7 @@ name Git gives to the server you cloned from.</p>
 
 </li>
 <li>
-<p>Remove  </p>
+<p>Remove local</p>
 <div class="highlight"><pre><span class="n">git</span> <span class="n">remote</span> <span class="n">rm</span> <span class="n">paul</span> <span class="p">[</span><span class="n">remote</span><span class="o">-</span><span class="n">name</span><span class="p">]</span>
 </pre></div>
 
@@ -428,17 +405,17 @@ name Git gives to the server you cloned from.</p>
 </li>
 <li>
 <p>Delete Remote Branch</p>
-<div class="highlight"><pre> <span class="n">git</span> <span class="n">push</span> <span class="p">[</span><span class="n">remotename</span><span class="p">]</span> <span class="o">:</span><span class="p">[</span><span class="n">bran</span>   <span class="n">ch</span><span class="p">]</span>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">push</span> <span class="p">[</span><span class="n">remotename</span><span class="p">]</span> <span class="o">:</span><span class="p">[</span><span class="n">branch</span><span class="p">]</span>  
+<span class="cp"># Here, you just leave the LocalBranch&#39;s name empty!</span>
 </pre></div>
 
 
-<p>e.g, If you want to delete your serverfix branch from the server, you run 
- the following:<br />
-    git push origin :serverfix</p>
-<p><strong>Note: </strong>  A way to remember this command is by recalling the <code>git push 
- [remotename] [localbranch]:[remotebranch]</code> syntax that we went over a bit 
- earlier. If you leave off the [localbranch] portion, then you’re basically 
- saying, “Take nothing on my side and make it be [remotebranch].”</p>
+<p>e.g, If you want to delete your serverfix branch from the server, you run the following:  </p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="o">:</span><span class="n">serverfix</span>
+</pre></div>
+
+
+<p><strong>Note: </strong>  A way to remember this command is by recalling the <code>git push [remotename] [localbranch]:[remotebranch]</code> syntax that we went over a bit earlier. If you leave off the [localbranch] portion, then you’re basically saying, “Take nothing on my side and make it be [remotebranch].”</p>
 </li>
 <li>
 <p>Clone it.</p>
@@ -446,15 +423,83 @@ name Git gives to the server you cloned from.</p>
 </pre></div>
 
 
-<p>If you clone from this, Git automatically names it origin for you, pulls down 
- all its data, creates a pointer to where its master branch is, and names it 
- origin/master locally; and you can’t move it. Git also gives you your own master 
- branch starting at the same place as origin’s master branch, so you have something
- to work from. See:<br />
+<p>If you clone from this, Git automatically names it origin for you, pulls down all its data, creates a pointer to where its master branch is, and names it origin/master locally; and you can’t move it. Git also gives you your own master branch starting at the same place as origin’s master branch, so you have something to work from. See:<br />
 <img alt="Clone Remote" src="http://git-scm.com/figures/18333fig0322-tn.png" /></p>
 </li>
+<li>
+<p>Tracking Branch</p>
+</li>
 </ol>
-<p><strong><em>To Be Conitnued</em></strong></p><p>There are <a href="/Git Book Note.html#disqus_thread">comments</a>.</p>                </article>
+<p>*See: * <a href="http://git-scm.com/book/en/Git-Branching-Remote-Branches#Tracking-Branches">Git book - 3.5 Tracking Branches</a></p>
+<ul>
+<li>Using tracking branches can really save you some effort. *</li>
+</ul>
+<p>Tracking branches are local branches that have a direct relationship to a remote branch. If you’re on a tracking branch and type git push, Git automatically knows which server and branch to push to. Also, running git pull while on one of these branches fetechs all remote references and automatically merges in the corresponding remote branch.</p>
+<p>Check out:</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">chekcout</span> <span class="o">--</span><span class="n">track</span> <span class="n">RemoteName</span><span class="o">/</span><span class="n">BranchName</span>
+<span class="cp"># Or, below gives it a new name</span>
+<span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">NewName</span> <span class="n">RemoteName</span><span class="o">/</span><span class="n">BranchName</span>
+</pre></div>
+
+
+<h3>3.4 Rebasing</h3>
+<p>*See: * <a href="http://git-scm.com/book/en/Git-Branching-Rebasing">Git book - 3.6 Rebase</a></p>
+<p>In effect, rebasing is the same as merge, and the whole process is very alike. You have to <em>rebase</em> --&gt; <em>solve confilicts</em> --&gt; <em>git add to mark solved</em> --&gt; <em>continue rebase</em>. However, rebase eliminate the number of different branches and thus makes the history of coding more clear and concise.</p>
+<p>Commands:</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">rebase</span> <span class="n">branchToBeBased</span> <span class="err">#</span> <span class="n">Here</span> <span class="n">may</span> <span class="n">exists</span> <span class="n">conflicts</span><span class="p">.</span>
+<span class="n">git</span> <span class="n">rebase</span> <span class="o">--</span><span class="k">continue</span> <span class="err">#</span> <span class="n">Contine</span> <span class="n">after</span> <span class="n">solving</span> <span class="n">the</span> <span class="n">conflicts</span><span class="p">.</span>
+<span class="n">git</span> <span class="n">rebase</span> <span class="o">--</span><span class="n">skip</span> <span class="err">#</span> <span class="n">Skip</span> <span class="n">the</span> <span class="n">patch</span><span class="p">.</span>
+<span class="n">git</span> <span class="n">rebase</span> <span class="o">--</span><span class="n">abort</span> <span class="err">#</span> <span class="n">Give</span> <span class="n">up</span> <span class="n">this</span> <span class="n">rebasing</span><span class="p">.</span>
+</pre></div>
+
+
+<p>More detailed information: <a href="http://git-scm.com/docs/git-rebase">Git Manual - Rebase</a>.</p>
+<h2>4. Github</h2>
+<h3>4.1 Add your local file to Github</h3>
+<p>First, you should setting up an account in Github. It's rather easy.</p>
+<p>Then, if you want to push a local repository to Github. First create an empty one on Github and then add it to your local git remote branch by:</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">remote</span> <span class="n">AName</span> <span class="n">UrlToRemoteRepo</span>
+</pre></div>
+
+
+<p>Then push:</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">push</span> <span class="n">AName</span> <span class="n">LocalBranch</span>
+</pre></div>
+
+
+<h3>4.2 Fork others' and contribute</h3>
+<p>To contribute to other's project, you should: <em>Fork his project by <code>git checkout</code> or Fork button on Github</em> --&gt; <em>Push your modifications to your own Github</em> --&gt; <em>Make a Pull Request on Github to Contribute</em>.</p>
+<p>There is a green button on your repo's page called <strong>Compare, review, create a pull request</strong>. You just need to click it and adjust something, fill some commit message. Then Github will take care of the pull request on its serve.</p>
+<h3>4.3 Access Github by SSH</h3>
+<p>See: <a href="https://help.github.com/articles/generating-ssh-keys">Generate SSH Keys - Github Doc</a></p>
+<p>Git support SSH link. By this, Git can control the access ability. When you checkout something on Github by simple url, you would not have write access to the remote branch. If you try to push, git will ask for your username and password on Github.</p>
+<p>In order to have write access, you would need a personal SSH key. SSH key helps to identify users without a user account and password combination.</p>
+<p>To generate ssh key, you should have some ssh client in your computer. If you install Git from the official source, it will install a Git Bash, where it provide a <code>ssh-keygen</code> to generate ssh keys.</p>
+<div class="highlight"><pre><span class="n">ssh</span><span class="o">-</span><span class="n">keygen</span> <span class="o">-</span><span class="n">t</span> <span class="n">rsa</span> <span class="o">-</span><span class="n">C</span> <span class="s">&quot;YourEmail@Address.com&quot;</span>
+</pre></div>
+
+
+<p>This will create a ssh key of your own and ask you for where to store and a passphrase.</p>
+<hr />
+<p><strong>Something about Passphrase</strong>:</p>
+<p>Why do passphrases matter?: </p>
+<p>From: <a href="https://help.github.com/articles/generating-ssh-keys">Generate SSH Keys - Github Doc</a></p>
+<p>Passwords aren't very secure. If you use one that's easy to remember, it's easier to guess or brute-force (try many options until one works). If you use one that's random, it's hard to remember, and thus you're more inclined to write it down. Both of these are Very Bad Things™.</p>
+<p>This is why you're using SSH keys. But, using a key without a passphrase is basically the same as writing down that random password. Anyone who gains access to your computer has gained access to every system you use that key with. This is also a Very Bad Thing™. The solution is to add a passphrase to the SSH key, for an extra layer of security.</p>
+<p><em>But I don't want to enter a long passphrase every time I use the key!</em></p>
+<p>Neither do we! Thankfully, there's a nifty little tool called ssh-agent that can securely save your passphrase so you don't have to re-enter it. If you're on OSX Leopard or later, your keys can be saved in the system's keychain, which makes your life even easier. Unfortunately, it takes a little work to get it up and running on Windows.</p>
+<hr />
+<p>Then, copy the public key where you store you key and paste it into you Github's "Account Settings" --&gt; "SSH Keys". Don't confuse the public with the private key. Public key usually stores in file name <em>xxx.pub</em> while private is usually the same name but without a file extension <em>.pub</em></p>
+<p>Next, clone the repo with SSH url (or Git URL):</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="err">@</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">:</span><span class="n">we</span><span class="o">-</span><span class="n">taper</span><span class="o">/</span><span class="n">vim</span><span class="o">-</span><span class="n">pathogen</span><span class="p">.</span><span class="n">git</span>
+</pre></div>
+
+
+<p>Then, you will have write access to this repo with passphrase of your SSH key.</p>
+<h3>4.3 Collaborate directly by Github Account</h3>
+<p>You can also add other Github Account to your collaborate of this repo. This is much more convenient than the above SSH method.</p>
+<p>On Github, there is a <em>plus</em> button on right-top corner where you can add Collaborators to this repo. Clicked and have fun!</p>
+<p><strong><em>To Be Conitnued</em></strong></p><p>There are <a href="/git-book-note.html#disqus_thread">comments</a>.</p>                </article>
 <p class="paginator">
     Page 1 / 1
 </p>

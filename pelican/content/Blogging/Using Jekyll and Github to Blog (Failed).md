@@ -66,7 +66,7 @@ I choosed Jekyll because:
 	installation directory (usually under folder "Scripts"), run `easy_install Pygments`.
 
 3. Cook the Git Book  
-	Learn about git from [Git Guide][gt_gi], I also wrote an article about it: [My Git Guide]({filename}../Programming/Git Book Note.md)
+	Learn about git from [Git Guide][gt_gi], I also wrote an article about it: [My Git Guide]({filename}../Programming/Git Book Note.markdown)
 	<!-- Here is a internal link to Git Book Note.md --> 
 
 4. Clone others' work  

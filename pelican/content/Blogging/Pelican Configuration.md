@@ -89,8 +89,7 @@ You can add commenting functionality suppport by add Disqus to your blog. Disqus
 Done!
 
 Something about Editing Blogs
-
-=====================
+========================================
 
 ##Link to internal content.
 
