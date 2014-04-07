@@ -35,7 +35,7 @@ SOCIAL = (("My E-Mail (Don't click, copy link and alter it to correct form, thx)
 # Appearence
 
 # Change theme.
-THEME = "themes/brownstone"
+THEME = "themes/built-texts"
 
 # Set the posts (in summary) displayed per page. (Otherwise, all posts in that category will be displayed)
 DEFAULT_PAGINATION = 7

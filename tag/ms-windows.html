@@ -1,41 +1,78 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<!--
-Design by Free CSS Templates
-http://www.freecsstemplates.org
-Released for free under a Creative Commons Attribution 2.5 License
-
-Name       : Brown Stone  
-Description: A two-column, fixed-width design with dark color scheme.
-Version    : 1.0
-Released   : 20100928
-
--->
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>A Blog - MS Windows</title>
-<link href="/theme/css/style.css" rel="stylesheet" type="text/css" media="screen" />
-<link href="/" type="application/atom+xml" rel="alternate" title="A Blog ATOM Feed" />
+    <meta charset="utf-8">
+    <title>A Blog</title>
+    <meta name="description" content="">
+    <meta name="author" content="WE-TapEr">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
+    <link href="/theme/local.css" rel="stylesheet">
+    <link href="/theme/pygments.css" rel="stylesheet">
+    <link href="/theme/font-awesome.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Gudea:400,400italic|Alegreya+SC' rel='stylesheet' type='text/css'>
 </head>
+
 <body>
-<div id="wrapper">
-	<div id="page">
-		<div id="page-bgtop">
-			<div id="page-bgbtm">
- 
+<header class="blog-header">
+  <div class="container">
+    <div class="row-fluid">
+      <div class="span9">
+	<a href="" class="brand">A Blog</a>
+      </div>
+
+      <div class="span3" id="blog-nav">
+	<ul class="nav nav-pills pull-right">
+            <li><a href="/pages/who-am-i.html">Who am I?</a></li>
+	    <li >
+	      <a href="/category/blogging.html ">Blogging</a>
+	    <li >
+	      <a href="/category/computer_tips.html ">Computer_Tips</a>
+	    <li >
+	      <a href="/category/coursenote.html ">CourseNote</a>
+	    <li >
+	      <a href="/category/programming.html ">Programming</a>
+	</ul>
+      </div>
+    </div> <!-- End of fluid row-->
+  </div>   <!-- End of Container-->
+</header>
+    
+<div class="container">
+    <div class="content">
+    <div class="row-fluid">
+
+        <div class="span10">
         
-				<div id="content">
-					<div class="post">
-						<h2 class="title"><a href="/ms-windows-cmd-command-note.html">MS Windows &quot;cmd&quot; Command Note</a></h2>
-						<p class="meta"><span class="date">Le  </span><span class="posted">Par <a href="#">we.taper</a></span><span>&nbsp; | Catégorie : <a href="/category/programming.html">Programming</a></span></p>
-					<p class="meta">Tags : <span><a href="/tag/ms-windows.html">MS Windows</a> / </span>
-<span><a href="/tag/batch.html">Batch</a> / </span>
+
+        
+
+    <div class='row-fluid''>
+        <div class="article-title span9">
+            <a href="/ms-windows-cmd-command-note.html"><h1>MS Windows &quot;cmd&quot; Command Note</h1></a>
+        </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span2">
+<p>周日 02 三月 2014 </p>
+
+<p style="text-align: left;">
+Filed under <a href="/category/programming.html">Programming</a>
 </p>
-						<div style="clear: both;">&nbsp;</div>
-						<div class="entry">
-						 <p>Convention:</p>
+<p style="text-align: left;">
+ 
+    Tags <a href="/tag/ms-windows.html">MS Windows</a> <a href="/tag/batch.html">Batch</a> </p>
+<p>
+</p>
+      </div>
+      <div class="article-content span8">
+	<p>Convention:</p>
 <div class="line-block">
 <div class="line"># with overline, for parts</div>
 <div class="line">* with overline, for chapters</div>
@@ -73,83 +110,92 @@ cd /d d:\Apps\ReText-4.1.1\
 python retext.py %1
 </pre>
 </div>
-	
-						</div>
-					</div>
-					<div style="clear: both;">&nbsp;</div>
-				</div>
-				<div id="sidebar">
-					<div id="logo">
-						<h1><a href="">A Blog</h1>
-<p>about Coding.</p>					</div>
-					<div id="menu">
-						<ul>
-							<li class="current_page_item"><a href="">Home</a></li>
-							<li><a href="/archives.html">Archives</a></li>
-                                                            <li><a href="/pages/who-am-i.html">Who am I?</a></li>
-						</ul>
-					</div>
-					<ul>
-						<li>
-							<h2>Catégories</h2>
-							<ul>
-								 <li ><a href="/category/blogging.html">Blogging</a></li>
-								 <li ><a href="/category/computer_tips.html">Computer_Tips</a></li>
-								 <li ><a href="/category/coursenote.html">CourseNote</a></li>
-								 <li ><a href="/category/programming.html">Programming</a></li>
-							</ul>
-						</li>
-						<li>
-							<h2>Blogroll</h2>
-							<ul>
-                                                            <li><a href="http://getpelican.com/">Pelican</a></li>
-                                                            <li><a href="http://ovelinux.blog.sohu.com/">My Previous Blog</a></li>
-							</ul>
-						</li>
-                                                <li>
-                                                        <h2>Social</h2>
-                                                        <ul>
-                                                            <li><a href="/" rel="alternate">Flux Atom</a></li>
-                                                            <li><a href="we.taper[WhateverInsideIsUseless]qq.com">My E-Mail (Don't click, copy link and alter it to correct form, thx)</a></li>
-                                                        </ul>
-                                                </li><!-- /.social -->
-						<li>
-						        <h2>Tags</h2>
-						        <ul>
-                                                                <li><a href="/tag/batch.html">Batch</a></li>
-                                                                <li><a href="/tag/vim.html">Vim</a></li>
-                                                                <li><a href="/tag/python.html">Python</a></li>
-                                                                <li><a href="/tag/utf-8.html">UTF-8</a></li>
-                                                                <li><a href="/tag/ms-windows.html">MS Windows</a></li>
-                                                                <li><a href="/tag/git.html">Git</a></li>
-                                                                <li><a href="/tag/java.html">Java</a></li>
-                                                                <li><a href="/tag/unfinished.html">unFinished</a></li>
-                                                                <li><a href="/tag/markup-language.html">Markup Language</a></li>
-                                                                <li><a href="/tag/english.html">English</a></li>
-                                                                <li><a href="/tag/pelican.html">Pelican</a></li>
-                                                                <li><a href="/tag/unpolished.html">unPolished</a></li>
-                                                                <li><a href="/tag/jykell.html">Jykell</a></li>
-                                                                <li><a href="/tag/firefox.html">Firefox</a></li>
-                                                                <li><a href="/tag/ide.html">IDE</a></li>
-                                                                <li><a href="/tag/psychology.html">Psychology</a></li>
-						        </ul>
-						</li>
-						
-						
-					</ul>
-				</div>
-				<!-- end #sidebar -->
-				<div style="clear: both;">&nbsp;</div>
-			</div>
-		</div>
-	</div>
-	<!-- end #page -->
+ 
+	<a class="btn btn-mini xsmall" href="/ms-windows-cmd-command-note.html">
+          <i class="icon-comment"></i> Comment </a>
+	<hr />
+      </div>
+      
+    </div>
+    
+<div class="pagination">
+<ul>
+    <li class="prev disabled"><a href="#">&larr; Previous</a></li>
 
-<div id="footer">
-	<p>Copyright (c) 2008 Sitename.com. All rights reserved. Design by <a href="http://www.freecsstemplates.org/">CSS Templates</a>.</p>
-	<p>Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
-</p>
+    <li class="active"><a href="/tag/ms-windows.html">1</a></li>
+
+    <li class="next disabled"><a href="#">&rarr; Next</a></li>
+
+</ul>
 </div>
-<!-- end #footer -->
+ 
+  
+        </div>
+        
+        
+    </div>     </div> </div>
+
+<!--footer-->
+<div class="container">
+  <div class="well" style="background-color: #E9EFF6">
+    <div id="blog-footer">
+      <div class="row-fluid">
+	<div class="social span2" align="center" id="socialist">
+	  <ul class="nav nav-list">
+	    <li class="nav-header">
+	      Social
+	    </li>
+	    <li><a href="we.taper[WhateverInsideIsUseless]qq.com"><i class="icon-My E-Mail (Don't click, copy link and alter it to correct form, thx)" style="color: #1f334b"></i>My E-Mail (Don't click, copy link and alter it to correct form, thx)</a></li>
+
+	  </ul>
+	</div>
+        <div class="links span2" align="center">
+          <ul class="nav nav-list">
+            <li class="nav-header"> 
+              Links
+            </li>
+            
+            <li><a href="http://getpelican.com/">Pelican</a></li>
+            <li><a href="http://ovelinux.blog.sohu.com/">My Previous Blog</a></li>
+          </ul>
+        </div>
+	<div class="site-nav span2" align="center">
+          <ul class="nav nav-list" id="site-links">
+            <li class="nav-header"> 
+              Site
+            </li>
+            <li><a href=""><i class="icon-home" style="color: #1f334b">
+                </i>Home</a></li>
+            <li><a href="/archives.html"><i class="icon-list" style="color: #1f334b">
+                </i>Archives</a></li>
+	    <li><a href="/tags.html"><i class="icon-tags" style="color: #1f334b">
+                </i>Tags</a></li>
+	    
+            <li><a href="/" rel="alternate">
+                <i class="icon-rss-sign" style="color: #1f334b"></i>
+                Atom Feed</a></li>
+	  </ul>
+
+        </div>
+
+      </div> <!--end of fluid row-->
+    </div> <!--end of blog-footer-->
+    <hr />
+    <p align="center"><a href="">A Blog</a>
+      &copy; WE-TapEr
+    Powered by <a href="github.com/getpelican/pelican">Pelican</a> and
+        <a href="https://twitter.github.com/bootstrap">Twitter Bootstrap</a>. 
+        Icons by <a href="http://fortawesome.github.com/Font-Awesome">Font Awesome</a> and 
+        <a href="http://gregoryloucas.github.com/Font-Awesome-More">Font Awesome More</a></p>
+
+  </div> <!--end of well -->
+</div> <!--end of container -->
+
+<!--/footer-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
+
+
+
 </body>
 </html>

@@ -1,41 +1,78 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<!--
-Design by Free CSS Templates
-http://www.freecsstemplates.org
-Released for free under a Creative Commons Attribution 2.5 License
-
-Name       : Brown Stone  
-Description: A two-column, fixed-width design with dark color scheme.
-Version    : 1.0
-Released   : 20100928
-
--->
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>A Blog - Computer_Tips</title>
-<link href="/theme/css/style.css" rel="stylesheet" type="text/css" media="screen" />
-<link href="/" type="application/atom+xml" rel="alternate" title="A Blog ATOM Feed" />
+    <meta charset="utf-8">
+    <title>A Blog</title>
+    <meta name="description" content="">
+    <meta name="author" content="WE-TapEr">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
+    <link href="/theme/local.css" rel="stylesheet">
+    <link href="/theme/pygments.css" rel="stylesheet">
+    <link href="/theme/font-awesome.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Gudea:400,400italic|Alegreya+SC' rel='stylesheet' type='text/css'>
 </head>
+
 <body>
-<div id="wrapper">
-	<div id="page">
-		<div id="page-bgtop">
-			<div id="page-bgbtm">
- 
+<header class="blog-header">
+  <div class="container">
+    <div class="row-fluid">
+      <div class="span9">
+	<a href="" class="brand">A Blog</a>
+      </div>
+
+      <div class="span3" id="blog-nav">
+	<ul class="nav nav-pills pull-right">
+            <li><a href="/pages/who-am-i.html">Who am I?</a></li>
+	    <li >
+	      <a href="/category/blogging.html ">Blogging</a>
+	    <li  class="active" >
+	      <a href="/category/computer_tips.html ">Computer_Tips</a>
+	    <li >
+	      <a href="/category/coursenote.html ">CourseNote</a>
+	    <li >
+	      <a href="/category/programming.html ">Programming</a>
+	</ul>
+      </div>
+    </div> <!-- End of fluid row-->
+  </div>   <!-- End of Container-->
+</header>
+    
+<div class="container">
+    <div class="content">
+    <div class="row-fluid">
+
+        <div class="span10">
         
-				<div id="content">
-					<div class="post">
-						<h2 class="title"><a href="/pentadactyl-use-vim-in-firefox.html">Pentadactyl - Use Vim in Firefox</a></h2>
-						<p class="meta"><span class="date">Le  </span><span class="posted">Par <a href="#">we.taper</a></span><span>&nbsp; | Catégorie : <a href="/category/computer_tips.html">Computer_Tips</a></span></p>
-					<p class="meta">Tags : <span><a href="/tag/firefox.html">Firefox</a> / </span>
-<span><a href="/tag/vim.html">Vim</a> / </span>
+
+        
+
+    <div class='row-fluid''>
+        <div class="article-title span9">
+            <a href="/pentadactyl-use-vim-in-firefox.html"><h1>Pentadactyl - Use Vim in Firefox</h1></a>
+        </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span2">
+<p>周日 23 三月 2014 </p>
+
+<p style="text-align: left;">
+Filed under <a href="/category/computer_tips.html">Computer_Tips</a>
 </p>
-						<div style="clear: both;">&nbsp;</div>
-						<div class="entry">
-						 <h1>Pentadactyl - Use Vim in Firefox</h1>
+<p style="text-align: left;">
+ 
+    Tags <a href="/tag/firefox.html">Firefox</a> <a href="/tag/vim.html">Vim</a> </p>
+<p>
+</p>
+      </div>
+      <div class="article-content span8">
+	<h1>Pentadactyl - Use Vim in Firefox</h1>
 <h2>Introduction</h2>
 <p>As a crazy lover in Vim, You will expect Vim-like key-bindings everywhere. Here's a firefox plugin to embed Vim into my favorite browser firefox. This plugin is developed by the original maintainer of Vimperator - another plugin in firefox to implement Vim into firefox. They changed to this new plugin to make the best of new js engine in firefox 4 (and later).</p>
 <p><strong>Note: </strong> You should at least have used Vim before to read throught this guide, otherwise there would be many unfamiliar things which would caused quite a pain if you continue.</p>
@@ -62,134 +99,226 @@ Released   : 20100928
 <li>Use <code>y</code> to copy text. <strong>Note: </strong> Use <code>Y</code> (captalized) to copy current text into system clipboard instead of <code>y</code>. (See more at <code>:help copying</code>).</li>
 <li>At start up, Pentadactyl will execute contents inside <code>~/.pentadactylrc</code>. This is the place where you can prepare your own working environment (just like <code>vimrc</code>). <code>~</code> means the home path, which depends on the underlaying OS.</li>
 <li>Sometimes we get so familiar with the default key-bindings in firefox, here <code>Ctrl-V</code> will pass all the following commends directly to firefox. (This is called <code>pass through</code> mode.)</li>
-</ul>	
-						</div>
-					</div>
-	
-			                <div class="post">
-			                        <h2 class="title">Autres articles</h2>
-			                </div>
-        
- 
-			                <div class="post summary">
-						<h2 class="title"><a href="/transform-to-restructuredtext.html">Transform to reStructuredText</a></h2>
-						<p class="meta"><span class="date">Le 周日 02 三月 2014</span><span class="posted">Par <a href="#">we.taper</a></span></p>
-						<div style="clear: both;">&nbsp;</div>
-						<div class="entry">
-						 <h1>Transform to reStructuredText</h1>
-<p>*Because the Markdown language no longer satisfy ...</p>	
-						 <a class="readmore" href="/transform-to-restructuredtext.html">Lire la suite …</a>
-						</div>
-					</div>
-        
- 
-			                <div class="post summary">
-						<h2 class="title"><a href="/lets-begin-the-journey-of-rsstructuredtext.html">Let's Begin the Journey of rsStructuredText</a></h2>
-						<p class="meta"><span class="date">Le 周日 02 三月 2014</span><span class="posted">Par <a href="#">we.taper</a></span></p>
-						<div style="clear: both;">&nbsp;</div>
-						<div class="entry">
-						 <div class="section" id="section-one-title-explorer-l1">
-<h2>Section One - Title Explorer - L1</h2>
-<p><strong>Will reports error when Line ...</strong></p></div>	
-						 <a class="readmore" href="/lets-begin-the-journey-of-rsstructuredtext.html">Lire la suite …</a>
-						</div>
-					</div>
-        
- 
-			                <div class="post summary">
-						<h2 class="title"><a href="/Markdown Showcase.html">Markdown Showcase</a></h2>
-						<p class="meta"><span class="date">Le 周五 21 二月 2014</span><span class="posted">Par <a href="#">we.taper</a></span></p>
-						<div style="clear: both;">&nbsp;</div>
-						<div class="entry">
-						 <p>Show how to use Markdown.</p>	
-						 <a class="readmore" href="/Markdown Showcase.html">Lire la suite …</a>
-						</div>
-					</div>
-        
- 
-			                <div class="post summary">
-						<h2 class="title"><a href="/Markdown Tips.html">Markdown Tips</a></h2>
-						<p class="meta"><span class="date">Le 周五 21 二月 2014</span><span class="posted">Par <a href="#">we.taper</a></span></p>
-						<div style="clear: both;">&nbsp;</div>
-						<div class="entry">
-						 <p>Tips on Markdown Language.</p>	
-						 <a class="readmore" href="/Markdown Tips.html">Lire la suite …</a>
-						</div>
-					</div>
-					<div style="clear: both;">&nbsp;</div>
-				</div>
-				<div id="sidebar">
-					<div id="logo">
-						<h1><a href="">A Blog</h1>
-<p>about Coding.</p>					</div>
-					<div id="menu">
-						<ul>
-							<li class="current_page_item"><a href="">Home</a></li>
-							<li><a href="/archives.html">Archives</a></li>
-                                                            <li><a href="/pages/who-am-i.html">Who am I?</a></li>
-						</ul>
-					</div>
-					<ul>
-						<li>
-							<h2>Catégories</h2>
-							<ul>
-								 <li ><a href="/category/blogging.html">Blogging</a></li>
-								 <li class="active"><a href="/category/computer_tips.html">Computer_Tips</a></li>
-								 <li ><a href="/category/coursenote.html">CourseNote</a></li>
-								 <li ><a href="/category/programming.html">Programming</a></li>
-							</ul>
-						</li>
-						<li>
-							<h2>Blogroll</h2>
-							<ul>
-                                                            <li><a href="http://getpelican.com/">Pelican</a></li>
-                                                            <li><a href="http://ovelinux.blog.sohu.com/">My Previous Blog</a></li>
-							</ul>
-						</li>
-                                                <li>
-                                                        <h2>Social</h2>
-                                                        <ul>
-                                                            <li><a href="/" rel="alternate">Flux Atom</a></li>
-                                                            <li><a href="we.taper[WhateverInsideIsUseless]qq.com">My E-Mail (Don't click, copy link and alter it to correct form, thx)</a></li>
-                                                        </ul>
-                                                </li><!-- /.social -->
-						<li>
-						        <h2>Tags</h2>
-						        <ul>
-                                                                <li><a href="/tag/batch.html">Batch</a></li>
-                                                                <li><a href="/tag/vim.html">Vim</a></li>
-                                                                <li><a href="/tag/python.html">Python</a></li>
-                                                                <li><a href="/tag/utf-8.html">UTF-8</a></li>
-                                                                <li><a href="/tag/ms-windows.html">MS Windows</a></li>
-                                                                <li><a href="/tag/git.html">Git</a></li>
-                                                                <li><a href="/tag/java.html">Java</a></li>
-                                                                <li><a href="/tag/unfinished.html">unFinished</a></li>
-                                                                <li><a href="/tag/markup-language.html">Markup Language</a></li>
-                                                                <li><a href="/tag/english.html">English</a></li>
-                                                                <li><a href="/tag/pelican.html">Pelican</a></li>
-                                                                <li><a href="/tag/unpolished.html">unPolished</a></li>
-                                                                <li><a href="/tag/jykell.html">Jykell</a></li>
-                                                                <li><a href="/tag/firefox.html">Firefox</a></li>
-                                                                <li><a href="/tag/ide.html">IDE</a></li>
-                                                                <li><a href="/tag/psychology.html">Psychology</a></li>
-						        </ul>
-						</li>
-						
-						
-					</ul>
-				</div>
-				<!-- end #sidebar -->
-				<div style="clear: both;">&nbsp;</div>
-			</div>
-		</div>
-	</div>
-	<!-- end #page -->
+</ul> 
+	<a class="btn btn-mini xsmall" href="/pentadactyl-use-vim-in-firefox.html">
+          <i class="icon-comment"></i> Comment </a>
+	<hr />
+      </div>
+      
+    </div>
+    
 
-<div id="footer">
-	<p>Copyright (c) 2008 Sitename.com. All rights reserved. Design by <a href="http://www.freecsstemplates.org/">CSS Templates</a>.</p>
-	<p>Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
+ 
+        
+
+
+
+    <div class='row-fluid'>
+      <div class='article-title span9'> 
+        <a href="/transform-to-restructuredtext.html"><h1>Transform to reStructuredText</h1></a>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span2">
+<p>周日 02 三月 2014 </p>
+
+<p style="text-align: left;">
+Filed under <a href="/category/computer_tips.html">Computer_Tips</a>
 </p>
+<p style="text-align: left;">
+ 
+    Tags <a href="/tag/markup-language.html">Markup Language</a> </p>
+<p>
+</p>
+      </div>
+      <div class="summary span8">
+	<h1>Transform to reStructuredText</h1>
+<p>*Because the Markdown language no longer satisfy ...</p> 
+	<a class="btn btn-mini xsmall" href="/transform-to-restructuredtext.html">
+          <i class="icon-plus-sign"></i> Read More </a>
+	<hr />
+      </div>
+      
+    </div>
+      
+
+ 
+        
+
+
+
+    <div class='row-fluid'>
+      <div class='article-title span9'> 
+        <a href="/lets-begin-the-journey-of-rsstructuredtext.html"><h1>Let's Begin the Journey of rsStructuredText</h1></a>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span2">
+<p>周日 02 三月 2014 </p>
+
+<p style="text-align: left;">
+Filed under <a href="/category/computer_tips.html">Computer_Tips</a>
+</p>
+<p style="text-align: left;">
+</p>
+<p>
+</p>
+      </div>
+      <div class="summary span8">
+	<div class="section" id="section-one-title-explorer-l1">
+<h2>Section One - Title Explorer - L1</h2>
+<p><strong>Will reports error when Line ...</strong></p></div> 
+	<a class="btn btn-mini xsmall" href="/lets-begin-the-journey-of-rsstructuredtext.html">
+          <i class="icon-plus-sign"></i> Read More </a>
+	<hr />
+      </div>
+      
+    </div>
+      
+
+ 
+        
+
+
+
+    <div class='row-fluid'>
+      <div class='article-title span9'> 
+        <a href="/Markdown Showcase.html"><h1>Markdown Showcase</h1></a>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span2">
+<p>周五 21 二月 2014 </p>
+
+<p style="text-align: left;">
+Filed under <a href="/category/computer_tips.html">Computer_Tips</a>
+</p>
+<p style="text-align: left;">
+ 
+    Tags <a href="/tag/markup-language.html">Markup Language</a> </p>
+<p>
+</p>
+      </div>
+      <div class="summary span8">
+	<p>Show how to use Markdown.</p> 
+	<a class="btn btn-mini xsmall" href="/Markdown Showcase.html">
+          <i class="icon-plus-sign"></i> Read More </a>
+	<hr />
+      </div>
+      
+    </div>
+      
+
+ 
+        
+
+
+
+    <div class='row-fluid'>
+      <div class='article-title span9'> 
+        <a href="/Markdown Tips.html"><h1>Markdown Tips</h1></a>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span2">
+<p>周五 21 二月 2014 </p>
+
+<p style="text-align: left;">
+Filed under <a href="/category/computer_tips.html">Computer_Tips</a>
+</p>
+<p style="text-align: left;">
+ 
+    Tags <a href="/tag/markup-language.html">Markup Language</a> <a href="/tag/unfinished.html">unFinished</a> </p>
+<p>
+</p>
+      </div>
+      <div class="summary span8">
+	<p>Tips on Markdown Language.</p> 
+	<a class="btn btn-mini xsmall" href="/Markdown Tips.html">
+          <i class="icon-plus-sign"></i> Read More </a>
+	<hr />
+      </div>
+      
+    </div>
+      
+<div class="pagination">
+<ul>
+    <li class="prev disabled"><a href="#">&larr; Previous</a></li>
+
+    <li class="active"><a href="/category/computer_tips.html">1</a></li>
+
+    <li class="next disabled"><a href="#">&rarr; Next</a></li>
+
+</ul>
 </div>
-<!-- end #footer -->
+ 
+  
+        </div>
+        
+        
+    </div>     </div> </div>
+
+<!--footer-->
+<div class="container">
+  <div class="well" style="background-color: #E9EFF6">
+    <div id="blog-footer">
+      <div class="row-fluid">
+	<div class="social span2" align="center" id="socialist">
+	  <ul class="nav nav-list">
+	    <li class="nav-header">
+	      Social
+	    </li>
+	    <li><a href="we.taper[WhateverInsideIsUseless]qq.com"><i class="icon-My E-Mail (Don't click, copy link and alter it to correct form, thx)" style="color: #1f334b"></i>My E-Mail (Don't click, copy link and alter it to correct form, thx)</a></li>
+
+	  </ul>
+	</div>
+        <div class="links span2" align="center">
+          <ul class="nav nav-list">
+            <li class="nav-header"> 
+              Links
+            </li>
+            
+            <li><a href="http://getpelican.com/">Pelican</a></li>
+            <li><a href="http://ovelinux.blog.sohu.com/">My Previous Blog</a></li>
+          </ul>
+        </div>
+	<div class="site-nav span2" align="center">
+          <ul class="nav nav-list" id="site-links">
+            <li class="nav-header"> 
+              Site
+            </li>
+            <li><a href=""><i class="icon-home" style="color: #1f334b">
+                </i>Home</a></li>
+            <li><a href="/archives.html"><i class="icon-list" style="color: #1f334b">
+                </i>Archives</a></li>
+	    <li><a href="/tags.html"><i class="icon-tags" style="color: #1f334b">
+                </i>Tags</a></li>
+	    
+            <li><a href="/" rel="alternate">
+                <i class="icon-rss-sign" style="color: #1f334b"></i>
+                Atom Feed</a></li>
+	  </ul>
+
+        </div>
+
+      </div> <!--end of fluid row-->
+    </div> <!--end of blog-footer-->
+    <hr />
+    <p align="center"><a href="">A Blog</a>
+      &copy; WE-TapEr
+    Powered by <a href="github.com/getpelican/pelican">Pelican</a> and
+        <a href="https://twitter.github.com/bootstrap">Twitter Bootstrap</a>. 
+        Icons by <a href="http://fortawesome.github.com/Font-Awesome">Font Awesome</a> and 
+        <a href="http://gregoryloucas.github.com/Font-Awesome-More">Font Awesome More</a></p>
+
+  </div> <!--end of well -->
+</div> <!--end of container -->
+
+<!--/footer-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
+
+
+
 </body>
 </html>
