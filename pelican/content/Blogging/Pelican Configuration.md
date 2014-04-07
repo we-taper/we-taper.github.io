@@ -90,8 +90,8 @@ Done!
 
 Something about Editing Blogs
 ========================================
-
-##Link to internal content.
+Link
+## to internal content.
 
 *See :*[Linking to internal content][ltic]
 
