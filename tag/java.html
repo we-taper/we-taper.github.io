@@ -36,30 +36,109 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/utf-8-bom-detection-in-java.html">UTF 8 BOM Detection in Java</a></h1> 
+                    <h1 class="entry-title"><a href="/assertion-another-way-to-commment-debug.html">Assertion - Another Way to Commment & Debug</a></h1> 
 <footer class="post-info">
-        <abbr class="published" title="2014-03-06T23:00:00">
-                周四 06 三月 2014
+        <abbr class="published" title="2014-04-17T00:00:00">
+                周四 17 四月 2014
         </abbr>
-<p>tags: <a href="/tag/java.html">Java</a><a href="/tag/utf-8.html">UTF-8</a></p></footer><!-- /.post-info --><h1>UTF 8 BOM Detection in Java</h1>
-<p>Have you ever encountered like this: Reading a file encoded in UTF-8, but always found it starts with a mysterious character which may be printed as "?" into screen but is not seen in any text editor. This is caused by the BOM of UTF-8 files.</p>
-<h2>What is BOM?</h2>
-<p>See this: <a href="http://en.wikipedia.org/wiki/Byte_order_mark">Wikipedia BOM</a></p>
-<p>BOM is, put simply, some marks used to identify the encoding of text, but it is not necessarily required in UTF-8 standard, see:</p>
-<blockquote>
-<p>While there is obviously no need for a byte order signature when using UTF-8, there are occasions when processes convert UTF-16 or UTF-32 data containing a byte order mark into UTF-8. When represented in UTF-8, the byte order mark turns into the byte sequence. Its usage at the beginning of a UTF-8 data stream is neither required nor recommended by the Unicode Standard, but its presence does not affect conformance to the UTF-8 encoding scheme. Identification of the byte sequence at the beginning of a data stream can, however, be taken as a near-certain indication that the data stream is using the UTF-8 encoding scheme.</p>
-</blockquote>
-<p><a href="http://www.unicode.org/versions/Unicode6.0.0/ch03.pdf">Link To Document</a></p>
-<p>Plus: <a href="http://www.zhihu.com/question/20167122">A discussion on ZhiHu</a></p>
-<h2>How to Deal with BOM</h2>
-<p>There could be many ways to do it but I found a simple solution. I figured out the unicode representation of BOM is <code>\uFEFF</code>. Therefore, if any UTF-8 file started with character <code>\uFEFF</code>, just remove the first character from it will sovle this problem.</p>
-<h2>How to Write files without BOM</h2>
-<p>Well, most text editors under Windows will automatically add BOMs to your UTF-8 files because this is favoured by Microsoft, the only exception I know of is notepad++, a great text editor for programmers (other exception? Feel free to inform me by E-mail). So basically you have to live with it on Windows.</p>
-<p>Things get much better in Linux. With UTF-8 everywhere, Linux never use this BOM to identify a UTF-8-based file from ANSI-based file. Maybe I will never got to worry about BOM in Linux. Thanks for Microsoft's stupid idea to remind me of BOMs.</p><p>There are <a href="/utf-8-bom-detection-in-java.html#disqus_thread">comments</a>.</p>                </article>
+<p>tags: <a href="/tag/java.html">Java</a><a href="/tag/programming.html">Programming</a></p></footer><!-- /.post-info --><p>Assertion is a claim, which says that you believe something must be true. In Programming, it acts as an check of the status of something. For example, if you want to find the maximum value of an <code>int[]</code> array, you should make sure that is index lies within the range. So:</p>
+<div class="highlight"><pre><span class="n">assert</span> <span class="nf">withinRange</span><span class="p">(</span><span class="n">index</span><span class="p">);</span>
+</pre></div>
+
+
+<p>Now, you can proceed to the next process with confidence.</p>
+<h2>0. Enable assertion</h2>
+<p>Assert code will be contained in <em>.class</em> file. However, JVM does run this code by default. This is because assertion is designed for programmers to debug and comment on their code. It is not intended to be included in published program. Therefore, by default assertion is disabled in JVM to prevent end user from seeing this. Before we use assert in our program, we must first enable it. We should enable them by passing <code>"-enableassertion"</code> or <code>"-ea"</code> to JVM. E.g.:</p>
+<div class="highlight"><pre><span class="n">java</span> <span class="o">-</span><span class="n">ea</span> <span class="n">ClassName</span>
+</pre></div>
+
+
+<h2>1. The Grammar</h2>
+<p>Syntax for assertion is:</p>
+<div class="highlight"><pre><span class="n">assert</span> <span class="n">Exp1</span><span class="p">;</span>
+</pre></div>
+
+
+<p>or</p>
+<div class="highlight"><pre><span class="n">assert</span> <span class="n">Exp1</span><span class="o">:</span><span class="n">Exp2</span><span class="p">;</span>
+</pre></div>
+
+
+<p>Here, <code>Exp1</code> is the condition that you want to check and will return a boolean value. If the boolean is true, program proceeds normally. However, if your assertion is wrong and <code>Exp1</code> returns false, program stops immediately and there will be an <code>AssertionError</code> thrown with message provided by <code>Exp2</code> if available. Now, you can deal with this error with the message provided by <code>Exp2</code>.</p>
+<h2>2. An Example</h2>
+<p>Suppose you have two arraies, both sorted in ascending order. You would like to merge them together in good order. Here's a pesudocode:</p>
+<div class="highlight"><pre><span class="cp"># Input array a,b</span>
+<span class="n">resultArray</span> <span class="o">=</span> <span class="n">a</span> <span class="n">new</span> <span class="n">array</span> <span class="n">of</span> <span class="n">size</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
+<span class="n">currentOne</span> <span class="o">=</span> <span class="n">last</span> <span class="n">index</span> <span class="n">of</span> <span class="n">resultArray</span>
+<span class="n">currentA</span> <span class="o">=</span> <span class="n">last</span> <span class="n">index</span> <span class="n">of</span> <span class="n">a</span><span class="p">;</span>
+<span class="n">currentB</span> <span class="o">=</span> <span class="n">last</span> <span class="n">index</span> <span class="n">of</span> <span class="n">b</span><span class="p">;</span>
+<span class="k">do</span><span class="p">{</span>
+    <span class="n">resultArray</span><span class="p">[</span><span class="n">currentOne</span><span class="p">]</span> <span class="o">=</span> <span class="n">MaximumOf</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">currentA</span><span class="p">],</span><span class="n">b</span><span class="p">[</span><span class="n">currentB</span><span class="p">])</span>
+    <span class="n">currentOne</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="n">currentA</span> <span class="o">-=</span> <span class="mi">1</span> <span class="n">or</span> <span class="n">currentB</span> <span class="o">-=</span> <span class="mi">1</span> <span class="p">(</span><span class="n">depends</span> <span class="n">on</span> <span class="n">which</span> <span class="n">is</span> <span class="n">added</span> <span class="n">to</span> <span class="n">resultArray</span><span class="p">)</span>
+<span class="p">}</span><span class="k">while</span><span class="p">(</span><span class="n">currentOne</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Here we should assume that the index of resultArray, a, b (currentOne, currentA, currentB) are reasonable, so:</p>
+<div class="highlight"><pre><span class="cp"># Input array a,b</span>
+<span class="n">resultArray</span> <span class="o">=</span> <span class="n">a</span> <span class="n">new</span> <span class="n">array</span> <span class="n">of</span> <span class="n">size</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
+<span class="n">currentOne</span> <span class="o">=</span> <span class="n">last</span> <span class="n">index</span> <span class="n">of</span> <span class="n">resultArray</span>
+<span class="n">currentA</span> <span class="o">=</span> <span class="n">last</span> <span class="n">index</span> <span class="n">of</span> <span class="n">a</span><span class="p">;</span>
+<span class="n">currentB</span> <span class="o">=</span> <span class="n">last</span> <span class="n">index</span> <span class="n">of</span> <span class="n">b</span><span class="p">;</span>
+<span class="k">do</span><span class="p">{</span>
+    <span class="n">assert</span> <span class="n">currentOne</span><span class="p">,</span> <span class="n">currentA</span><span class="p">,</span> <span class="n">currentB</span> <span class="n">within</span> <span class="n">range</span><span class="p">;</span>
+    <span class="n">resultArray</span><span class="p">[</span><span class="n">currentOne</span><span class="p">]</span> <span class="o">=</span> <span class="n">MaximumOf</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">currentA</span><span class="p">],</span><span class="n">b</span><span class="p">[</span><span class="n">currentB</span><span class="p">])</span>
+    <span class="n">currentOne</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="n">currentA</span> <span class="o">-=</span> <span class="mi">1</span> <span class="n">or</span> <span class="n">currentB</span> <span class="o">-=</span> <span class="mi">1</span> <span class="p">(</span><span class="n">depends</span> <span class="n">on</span> <span class="n">which</span> <span class="n">is</span> <span class="n">added</span> <span class="n">to</span> <span class="n">resultArray</span><span class="p">)</span>
+<span class="p">}</span><span class="k">while</span><span class="p">(</span><span class="n">currentOne</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+
+<p>The resulting code in java would be something like this:</p>
+<div class="highlight"><pre><span class="c1">// Input a,b two arrays, return array</span>
+<span class="k">int</span> <span class="n">aCurnt</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">length</span> <span class="o">-</span> <span class="mh">1</span><span class="p">,</span> <span class="n">bCurnt</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="n">length</span> <span class="o">-</span> <span class="mh">1</span><span class="p">,</span> <span class="n">arrayCurnt</span> <span class="o">=</span> <span class="n">array</span><span class="p">.</span><span class="n">length</span> <span class="o">-</span> <span class="mh">1</span><span class="p">;</span>
+<span class="k">do</span><span class="p">{</span>
+    <span class="k">assert</span> <span class="n">aCurnt</span> <span class="o">&gt;=</span> <span class="mh">0</span> <span class="o">:</span> <span class="s">&quot;aCur:&quot;</span><span class="o">+</span><span class="n">aCurnt</span><span class="p">;</span>
+    <span class="k">assert</span> <span class="n">bCurnt</span> <span class="o">&gt;=</span> <span class="mh">0</span> <span class="o">:</span> <span class="s">&quot;bCur:&quot;</span><span class="o">+</span><span class="n">bCurnt</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">aCurnt</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">[</span><span class="n">bCurnt</span><span class="p">])</span> <span class="p">{</span>
+        <span class="n">array</span><span class="p">[</span><span class="n">arrayCurnt</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">aCurnt</span><span class="p">];</span>
+        <span class="n">aCurnt</span> <span class="o">-=</span> <span class="mh">1</span><span class="p">;</span> <span class="n">arrayCurnt</span> <span class="o">-=</span> <span class="mh">1</span><span class="p">;</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="k">assert</span> <span class="n">a</span><span class="p">[</span><span class="n">aCurnt</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="p">[</span><span class="n">bCurnt</span><span class="p">];</span>
+        <span class="n">array</span><span class="p">[</span><span class="n">arrayCurnt</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">bCurnt</span><span class="p">];</span>
+        <span class="n">bCurnt</span> <span class="o">-=</span> <span class="mh">1</span><span class="p">;</span> <span class="n">arrayCurnt</span> <span class="o">-=</span> <span class="mh">1</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span><span class="k">while</span><span class="p">(</span> <span class="n">arrayCurnt</span> <span class="o">&gt;=</span> <span class="mh">0</span> <span class="p">);</span>
+<span class="k">return</span> <span class="n">array</span><span class="p">;</span>
+</pre></div>
+
+
+<h2>3. Why Using Assertion</h2>
+<h3>Quick Prototype</h3>
+<p>Using assertions</p>
+<h1>To Be Continued</h1>
+<h2>Reference</h2>
+<p>1.<a href="http://docs.oracle.com/javase/7/docs/technotes/guides/language/assert.html">Oracle Java SE Documentation</a></p><p>There are <a href="/assertion-another-way-to-commment-debug.html#disqus_thread">comments</a>.</p>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <hr />
                     <ol id="posts-list" class="hfeed">
+        
+
+ 
+            <li><article class="hentry">    
+                <header>
+                    <h3><a href="/utf-8-bom-detection-in-java.html" rel="bookmark"
+                           title="Permalink to UTF 8 BOM Detection in Java">UTF 8 BOM Detection in Java</a></h3>
+                </header>
+                
+                <div class="entry-content">
+                <h1>UTF 8 BOM Detection in Java</h1>
+<p>Have you ever encountered ...</p>
+                <a class="readmore" href="/utf-8-bom-detection-in-java.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
         
 
  

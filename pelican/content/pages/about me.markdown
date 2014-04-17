@@ -1,7 +1,13 @@
 Title: Who am I?
 Date: 2014-03-24
 
-I am Taper, currently a student in South University of Science and Technology of China (SUSTC). I love **Coding**, **Sleeping**, **Classical Music**, **HiFi - Earphones**, **Old books**........ (so many). Interested? Please contact me by [Email](we.taper{at}qq.com).
+A **K.I.S.S** version:
+
+	I am a coder and nothing else.
+
+A Complicated Versioin:
+
+	I am Taper, currently a student in South University of Science and Technology of China (SUSTC). I love **Coding**, **Sleeping**, **Classical Music**, **HiFi - Earphones**, **Old books**........ (so many). Interested? Please contact me by [Email](we.taper{at}qq.com).
 
 Rough Structure of this site:
 
@@ -11,12 +17,14 @@ Rough Structure of this site:
 
 + Computer_Tips
 
-	How I utilize my Computer.
+	Show how I utilize my Computer.
 
 + Programming
 
-	My life of programming.
+	My life of programming. Java, Python, etc.
 
 + CourseNote
 
-	My notes of courses taken down in university (SUSTC).
+	My notes of courses taken down in university ([SUSTC][sustc]).
+
+[sustc]:http://sustc.edu.cn/en/
