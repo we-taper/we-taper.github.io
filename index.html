@@ -36,94 +36,130 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/assertion-another-way-to-commment-debug.html">Assertion - Another Way to Commment & Debug</a></h1> 
+                    <h1 class="entry-title"><a href="/class-note-englishrw-xst-class.html">Class Note - English(R&W) - xst Class</a></h1> 
 <footer class="post-info">
-        <abbr class="published" title="2014-04-17T00:00:00">
-                周四 17 四月 2014
+        <abbr class="published" title="2014-05-25T00:00:00">
+                周日 25 五月 2014
         </abbr>
-<p>tags: <a href="/tag/java.html">Java</a><a href="/tag/programming.html">Programming</a></p></footer><!-- /.post-info --><p>Assertion is a claim, which says that you believe something must be true. In Programming, it acts as an check of the status of something. For example, if you want to find the maximum value of an <code>int[]</code> array, you should make sure that is index lies within the range. So:</p>
-<div class="highlight"><pre><span class="n">assert</span> <span class="nf">withinRange</span><span class="p">(</span><span class="n">index</span><span class="p">);</span>
-</pre></div>
-
-
-<p>Now, you can proceed to the next process with confidence.</p>
-<h2>0. Enable assertion</h2>
-<p>Assert code will be contained in <em>.class</em> file. However, JVM does run this code by default. This is because assertion is designed for programmers to debug and comment on their code. It is not intended to be included in published program. Therefore, by default assertion is disabled in JVM to prevent end user from seeing this. Before we use assert in our program, we must first enable it. We should enable them by passing <code>"-enableassertion"</code> or <code>"-ea"</code> to JVM. E.g.:</p>
-<div class="highlight"><pre><span class="n">java</span> <span class="o">-</span><span class="n">ea</span> <span class="n">ClassName</span>
-</pre></div>
-
-
-<h2>1. The Grammar</h2>
-<p>Syntax for assertion is:</p>
-<div class="highlight"><pre><span class="n">assert</span> <span class="n">Exp1</span><span class="p">;</span>
-</pre></div>
-
-
-<p>or</p>
-<div class="highlight"><pre><span class="n">assert</span> <span class="n">Exp1</span><span class="o">:</span><span class="n">Exp2</span><span class="p">;</span>
-</pre></div>
-
-
-<p>Here, <code>Exp1</code> is the condition that you want to check and will return a boolean value. If the boolean is true, program proceeds normally. However, if your assertion is wrong and <code>Exp1</code> returns false, program stops immediately and there will be an <code>AssertionError</code> thrown with message provided by <code>Exp2</code> if available. Now, you can deal with this error with the message provided by <code>Exp2</code>.</p>
-<h2>2. An Example</h2>
-<p>Suppose you have two arraies, both sorted in ascending order. You would like to merge them together in good order. Here's a pesudocode:</p>
-<div class="highlight"><pre><span class="cp"># Input array a,b</span>
-<span class="n">resultArray</span> <span class="o">=</span> <span class="n">a</span> <span class="n">new</span> <span class="n">array</span> <span class="n">of</span> <span class="n">size</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
-<span class="n">currentOne</span> <span class="o">=</span> <span class="n">last</span> <span class="n">index</span> <span class="n">of</span> <span class="n">resultArray</span>
-<span class="n">currentA</span> <span class="o">=</span> <span class="n">last</span> <span class="n">index</span> <span class="n">of</span> <span class="n">a</span><span class="p">;</span>
-<span class="n">currentB</span> <span class="o">=</span> <span class="n">last</span> <span class="n">index</span> <span class="n">of</span> <span class="n">b</span><span class="p">;</span>
-<span class="k">do</span><span class="p">{</span>
-    <span class="n">resultArray</span><span class="p">[</span><span class="n">currentOne</span><span class="p">]</span> <span class="o">=</span> <span class="n">MaximumOf</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">currentA</span><span class="p">],</span><span class="n">b</span><span class="p">[</span><span class="n">currentB</span><span class="p">])</span>
-    <span class="n">currentOne</span> <span class="o">-=</span> <span class="mi">1</span>
-    <span class="n">currentA</span> <span class="o">-=</span> <span class="mi">1</span> <span class="n">or</span> <span class="n">currentB</span> <span class="o">-=</span> <span class="mi">1</span> <span class="p">(</span><span class="n">depends</span> <span class="n">on</span> <span class="n">which</span> <span class="n">is</span> <span class="n">added</span> <span class="n">to</span> <span class="n">resultArray</span><span class="p">)</span>
-<span class="p">}</span><span class="k">while</span><span class="p">(</span><span class="n">currentOne</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>
-</pre></div>
-
-
-<p>Here we should assume that the index of resultArray, a, b (currentOne, currentA, currentB) are reasonable, so:</p>
-<div class="highlight"><pre><span class="cp"># Input array a,b</span>
-<span class="n">resultArray</span> <span class="o">=</span> <span class="n">a</span> <span class="n">new</span> <span class="n">array</span> <span class="n">of</span> <span class="n">size</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
-<span class="n">currentOne</span> <span class="o">=</span> <span class="n">last</span> <span class="n">index</span> <span class="n">of</span> <span class="n">resultArray</span>
-<span class="n">currentA</span> <span class="o">=</span> <span class="n">last</span> <span class="n">index</span> <span class="n">of</span> <span class="n">a</span><span class="p">;</span>
-<span class="n">currentB</span> <span class="o">=</span> <span class="n">last</span> <span class="n">index</span> <span class="n">of</span> <span class="n">b</span><span class="p">;</span>
-<span class="k">do</span><span class="p">{</span>
-    <span class="n">assert</span> <span class="n">currentOne</span><span class="p">,</span> <span class="n">currentA</span><span class="p">,</span> <span class="n">currentB</span> <span class="n">within</span> <span class="n">range</span><span class="p">;</span>
-    <span class="n">resultArray</span><span class="p">[</span><span class="n">currentOne</span><span class="p">]</span> <span class="o">=</span> <span class="n">MaximumOf</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">currentA</span><span class="p">],</span><span class="n">b</span><span class="p">[</span><span class="n">currentB</span><span class="p">])</span>
-    <span class="n">currentOne</span> <span class="o">-=</span> <span class="mi">1</span>
-    <span class="n">currentA</span> <span class="o">-=</span> <span class="mi">1</span> <span class="n">or</span> <span class="n">currentB</span> <span class="o">-=</span> <span class="mi">1</span> <span class="p">(</span><span class="n">depends</span> <span class="n">on</span> <span class="n">which</span> <span class="n">is</span> <span class="n">added</span> <span class="n">to</span> <span class="n">resultArray</span><span class="p">)</span>
-<span class="p">}</span><span class="k">while</span><span class="p">(</span><span class="n">currentOne</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>
-</pre></div>
-
-
-<p>The resulting code in java would be something like this:</p>
-<div class="highlight"><pre><span class="c1">// Input a,b two arrays, return array</span>
-<span class="k">int</span> <span class="n">aCurnt</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">length</span> <span class="o">-</span> <span class="mh">1</span><span class="p">,</span> <span class="n">bCurnt</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="n">length</span> <span class="o">-</span> <span class="mh">1</span><span class="p">,</span> <span class="n">arrayCurnt</span> <span class="o">=</span> <span class="n">array</span><span class="p">.</span><span class="n">length</span> <span class="o">-</span> <span class="mh">1</span><span class="p">;</span>
-<span class="k">do</span><span class="p">{</span>
-    <span class="k">assert</span> <span class="n">aCurnt</span> <span class="o">&gt;=</span> <span class="mh">0</span> <span class="o">:</span> <span class="s">&quot;aCur:&quot;</span><span class="o">+</span><span class="n">aCurnt</span><span class="p">;</span>
-    <span class="k">assert</span> <span class="n">bCurnt</span> <span class="o">&gt;=</span> <span class="mh">0</span> <span class="o">:</span> <span class="s">&quot;bCur:&quot;</span><span class="o">+</span><span class="n">bCurnt</span><span class="p">;</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">aCurnt</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">[</span><span class="n">bCurnt</span><span class="p">])</span> <span class="p">{</span>
-        <span class="n">array</span><span class="p">[</span><span class="n">arrayCurnt</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">aCurnt</span><span class="p">];</span>
-        <span class="n">aCurnt</span> <span class="o">-=</span> <span class="mh">1</span><span class="p">;</span> <span class="n">arrayCurnt</span> <span class="o">-=</span> <span class="mh">1</span><span class="p">;</span>
-    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-        <span class="k">assert</span> <span class="n">a</span><span class="p">[</span><span class="n">aCurnt</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="p">[</span><span class="n">bCurnt</span><span class="p">];</span>
-        <span class="n">array</span><span class="p">[</span><span class="n">arrayCurnt</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">bCurnt</span><span class="p">];</span>
-        <span class="n">bCurnt</span> <span class="o">-=</span> <span class="mh">1</span><span class="p">;</span> <span class="n">arrayCurnt</span> <span class="o">-=</span> <span class="mh">1</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span><span class="k">while</span><span class="p">(</span> <span class="n">arrayCurnt</span> <span class="o">&gt;=</span> <span class="mh">0</span> <span class="p">);</span>
-<span class="k">return</span> <span class="n">array</span><span class="p">;</span>
-</pre></div>
-
-
-<h2>3. Why Using Assertion</h2>
-<h3>Quick Prototype</h3>
-<p>Using assertions</p>
-<h1>To Be Continued</h1>
-<h2>Reference</h2>
-<p>1.<a href="http://docs.oracle.com/javase/7/docs/technotes/guides/language/assert.html">Oracle Java SE Documentation</a></p><p>There are <a href="/assertion-another-way-to-commment-debug.html#disqus_thread">comments</a>.</p>                </article>
+<p>tags: <a href="/tag/english.html">English</a></p></footer><!-- /.post-info --><h1>Course Note : English</h1>
+<h2>Vocs:</h2>
+<ul>
+<li>
+<p>Underlie</p>
+<p>to be the cause of something, or be the basic thing from which something develops
+the one basic principle that underlies all of the party's policies</p>
+</li>
+<li>
+<p>Undermine</p>
+<dl>
+<dt>to gradually make someone or something less strong or effective</dt>
+<dd>The constant criticism was beginning to undermine her confidence.</dd>
+</dl>
+</li>
+<li>
+<p>Overtake</p>
+<p>go beyond by a greater amount or degree; come from behind and pass</p>
+</li>
+<li>
+<p>Speeding</p>
+<p>speed exceeds the limit.</p>
+</li>
+<li>
+<p>breadwinner</p>
+<p>The member of a family who earns the money to support the others.</p>
+</li>
+<li>
+<p>Money</p>
+<p>Cashback, È¡Ç®
+foreign exchange
+deposit
+withdraw</p>
+</li>
+<li>
+<p>Trim ÐÞÃ«</p>
+</li>
+<li>Shave</li>
+<li>
+<p>Loan</p>
+<p>Student loan
+Mortage</p>
+</li>
+<li>
+<p>Monetary</p>
+<p>monetary police</p>
+</li>
+<li>
+<p>liquidation</p>
+<p>on the brink of liquidatioin</p>
+</li>
+<li>
+<p>dissolve</p>
+<p>to formally end a parliament, business arrangement, marriage etc
+the marriage is dissolved</p>
+</li>
+<li>
+<p>Perfect and polish your articles.</p>
+</li>
+<li>
+<p>n --&gt; adj.</p>
+<p>Africa --&gt; African
+Victoria --&gt; Victorian
+James --&gt; Jamesian
+Asia --&gt; Asian
+Elizabeth --&gt; Elizabethan
+Hollywood --&gt; Hollywoodian</p>
+</li>
+<li>
+<p>pre-</p>
+<p>pre-school
+preexist
+prehistoric
+preplan
+premartial
+pre-game
+premature
+presuppose</p>
+</li>
+<li>
+<p>Go on to</p>
+<p>1£®pass from one subject or item to the next×ªÈë£¨ÏÂÒ»¸öÏîÄ¿µÈ£©</p>
+<p>*If nobody has any objection£¬then we'll go on to the next item£®Èç¹ûÃ»ÓÐÈËÓÐ²»Í¬Òâ¼û£¬ÎÒÃÇ¾Í×ªÈëÏÂÒ»¸öÒé³ÌÁË¡£</p>
+<p>*After a few minutes we went to the next station£®¼¸·ÖÖÓºóÎÒÃÇ¼ÌÐøµ½ÁËÏÂÒ»Õ¾¡£
+2£®adopt£¨as a new or temporary habit£©²ÉÈ¡£¨×÷ÎªÒ»ÖÖÐÂµÄ»òÔÝÊ±µÄÏ°¹ß£©</p>
+<p>*The doctor told me that I would have to go on to a strict diet£®Ò½ÉúÖö¸ÀÎÒ±ØÐëÑÏ¸ñµØ°´ÕÕ¹æ¶¨µÄÒûÊ³½ø²Í¡£</p>
+<p>3£®change working arrangements to°Ñ¹¤×÷°²ÅÅ¸Ä³É</p>
+<p>*Because of depression£¬many big factories had to go on to short time or stop production altogether£®ÓÉÓÚ¾­¼Ã²»¾°Æø£¬Ðí¶à´ó¹¤³§²»µÃ²»¼õÉÙ¹¤Ê±£¬ÉõÖÁÍêÈ«Í£²ú¡£</p>
+</li>
+</ul>
+<h2>Inversion sentence</h2>
+<ul>
+<li>
+<p>Voc</p>
+<p>Seldom, Never, Little, Few, Not, Not until, Not only.</p>
+</li>
+<li>
+<p>Don't inverse after:</p>
+<p>No wonder, No doubt, In no time, In no time.</p>
+</li>
+</ul><p>There are <a href="/class-note-englishrw-xst-class.html#disqus_thread">comments</a>.</p>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <hr />
                     <ol id="posts-list" class="hfeed">
+        
+
+ 
+            <li><article class="hentry">    
+                <header>
+                    <h3><a href="/assertion-another-way-to-commment-debug.html" rel="bookmark"
+                           title="Permalink to Assertion - Another Way to Commment & Debug">Assertion - Another Way to Commment & Debug</a></h3>
+                </header>
+                
+                <div class="entry-content">
+                <p>Assertion is a claim, which says that you believe something ...</p>
+                <a class="readmore" href="/assertion-another-way-to-commment-debug.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
         
 
  
@@ -194,21 +230,6 @@
                 <h1>Commented: Turning Vim into a modern Python IDE</h1>
 <p>This is ...</p>
                 <a class="readmore" href="/commented-turning-vim-into-a-modern-python-ide.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-        
-
- 
-            <li><article class="hentry">    
-                <header>
-                    <h3><a href="/utf-8-bom-detection-in-java.html" rel="bookmark"
-                           title="Permalink to UTF 8 BOM Detection in Java">UTF 8 BOM Detection in Java</a></h3>
-                </header>
-                
-                <div class="entry-content">
-                <h1>UTF 8 BOM Detection in Java</h1>
-<p>Have you ever encountered ...</p>
-                <a class="readmore" href="/utf-8-bom-detection-in-java.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->

@@ -44,14 +44,14 @@
         <abbr class="published" title="2014-04-17T00:00:00">
                 周四 17 四月 2014
         </abbr>
-<p>tags: <a href="/tag/java.html">Java</a><a href="/tag/programming.html">Programming</a></p></footer><!-- /.post-info -->      <p>Assertion is a claim, which says that you believe something must be true. In Programming, it acts as an check of the status of something. For example, if you want to find the maximum value of an <code>int[]</code> array, you should make sure that is index lies within the range. So:</p>
+<p>tags: <a href="/tag/java.html">Java</a><a href="/tag/programming.html">Programming</a><a href="/tag/unfinished.html">unFinished</a><a href="/tag/unpolished.html">unPolished</a></p></footer><!-- /.post-info -->      <p>Assertion is a claim, which says that you believe something must be true. In Programming, it acts as an check of the status of something. For example, if you want to find the maximum value of an <code>int[]</code> array, you should make sure that is index lies within the range. So:</p>
 <div class="highlight"><pre><span class="n">assert</span> <span class="nf">withinRange</span><span class="p">(</span><span class="n">index</span><span class="p">);</span>
 </pre></div>
 
 
 <p>Now, you can proceed to the next process with confidence.</p>
 <h2>0. Enable assertion</h2>
-<p>Assert code will be contained in <em>.class</em> file. However, JVM does run this code by default. This is because assertion is designed for programmers to debug and comment on their code. It is not intended to be included in published program. Therefore, by default assertion is disabled in JVM to prevent end user from seeing this. Before we use assert in our program, we must first enable it. We should enable them by passing <code>"-enableassertion"</code> or <code>"-ea"</code> to JVM. E.g.:</p>
+<p>When you write assert in your java code, java compiler will compile them into binary code file <em>.class</em>. However, JVM does run this code by default. This is because assertion is designed for programmers to debug and comment on their code. It is not intended to be produce effect on published program. Therefore, by default assertion is disabled in JVM to prevent end user from seeing them. Before we use assert in our program, we must first enable it. We should enable them by passing <code>"-enableassertion"</code> or <code>"-ea"</code> option to JVM. E.g.:</p>
 <div class="highlight"><pre><span class="n">java</span> <span class="o">-</span><span class="n">ea</span> <span class="n">ClassName</span>
 </pre></div>
 
@@ -67,59 +67,116 @@
 </pre></div>
 
 
-<p>Here, <code>Exp1</code> is the condition that you want to check and will return a boolean value. If the boolean is true, program proceeds normally. However, if your assertion is wrong and <code>Exp1</code> returns false, program stops immediately and there will be an <code>AssertionError</code> thrown with message provided by <code>Exp2</code> if available. Now, you can deal with this error with the message provided by <code>Exp2</code>.</p>
+<p>Here, <code>Exp1</code> is the condition that you want to check and will return a boolean value. If the boolean is true, program proceeds normally. However, if your assertion is wrong and <code>Exp1</code> returns false, program stops immediately and there will be an <code>AssertionError</code> thrown with message provided by <code>Exp2</code> (if available). Now, you can deal with this error with the message provided by <code>Exp2</code>.</p>
 <h2>2. An Example</h2>
-<p>Suppose you have two arraies, both sorted in ascending order. You would like to merge them together in good order. Here's a pesudocode:</p>
-<div class="highlight"><pre><span class="cp"># Input array a,b</span>
-<span class="n">resultArray</span> <span class="o">=</span> <span class="n">a</span> <span class="n">new</span> <span class="n">array</span> <span class="n">of</span> <span class="n">size</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
-<span class="n">currentOne</span> <span class="o">=</span> <span class="n">last</span> <span class="n">index</span> <span class="n">of</span> <span class="n">resultArray</span>
-<span class="n">currentA</span> <span class="o">=</span> <span class="n">last</span> <span class="n">index</span> <span class="n">of</span> <span class="n">a</span><span class="p">;</span>
-<span class="n">currentB</span> <span class="o">=</span> <span class="n">last</span> <span class="n">index</span> <span class="n">of</span> <span class="n">b</span><span class="p">;</span>
-<span class="k">do</span><span class="p">{</span>
-    <span class="n">resultArray</span><span class="p">[</span><span class="n">currentOne</span><span class="p">]</span> <span class="o">=</span> <span class="n">MaximumOf</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">currentA</span><span class="p">],</span><span class="n">b</span><span class="p">[</span><span class="n">currentB</span><span class="p">])</span>
-    <span class="n">currentOne</span> <span class="o">-=</span> <span class="mi">1</span>
-    <span class="n">currentA</span> <span class="o">-=</span> <span class="mi">1</span> <span class="n">or</span> <span class="n">currentB</span> <span class="o">-=</span> <span class="mi">1</span> <span class="p">(</span><span class="n">depends</span> <span class="n">on</span> <span class="n">which</span> <span class="n">is</span> <span class="n">added</span> <span class="n">to</span> <span class="n">resultArray</span><span class="p">)</span>
-<span class="p">}</span><span class="k">while</span><span class="p">(</span><span class="n">currentOne</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>
+<p>Here's a case. I want to write a program to add two binary number of equal length together.</p>
+<p>Here's a pesudo-code of my algorithm:</p>
+<div class="highlight"><pre><span class="n">Input</span> <span class="n">two</span> <span class="n">array</span> <span class="n">representing</span> <span class="n">the</span> <span class="n">two</span> <span class="n">integers</span>
+<span class="n">Suppose</span> <span class="n">the</span> <span class="n">two</span> <span class="n">array</span> <span class="n">are</span> <span class="n">legal</span> <span class="n">binary</span> <span class="n">numbers</span> <span class="n">of</span> <span class="n">equal</span> <span class="n">size</span><span class="p">.</span>
+<span class="n">pre</span> <span class="o">=</span> <span class="mi">0</span> <span class="err">#</span> <span class="n">Here</span> <span class="n">carries</span> <span class="n">the</span> <span class="n">calculation</span> <span class="n">carried</span> <span class="n">by</span> <span class="n">previous</span> <span class="n">calculation</span><span class="p">.</span>
+<span class="n">now</span> <span class="err">#</span> <span class="n">Carries</span> <span class="n">number</span> <span class="n">in</span> <span class="n">this</span> <span class="n">calculation</span><span class="p">.</span>
+<span class="k">while</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="mi">1</span>
+    <span class="cm">/*</span>
+<span class="cm">     * Note: </span>
+<span class="cm">     * sum  now pre </span>
+<span class="cm">     * 1    1   0</span>
+<span class="cm">     * 2    0   1</span>
+<span class="cm">     * 3    1   1</span>
+<span class="cm">     * Clearly: </span>
+<span class="cm">     * now = sum % 2 </span>
+<span class="cm">     * pre = sum / 2</span>
+<span class="cm">     */</span>
+    <span class="n">now</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">pre</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="n">pre</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">pre</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="n">result</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">now</span><span class="p">;</span>
+    <span class="n">index</span><span class="o">--</span><span class="p">;</span>
+<span class="cp"># Now I should be sure that index has reached 0 -- the beggining of nmber.</span>
+<span class="n">result</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">pre</span><span class="p">;</span>
+<span class="k">return</span> <span class="n">result</span><span class="p">;</span>
 </pre></div>
 
 
-<p>Here we should assume that the index of resultArray, a, b (currentOne, currentA, currentB) are reasonable, so:</p>
-<div class="highlight"><pre><span class="cp"># Input array a,b</span>
-<span class="n">resultArray</span> <span class="o">=</span> <span class="n">a</span> <span class="n">new</span> <span class="n">array</span> <span class="n">of</span> <span class="n">size</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
-<span class="n">currentOne</span> <span class="o">=</span> <span class="n">last</span> <span class="n">index</span> <span class="n">of</span> <span class="n">resultArray</span>
-<span class="n">currentA</span> <span class="o">=</span> <span class="n">last</span> <span class="n">index</span> <span class="n">of</span> <span class="n">a</span><span class="p">;</span>
-<span class="n">currentB</span> <span class="o">=</span> <span class="n">last</span> <span class="n">index</span> <span class="n">of</span> <span class="n">b</span><span class="p">;</span>
-<span class="k">do</span><span class="p">{</span>
-    <span class="n">assert</span> <span class="n">currentOne</span><span class="p">,</span> <span class="n">currentA</span><span class="p">,</span> <span class="n">currentB</span> <span class="n">within</span> <span class="n">range</span><span class="p">;</span>
-    <span class="n">resultArray</span><span class="p">[</span><span class="n">currentOne</span><span class="p">]</span> <span class="o">=</span> <span class="n">MaximumOf</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">currentA</span><span class="p">],</span><span class="n">b</span><span class="p">[</span><span class="n">currentB</span><span class="p">])</span>
-    <span class="n">currentOne</span> <span class="o">-=</span> <span class="mi">1</span>
-    <span class="n">currentA</span> <span class="o">-=</span> <span class="mi">1</span> <span class="n">or</span> <span class="n">currentB</span> <span class="o">-=</span> <span class="mi">1</span> <span class="p">(</span><span class="n">depends</span> <span class="n">on</span> <span class="n">which</span> <span class="n">is</span> <span class="n">added</span> <span class="n">to</span> <span class="n">resultArray</span><span class="p">)</span>
-<span class="p">}</span><span class="k">while</span><span class="p">(</span><span class="n">currentOne</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>
-</pre></div>
-
-
-<p>The resulting code in java would be something like this:</p>
-<div class="highlight"><pre><span class="c1">// Input a,b two arrays, return array</span>
-<span class="k">int</span> <span class="n">aCurnt</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">length</span> <span class="o">-</span> <span class="mh">1</span><span class="p">,</span> <span class="n">bCurnt</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="n">length</span> <span class="o">-</span> <span class="mh">1</span><span class="p">,</span> <span class="n">arrayCurnt</span> <span class="o">=</span> <span class="n">array</span><span class="p">.</span><span class="n">length</span> <span class="o">-</span> <span class="mh">1</span><span class="p">;</span>
-<span class="k">do</span><span class="p">{</span>
-    <span class="k">assert</span> <span class="n">aCurnt</span> <span class="o">&gt;=</span> <span class="mh">0</span> <span class="o">:</span> <span class="s">&quot;aCur:&quot;</span><span class="o">+</span><span class="n">aCurnt</span><span class="p">;</span>
-    <span class="k">assert</span> <span class="n">bCurnt</span> <span class="o">&gt;=</span> <span class="mh">0</span> <span class="o">:</span> <span class="s">&quot;bCur:&quot;</span><span class="o">+</span><span class="n">bCurnt</span><span class="p">;</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">aCurnt</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">[</span><span class="n">bCurnt</span><span class="p">])</span> <span class="p">{</span>
-        <span class="n">array</span><span class="p">[</span><span class="n">arrayCurnt</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">aCurnt</span><span class="p">];</span>
-        <span class="n">aCurnt</span> <span class="o">-=</span> <span class="mh">1</span><span class="p">;</span> <span class="n">arrayCurnt</span> <span class="o">-=</span> <span class="mh">1</span><span class="p">;</span>
-    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-        <span class="k">assert</span> <span class="n">a</span><span class="p">[</span><span class="n">aCurnt</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="p">[</span><span class="n">bCurnt</span><span class="p">];</span>
-        <span class="n">array</span><span class="p">[</span><span class="n">arrayCurnt</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">bCurnt</span><span class="p">];</span>
-        <span class="n">bCurnt</span> <span class="o">-=</span> <span class="mh">1</span><span class="p">;</span> <span class="n">arrayCurnt</span> <span class="o">-=</span> <span class="mh">1</span><span class="p">;</span>
+<p>In this code, I have many <em>preconditions</em> and <em>postconditions</em>. I should take care of this conditions otherwise my code would not run properly. So how do I check this conditions? One may use <code>if</code> to test and run your code only <code>if</code>'s condition is correct. However, some of this check isn't necessary in client program (some of them are used only to check whether programmer have correctly write his code). This code will have effect ont your client -- possibly reduce the efficiency. So what to do now:</p>
+<ol>
+<li>Remove the code after you code after debug or</li>
+<li>Using assertion</li>
+</ol>
+<p>Solution one is plausible in small applications. But in a large scale program, it is almost impossible to note down all this ifs and remove them after debuggin. It's best to write this code using java assertions because they <strong>DO NOT</strong> run if client does not enable assertion in JVM. Thus, <em>it has no side effect on published program.</em></p>
+<p>Here's my solution:</p>
+<div class="highlight"><pre><span class="n">public</span> <span class="kt">int</span><span class="p">[]</span> <span class="n">addBinaryNumberOrg</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span><span class="p">[]</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">assert</span> <span class="n">a</span><span class="p">.</span><span class="n">length</span> <span class="o">==</span> <span class="n">b</span><span class="p">.</span><span class="n">length</span> <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="p">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">:</span> <span class="s">&quot;a:&quot;</span> <span class="o">+</span> <span class="n">a</span><span class="p">.</span><span class="n">length</span> <span class="o">+</span> <span class="s">&quot;b:&quot;</span>
+            <span class="o">+</span> <span class="n">b</span><span class="p">.</span><span class="n">length</span><span class="p">;</span> <span class="c1">// case 1</span>
+    <span class="c1">// assert a is 1 / 0, b is 1 / 0. case 2</span>
+    <span class="kt">int</span> <span class="n">pre</span><span class="p">;</span> <span class="c1">// Number carried in previous calculation.</span>
+    <span class="n">pre</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">now</span><span class="p">;</span> <span class="c1">// Number in this calculation.</span>
+    <span class="kt">int</span><span class="p">[]</span> <span class="n">result</span> <span class="o">=</span> <span class="n">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">a</span><span class="p">.</span><span class="n">length</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="n">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">now</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">pre</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="n">pre</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">pre</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="n">result</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">now</span><span class="p">;</span>
+        <span class="n">index</span><span class="o">--</span><span class="p">;</span>
     <span class="p">}</span>
-<span class="p">}</span><span class="k">while</span><span class="p">(</span> <span class="n">arrayCurnt</span> <span class="o">&gt;=</span> <span class="mh">0</span> <span class="p">);</span>
-<span class="k">return</span> <span class="n">array</span><span class="p">;</span>
+    <span class="n">assert</span> <span class="n">index</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">:</span> <span class="s">&quot;i:&quot;</span> <span class="o">+</span> <span class="n">index</span><span class="p">;</span> <span class="c1">// case 3</span>
+    <span class="n">result</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">pre</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Here I use asser three times (2 + 1). But we can cleary see that case 1 and 2 should throw an <code>IllegalArgumentException</code>. But case 3 is clearly something should be and only be checked when developming the program. So here's my final code:</p>
+<div class="highlight"><pre><span class="n">public</span> <span class="kt">int</span><span class="p">[]</span> <span class="n">addBinaryNumber</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span><span class="p">[]</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">length</span> <span class="o">!=</span> <span class="n">b</span><span class="p">.</span><span class="n">length</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">throw</span> <span class="n">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;Different length: a:&quot;</span><span class="o">+</span><span class="n">a</span><span class="p">.</span><span class="n">length</span><span class="o">+</span><span class="s">&quot; b:&quot;</span><span class="o">+</span><span class="n">b</span><span class="p">.</span><span class="n">length</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span> <span class="p">(</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="n">throw</span> <span class="n">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;Not a binary number a:&quot;</span><span class="o">+</span><span class="n">Arrays</span><span class="p">.</span><span class="n">toString</span><span class="p">(</span><span class="n">a</span><span class="p">));</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span> <span class="p">(</span> <span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="n">throw</span> <span class="n">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;Not a binary number b:&quot;</span><span class="o">+</span><span class="n">Arrays</span><span class="p">.</span><span class="n">toString</span><span class="p">(</span><span class="n">b</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="cm">/** Number carried in previous calculation. */</span>
+    <span class="kt">int</span> <span class="n">carriedFromPre</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span><span class="p">[]</span> <span class="n">result</span> <span class="o">=</span> <span class="n">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">a</span><span class="p">.</span><span class="n">length</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="n">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">result</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">carriedFromPre</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="n">carriedFromPre</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">carriedFromPre</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="n">index</span><span class="o">--</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">result</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">carriedFromPre</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 
 
 <h2>3. Why Using Assertion</h2>
 <h3>Quick Prototype</h3>
-<p>Using assertions</p>
+<p>Using assertions to quickly write down your thoughts and turn them into code. Forget about the code to check the pre-conditions and post-conditions, just writen them inside assert block. Now you can run your code on the fly! Althought it may broke down for several times, the message inside <code>AssertionError</code> will provide you with enough information to debug, change and run your code again. This effectively speed up the development process, free your mind from caring about the pitifal of your code.</p>
+<h3>Commenting</h3>
+<p>Sometimes your want to comment some special situations in your code, like:</p>
+<div class="highlight"><pre><span class="k">if</span><span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// process a;</span>
+<span class="p">}</span><span class="k">else</span><span class="p">{</span>
+    <span class="c1">// a &lt;= b</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Now your have a choose of using assertion:</p>
+<div class="highlight"><pre><span class="k">if</span><span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// process a;</span>
+<span class="p">}</span><span class="k">else</span><span class="p">{</span>
+    <span class="n">assert</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span> <span class="o">:</span> <span class="s">&quot;A: &quot;</span> <span class="o">+</span> <span class="n">a</span> <span class="o">+</span> <span class="s">&quot;B: &quot;</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p><strong>What is the benefit?</strong></p>
+<p>Wow, adding a new keyword in Java just to introduce a new way of commenting? Yeah, it may not be so obvious but ......</p>
 <h1>To Be Continued</h1>
 <h2>Reference</h2>
 <p>1.<a href="http://docs.oracle.com/javase/7/docs/technotes/guides/language/assert.html">Oracle Java SE Documentation</a></p>

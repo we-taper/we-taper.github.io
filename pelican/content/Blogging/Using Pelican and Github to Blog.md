@@ -64,7 +64,7 @@ reported by **easy_install**)
 
 Pelican supports many simply-markup language including markdown and reStructured Text etc.
 I chose markdown because I have previous experience with them. See [my markdown show 
-case]({filename}../Computer_Tips/Markdown Showcase.md). Choose whatever you like by Google it.
+case]({filename}./Markdown Showcase.md). Choose whatever you like by Google it.
 
 
 ##2.2 Learn Pelican
