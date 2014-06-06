@@ -1,5 +1,5 @@
-title: Class Note - English(R&W) - xst Class
-date: 2014-05-25
+﻿title: Class Note - English(R&W) - xst Class
+date: 2014-05-27
 tags: English
 author: we.taper
 
@@ -33,7 +33,7 @@ Vocs:
 
 + Money
 
-	Cashback, È¡Ç®
+	Cashback
 	foreign exchange
 	deposit
 	withdraw
