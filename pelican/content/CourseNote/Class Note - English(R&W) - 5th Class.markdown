@@ -1,4 +1,4 @@
-title: Class Note - English(R&W) - 5th Class
+title: Class Note - English(R&W) - 5th
 date: 2014-06-17
 tags: English
 author: we.taper
