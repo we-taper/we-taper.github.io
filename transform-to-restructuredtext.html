@@ -26,7 +26,6 @@
                 <nav>
                     <a href="/pages/who-am-i.html">Who am I?</a>&nbsp;
                     <a href="/category/blogging.html">Blogging</a>&nbsp;
-                    <a href="/category/computer_tips.html">Computer_Tips</a>&nbsp;
                     <a href="/category/coursenote.html">CourseNote</a>&nbsp;
                     <a href="/category/programming.html">Programming</a>&nbsp;
                 </nav>
@@ -41,12 +40,15 @@
 
     <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2014-03-02T14:00:00">
+        <abbr class="published" title="2014-03-02T14:00:00+08:00">
                 周日 02 三月 2014
         </abbr>
 <p>tags: <a href="/tag/markup-language.html">Markup Language</a></p></footer><!-- /.post-info -->      <h1>Transform to reStructuredText</h1>
-<p>*Because the Markdown language no longer satisfy my requirements, I started to learn reStructuredText,
+<p>Because the Markdown language no longer satisfy my requirements, I started to learn reStructuredText,
 another markup language initially built for writing python documentation just like in javadoc or etc.</p>
+<p><strong>Update:</strong> </p>
+<p>I have already given up reStructuredText and switched back to markdown. Thus this file will not be udpated.</p>
+<p>It is not that markdown has been updated with more features. It is because reStructuredText relies on too many external packages, and it is not popular enough to give us easy access on all platforms and web browsers. For example, the edito ReText (mentioned below) is complicated to setup on windows. Also, there is no firefox plugin to view reStructuredText. All these violates the principle of K.I.S.S. and I decided to fall back to markdown. If needed, I will write sophisticated documents using <em>Latex</em> and publish the pdf output.</p>
 <h2>Prepare some Editors</h2>
 <h3>For Windows</h3>
 <p>Because I have an Windows 8 OS on my PC, there is much trouble to get me some ready-to-use reStructuredText
@@ -79,7 +81,7 @@ from sourceforge's <a href="http://sourceforge.net/p/retext/home/ReText/">homepa
 <li>
 <p>Install python-markups</p>
 <p>Code:</p>
-<div class="highlight"><pre><span class="n">easy_install</span> <span class="o">-</span><span class="n">i</span>  <span class="n">http</span><span class="o">:</span><span class="c1">//pypi.douban.com/simple/ markups</span>
+<div class="highlight"><pre><span></span>easy_install -i  http://pypi.douban.com/simple/ markups
 </pre></div>
 
 
@@ -103,7 +105,7 @@ from sourceforge's <a href="http://sourceforge.net/p/retext/home/ReText/">homepa
 <li>
 <p>Run ReText</p>
 <p>Running a python program is simple. After downloading and unpackaging the source code, you just have you tell python to start this program by:</p>
-<div class="highlight"><pre><span class="n">python</span> <span class="n">retext</span><span class="p">.</span><span class="n">py</span>
+<div class="highlight"><pre><span></span>python retext.py
 </pre></div>
 
 
@@ -117,45 +119,45 @@ from sourceforge's <a href="http://sourceforge.net/p/retext/home/ReText/">homepa
 <p>PPA Link: <a href="https://launchpad.net/~mitya57/+archive/ppa">PPA for Dmitry Shachnev</a></p>
 <p><em>HowTo Add PPA Source?</em></p>
 <p>Code:</p>
-<div class="highlight"><pre><span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="o">:</span><span class="n">user</span><span class="o">/</span><span class="n">ppa</span><span class="o">-</span><span class="n">name</span>  
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>  
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">xxx</span>
+<div class="highlight"><pre><span></span>sudo add-apt-repository ppa:user/ppa-name  
+sudo apt-get update  
+sudo apt-get install xxx
 </pre></div>
 
 
 <p>So now:</p>
 <p>Code:</p>
-<div class="highlight"><pre><span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="o">:</span><span class="n">mitya57</span><span class="o">/</span><span class="n">ppa</span>  
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>  
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span>
+<div class="highlight"><pre><span></span>sudo add-apt-repository ppa:mitya57/ppa  
+sudo apt-get update  
+sudo apt-get install
 </pre></div>
 
 
 <p><strong>Note :</strong></p>
 <p>ReText is provided in ubuntu source, there is no need to add extra ppa-source!</p>
 <p>Installed Package:</p>
-<div class="highlight"><pre><span class="n">python3</span><span class="o">-</span><span class="n">markups</span> <span class="p">(</span><span class="n">version</span> <span class="mf">0.3</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="n">will</span> <span class="n">be</span> <span class="n">installed</span>  
-<span class="n">python3</span><span class="o">-</span><span class="n">pyqt4</span> <span class="p">(</span><span class="n">version</span> <span class="mf">4.10.3</span><span class="o">-</span><span class="mi">1u</span><span class="n">buntu1</span><span class="p">)</span> <span class="n">will</span> <span class="n">be</span> <span class="n">installed</span>  
-<span class="n">python3</span><span class="o">-</span><span class="n">sip</span> <span class="p">(</span><span class="n">version</span> <span class="mf">4.15.2</span><span class="o">-</span><span class="mi">1u</span><span class="n">buntu1</span><span class="p">)</span> <span class="n">will</span> <span class="n">be</span> <span class="n">installed</span>  
-<span class="n">retext</span> <span class="p">(</span><span class="n">version</span> <span class="mf">4.1.0</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="n">will</span> <span class="n">be</span> <span class="n">installed</span>
+<div class="highlight"><pre><span></span>python3-markups (version 0.3-1) will be installed  
+python3-pyqt4 (version 4.10.3-1ubuntu1) will be installed  
+python3-sip (version 4.15.2-1ubuntu1) will be installed  
+retext (version 4.1.0-1) will be installed
 </pre></div>
 
 
 <p>However, extra packages are required to parse files.Please choose the right version of package. For example, following package does not meet the requirements:</p>
-<div class="highlight"><pre><span class="n">docutils</span><span class="o">-</span><span class="n">common</span> <span class="p">(</span><span class="n">version</span> <span class="mf">0.11</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="n">will</span> <span class="n">be</span> <span class="n">installed</span>  
-<span class="n">python</span><span class="o">-</span><span class="n">docutils</span> <span class="p">(</span><span class="n">version</span> <span class="mf">0.11</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="n">will</span> <span class="n">be</span> <span class="n">installed</span>  
-<span class="n">python</span><span class="o">-</span><span class="n">enchant</span> <span class="p">(</span><span class="n">version</span> <span class="mf">1.6.5</span><span class="o">-</span><span class="mi">2</span><span class="n">build1</span><span class="p">)</span> <span class="n">will</span> <span class="n">be</span> <span class="n">installed</span>  
-<span class="n">python</span><span class="o">-</span><span class="n">markdown</span> <span class="p">(</span><span class="n">version</span> <span class="mf">2.3.1</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="n">will</span> <span class="n">be</span> <span class="n">installed</span>  
-<span class="n">python</span><span class="o">-</span><span class="n">roman</span> <span class="p">(</span><span class="n">version</span> <span class="mf">1.4.0</span><span class="o">-</span><span class="mi">2u</span><span class="n">buntu1</span><span class="p">)</span> <span class="n">will</span> <span class="n">be</span> <span class="n">installed</span>
+<div class="highlight"><pre><span></span>docutils-common (version 0.11-2) will be installed  
+python-docutils (version 0.11-2) will be installed  
+python-enchant (version 1.6.5-2build1) will be installed  
+python-markdown (version 2.3.1-1) will be installed  
+python-roman (version 1.4.0-2ubuntu1) will be installed
 </pre></div>
 
 
 <p>Instead, I should install the version for python 3:</p>
-<div class="highlight"><pre><span class="n">Installed</span> <span class="n">packages</span><span class="o">:</span>  
-<span class="n">python3</span><span class="o">-</span><span class="n">docutils</span> <span class="p">(</span><span class="mf">0.11</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>  
-<span class="n">python3</span><span class="o">-</span><span class="n">enchant</span> <span class="p">(</span><span class="mf">1.6.5</span><span class="o">-</span><span class="mi">2</span><span class="n">build1</span><span class="p">)</span>  
-<span class="n">python3</span><span class="o">-</span><span class="n">markdown</span> <span class="p">(</span><span class="mf">2.3.1</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>   
-<span class="n">python3</span><span class="o">-</span><span class="n">roman</span> <span class="p">(</span><span class="mf">1.4.0</span><span class="o">-</span><span class="mi">2u</span><span class="n">buntu1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span>Installed packages:  
+python3-docutils (0.11-2)  
+python3-enchant (1.6.5-2build1)  
+python3-markdown (2.3.1-1)   
+python3-roman (1.4.0-2ubuntu1)
 </pre></div>
 
 

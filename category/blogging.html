@@ -26,7 +26,6 @@
                 <nav>
                     <a href="/pages/who-am-i.html">Who am I?</a>&nbsp;
                     <a href="/category/blogging.html">Blogging</a>&nbsp;
-                    <a href="/category/computer_tips.html">Computer_Tips</a>&nbsp;
                     <a href="/category/coursenote.html">CourseNote</a>&nbsp;
                     <a href="/category/programming.html">Programming</a>&nbsp;
                 </nav>
@@ -38,7 +37,7 @@
                 <article>
                     <h1 class="entry-title"><a href="/using-pelican-and-github-to-blog-configuration.html">Using Pelican and Github to Blog - Configuration</a></h1> 
 <footer class="post-info">
-        <abbr class="published" title="2014-03-23T00:00:00">
+        <abbr class="published" title="2014-03-23T00:00:00+08:00">
                 周日 23 三月 2014
         </abbr>
 <p>tags: <a href="/tag/pelican.html">Pelican</a><a href="/tag/unfinished.html">unFinished</a><a href="/tag/unpolished.html">unPolished</a></p></footer><!-- /.post-info --><h1>Configuration File</h1>
@@ -47,21 +46,21 @@
 <p><strong>Note: </strong> The settings should be changed mainly in the pelican configuration file.<br />
 <em>How to locate the configuration?</em>: If you have <em>kick start</em> your website using quick starter, you will find the auto-generated configuration file <code>pelicanconf.py</code> in your website directory. Otherwise, create one with name you like.</p>
 <h3>What I have changed.</h3>
-<div class="highlight"><pre><span class="n">AUTHOR</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">xxxx</span><span class="err">&#39;</span>
-<span class="n">SITENAME</span> <span class="o">=</span> <span class="s">&quot;Your Blog&#39;s Name&quot;</span>
-<span class="cp"># See, &#39; and &quot;, both can be used for String literals. These is the feature of Python.</span>
+<div class="highlight"><pre><span></span>AUTHOR = &#39;xxxx&#39;
+SITENAME = &quot;Your Blog&#39;s Name&quot;
+# See, &#39; and &quot;, both can be used for String literals. These is the feature of Python.
 
-<span class="n">USE_FOLDER_AS_CATEGORY</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">True</span><span class="err">&#39;</span>
-<span class="cp"># Blogroll</span>
-<span class="n">LINKS</span> <span class="o">=</span>  <span class="p">((</span><span class="err">&#39;</span><span class="n">Name</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">http</span><span class="o">:</span><span class="c1">//linkaddress.com/&#39;),)</span>
+USE_FOLDER_AS_CATEGORY = &#39;True&#39;
+# Blogroll
+LINKS =  ((&#39;Name&#39;, &#39;http://linkaddress.com/&#39;),)
 
-<span class="cp"># Social widget</span>
-<span class="n">SOCIAL</span> <span class="o">=</span> <span class="p">((</span><span class="s">&quot;E-Mail name&quot;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">xxx</span><span class="err">@</span><span class="n">xx</span><span class="p">.</span><span class="n">com</span><span class="err">&#39;</span><span class="p">),)</span>
+# Social widget
+SOCIAL = ((&quot;E-Mail name&quot;, &#39;xxx@xx.com&#39;),)
 
-<span class="n">TIMEZONE</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">Asia</span><span class="o">/</span><span class="n">Shanghai</span><span class="err">&#39;</span>
+TIMEZONE = &#39;Asia/Shanghai&#39;
 
-<span class="cp"># Set the maximum length (in words) of summary.</span>
-<span class="n">SUMMARY_MAX_LENGTH</span> <span class="o">=</span> <span class="mi">10</span>
+# Set the maximum length (in words) of summary.
+SUMMARY_MAX_LENGTH = 10
 </pre></div>
 
 
@@ -78,9 +77,9 @@
 <p>I personally recommand the <strong>brownstone</strong> or <strong>cebong</strong> theme.</p>
 <h3>Pelican-themes</h3>
 <p>Pelican provide a built-in theme manager which you can assess by command:</p>
-<div class="highlight"><pre><span class="n">pelican</span><span class="o">-</span><span class="n">themes</span> <span class="o">-</span><span class="n">h</span>  <span class="err">#</span> <span class="n">This</span> <span class="n">calles</span> <span class="n">the</span> <span class="n">help</span><span class="p">.</span>
-<span class="n">pelican</span><span class="o">-</span><span class="n">themes</span> <span class="o">-</span><span class="n">l</span>  <span class="err">#</span> <span class="n">This</span> <span class="n">lists</span> <span class="n">all</span> <span class="n">the</span> <span class="n">themes</span> <span class="n">installed</span><span class="p">.</span>
-<span class="n">pelican</span><span class="o">-</span><span class="n">themes</span> <span class="o">-</span><span class="n">vl</span> <span class="err">#</span> <span class="n">The</span> <span class="o">-</span><span class="n">v</span> <span class="p">(</span><span class="n">verbose</span><span class="p">)</span> <span class="n">gives</span> <span class="n">us</span> <span class="n">more</span> <span class="n">detailed</span> <span class="n">information</span> <span class="n">to</span> <span class="n">the</span> <span class="n">output</span> <span class="o">-</span> <span class="n">here</span> <span class="n">it</span> <span class="n">lists</span> <span class="n">the</span> <span class="n">place</span> <span class="n">where</span> <span class="n">themes</span> <span class="n">locate</span><span class="p">.</span>
+<div class="highlight"><pre><span></span>pelican-themes -h  # This calles the help.
+pelican-themes -l  # This lists all the themes installed.
+pelican-themes -vl # The -v (verbose) gives us more detailed information to the output - here it lists the place where themes locate.
 </pre></div>
 
 
@@ -89,11 +88,11 @@
 <p><strong>Note: </strong> I don't recommend you to install themes for compatibility reasons: If you switch to another computer or OS, you will have to reinstall these themes so that pelican can recognize them. Instead, you can copy the theme you want into blog folder and push them to github. Therefore, when you clone your own blog some elsewhere, you theme will always be ready for use.</p>
 <h3>Setting up themes in Pelican configuration</h3>
 <p>To specify a theme:</p>
-<div class="highlight"><pre><span class="n">THEME</span> <span class="o">=</span> <span class="s">&quot;Name Of Theme Installed&quot;</span>
-<span class="cp"># You can view installed themes by pelican-themes - vl</span>
-<span class="cp"># Or, if you don&#39;t want to install, type:</span>
-<span class="n">THEME</span> <span class="o">=</span> <span class="s">&quot;Path To Theme&quot;</span>
-<span class="cp"># Path can either be relative or absolute.</span>
+<div class="highlight"><pre><span></span>THEME = &quot;Name Of Theme Installed&quot;
+# You can view installed themes by pelican-themes - vl
+# Or, if you don&#39;t want to install, type:
+THEME = &quot;Path To Theme&quot;
+# Path can either be relative or absolute.
 </pre></div>
 
 
@@ -104,7 +103,7 @@
 <li>Register an account on Disqus</li>
 <li>On Disqus, choose <em>"Add Disqus to Your Site"</em> and finish the process.</li>
 <li>Find your shorname, which is ususally the same as in : <code>http://xxx.disqus.com/</code> (xxx is your shortname).</li>
-<li>In Pelican configuration file, add following:<div class="highlight"><pre><span class="n">DISQUS_SITENAME</span> <span class="o">=</span> <span class="s">&quot;Your Short Name Here&quot;</span>
+<li>In Pelican configuration file, add following:<div class="highlight"><pre><span></span>DISQUS_SITENAME = &quot;Your Short Name Here&quot;
 </pre></div>
 
 
@@ -112,26 +111,25 @@
 </ol>
 <p>Done!</p>
 <h1>Something about Editing Blogs</h1>
-<p>Link</p>
-<h2>to internal content.</h2>
+<h2>Link to internal content.</h2>
 <p><em>See :</em><a href="http://docs.getpelican.com/en/3.3.0/getting_started.html#linking-to-internal-content">Linking to internal content</a></p>
 <p>Replace URL with these:</p>
 <p>To file:     </p>
-<div class="highlight"><pre><span class="p">{</span><span class="n">filename</span><span class="p">}</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">file</span>
+<div class="highlight"><pre><span></span>{filename}path/to/file
 </pre></div>
 
 
 <p>To tags:  </p>
-<div class="highlight"><pre><span class="p">{</span><span class="n">tag</span><span class="p">}</span><span class="n">tagname</span>
+<div class="highlight"><pre><span></span>{tag}tagname
 </pre></div>
 
 
 <p>To Category:  </p>
-<div class="highlight"><pre><span class="p">{</span><span class="n">category</span><span class="p">}</span><span class="n">foobar</span>
+<div class="highlight"><pre><span></span>{category}foobar
 </pre></div>
 
 
-<p><strong>Note: </strong></p>
+<p><strong>Note:</strong></p>
 <ol>
 <li>Pelican does not support referenced link of this type.</li>
 <li>The <code>{filaname}</code> is actually <code>{filaname}</code>, don't put some real file name here or pelican will recognize it as Category name.</li>
@@ -154,7 +152,7 @@
                 
                 <div class="entry-content">
                 <h1>Transform to reStructuredText</h1>
-<p>*Because the Markdown language no longer satisfy ...</p>
+<p>Because the Markdown language no longer satisfy ...</p>
                 <a class="readmore" href="/transform-to-restructuredtext.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>

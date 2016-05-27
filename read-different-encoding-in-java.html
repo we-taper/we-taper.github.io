@@ -26,7 +26,6 @@
                 <nav>
                     <a href="/pages/who-am-i.html">Who am I?</a>&nbsp;
                     <a href="/category/blogging.html">Blogging</a>&nbsp;
-                    <a href="/category/computer_tips.html">Computer_Tips</a>&nbsp;
                     <a href="/category/coursenote.html">CourseNote</a>&nbsp;
                     <a href="/category/programming.html">Programming</a>&nbsp;
                 </nav>
@@ -41,7 +40,7 @@
 
     <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2014-03-04T00:00:00">
+        <abbr class="published" title="2014-03-04T00:00:00+08:00">
                 周二 04 三月 2014
         </abbr>
 <p>tags: <a href="/tag/java.html">Java</a></p></footer><!-- /.post-info -->      <h1>Read Different Encoding in Java</h1>
@@ -53,14 +52,14 @@
 <p><strong>License Note:</strong> The library is subject to the Mozilla Public License Version 1.1. Alternatively, the library may be used under the terms of either the GNU General Public License Version 2 or later, or the GNU Lesser General Public License 2.1 or later.</p>
 <p>However, this library failed to get the encoding of my files too many times, so I found another project powered by IBM and used by many Companies: <a href="http://site.icu-project.org/">ICU - International Components for Unicode</a>. License is quite complicated though, the library is open-sourced.</p>
 <p>Using is also very simple. My example:</p>
-<div class="highlight"><pre><span class="n">public</span> <span class="k">static</span> <span class="n">String</span> <span class="nf">getEncoding</span><span class="p">(</span><span class="n">File</span> <span class="n">textFile</span><span class="p">)</span> <span class="n">throws</span> <span class="n">FileNotFoundException</span><span class="p">,</span> <span class="n">IOException</span> <span class="p">{</span>
-    <span class="n">com</span><span class="p">.</span><span class="n">ibm</span><span class="p">.</span><span class="n">icu</span><span class="p">.</span><span class="n">text</span><span class="p">.</span><span class="n">CharsetDetector</span> <span class="n">cd</span> <span class="o">=</span> <span class="n">new</span> <span class="n">com</span><span class="p">.</span><span class="n">ibm</span><span class="p">.</span><span class="n">icu</span><span class="p">.</span><span class="n">text</span><span class="p">.</span><span class="n">CharsetDetector</span><span class="p">();</span>
-    <span class="n">java</span><span class="p">.</span><span class="n">io</span><span class="p">.</span><span class="n">FileInputStream</span> <span class="n">fis</span> <span class="o">=</span> <span class="n">new</span> <span class="n">java</span><span class="p">.</span><span class="n">io</span><span class="p">.</span><span class="n">FileInputStream</span><span class="p">(</span><span class="n">textFile</span><span class="p">);</span>
-    <span class="n">java</span><span class="p">.</span><span class="n">io</span><span class="p">.</span><span class="n">BufferedInputStream</span> <span class="n">bis</span> <span class="o">=</span> <span class="n">new</span> <span class="n">java</span><span class="p">.</span><span class="n">io</span><span class="p">.</span><span class="n">BufferedInputStream</span><span class="p">(</span><span class="n">fis</span><span class="p">);</span>
-    <span class="n">cd</span><span class="p">.</span><span class="n">setText</span><span class="p">(</span><span class="n">bis</span><span class="p">);</span>
-    <span class="n">CharsetMatch</span> <span class="n">cm</span> <span class="o">=</span> <span class="n">cd</span><span class="p">.</span><span class="n">detect</span><span class="p">();</span>
-    <span class="k">return</span> <span class="n">cm</span><span class="p">.</span><span class="n">getName</span><span class="p">();</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span>public static String getEncoding(File textFile) throws FileNotFoundException, IOException {
+    com.ibm.icu.text.CharsetDetector cd = new com.ibm.icu.text.CharsetDetector();
+    java.io.FileInputStream fis = new java.io.FileInputStream(textFile);
+    java.io.BufferedInputStream bis = new java.io.BufferedInputStream(fis);
+    cd.setText(bis);
+    CharsetMatch cm = cd.detect();
+    return cm.getName();
+}
 </pre></div>
 
 

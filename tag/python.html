@@ -26,7 +26,6 @@
                 <nav>
                     <a href="/pages/who-am-i.html">Who am I?</a>&nbsp;
                     <a href="/category/blogging.html">Blogging</a>&nbsp;
-                    <a href="/category/computer_tips.html">Computer_Tips</a>&nbsp;
                     <a href="/category/coursenote.html">CourseNote</a>&nbsp;
                     <a href="/category/programming.html">Programming</a>&nbsp;
                 </nav>
@@ -38,7 +37,7 @@
                 <article>
                     <h1 class="entry-title"><a href="/Python Study Note.html">Python Study Note (Last update: 2014-2-21)</a></h1> 
 <footer class="post-info">
-        <abbr class="published" title="2014-02-21T14:00:00">
+        <abbr class="published" title="2014-02-21T14:00:00+08:00">
                 周五 21 二月 2014
         </abbr>
 <p>tags: <a href="/tag/python.html">Python</a></p></footer><!-- /.post-info --><h1>Python Study Note</h1>
@@ -47,20 +46,20 @@
 <em>(python 3.3)</em>
 When using <code>\xxx</code> to display Unicode characters, the encoding of the source file
 also counts. e.g, if you type:</p>
-<div class="highlight"><pre>    <span class="n">s</span> <span class="o">=</span> <span class="sc">&#39;\xc4&#39;</span>
-    <span class="n">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<div class="highlight"><pre><span></span>    s = &#39;\xc4&#39;
+    print(s)
 </pre></div>
 
 
 <p>In a GBK based file, interpreter says:</p>
-<div class="highlight"><pre>    <span class="nl">Error:</span>
-    <span class="nl">UnicodeEncodeError:</span> <span class="err">&#39;</span><span class="n">gbk</span><span class="err">&#39;</span> <span class="n">codec</span> <span class="n">can</span><span class="err">&#39;</span><span class="n">t</span> <span class="n">encode</span> <span class="n">character</span> <span class="sc">&#39;\xc4&#39;</span> <span class="n">in</span> 
-    <span class="n">position</span> <span class="mi">2</span><span class="o">:</span> <span class="n">illegal</span> <span class="n">multibyte</span> <span class="n">sequence</span>
+<div class="highlight"><pre><span></span>    Error:
+    UnicodeEncodeError: &#39;gbk&#39; codec can&#39;t encode character &#39;\xc4&#39; in 
+    position 2: illegal multibyte sequence
 </pre></div>
 
 
 <p>On the other hand, inside a UTF-8 file:</p>
-<div class="highlight"><pre>    <span class="sc">&#39;Ä&#39;</span>
+<div class="highlight"><pre><span></span>    &#39;Ä&#39;
 </pre></div>
 
 
@@ -85,13 +84,13 @@ object copy. </p>
 <h2>2014-02-26</h2>
 <p><strong>The strange loop:else</strong>:</p>
 <p>Try this code:</p>
-<div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k">while</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="o">:</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="kt">int</span><span class="p">(</span> <span class="n">input</span><span class="p">(</span><span class="err">&#39;</span><span class="n">Int</span><span class="p">(</span><span class="n">try</span> <span class="o">&gt;</span> <span class="mi">3</span> <span class="n">and</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span><span class="o">:</span><span class="err">&#39;</span><span class="p">)</span> <span class="p">)</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="o">:</span>
-        <span class="k">break</span>
-<span class="nl">else:</span>
-    <span class="n">print</span><span class="p">(</span><span class="err">&#39;</span><span class="n">Wow</span><span class="o">!</span><span class="err">&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span>x = 1
+while x &lt; 3:
+    x = int( input(&#39;Int(try &gt; 3 and = 1):&#39;) )
+    if x == 1:
+        break
+else:
+    print(&#39;Wow!&#39;)
 </pre></div>
 
 

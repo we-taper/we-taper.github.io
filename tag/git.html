@@ -26,7 +26,6 @@
                 <nav>
                     <a href="/pages/who-am-i.html">Who am I?</a>&nbsp;
                     <a href="/category/blogging.html">Blogging</a>&nbsp;
-                    <a href="/category/computer_tips.html">Computer_Tips</a>&nbsp;
                     <a href="/category/coursenote.html">CourseNote</a>&nbsp;
                     <a href="/category/programming.html">Programming</a>&nbsp;
                 </nav>
@@ -38,14 +37,14 @@
                 <article>
                     <h1 class="entry-title"><a href="/git-book-note.html">Git Book Note</a></h1> 
 <footer class="post-info">
-        <abbr class="published" title="2014-03-29T00:00:00">
+        <abbr class="published" title="2014-03-29T00:00:00+08:00">
                 周六 29 三月 2014
         </abbr>
 <p>tags: <a href="/tag/git.html">Git</a></p></footer><!-- /.post-info --><h1>Git Start</h1>
-<p><strong>Note: </strong> Most of the content below are based on the book available on Git Documentation: <a href="http://git-scm.com/doc">Git book</a>
-<br></p>
+<p><strong>Note:</strong>  Most of the content below are based on the book available on Git Documentation: <a href="http://git-scm.com/doc">Git book</a></p>
+<p><br></p>
 <h2>1. Basic concept</h2>
-<p><em>See: </em><a href="http://git-scm.com/book/en/Getting-Started-Git-Basics">Git book - chapter 1.3</a></p>
+<p><em>See:</em> <a href="http://git-scm.com/book/en/Getting-Started-Git-Basics">Git book - chapter 1.3</a></p>
 <ol>
 <li>
 <p>Git is a "mini file system"</p>
@@ -63,8 +62,8 @@ everything can be recovered.</p>
 </li>
 </ol>
 <p><img alt="Three states" src="http://git-scm.com/figures/18333fig0106-tn.png" /></p>
-<p><strong>  What we do on git?</strong></p>
-<p><strong>  A General Workflow on Git</strong></p>
+<p><strong>What we do on git?</strong></p>
+<p><strong>A General Workflow on Git</strong></p>
 <blockquote>
 <ol>
 <li>You modify files in your working directory.</li>
@@ -74,51 +73,56 @@ and stores that snapshot permanently to your Git directory.</li>
 </ol>
 </blockquote>
 <h3>1.1 Install Git</h3>
-<p><em>See  </em><a href="http://git-scm.com/book/en/Getting-Started-Installing-Git">Git book - chapter 1.4</a></p>
+<p><em>See:</em><a href="http://git-scm.com/book/en/Getting-Started-Installing-Git">Git book - chapter 1.4</a></p>
 <p>I personally like the git plugin <em>EGit</em> (found on Eclipse Market) for Eclipse since I use Eclipse on Windows. However, I still remcommend a commandline git for exercising.</p>
 <h3>1.2 Configure Git</h3>
-<p>*See  * <a href="http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup">Git book - chapter 1.5</a></p>
-<p>Since I don't want to consider too much about git, skip this.</p>
+<p><em>See:</em> <a href="http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup">Git book - chapter 1.5</a></p>
+<p>Since I don't want to consider too much about git, skip this.
+Update: At least, one should set his username and email address, which is required by git every time one do git push. I update my default name and email address by:</p>
+<p>Code:
+    git config --global user.name "we.taper"
+    git config --global user.email "haha_youCantSee@balala.com"</p>
 <h3>1.3 Get help</h3>
 <hr />
-<p><em>see  </em><a href="http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup">Git book - chapter 1.6</a></p>
+<p><em>See:</em><a href="http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup">Git book - chapter 1.6</a></p>
 <p>Code:</p>
-<div class="highlight"><pre><span class="nx">git</span> <span class="nx">help</span> <span class="o">&lt;</span><span class="nx">verb</span><span class="o">&gt;</span>
-<span class="nx">git</span> <span class="o">&lt;</span><span class="nx">verb</span><span class="o">&gt;</span> <span class="o">--</span><span class="nx">help</span>
-<span class="nx">man</span> <span class="nx">git</span><span class="o">-&lt;</span><span class="nx">verb</span><span class="o">&gt;</span>     <span class="vi">#For</span> <span class="nx">Linux</span> <span class="nx">manual</span> <span class="nx">page</span>
+<div class="highlight"><pre><span></span>git help &lt;verb&gt;
+git &lt;verb&gt; --help
+man git-&lt;verb&gt;     #For Linux manual page
 </pre></div>
 
 
+<p><br></p>
 <h2>2. Let's Rock</h2>
 <h3>2.1 Get a Git Repository</h3>
-<p><em>See :</em> <a href="http://git-scm.com/book/en/Git-Basics-Getting-a-Git-Repository">Git book - chapter 2.1</a></p>
+<p><em>See:</em> <a href="http://git-scm.com/book/en/Git-Basics-Getting-a-Git-Repository">Git book - chapter 2.1</a></p>
 <p>Basically, we first <em>create</em> a repository somewhere, then others can <em>clone</em> this repository. After
 cloning or creating, you can <em>add</em> files and then commit to the repository.</p>
 <h4>Command List</h4>
-<div class="highlight"><pre><span class="cp"># Create</span>
-<span class="n">git</span> <span class="n">init</span>
-<span class="cp"># Add</span>
-<span class="n">git</span> <span class="n">add</span> <span class="n">FileName</span><span class="p">(</span><span class="n">support</span> <span class="o">*</span><span class="p">)</span>
-<span class="cp"># Commit</span>
-<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="err">&#39;</span><span class="n">Commit</span> <span class="n">Comment</span><span class="err">&#39;</span>
-<span class="cp"># Clone</span>
-<span class="n">git</span> <span class="n">clone</span> <span class="p">[</span><span class="n">url</span><span class="p">]</span>
-<span class="cp"># Clone Examples</span>
-<span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="o">:</span><span class="c1">//github.com/schacon/grit.git NameOfDirectory # Git transfer protocol</span>
-<span class="n">git</span> <span class="n">clone</span> <span class="n">http</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">:</span><span class="c1">//github.com/schacon/grit.git # HTTP(s)</span>
-<span class="n">git</span> <span class="n">clone</span> <span class="n">user</span><span class="err">@</span><span class="n">server</span><span class="o">:/</span><span class="n">path</span><span class="p">.</span><span class="n">git</span> <span class="err">#</span> <span class="n">SSH</span>
+<div class="highlight"><pre><span></span># Create
+git init
+# Add
+git add FileName(support *)
+# Commit
+git commit -m &#39;Commit Comment&#39;
+# Clone
+git clone [url]
+# Clone Examples
+git clone git://github.com/schacon/grit.git NameOfDirectory # Git transfer protocol
+git clone http(s)://github.com/schacon/grit.git # HTTP(s)
+git clone user@server:/path.git # SSH
 </pre></div>
 
 
 <h3>2.2 Record change to Repository</h3>
-<p><em>See :</em><a href="http://git-scm.com/book/en/Git-Basics-Recording-Changes-to-the-Repository">Git book - chapter 2.2</a></p>
+<p><em>See:</em><a href="http://git-scm.com/book/en/Git-Basics-Recording-Changes-to-the-Repository">Git book - chapter 2.2</a></p>
 <p>The full Life Cycle of a File:</p>
 <p><img alt="Life Cycle" src="http://git-scm.com/figures/18333fig0201-tn.png" /></p>
-<p><strong>Note: </strong> Unadded file are <strong>not</strong> tracked, so Git <strong>doesn't care</strong> about this files.</p>
+<p><strong>Note:</strong> Unadded file are <strong>not</strong> tracked, so Git <strong>doesn't care</strong> about this files.</p>
 <h4>Staged</h4>
 <p>When files added (under the control of Git) once modified, it need to be staged to the staging
 area. Command of stage is the same as add:</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">add</span> <span class="n">FileName</span> <span class="err">#</span> <span class="s">&quot;add&quot;</span> <span class="n">is</span> <span class="n">multi</span><span class="o">-</span><span class="n">purpose</span><span class="p">,</span> <span class="n">can</span> <span class="n">add</span> <span class="n">and</span> <span class="n">stage</span> <span class="n">files</span><span class="p">.</span>
+<div class="highlight"><pre><span></span>git add FileName # &quot;add&quot; is multi-purpose, can add and stage files.
 </pre></div>
 
 
@@ -131,65 +135,65 @@ are as follows:</p>
 <li>You can end patterns with a forward slash (/) to specify a directory.</li>
 <li>
 <p>You can negate a pattern by starting it with an exclamation point (!).</p>
-<p><strong>Glob patterns</strong> are like simplified regular expressions that shells use. An <strong>asterisk (*)</strong>
+<p><strong>Glob patterns</strong> are like simplified regular expressions that shells use. An <strong>astsrisk (*)</strong>
 matches zero or more characters; <strong>[abc]</strong> matches any character inside the brackets (in this 
 case a, b, or c); a <strong>question mark (?)</strong> matches a single character; and <strong>brackets</strong> enclosing 
 characters separated by a hyphen([0-9]) matches any character in the range (in this case
 0 through 9) .</p>
-<p><em>See:  </em><a href="http://unixhelp.ed.ac.uk/CGI/man-cgi?glob+7">Unix Man Page</a> and <a href="http://en.wikipedia.org/wiki/Glob_%28programming%29">Wikipedia Page</a></p>
+<p><em>See:</em><a href="http://unixhelp.ed.ac.uk/CGI/man-cgi?glob+7">Unix Man Page</a> and <a href="http://en.wikipedia.org/wiki/Glob_%28programming%29">Wikipedia Page</a></p>
 </li>
 </ul>
 <h4>See <em>"What happens?"</em></h4>
 <p>To see the general status of <em>"Which file have been modified but unstatged"</em> or <em>"Which file have
 been staged but uncommited?"</em>, use:</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">statue</span>
+<div class="highlight"><pre><span></span>git statue
 </pre></div>
 
 
 <p>For more detailed information about what actually changed inside files, use <code>diff</code>:</p>
 <p>See the difference between <strong>Working Directory</strong> and <strong>Staging Area</strong></p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">diff</span>
+<div class="highlight"><pre><span></span>git diff
 </pre></div>
 
 
 <p>See the difference between <strong>Staging</strong> and <strong>Repository(Commited)</strong></p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">diff</span> <span class="o">--</span><span class="n">staged</span>
+<div class="highlight"><pre><span></span>git diff --staged
 </pre></div>
 
 
 <h4>Now Commit</h4>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">commit</span>  
-<span class="cp"># Will open a editor to edit the &quot;Commiting Message&quot;</span>
+<div class="highlight"><pre><span></span>git commit  
+# Will open a editor to edit the &quot;Commiting Message&quot;
 
-<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">a</span>  
-<span class="cp"># Will makes Git automatically stage every file that is already tracked  </span>
-<span class="n">before</span> <span class="n">doing</span> <span class="n">the</span> <span class="n">commit</span><span class="p">,</span> <span class="n">letting</span> <span class="n">you</span> <span class="n">skip</span> <span class="n">the</span> <span class="n">git</span> <span class="n">add</span> <span class="n">part</span>
+git commit -a  
+# Will makes Git automatically stage every file that is already tracked  
+before doing the commit, letting you skip the git add part
 </pre></div>
 
 
 <h4>Remove files</h4>
 <p>Remove from tracked file list:</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">rm</span> <span class="n">FileName</span>
+<div class="highlight"><pre><span></span>git rm FileName
 </pre></div>
 
 
 <p>Remove from staged directory (file is kept in working directory):</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">rm</span> <span class="o">--</span><span class="n">cached</span> <span class="n">FileName</span>
+<div class="highlight"><pre><span></span>git rm --cached FileName
 </pre></div>
 
 
-<p><strong>Note: </strong>Deleting files on harddrive doesn't delete them from git's tracked file list.
+<p><strong>Note:</strong> Deleting files on harddrive doesn't delete them from git's tracked file list.
 Instead ther are marked "delete" when you type <code>git status</code></p>
 <h4>Moving Files</h4>
 <p><strong>Note :</strong> "Rename" == "Moving to the <em>Same</em> directory"</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">mv</span> <span class="n">file_from</span> <span class="n">file_to</span>
+<div class="highlight"><pre><span></span>git mv file_from file_to
 </pre></div>
 
 
 <p>Above is equal to:</p>
-<div class="highlight"><pre><span class="n">mv</span> <span class="n">file_from</span> <span class="n">file_to</span>
-<span class="n">git</span> <span class="n">rm</span> <span class="n">file_from</span>
-<span class="n">git</span> <span class="n">add</span> <span class="n">file_to</span>
+<div class="highlight"><pre><span></span>mv file_from file_to
+git rm file_from
+git add file_to
 </pre></div>
 
 
@@ -199,7 +203,7 @@ Instead ther are marked "delete" when you type <code>git status</code></p>
 <ul>
 <li>
 <p>Change last commit  </p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">commit</span> <span class="o">--</span><span class="n">amend</span>
+<div class="highlight"><pre><span></span>git commit --amend
 </pre></div>
 
 
@@ -212,16 +216,16 @@ always, but it overwrites your previous commit.</p>
 </li>
 <li>
 <p>Unstage File</p>
-<div class="highlight"><pre><span class="nx">git</span> <span class="nb">reset</span> <span class="nb">HEAD</span> <span class="o">&lt;</span><span class="nb">file</span><span class="o">&gt;</span><span class="nx">...</span>
+<div class="highlight"><pre><span></span>git reset HEAD &lt;file&gt;...
 </pre></div>
 
 
 </li>
 <li>
 <p>Unmodifyed a File</p>
-<div class="highlight"><pre><span class="nx">git</span> <span class="nx">checkout</span> <span class="o">--</span> <span class="o">&lt;</span><span class="nb">file</span><span class="o">&gt;</span><span class="nx">...</span>  
-<span class="err">#</span> <span class="nx">Note</span><span class="p">:</span> <span class="nx">This</span> <span class="nx">cannot</span> <span class="nx">be</span> <span class="nx">undone</span> <span class="nx">since</span> <span class="nx">the</span> <span class="nb">file</span> <span class="nx">hasn</span><span class="s1">&#39;t be commited</span>
-<span class="s1">and therefore not recorded by git.</span>
+<div class="highlight"><pre><span></span>git checkout -- &lt;file&gt;...  
+# Note: This cannot be undone since the file hasn&#39;t be commited
+and therefore not recorded by git.
 </pre></div>
 
 
@@ -246,37 +250,37 @@ back to the <em>mother snapshot</em> and choose a different route.</p>
 <ul>
 <li>
 <p>Create a branch:</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">branch</span> <span class="n">NAME</span>
+<div class="highlight"><pre><span></span>git branch NAME
 </pre></div>
 
 
 </li>
 <li>
 <p>Switch to a branch:</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">checkout</span> <span class="n">NAME</span>
+<div class="highlight"><pre><span></span>git checkout NAME
 </pre></div>
 
 
 </li>
 <li>
 <p>Create and Switch (shortened):</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">iss53</span> <span class="err">#</span><span class="n">equal</span><span class="o">:</span><span class="n">git</span> <span class="n">branch</span> <span class="n">iss53</span> <span class="err">\</span> <span class="n">git</span> <span class="n">checkout</span> <span class="n">iss53</span>
+<div class="highlight"><pre><span></span>git checkout -b iss53 #equal:git branch iss53 \ git checkout iss53
 </pre></div>
 
 
 </li>
 <li>
 <p>Delete a branch:</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">d</span> <span class="n">NAME</span>
-<span class="cp"># Note: Delete a branch. The branch must be fully merged in its upstream branch, or in HEAD if no upstream was set with --track or --set-upstream.</span>
+<div class="highlight"><pre><span></span>git branch -d NAME
+# Note: Delete a branch. The branch must be fully merged in its upstream branch, or in HEAD if no upstream was set with --track or --set-upstream.
 </pre></div>
 
 
 </li>
 <li>
 <p>Merge a branch:</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">merge</span> <span class="n">NAME</span> 
-<span class="cp"># Note: the &quot;NAME&quot; branch will be merged into current branch you are working on.</span>
+<div class="highlight"><pre><span></span>git merge NAME 
+# Note: the &quot;NAME&quot; branch will be merged into current branch you are working on.
 </pre></div>
 
 
@@ -307,10 +311,10 @@ forward".</p>
 <p>Resolve Conflicts:</p>
 <p>If you changed the same part of the same file differently in the two branches you’re merging together, Git won’t be able to merge them cleanly. Git has paused the process while you should resolve the conflict. Now you should see which files are unmerged at any point after a merge conflict running <code>git status</code></p>
 <p>Git adds standard conflict-resolution markers to the files that have conflicts, so when you open them you can manually resolve those conflicts. Your file contains a section that looks something like this:</p>
-<div class="highlight"><pre><span class="err">&lt;&lt;&lt;&lt;&lt;&lt;</span><span class="nt">&lt; HEAD</span>
-<span class="na">contact</span> <span class="na">:</span> <span class="na">email</span><span class="err">.</span><span class="na">support</span><span class="err">@</span><span class="na">github</span><span class="err">.</span><span class="na">com</span><span class="err">&lt;</span><span class="na">br</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+contact : email.support@github.com&lt;br&gt;
 =======
-please contact us at support@github.com<span class="nt">&lt;br&gt;</span>
+please contact us at support@github.com&lt;br&gt;
 &gt;&gt;&gt;&gt;&gt;&gt;&gt; iss53
 </pre></div>
 
@@ -320,7 +324,7 @@ please contact us at support@github.com<span class="nt">&lt;br&gt;</span>
 </li>
 </ol>
 <p>If you want to use a graphical tool to resolve these issues, you can run <code>git mergetool</code>, which fires up an appropriate visual merge tool and walks you through the conflicts. After you exit the merge tool, Git asks you if the merge was successful. If you tell the script that it was, it stages the file to mark it as resolved for you.</p>
-<div class="highlight"><pre><span class="n">If</span> <span class="n">you</span><span class="err">’</span><span class="n">re</span> <span class="n">happy</span> <span class="n">with</span> <span class="n">that</span><span class="p">,</span> <span class="n">and</span> <span class="n">you</span> <span class="n">verify</span> <span class="n">that</span> <span class="n">everything</span> <span class="n">that</span> <span class="n">had</span> <span class="n">conflicts</span> <span class="n">has</span> <span class="n">been</span> <span class="n">staged</span><span class="p">,</span> <span class="n">you</span> <span class="n">can</span> <span class="n">type</span> <span class="err">`</span><span class="n">git</span> <span class="n">commit</span><span class="err">`</span> <span class="n">to</span> <span class="n">finalize</span> <span class="n">the</span> <span class="n">merge</span> <span class="n">commit</span><span class="p">.</span>
+<div class="highlight"><pre><span></span>If you’re happy with that, and you verify that everything that had conflicts has been staged, you can type `git commit` to finalize the merge commit.
 </pre></div>
 
 
@@ -333,17 +337,17 @@ as well as <a href="http://git-scm.com/book/en/Git-Basics-Working-with-Remotes">
 <ol>
 <li>
 <p>See Status</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">remote</span> <span class="n">command</span>
+<div class="highlight"><pre><span></span>git remote command
 </pre></div>
 
 
 <p>It lists the shortnames of each remote handle you’ve specified. If you’ve cloned your repository, you should at least see origin — that is the default name Git gives to the server you cloned from.</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">remote</span> <span class="o">-</span><span class="n">v</span>
+<div class="highlight"><pre><span></span>git remote -v
 </pre></div>
 
 
 <p>It shows you the URL that Git has stored for the shortname to be expanded to.  </p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">remote</span> <span class="n">show</span> <span class="p">[</span><span class="n">remote</span><span class="o">-</span><span class="n">name</span><span class="p">]</span>
+<div class="highlight"><pre><span></span>git remote show [remote-name]
 </pre></div>
 
 
@@ -363,7 +367,7 @@ as well as <a href="http://git-scm.com/book/en/Git-Basics-Working-with-Remotes">
         git fetch pb<br />
 <strong>Note :</strong> The fetch command pulls the data to your local repository — it doesn’t automatically merge it with any of your work or modify what you’re currently working on. You only have an <code>origin/remote</code> pointer that you can’t modify. You have to merge it manually into your work when you’re ready.  </p>
 <p>To merge this work into your current working branch, you can run <code>git merge origin/remote</code>. If you want your own remote branch that you can work on, you can base it off your remote branch:  </p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">remote_in_local</span> <span class="n">origin</span><span class="o">/</span><span class="n">remote</span>
+<div class="highlight"><pre><span></span>git checkout -b remote_in_local origin/remote
 </pre></div>
 
 
@@ -377,12 +381,12 @@ as well as <a href="http://git-scm.com/book/en/Git-Basics-Working-with-Remotes">
     will rightly be rejected. You’ll have to pull down their work first and
     incorporate it into yours before you’ll be allowed to push. </p>
 <p>You can push a local branch into a remote branch that is named differently.  </p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">push</span> <span class="p">[</span><span class="n">remotename</span><span class="p">]</span> <span class="p">[</span><span class="n">localbranch</span><span class="p">]</span><span class="o">:</span><span class="p">[</span><span class="n">remotebranch</span><span class="p">]</span>
+<div class="highlight"><pre><span></span>git push [remotename] [localbranch]:[remotebranch]
 </pre></div>
 
 
 <p>Like, if you didn’t want it to be called <em>"aaaaa"</em> on the remote, you could instead run:   </p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">aaaaa</span><span class="o">:</span><span class="n">awesomebranch</span>
+<div class="highlight"><pre><span></span>git push origin aaaaa:awesomebranch
 </pre></div>
 
 
@@ -390,14 +394,14 @@ as well as <a href="http://git-scm.com/book/en/Git-Basics-Working-with-Remotes">
 </li>
 <li>
 <p>Rename  </p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">remote</span> <span class="n">rename</span> <span class="n">OLD_NAME</span> <span class="n">NEW_NAME</span>
+<div class="highlight"><pre><span></span>git remote rename OLD_NAME NEW_NAME
 </pre></div>
 
 
 </li>
 <li>
 <p>Remove local</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">remote</span> <span class="n">rm</span> <span class="n">paul</span> <span class="p">[</span><span class="n">remote</span><span class="o">-</span><span class="n">name</span><span class="p">]</span>
+<div class="highlight"><pre><span></span>git remote rm paul [remote-name]
 </pre></div>
 
 
@@ -405,21 +409,21 @@ as well as <a href="http://git-scm.com/book/en/Git-Basics-Working-with-Remotes">
 </li>
 <li>
 <p>Delete Remote Branch</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">push</span> <span class="p">[</span><span class="n">remotename</span><span class="p">]</span> <span class="o">:</span><span class="p">[</span><span class="n">branch</span><span class="p">]</span>  
-<span class="cp"># Here, you just leave the LocalBranch&#39;s name empty!</span>
+<div class="highlight"><pre><span></span>git push [remotename] :[branch]  
+# Here, you just leave the LocalBranch&#39;s name empty!
 </pre></div>
 
 
 <p>e.g, If you want to delete your serverfix branch from the server, you run the following:  </p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="o">:</span><span class="n">serverfix</span>
+<div class="highlight"><pre><span></span>git push origin :serverfix
 </pre></div>
 
 
-<p><strong>Note: </strong>  A way to remember this command is by recalling the <code>git push [remotename] [localbranch]:[remotebranch]</code> syntax that we went over a bit earlier. If you leave off the [localbranch] portion, then you’re basically saying, “Take nothing on my side and make it be [remotebranch].”</p>
+<p><strong>Note:</strong>  A way to remember this command is by recalling the <code>git push [remotename] [localbranch]:[remotebranch]</code> syntax that we went over a bit earlier. If you leave off the [localbranch] portion, then you’re basically saying, “Take nothing on my side and make it be [remotebranch].”</p>
 </li>
 <li>
 <p>Clone it.</p>
-<div class="highlight"><pre> <span class="n">git</span> <span class="n">clone</span> <span class="p">[</span><span class="n">url</span><span class="p">]</span>
+<div class="highlight"><pre><span></span> git clone [url]
 </pre></div>
 
 
@@ -430,26 +434,26 @@ as well as <a href="http://git-scm.com/book/en/Git-Basics-Working-with-Remotes">
 <p>Tracking Branch</p>
 </li>
 </ol>
-<p>*See: * <a href="http://git-scm.com/book/en/Git-Branching-Remote-Branches#Tracking-Branches">Git book - 3.5 Tracking Branches</a></p>
+<p><em>See:</em> <a href="http://git-scm.com/book/en/Git-Branching-Remote-Branches#Tracking-Branches">Git book - 3.5 Tracking Branches</a></p>
 <ul>
 <li>Using tracking branches can really save you some effort. *</li>
 </ul>
 <p>Tracking branches are local branches that have a direct relationship to a remote branch. If you’re on a tracking branch and type git push, Git automatically knows which server and branch to push to. Also, running git pull while on one of these branches fetechs all remote references and automatically merges in the corresponding remote branch.</p>
 <p>Check out:</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">chekcout</span> <span class="o">--</span><span class="n">track</span> <span class="n">RemoteName</span><span class="o">/</span><span class="n">BranchName</span>
-<span class="cp"># Or, below gives it a new name</span>
-<span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">NewName</span> <span class="n">RemoteName</span><span class="o">/</span><span class="n">BranchName</span>
+<div class="highlight"><pre><span></span>git chekcout --track RemoteName/BranchName
+# Or, below gives it a new name
+git checkout -b NewName RemoteName/BranchName
 </pre></div>
 
 
 <h3>3.4 Rebasing</h3>
-<p>*See: * <a href="http://git-scm.com/book/en/Git-Branching-Rebasing">Git book - 3.6 Rebase</a></p>
+<p><em>See:</em> <a href="http://git-scm.com/book/en/Git-Branching-Rebasing">Git book - 3.6 Rebase</a></p>
 <p>In effect, rebasing is the same as merge, and the whole process is very alike. You have to <em>rebase</em> --&gt; <em>solve confilicts</em> --&gt; <em>git add to mark solved</em> --&gt; <em>continue rebase</em>. However, rebase eliminate the number of different branches and thus makes the history of coding more clear and concise.</p>
 <p>Commands:</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">rebase</span> <span class="n">branchToBeBased</span> <span class="err">#</span> <span class="n">Here</span> <span class="n">may</span> <span class="n">exists</span> <span class="n">conflicts</span><span class="p">.</span>
-<span class="n">git</span> <span class="n">rebase</span> <span class="o">--</span><span class="k">continue</span> <span class="err">#</span> <span class="n">Contine</span> <span class="n">after</span> <span class="n">solving</span> <span class="n">the</span> <span class="n">conflicts</span><span class="p">.</span>
-<span class="n">git</span> <span class="n">rebase</span> <span class="o">--</span><span class="n">skip</span> <span class="err">#</span> <span class="n">Skip</span> <span class="n">the</span> <span class="n">patch</span><span class="p">.</span>
-<span class="n">git</span> <span class="n">rebase</span> <span class="o">--</span><span class="n">abort</span> <span class="err">#</span> <span class="n">Give</span> <span class="n">up</span> <span class="n">this</span> <span class="n">rebasing</span><span class="p">.</span>
+<div class="highlight"><pre><span></span>git rebase branchToBeBased # Here may exists conflicts.
+git rebase --continue # Contine after solving the conflicts.
+git rebase --skip # Skip the patch.
+git rebase --abort # Give up this rebasing.
 </pre></div>
 
 
@@ -458,12 +462,12 @@ as well as <a href="http://git-scm.com/book/en/Git-Basics-Working-with-Remotes">
 <h3>4.1 Add your local file to Github</h3>
 <p>First, you should setting up an account in Github. It's rather easy.</p>
 <p>Then, if you want to push a local repository to Github. First create an empty one on Github and then add it to your local git remote branch by:</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">remote</span> <span class="n">AName</span> <span class="n">UrlToRemoteRepo</span>
+<div class="highlight"><pre><span></span>git remote AName UrlToRemoteRepo
 </pre></div>
 
 
 <p>Then push:</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">push</span> <span class="n">AName</span> <span class="n">LocalBranch</span>
+<div class="highlight"><pre><span></span>git push AName LocalBranch
 </pre></div>
 
 
@@ -475,7 +479,7 @@ as well as <a href="http://git-scm.com/book/en/Git-Basics-Working-with-Remotes">
 <p>Git support SSH link. By this, Git can control the access ability. When you checkout something on Github by simple url, you would not have write access to the remote branch. If you try to push, git will ask for your username and password on Github.</p>
 <p>In order to have write access, you would need a personal SSH key. SSH key helps to identify users without a user account and password combination.</p>
 <p>To generate ssh key, you should have some ssh client in your computer. If you install Git from the official source, it will install a Git Bash, where it provide a <code>ssh-keygen</code> to generate ssh keys.</p>
-<div class="highlight"><pre><span class="n">ssh</span><span class="o">-</span><span class="n">keygen</span> <span class="o">-</span><span class="n">t</span> <span class="n">rsa</span> <span class="o">-</span><span class="n">C</span> <span class="s">&quot;YourEmail@Address.com&quot;</span>
+<div class="highlight"><pre><span></span>ssh-keygen -t rsa -C &quot;YourEmail@Address.com&quot;
 </pre></div>
 
 
@@ -491,7 +495,7 @@ as well as <a href="http://git-scm.com/book/en/Git-Basics-Working-with-Remotes">
 <hr />
 <p>Then, copy the public key where you store you key and paste it into you Github's "Account Settings" --&gt; "SSH Keys". Don't confuse the public with the private key. Public key usually stores in file name <em>xxx.pub</em> while private is usually the same name but without a file extension <em>.pub</em></p>
 <p>Next, clone the repo with SSH url (or Git URL):</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="err">@</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">:</span><span class="n">we</span><span class="o">-</span><span class="n">taper</span><span class="o">/</span><span class="n">vim</span><span class="o">-</span><span class="n">pathogen</span><span class="p">.</span><span class="n">git</span>
+<div class="highlight"><pre><span></span>git clone git@github.com:we-taper/vim-pathogen.git
 </pre></div>
 
 

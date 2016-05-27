@@ -33,3 +33,7 @@ Markdown Tips
 
 	A tool to translate between different markup languages:	[_Marksy](http://marksy.arc90.com/)
 	(Also available as a Chrome Plugin)
+	
+* On Chrome:
+
+	A very good editor: *Minimalist Markdown Editor* on Chrome Apps store.

@@ -26,7 +26,6 @@
                 <nav>
                     <a href="/pages/who-am-i.html">Who am I?</a>&nbsp;
                     <a href="/category/blogging.html">Blogging</a>&nbsp;
-                    <a href="/category/computer_tips.html">Computer_Tips</a>&nbsp;
                     <a href="/category/coursenote.html">CourseNote</a>&nbsp;
                     <a href="/category/programming.html">Programming</a>&nbsp;
                 </nav>
@@ -41,7 +40,7 @@
 
     <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2014-03-08T11:00:00">
+        <abbr class="published" title="2014-03-08T11:00:00+08:00">
                 周六 08 三月 2014
         </abbr>
 <p>tags: <a href="/tag/ide.html">IDE</a><a href="/tag/vim.html">Vim</a></p></footer><!-- /.post-info -->      <h1>Vim IDE Note</h1>
@@ -62,9 +61,9 @@
 <p>Download from github: <a href="https://github.com/tpope/vim-pathogen">https://github.com/tpope/vim-pathogen</a></p>
 <p>Extract to <code>~/.vim/autoload</code> or <code>%homepath%\vimfiles\autoload</code>.</p>
 <p>Edit <code>vimrc</code>, add following:</p>
-<div class="highlight"><pre><span class="s">&quot; For Pathogen Plugin manager</span>
-<span class="n">call</span> <span class="n">pathogen</span><span class="err">#</span><span class="n">infect</span><span class="p">()</span> <span class="s">&quot; Infect so that pathogen auto-install all plugins</span>
-<span class="n">call</span> <span class="n">pathogen</span><span class="err">#</span><span class="n">helptags</span><span class="p">()</span> <span class="s">&quot; Build up things inside &#39;doc&#39; directory.</span>
+<div class="highlight"><pre><span></span>&quot; For Pathogen Plugin manager
+call pathogen#infect() &quot; Infect so that pathogen auto-install all plugins
+call pathogen#helptags() &quot; Build up things inside &#39;doc&#39; directory.
 </pre></div>
 
 

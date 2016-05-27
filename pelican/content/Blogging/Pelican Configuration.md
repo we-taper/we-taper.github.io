@@ -90,8 +90,8 @@ Done!
 
 Something about Editing Blogs
 ========================================
-Link
-## to internal content.
+
+## Link to internal content.
 
 *See :*[Linking to internal content][ltic]
 
@@ -109,7 +109,7 @@ To Category:
 
 	{category}foobar  
 
-**Note: **
+**Note:**
 
 1. Pelican does not support referenced link of this type.
 2. The `{filaname}` is actually `{filaname}`, don't put some real file name here or pelican will recognize it as Category name.
@@ -119,9 +119,8 @@ To Category:
 [ltic]:http://docs.getpelican.com/en/3.3.0/getting_started.html#linking-to-internal-content
 
 
-##Creating Pages
+## Creating Pages
 
 In Pelican, user can generate some special webpage which will have its own link in your homepage like the traditional *About Me* page seen in most blogs.
 
 To do this, you simple put webpage of these kind inside a special folder named `pages`. All webpage there will have its own link on your homepage.
-

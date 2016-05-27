@@ -26,7 +26,6 @@
                 <nav>
                     <a href="/pages/who-am-i.html">Who am I?</a>&nbsp;
                     <a href="/category/blogging.html">Blogging</a>&nbsp;
-                    <a href="/category/computer_tips.html">Computer_Tips</a>&nbsp;
                     <a href="/category/coursenote.html">CourseNote</a>&nbsp;
                     <a href="/category/programming.html">Programming</a>&nbsp;
                 </nav>
@@ -41,10 +40,12 @@
 
     <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2014-02-21T14:00:00">
+        <abbr class="published" title="2014-02-21T14:00:00+08:00">
                 周五 21 二月 2014
         </abbr>
-<p>tags: <a href="/tag/markup-language.html">Markup Language</a></p></footer><!-- /.post-info -->      <h1>Show how to use Markdown</h1>
+<p>tags: <a href="/tag/markup-language.html">Markup Language</a></p></footer><!-- /.post-info -->      <p><strong>Note:</strong> Please view the source file for this webpage, otherwise you will never get the feeling that I have when I wrote this document.</p>
+<hr />
+<h1>Show how to use Markdown</h1>
 <h1>This is a title, level 1</h1>
 <h2>Next level title, level 2</h2>
 <h2>Paragraph</h2>
@@ -63,9 +64,9 @@ lines.</p>
 </ul>
 <p>Can you figure out why?</p>
 <h2>Code blocks</h2>
-<div class="highlight"><pre><span class="n">public</span> <span class="k">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(){</span>
-    <span class="n">System</span><span class="p">.</span><span class="n">out</span><span class="p">.</span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello Markdown!&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span>public static void main(){
+    System.out.printf(&quot;Hello Markdown!&quot;);
+}
 </pre></div>
 
 
@@ -82,7 +83,7 @@ lines.</p>
 </div>
 
 <p><em>link:</em><a href="http://www.google.com/">http://www.google.com/</a></p>
-<p><em>E-Mail:</em><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#119;&#101;&#46;&#116;&#97;&#112;&#101;&#114;&#64;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#119;&#101;&#46;&#116;&#97;&#112;&#101;&#114;&#64;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a></p>
+<p><em>E-Mail:</em><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#119;&#101;&#46;&#116;&#97;&#112;&#101;&#114;&#64;&#115;&#111;&#109;&#101;&#119;&#104;&#101;&#114;&#101;&#46;&#99;&#111;&#109;">&#119;&#101;&#46;&#116;&#97;&#112;&#101;&#114;&#64;&#115;&#111;&#109;&#101;&#119;&#104;&#101;&#114;&#101;&#46;&#99;&#111;&#109;</a></p>
 <p><em>(Actually I don't quite understand HTML, but it's fun!)</em></p>
 <h2>Let's construct some list:</h2>
 <ol>
@@ -125,11 +126,11 @@ lines.</p>
 <h2>At last, Let's get some visual image.</h2>
 <h3>Pictures</h3>
 <p><strong>A inline picture</strong></p>
-<p><img alt="Replace text if no picture" src="http://img.21cbh.com/uploadfile/2013/0325/20130325091356249.jpg" title="Optional title" /></p>
+<p><img alt="Replace text if no picture" src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/logo_white_fe6da1ec.png" title="Optional title" /></p>
 <p><strong>A referenced picture</strong></p>
-<p><img alt="Again, replace text: unsupported png" src="http://img.21cbh.com/uploadfile/2013/0325/20130325091356249.jpg" title="Title" /></p>
+<p><img alt="Again, replace text: unsupported png" src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/logo_white_fe6da1ec.png" title="Title" /></p>
 <p><strong>Picture With Link</strong></p>
-<p><a href="http://www.google.com.hk"><img alt="IMAGE TEXT HERE" src="http://img.21cbh.com/uploadfile/2013/0325/20130325091356249.jpg" /></a></p>
+<p><a href="http://www.google.com.hk"><img alt="IMAGE TEXT HERE" src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/logo_white_fe6da1ec.png" /></a></p>
 <h3>Links</h3>
 <p>I love Google:<a href="http://www.google.com.hk/" title="Google's Title">Google</a></p>
 <p><strong>Three types of links</strong></p>
@@ -150,25 +151,25 @@ lines.</p>
 <h1>Last but not least, Escape The Markers</h1>
 <p>*literal asterisks*</p>
 <p><strong>Markdown</strong> 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：</p>
-<div class="highlight"><pre>    <span class="err">\</span>   <span class="err">反斜线</span>
-    <span class="err">`</span>   <span class="err">反引号</span>
-    <span class="o">*</span>   <span class="err">星号</span>
-    <span class="n">_</span>   <span class="err">底线</span>
-    <span class="p">{}</span>  <span class="err">花括号</span>
-    <span class="p">[]</span>  <span class="err">方括号</span>
-    <span class="p">()</span>  <span class="err">括弧</span>
-    <span class="err">#</span>   <span class="err">井字号</span>
-    <span class="o">+</span>   <span class="err">加号</span>
-    <span class="o">-</span>   <span class="err">减号</span>
-    <span class="p">.</span>   <span class="err">英文句点</span>
-    <span class="o">!</span>   <span class="err">惊叹号</span>
+<div class="highlight"><pre><span></span>    \   反斜线
+    `   反引号
+    *   星号
+    _   底线
+    {}  花括号
+    []  方括号
+    ()  括弧
+    #   井字号
+    +   加号
+    -   减号
+    .   英文句点
+    !   惊叹号
 </pre></div>
 
 
 <h1>Thanks</h1>
 <p>Who has taught me:</p>
 <ol>
-<li><em>wowubuntu.com</em> : <a href="http://http://wowubuntu.com/markdown/" title="wowubuntu">wowubuntu</a></li>
+<li><em>wowubuntu.com</em> : <a href="http://wowubuntu.com/markdown/" title="wowubuntu">wowubuntu</a></li>
 <li>Other Websites found via Google</li>
 </ol>
     </div><!-- /.entry-content -->

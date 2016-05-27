@@ -28,7 +28,7 @@ _________________________
 
 ``It said,Normally rendered as monospaced text. spaces should be preserved, but line breaks will not be.``
 
-``Cannot end "Inline Literal with space(s) like this ``
+.. ``Cannot end "Inline Literal with space(s) like this ``
 
 -------------------
 L1.2 Linkss
@@ -44,8 +44,7 @@ anonymous link__
 
 **Learn about `Fold-in`, `Call-out` form** Link_.
 
-.. _Link: http://docutils.sourceforge.net/docs/user/rst/q
-uickref.html#hyperlink-targets
+.. _Link: http://docutils.sourceforge.net/docs/user/rst/quickref.html#hyperlink-targets
 
 Embedded Link: `Google <http://www.google.com/>`_.
 
@@ -61,7 +60,6 @@ Indirect Target:
 
 Some modifications made to above texts:
 
-.. _Link:http://docutils.sourceforge.net/docs/user/rst/q
-uickref.html#hyperlink-targets
+.. _Link: http://docutils.sourceforge.net/docs/user/rst/quickref.html#hyperlink-targets
 
 Embedded Link: `Google <http://www.google.com/>` _.

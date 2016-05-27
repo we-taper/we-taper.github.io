@@ -4,14 +4,15 @@ Tags: Git
 Author: we.taper
 Summary: My Git Study Note, based on Git Documentation - Pro Git
 
-#Git Start
+# Git Start
 
-**Note: ** Most of the content below are based on the book available on Git Documentation: [Git book][g_b]
+**Note:**  Most of the content below are based on the book available on Git Documentation: [Git book][g_b]
+
 [g_b]:http://git-scm.com/doc
 <br>
-##1. Basic concept
+## 1. Basic concept
 
-*See: *[Git book - chapter 1.3](http://git-scm.com/book/en/Getting-Started-Git-Basics)
+*See:* [Git book - chapter 1.3](http://git-scm.com/book/en/Getting-Started-Git-Basics)
 
 1. Git is a "mini file system"
     
@@ -29,34 +30,35 @@ Summary: My Git Study Note, based on Git Documentation - Pro Git
 
 ![Three states](http://git-scm.com/figures/18333fig0106-tn.png)
 
-**  What we do on git?**
+**What we do on git?**
 
-**  A General Workflow on Git**
+**A General Workflow on Git**
 
 > 1. You modify files in your working directory.
 > 2. You stage the files, adding snapshots of them to your staging area.
 > 3. You do a commit, which takes the files as they are in the staging area 
 and stores that snapshot permanently to your Git directory.
 
-###1.1 Install Git
+### 1.1 Install Git
 
-*See  *[Git book - chapter 1.4](http://git-scm.com/book/en/Getting-Started-Installing-Git)
+*See:*[Git book - chapter 1.4](http://git-scm.com/book/en/Getting-Started-Installing-Git)
 
 I personally like the git plugin *EGit* (found on Eclipse Market) for Eclipse since I use Eclipse on Windows. However, I still remcommend a commandline git for exercising.
 
-###1.2 Configure Git
+### 1.2 Configure Git
 
-*See  * [Git book - chapter 1.5](http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup)
+*See:* [Git book - chapter 1.5](http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup)
 
 Since I don't want to consider too much about git, skip this.
-Update: At least, I update my default name by:
+Update: At least, one should set his username and email address, which is required by git every time one do git push. I update my default name and email address by:
 
 Code:
 	git config --global user.name "we.taper"
+	git config --global user.email "haha_youCantSee@balala.com"
 
-###1.3 Get help
+### 1.3 Get help
 -------------
-*see  *[Git book - chapter 1.6](http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup)
+*See:*[Git book - chapter 1.6](http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup)
 
 Code:
 
@@ -64,17 +66,16 @@ Code:
     git <verb> --help
     man git-<verb>     #For Linux manual page
 
-
-
-##2. Let's Rock
+<br>
+## 2. Let's Rock
 
 ### 2.1 Get a Git Repository
-*See :* [Git book - chapter 2.1](http://git-scm.com/book/en/Git-Basics-Getting-a-Git-Repository)
+*See:* [Git book - chapter 2.1](http://git-scm.com/book/en/Git-Basics-Getting-a-Git-Repository)
 
 Basically, we first *create* a repository somewhere, then others can *clone* this repository. After
 cloning or creating, you can *add* files and then commit to the repository.
 
-####Command List
+#### Command List
 
     # Create
     git init
@@ -89,23 +90,23 @@ cloning or creating, you can *add* files and then commit to the repository.
     git clone http(s)://github.com/schacon/grit.git # HTTP(s)
     git clone user@server:/path.git # SSH
 
-###2.2 Record change to Repository
-*See :*[Git book - chapter 2.2](http://git-scm.com/book/en/Git-Basics-Recording-Changes-to-the-Repository)
+### 2.2 Record change to Repository
+*See:*[Git book - chapter 2.2](http://git-scm.com/book/en/Git-Basics-Recording-Changes-to-the-Repository)
 
 The full Life Cycle of a File:
 
 ![Life Cycle](http://git-scm.com/figures/18333fig0201-tn.png)
 
-**Note: ** Unadded file are **not** tracked, so Git **doesn't care** about this files.
+**Note:** Unadded file are **not** tracked, so Git **doesn't care** about this files.
 
-####Staged
+#### Staged
 
 When files added (under the control of Git) once modified, it need to be staged to the staging
 area. Command of stage is the same as add:
 
     git add FileName # "add" is multi-purpose, can add and stage files.
 
-####Ignored files.
+#### Ignored files.
 
 File *.gitignore* store patterns of file names which will be ignored by git. Rules
 are as follows:
@@ -115,18 +116,18 @@ are as follows:
 + You can end patterns with a forward slash (/) to specify a directory.
 + You can negate a pattern by starting it with an exclamation point (!).
 
-    **Glob patterns** are like simplified regular expressions that shells use. An **asterisk (*)**
+    **Glob patterns** are like simplified regular expressions that shells use. An **astsrisk (\*)**
 	matches zero or more characters; **[abc]** matches any character inside the brackets (in this 
 	case a, b, or c); a **question mark (?)** matches a single character; and **brackets** enclosing 
 	characters separated by a hyphen([0-9]) matches any character in the range (in this case
 	0 through 9) .
     
-    *See:  *[Unix Man Page][ump] and [Wikipedia Page][wp_gp]
+    *See:*[Unix Man Page][ump] and [Wikipedia Page][wp_gp]
 
 [ump]:http://unixhelp.ed.ac.uk/CGI/man-cgi?glob+7
 [wp_gp]:http://en.wikipedia.org/wiki/Glob_%28programming%29
 
-####See *"What happens?"*
+#### See *"What happens?"*
 
 To see the general status of *"Which file have been modified but unstatged"* or *"Which file have
 been staged but uncommited?"*, use:
@@ -143,7 +144,7 @@ See the difference between **Staging** and **Repository(Commited)**
 
     git diff --staged
     
-####Now Commit
+#### Now Commit
 
     git commit  
 	# Will open a editor to edit the "Commiting Message"
@@ -152,7 +153,7 @@ See the difference between **Staging** and **Repository(Commited)**
 	# Will makes Git automatically stage every file that is already tracked  
 	before doing the commit, letting you skip the git add part
 
-####Remove files
+#### Remove files
 
 Remove from tracked file list:
 
@@ -162,10 +163,10 @@ Remove from staged directory (file is kept in working directory):
 
     git rm --cached FileName
 
-**Note: **Deleting files on harddrive doesn't delete them from git's tracked file list.
+**Note:** Deleting files on harddrive doesn't delete them from git's tracked file list.
 Instead ther are marked "delete" when you type `git status`
 
-####Moving Files
+#### Moving Files
 
 **Note :** "Rename" == "Moving to the *Same* directory"
 
@@ -177,11 +178,11 @@ Above is equal to:
     git rm file_from
     git add file_to
 
-###2.3 Git Basics - Undoing Things
+### 2.3 Git Basics - Undoing Things
 
 *See *: [Git book- chapter 2.4](http://git-scm.com/book/en/Git-Basics-Undoing-Things)
 
-####Git Command
+#### Git Command
 
 + Change last commit  
 
@@ -207,7 +208,7 @@ Above is equal to:
 ## 3 Branching
 
 
-###3.1 What a Branch Is
+### 3.1 What a Branch Is
 
 *See :* [ Git book - chapter 3.1](http://git-scm.com/book/en/Git-Branching-What-a-Branch-Is)
 
@@ -294,7 +295,7 @@ Diagram of branches (named in *pointer* style):
         If you’re happy with that, and you verify that everything that had conflicts has been staged, you can type `git commit` to finalize the merge commit.
 
 
-###3.3 Working with remote branch
+### 3.3 Working with remote branch
 
 *See :*[Git book - chapter 3.5](http://git-scm.com/book/en/Git-Branching-Remote-Branches) 
 as well as [Git book - chapter 2.5](http://git-scm.com/book/en/Git-Basics-Working-with-Remotes)
@@ -367,18 +368,18 @@ as well as [Git book - chapter 2.5](http://git-scm.com/book/en/Git-Basics-Workin
 
 	 	git push origin :serverfix
 	 
-	 **Note: **  A way to remember this command is by recalling the `git push [remotename] [localbranch]:[remotebranch]` syntax that we went over a bit earlier. If you leave off the [localbranch] portion, then you’re basically saying, “Take nothing on my side and make it be [remotebranch].”
+	 **Note:**  A way to remember this command is by recalling the `git push [remotename] [localbranch]:[remotebranch]` syntax that we went over a bit earlier. If you leave off the [localbranch] portion, then you’re basically saying, “Take nothing on my side and make it be [remotebranch].”
 
-7. Clone it.
+8. Clone it.
 
          git clone [url]
          
      If you clone from this, Git automatically names it origin for you, pulls down all its data, creates a pointer to where its master branch is, and names it origin/master locally; and you can’t move it. Git also gives you your own master branch starting at the same place as origin’s master branch, so you have something to work from. See:  
      ![Clone Remote](http://git-scm.com/figures/18333fig0322-tn.png)
 
-8. Tracking Branch
+9. Tracking Branch
 
-*See: * [Git book - 3.5 Tracking Branches](http://git-scm.com/book/en/Git-Branching-Remote-Branches#Tracking-Branches)
+*See:* [Git book - 3.5 Tracking Branches](http://git-scm.com/book/en/Git-Branching-Remote-Branches#Tracking-Branches)
 
 * Using tracking branches can really save you some effort. *
 
@@ -392,7 +393,7 @@ Check out:
 
 ### 3.4 Rebasing
 
-*See: * [Git book - 3.6 Rebase](http://git-scm.com/book/en/Git-Branching-Rebasing)
+*See:* [Git book - 3.6 Rebase](http://git-scm.com/book/en/Git-Branching-Rebasing)
 
 In effect, rebasing is the same as merge, and the whole process is very alike. You have to *rebase* --> *solve confilicts* --> *git add to mark solved* --> *continue rebase*. However, rebase eliminate the number of different branches and thus makes the history of coding more clear and concise.
 

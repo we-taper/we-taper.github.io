@@ -4,18 +4,18 @@ Tags: Pelican, unFinished, unPolished
 Author: we.taper
 Summary: Using Pelican to generate static website and push to Github to blog.
 
-#1. Install Pelican
+# 1. Install Pelican
 
 **Note :** Before reading this article, a quick scan over 
 [Jykell Install]({filename}../Blogging/Using Jekyll and Github to Blog (Failed).md) would be very helpful in building a basic knowledge.
 <!-- Here's a internal link to Using Jekyll and Github to Blog (Failed).md -->
 
-##1.1 What, *"Static Website"* ?
+## 1.1 What, *"Static Website"* ?
 
 See: [Wikipedia: Static Website][wiki_sw]
 
 
-##1.2 Which static website generator?
+## 1.2 Which static website generator?
 
 A great website: [Static Site Generators - The definitive listing of Static Site Generators][ssg_list]
 
@@ -24,10 +24,14 @@ A great website: [Static Site Generators - The definitive listing of Static Site
 I choose: Pelican, because it's the best one written in python. Getting those written
 in Ruby run on windows could be a nightmare. 
 
-##1.3 Install
-See: [Installation pip](http://pip.readthedocs.org/en/latest/installing.html)
+## 1.3 Install
+See: [Installation pip](http://pip.readthedocs.org/en/latest/installing.html) and [Quick Start for Pelican](http://docs.getpelican.com/en/3.6.3/quickstart.html).
 
+### 1.3.1 with *easy_install*
 I Tried install pelican through **pip** but failed. **pip** reports Failure every time I tried.
+
+
+**Update:** Now pip is bundled in default with python installer on Windows (2016/05/27). Se the next section for installing with **pip**.
 
 So I switched to **easy_install**
 
@@ -50,7 +54,7 @@ Some WARNINGs:
 	  
 It seemed everything work fine. So I ignored above warnings.
 
-###Install Markdown package to support markdown syntax
+Then I install *Markdown* package to support markdown syntax
 
 	easy_install Markdown
 	
@@ -58,19 +62,31 @@ There seemed to be a problem on my Windows 8. Easy_install downloaded the instal
 run it. So I run it manually. (Discovered the downloaded folder inside the errors
 reported by **easy_install**)
 
-#2. Configure
+### 1.3.2 with *pip*
 
-##2.1 Learn Markdown (or something else)
+Simply run the command:
 
-Pelican supports many simply-markup language including markdown and reStructured Text etc.
-I chose markdown because I have previous experience with them. See [my markdown show 
+	pip install pelican markdown
+
+Wow, *pip* is really simple to use. It works just like *apt-get install* in Ubuntu, despite that the version bundled with python install is so old that the *pip* suggests me to upgrade it. For simplicity, I ignore this suggestion.
+
+# 2. Configure
+
+## 2.1 Learn Markdown (or something else)
+
+Pelican supports many simply-markup language including markdown and reStructured Text etc. I chose markdown because I have previous experience with them. See [my markdown show 
 case]({filename}./Markdown Showcase.md). Choose whatever you like by Google it.
 
+**Important**: Store your files in UTF-8 encoding, otherwise there might be problem for pelican to generate the output. If you don't know what `encoding` means, then you are not the intended reader for this article. Please turn to other popular blogging website.
 
-##2.2 Learn Pelican
+
+
+## 2.2 Learn Pelican
   
-##2.2.1 Kick Start  
-*See :*[Basic Usage][getp_bu] and [Kickstart Your Site][ksys]
+## 2.2.1 Kick Start  
+
+*See:* [Basic Usage][getp_bu] and [Kickstart Your Site][ksys]
+
 [getp_bu]:http://docs.getpelican.com/en/3.3.0/getting_started.html#basic-usage
 [ksys]:http://docs.getpelican.com/en/3.3.0/getting_started.html#kickstart-your-site
 
@@ -83,21 +99,17 @@ Then view the output page:
 
 	firefox(or something else) output\index.html
 
-However, Because the above method may have trouble locating your CSS and other
+However, because the above method may have trouble locating your CSS and other
 linked assets, running a simple web server using Python will often provide a 
 more reliable previewing experience:  
-	cd output && python -m SimpleHTTPServer  
-*Note :* In python 3, modulus `SimpleHTTPServer` has been replaced by `http.server`
+
+	cd output && python -m SimpleHTTPServer 
+
+*Note :* In python 3, modulus `SimpleHTTPServer` has been replaced by `http.server`.
 
 
 
-###2.2.2 Some automation tools
-
-*See :*[Automation Tools][a_t]
-
-To easy my way of editing and publishing, I choose *Fabric*
-
-###2.2.2 Push to Github Pages
+### 2.2.2 Push to Github Pages
 
 + Change the output directory:
 
@@ -126,13 +138,7 @@ interface each other.
 	Then clone the the source, copy your prepared Pelican generated websites (including where you store
 	the files read by Pelican) to the cloned folder. Commit and Push and Done with your first blog!
 
-Detailed settings of Pelican can be seen here:[Pelican Settings][pel_help_set]
-
-###2.2.3 Using other's themes.
-
-> The only way to become a master is to learn from the master.  
-
-*(so to learn, copy first)*
+### 2.2.3 Using other's themes.
 
 Some websites built on Pelican:[Powered by Pelican][ped_by_pc]
 
@@ -143,7 +149,11 @@ Source: <https://github.com/omphalosskeptic/omphalosskeptic.github.io>
 Site: <http://kylefuller.co.uk/>  
 Source: <https://github.com/kylef/kylefuller.co.uk>
 
-#Some websites:
+### More
+
+Detailed settings of Pelican can be seen here:[Pelican Settings][pel_help_set]
+
+# Resources
 
 * **Recommend** [Pelican Official Doc](http://docs.getpelican.com/en/3.3.0/)
 * **Recommend** Some cases you can learn from [Powered by Pelican]

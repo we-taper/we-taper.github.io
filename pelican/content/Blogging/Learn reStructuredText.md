@@ -3,14 +3,20 @@ Date: 2014-3-2 14:00
 Tags: Markup Language
 Author: we.taper
 
-#Transform to reStructuredText
+# Transform to reStructuredText
 
-*Because the Markdown language no longer satisfy my requirements, I started to learn reStructuredText,
+Because the Markdown language no longer satisfy my requirements, I started to learn reStructuredText,
 another markup language initially built for writing python documentation just like in javadoc or etc.
 
-##Prepare some Editors
+**Update:** 
 
-###For Windows
+I have already given up reStructuredText and switched back to markdown. Thus this file will not be udpated.
+
+It is not that markdown has been updated with more features. It is because reStructuredText relies on too many external packages, and it is not popular enough to give us easy access on all platforms and web browsers. For example, the edito ReText (mentioned below) is complicated to setup on windows. Also, there is no firefox plugin to view reStructuredText. All these violates the principle of K.I.S.S. and I decided to fall back to markdown. If needed, I will write sophisticated documents using *Latex* and publish the pdf output.
+
+## Prepare some Editors
+
+### For Windows
 Because I have an Windows 8 OS on my PC, there is much trouble to get me some ready-to-use reStructuredText
 editors. After some search, found:
 
@@ -21,7 +27,7 @@ editors. After some search, found:
 + Also [MarkItUp](http://markitup.jaysalvat.com/home/), a universal markup jQuery editor. I don't know 
   jQuery but this is interesting.
   
-####Install ReText
+#### Install ReText
 
 ReText is written in python using PyQT4, so theoretically it could run on any OS. It could be downloaded
 from sourceforge's [homepage](http://sourceforge.net/p/retext/home/ReText/), or from [git](http://sourceforge.net/p/retext/git/).
@@ -72,11 +78,11 @@ from sourceforge's [homepage](http://sourceforge.net/p/retext/home/ReText/), or 
 	
 After words: To be honest, ReText is really ... too simple, the real time display is too troublesome - you have to scroll the webpage yourself to go to the editing place. Even the online editor (metioned above) is far better.
 
-###For Linux
+### For Linux
 
 #### Also ReText
 
-#####Ubuntu PPA Source
+##### Ubuntu PPA Source
 
 PPA Link: [PPA for Dmitry Shachnev](https://launchpad.net/~mitya57/+archive/ppa)
 
@@ -126,7 +132,7 @@ Instead, I should install the version for python 3:
 
 
 	
-##reStructuredText Syntax
+## reStructuredText Syntax
 
 Compared with Markdown, reStructuredText is rather big and comprehensive. There are many good documents to read, I personally suggest:
 

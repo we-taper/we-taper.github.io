@@ -5,17 +5,17 @@ Slug: Using Jekyll and Github to Blog
 Author: we.taper
 Summary: Spent a whole day on Jykell, but failed. Turned to Pelican instead.
 
-#Using Jekyll to Blog
+# Using Jekyll and Github to Blog v0.1 (Failed)
 
 **Note :**  
-At last, i got myself fired by using Jykell. Ruby and Python's Pygments modulus 
+At last, i got myself furious by using Jykell. Ruby and Python's Pygments modulus 
 just don't work with each other. And installing these softwares on windows is just
 another nightmare for me. If you are a windows user, I sincerely advise you stop
 trying Jekyll now! Another option is: Pelican!  
 If you really want to continue, please do refer to my recommended blogs and websites
 before you start rock, especially the [official guide][htrjow]
 
-##What??
+## What??
 
 Jekyll is a static website generator. Github Page is a service provided by github.com which hosts user-uploaded static websites and display them, for **free**! This two combined - **A Free Web blog host under perfect control**. (Note: Everything on Github is open unless you purchase some plans. So there is no privacy concerns - You simply don't put private content on it!)
 
@@ -37,7 +37,7 @@ I choosed Jekyll because:
 3. Author of Jekyll is also co-founder of Github! Therefore the future maintenance is guaranteed.  
 
 
-##Pre-requirements (Important)
+## Pre-requirements (Important)
 
 1. Installed Ruby  
 	For simplicity, I choosed [RubyInstaller][rbi] to install Ruby on my Windows. Once installed, you will got a powerful tool: `gem` to install ruby modulus.
@@ -51,7 +51,7 @@ I choosed Jekyll because:
 2. Installed Python  
 	Compared with Ruby, installing python on windows is just simple. As for Linux and Mac, they already have python come within system. See: [Python Download][py]
 
-##Let's Rock
+## Let's Rock
 
 1. Installed Bundler  
 	Yet another ruby modulus installation tool. Recommended on [Github Official help][gh_oh_1]. It said,*"You can still install Jekyll with the command gem install github-pages, but you may run into trouble down the line."*, But I haven't tried that.
@@ -78,7 +78,7 @@ I choosed Jekyll because:
 
 	A really good List of Websites build on Jekyll:[Jekyll Sites][jk_st]
 
-##Some Notes to solve problems:
+## Some Notes to solve problems:
 
 **Note :** The error message below have been simplified to save space. Watch your error output carefully, perhaps mine solution applies to your too!
 
@@ -110,6 +110,8 @@ or `spawn.rb:162: warning: cannot close fd before spawn`
 
 * Note: Do not install Ruby in a complicated path including characters like "(", ")", etc. I got errors when doing so. Instead installing to the default "X:\Rubyxx\" is OK.
 ##Some Good Articles to help you smooth through this process:
+
+# Resources
 
 1. A blog by 阮一峰[搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门][ryf]  
 	Contains much about how to setup standard Jekyll websites. Good for those who want to hack the Websites themselves.

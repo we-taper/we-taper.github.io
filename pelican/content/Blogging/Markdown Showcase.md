@@ -5,12 +5,15 @@ Slug: Markdown Showcase
 Author: we.taper
 Summary: Show how to use Markdown.
 
-#Show how to use Markdown
+**Note:** Please view the source file for this webpage, otherwise you will never get the feeling that I have when I wrote this document.
+
+----------------
+# Show how to use Markdown
 
 # This is a title, level 1
 ## Next level title, level 2 ##
 
-##Paragraph
+## Paragraph
 - Intro
 
 	> I
@@ -23,7 +26,7 @@ Summary: Show how to use Markdown.
 
 Can you figure out why?
 
-##Code blocks
+## Code blocks
 
 	public static void main(){
 		System.out.printf("Hello Markdown!");
@@ -34,13 +37,13 @@ A code to display "\`":
 
  ``This is ` used to add in-text code blocks``.
 
-###HTML codes
+### HTML codes
 
 <strong> Yes!! </strong>
 
 &#8212; is the decimal-encoded equivalent of &mdash;
 
-##For those who are tired of HTML escape mark
+## For those who are tired of HTML escape mark
 
 See this: &copy, isn't it simple. And another *AT&T*. Yeah!
 
@@ -50,12 +53,12 @@ See this: &copy, isn't it simple. And another *AT&T*. Yeah!
 
 *link:*<http://www.google.com/>
 
-*E-Mail:*<we.taper@mail.com>
+*E-Mail:*<we.taper@somewhere.com>
 
 *(Actually I don't quite understand HTML, but it's fun!)*
 
 
-##Let's construct some list:
+## Let's construct some list:
 
  1. List one;
  3. Oops, a wrong but acceptable;
@@ -97,19 +100,19 @@ ___
 
 **A inline picture**
 
-![Replace text if no picture](http://img.21cbh.com/uploadfile/2013/0325/20130325091356249.jpg "Optional title")
+![Replace text if no picture](https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/logo_white_fe6da1ec.png "Optional title")
 
 **A referenced picture**
 
 ![Again, replace text: unsupported png][pic_id]
 
-[pic_id]:http://img.21cbh.com/uploadfile/2013/0325/20130325091356249.jpg "Title"
+[pic_id]:https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/logo_white_fe6da1ec.png "Title"
 
 **Picture With Link**
 
-[![IMAGE TEXT HERE](http://img.21cbh.com/uploadfile/2013/0325/20130325091356249.jpg)](http://www.google.com.hk)
+[![IMAGE TEXT HERE](https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/logo_white_fe6da1ec.png)](http://www.google.com.hk)
 
-###Links
+### Links
 
 I love Google:[Google](http://www.google.com.hk/ "Google's Title")
 
@@ -127,11 +130,11 @@ I love Google:[Google](http://www.google.com.hk/ "Google's Title")
 [id_3]:http://www.google.com/ "Google Original"
 
 
-##Some Syntax of HTML
+## Some Syntax of HTML
 
 + Use < br > to do "line feed"
 
-#Last but not least, Escape The Markers
+# Last but not least, Escape The Markers
 \*literal asterisks\*
 
 __Markdown__ 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：
@@ -151,10 +154,10 @@ __Markdown__ 支持以下这些符号前面加上反斜杠来帮助插入普通�
 
 
 
-#Thanks
+# Thanks
 Who has taught me:
 
 1. *wowubuntu.com* : [wowubuntu][id_wow]
 2. Other Websites found via Google
 
-[id_wow]:http://http://wowubuntu.com/markdown/ "wowubuntu"
+[id_wow]:http://wowubuntu.com/markdown/ "wowubuntu"
