@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 # Site Information
 AUTHOR = 'WE-TapEr'
 SITENAME = "A Blog"
-SITESUBTITLE = "about Coding."
+SITESUBTITLE = "about coding & physics"
 SITEURL = ''
 TIMEZONE = 'Asia/Shanghai'
 DEFAULT_LANG = 'en'
