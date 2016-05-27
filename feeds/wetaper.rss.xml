@@ -1,0 +1,1484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"><channel><title>A Blog</title><link>/</link><description>about Coding.</description><lastBuildDate>Wed, 28 May 2014 00:00:00 +0800</lastBuildDate><item><title>About resume by Career Development Center in Shuren College</title><link>/about-resume-by-career-development-center-in-shuren-college.html</link><description>&lt;h1&gt;About resume&lt;/h1&gt;
+&lt;p&gt;By Career Development Center - Shuren College&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Type of resume:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Two most common one:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Chronological resume.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Combinatioin-functional resume.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Fonts&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Principle: easy to read.&lt;/p&gt;
+&lt;p&gt;Usu:&lt;br /&gt;
++ 10.5 - 12 pt.
++ One page. Consice
++ Clearly state an objective.
++ Be requirement-oriented.&lt;/p&gt;
+&lt;p&gt;Tips:&lt;br /&gt;
++ Highlight accomplishments.
++ Be logical
++ No mistakes. Esq: &lt;strong&gt;TENSE&lt;/strong&gt;!!
++ Tidy
++ Genious
++ Use PDF
++ Use Action Verbs, but don't use "I, me, my".&lt;br /&gt;
+    E.g.&lt;br /&gt;
+    + Promote the xxx
+    + Accomplish xxx
++ Contact: Yours Email, Yours address (for post).&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">we.taper</dc:creator><pubDate>Wed, 28 May 2014 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:,2014-05-28:about-resume-by-career-development-center-in-shuren-college.html</guid><category>Career Development</category></item><item><title>Assertion - Another Way to Commment &amp; Debug</title><link>/assertion-another-way-to-commment-debug.html</link><description>&lt;p&gt;Assertion is a claim, which says that you believe something must be true. In Programming, it acts as an check of the status of something. For example, if you want to find the maximum value of an &lt;code&gt;int[]&lt;/code&gt; array, you should make sure that is index lies within the range. So:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;assert withinRange(index);
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now, you can proceed to the next process with confidence.&lt;/p&gt;
+&lt;h2&gt;0. Enable assertion&lt;/h2&gt;
+&lt;p&gt;When you write assert in your java code, java compiler will compile them into binary code file &lt;em&gt;.class&lt;/em&gt;. However, JVM does run this code by default. This is because assertion is designed for programmers to debug and comment on their code. It is not intended to be produce effect on published program. Therefore, by default assertion is disabled in JVM to prevent end user from seeing them. Before we use assert in our program, we must first enable it. We should enable them by passing &lt;code&gt;"-enableassertion"&lt;/code&gt; or &lt;code&gt;"-ea"&lt;/code&gt; option to JVM. E.g.:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;java -ea ClassName
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;1. The Grammar&lt;/h2&gt;
+&lt;p&gt;Syntax for assertion is:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;assert Exp1;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;or&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;assert&lt;/span&gt; &lt;span class="nt"&gt;Exp1&lt;/span&gt;&lt;span class="nd"&gt;:Exp2&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here, &lt;code&gt;Exp1&lt;/code&gt; is the condition that you want to check and will return a boolean value. If the boolean is true, program proceeds normally. However, if your assertion is wrong and &lt;code&gt;Exp1&lt;/code&gt; returns false, program stops immediately and there will be an &lt;code&gt;AssertionError&lt;/code&gt; thrown with message provided by &lt;code&gt;Exp2&lt;/code&gt; (if available). Now, you can deal with this error with the message provided by &lt;code&gt;Exp2&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;2. An Example&lt;/h2&gt;
+&lt;p&gt;Here's a case. I want to write a program to add two binary number of equal length together.&lt;/p&gt;
+&lt;p&gt;Here's a pesudo-code of my algorithm:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Input two array representing the two integers
+Suppose the two array are legal binary numbers of equal size.
+pre = 0 # Here carries the calculation carried by previous calculation.
+now # Carries number in this calculation.
+while index &amp;gt;= 1
+    /*
+     * Note: 
+     * sum  now pre 
+     * 1    1   0
+     * 2    0   1
+     * 3    1   1
+     * Clearly: 
+     * now = sum % 2 
+     * pre = sum / 2
+     */
+    now = (a[index - 1] + b[index - 1] + pre) % 2;
+    pre = (a[index - 1] + b[index - 1] + pre) / 2;
+    result[index] = now;
+    index--;
+# Now I should be sure that index has reached 0 -- the beggining of nmber.
+result[index] = pre;
+return result;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In this code, I have many &lt;em&gt;preconditions&lt;/em&gt; and &lt;em&gt;postconditions&lt;/em&gt;. I should take care of this conditions otherwise my code would not run properly. So how do I check this conditions? One may use &lt;code&gt;if&lt;/code&gt; to test and run your code only &lt;code&gt;if&lt;/code&gt;'s condition is correct. However, some of this check isn't necessary in client program (some of them are used only to check whether programmer have correctly write his code). This code will have effect ont your client -- possibly reduce the efficiency. So what to do now:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Remove the code after you code after debug or&lt;/li&gt;
+&lt;li&gt;Using assertion&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Solution one is plausible in small applications. But in a large scale program, it is almost impossible to note down all this ifs and remove them after debuggin. It's best to write this code using java assertions because they &lt;strong&gt;DO NOT&lt;/strong&gt; run if client does not enable assertion in JVM. Thus, &lt;em&gt;it has no side effect on published program.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Here's my solution:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;public&lt;/span&gt; &lt;span class="nt"&gt;int&lt;/span&gt;&lt;span class="cp"&gt;[]&lt;/span&gt; &lt;span class="nt"&gt;addBinaryNumberOrg&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;int&lt;/span&gt;&lt;span class="cp"&gt;[]&lt;/span&gt; &lt;span class="nt"&gt;a&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;int&lt;/span&gt;&lt;span class="cp"&gt;[]&lt;/span&gt; &lt;span class="nt"&gt;b&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;length&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;length&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;length&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;a:&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;length&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;b:&amp;quot;&lt;/span&gt;
+            &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;length&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;case&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;case&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;
+    &lt;span class="n"&gt;int&lt;/span&gt; &lt;span class="n"&gt;pre&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;Number&lt;/span&gt; &lt;span class="n"&gt;carried&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;previous&lt;/span&gt; &lt;span class="n"&gt;calculation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+    &lt;span class="n"&gt;pre&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;int&lt;/span&gt; &lt;span class="n"&gt;now&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;Number&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="n"&gt;calculation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+    &lt;span class="n"&gt;int&lt;/span&gt;&lt;span class="cp"&gt;[]&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;int&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;a.length&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;int&lt;/span&gt; &lt;span class="n"&gt;index&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;length&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;while&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;now&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;index&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;index&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;pre&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="n"&gt;pre&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;index&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;index&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;pre&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;index&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;now&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="nt"&gt;assert&lt;/span&gt; &lt;span class="nt"&gt;index&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nt"&gt;0&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;i:&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nt"&gt;index&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nt"&gt;case&lt;/span&gt; &lt;span class="nt"&gt;3&lt;/span&gt;
+    &lt;span class="nt"&gt;result&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;index&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;pre&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="nt"&gt;return&lt;/span&gt; &lt;span class="nt"&gt;result&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here I use asser three times (2 + 1). But we can cleary see that case 1 and 2 should throw an &lt;code&gt;IllegalArgumentException&lt;/code&gt;. But case 3 is clearly something should be and only be checked when developming the program. So here's my final code:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;public&lt;/span&gt; &lt;span class="nt"&gt;int&lt;/span&gt;&lt;span class="cp"&gt;[]&lt;/span&gt; &lt;span class="nt"&gt;addBinaryNumber&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;int&lt;/span&gt;&lt;span class="cp"&gt;[]&lt;/span&gt; &lt;span class="nt"&gt;a&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;int&lt;/span&gt;&lt;span class="cp"&gt;[]&lt;/span&gt; &lt;span class="nt"&gt;b&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;length&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;length&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;throw&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;IllegalArgumentException&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Different length: a:&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;length&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot; b:&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;length&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="nt"&gt;for&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;int&lt;/span&gt; &lt;span class="nt"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;0&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; &lt;span class="nt"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="nt"&gt;a&lt;/span&gt;&lt;span class="nc"&gt;.length&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; &lt;span class="nt"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;throw&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;IllegalArgumentException&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Not a binary number a:&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;Arrays&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;toString&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="nt"&gt;if&lt;/span&gt;&lt;span class="o"&gt;(!&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;b&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nt"&gt;0&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;b&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nt"&gt;1&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;throw&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;IllegalArgumentException&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Not a binary number b:&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;Arrays&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;toString&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="err"&gt;}&lt;/span&gt;
+    &lt;span class="c"&gt;/** Number carried in previous calculation. */&lt;/span&gt;
+    &lt;span class="nt"&gt;int&lt;/span&gt; &lt;span class="nt"&gt;carriedFromPre&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;0&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="nt"&gt;int&lt;/span&gt;&lt;span class="cp"&gt;[]&lt;/span&gt; &lt;span class="nt"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;new&lt;/span&gt; &lt;span class="nt"&gt;int&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;a.length&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="nt"&gt;int&lt;/span&gt; &lt;span class="nt"&gt;index&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;result&lt;/span&gt;&lt;span class="nc"&gt;.length&lt;/span&gt; &lt;span class="nt"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;1&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="nt"&gt;while&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;index&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="nt"&gt;1&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;index&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;index&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;index&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;carriedFromPre&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="n"&gt;carriedFromPre&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;index&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;index&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;carriedFromPre&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="nt"&gt;result&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;index&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;carriedFromPre&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="nt"&gt;return&lt;/span&gt; &lt;span class="nt"&gt;result&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;3. Why Using Assertion&lt;/h2&gt;
+&lt;h3&gt;Quick Prototype&lt;/h3&gt;
+&lt;p&gt;Using assertions to quickly write down your thoughts and turn them into code. Forget about the code to check the pre-conditions and post-conditions, just writen them inside assert block. Now you can run your code on the fly! Althought it may broke down for several times, the message inside &lt;code&gt;AssertionError&lt;/code&gt; will provide you with enough information to debug, change and run your code again. This effectively speed up the development process, free your mind from caring about the pitifal of your code.&lt;/p&gt;
+&lt;h3&gt;Commenting&lt;/h3&gt;
+&lt;p&gt;Sometimes your want to comment some special situations in your code, like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;if(a &amp;gt; b) {
+    // process a;
+}else{
+    // a &amp;lt;= b
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now your have a choose of using assertion:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;if&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;b&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;process&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="nt"&gt;else&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;A: &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;B: &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;What is the benefit?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Wow, adding a new keyword in Java just to introduce a new way of commenting? Yeah, it may not be so obvious but ......&lt;/p&gt;
+&lt;h1&gt;To Be Continued&lt;/h1&gt;
+&lt;h2&gt;Reference&lt;/h2&gt;
+&lt;p&gt;1.&lt;a href="http://docs.oracle.com/javase/7/docs/technotes/guides/language/assert.html"&gt;Oracle Java SE Documentation&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">we.taper</dc:creator><pubDate>Thu, 17 Apr 2014 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:,2014-04-17:assertion-another-way-to-commment-debug.html</guid><category>Java</category><category>Programming</category><category>unFinished</category><category>unPolished</category></item><item><title>Git Book Note</title><link>/git-book-note.html</link><description>&lt;h1&gt;Git Start&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt;  Most of the content below are based on the book available on Git Documentation: &lt;a href="http://git-scm.com/doc"&gt;Git book&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h2&gt;1. Basic concept&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;See:&lt;/em&gt; &lt;a href="http://git-scm.com/book/en/Getting-Started-Git-Basics"&gt;Git book - chapter 1.3&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Git is a "mini file system"&lt;/p&gt;
+&lt;p&gt;Git use a special &lt;em&gt;"snapshot"&lt;/em&gt; to store changes made to file(see Git book, chapter 1.3).
+Git knows every change you made to the file by calculating a SHA-1 checksum of files. Git 
+does most things locally so you can work without a network connection. Nearly all operations 
+on git are "adding files", which means you can experiment on anything without worrying if 
+you can get back to the original state. Also, every git clone copies everything on the 
+&lt;em&gt;"master"&lt;/em&gt; branch, therefore even the main server where &lt;em&gt;"master"&lt;/em&gt; code resides is shot, 
+everything can be recovered.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The three states of files inside &lt;em&gt;"Git file system"&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;One simple diagram:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img alt="Three states" src="http://git-scm.com/figures/18333fig0106-tn.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;What we do on git?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;A General Workflow on Git&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;You modify files in your working directory.&lt;/li&gt;
+&lt;li&gt;You stage the files, adding snapshots of them to your staging area.&lt;/li&gt;
+&lt;li&gt;You do a commit, which takes the files as they are in the staging area 
+and stores that snapshot permanently to your Git directory.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;1.1 Install Git&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;See:&lt;/em&gt;&lt;a href="http://git-scm.com/book/en/Getting-Started-Installing-Git"&gt;Git book - chapter 1.4&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I personally like the git plugin &lt;em&gt;EGit&lt;/em&gt; (found on Eclipse Market) for Eclipse since I use Eclipse on Windows. However, I still remcommend a commandline git for exercising.&lt;/p&gt;
+&lt;h3&gt;1.2 Configure Git&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;See:&lt;/em&gt; &lt;a href="http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup"&gt;Git book - chapter 1.5&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Since I don't want to consider too much about git, skip this.
+Update: At least, one should set his username and email address, which is required by git every time one do git push. I update my default name and email address by:&lt;/p&gt;
+&lt;p&gt;Code:
+    git config --global user.name "we.taper"
+    git config --global user.email "haha_youCantSee@balala.com"&lt;/p&gt;
+&lt;h3&gt;1.3 Get help&lt;/h3&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;em&gt;See:&lt;/em&gt;&lt;a href="http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup"&gt;Git book - chapter 1.6&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git help &amp;lt;verb&amp;gt;
+git &amp;lt;verb&amp;gt; --help
+man git-&amp;lt;verb&amp;gt;     #For Linux manual page
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h2&gt;2. Let's Rock&lt;/h2&gt;
+&lt;h3&gt;2.1 Get a Git Repository&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;See:&lt;/em&gt; &lt;a href="http://git-scm.com/book/en/Git-Basics-Getting-a-Git-Repository"&gt;Git book - chapter 2.1&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Basically, we first &lt;em&gt;create&lt;/em&gt; a repository somewhere, then others can &lt;em&gt;clone&lt;/em&gt; this repository. After
+cloning or creating, you can &lt;em&gt;add&lt;/em&gt; files and then commit to the repository.&lt;/p&gt;
+&lt;h4&gt;Command List&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# Create
+git init
+# Add
+git add FileName(support *)
+# Commit
+git commit -m &amp;#39;Commit Comment&amp;#39;
+# Clone
+git clone [url]
+# Clone Examples
+git clone git://github.com/schacon/grit.git NameOfDirectory # Git transfer protocol
+git clone http(s)://github.com/schacon/grit.git # HTTP(s)
+git clone user@server:/path.git # SSH
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;2.2 Record change to Repository&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;See:&lt;/em&gt;&lt;a href="http://git-scm.com/book/en/Git-Basics-Recording-Changes-to-the-Repository"&gt;Git book - chapter 2.2&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The full Life Cycle of a File:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Life Cycle" src="http://git-scm.com/figures/18333fig0201-tn.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Unadded file are &lt;strong&gt;not&lt;/strong&gt; tracked, so Git &lt;strong&gt;doesn't care&lt;/strong&gt; about this files.&lt;/p&gt;
+&lt;h4&gt;Staged&lt;/h4&gt;
+&lt;p&gt;When files added (under the control of Git) once modified, it need to be staged to the staging
+area. Command of stage is the same as add:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git add FileName # &amp;quot;add&amp;quot; is multi-purpose, can add and stage files.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Ignored files.&lt;/h4&gt;
+&lt;p&gt;File &lt;em&gt;.gitignore&lt;/em&gt; store patterns of file names which will be ignored by git. Rules
+are as follows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Blank lines or lines starting with # are ignored.&lt;/li&gt;
+&lt;li&gt;Standard glob patterns work.&lt;/li&gt;
+&lt;li&gt;You can end patterns with a forward slash (/) to specify a directory.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You can negate a pattern by starting it with an exclamation point (!).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Glob patterns&lt;/strong&gt; are like simplified regular expressions that shells use. An &lt;strong&gt;astsrisk (*)&lt;/strong&gt;
+matches zero or more characters; &lt;strong&gt;[abc]&lt;/strong&gt; matches any character inside the brackets (in this 
+case a, b, or c); a &lt;strong&gt;question mark (?)&lt;/strong&gt; matches a single character; and &lt;strong&gt;brackets&lt;/strong&gt; enclosing 
+characters separated by a hyphen([0-9]) matches any character in the range (in this case
+0 through 9) .&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;See:&lt;/em&gt;&lt;a href="http://unixhelp.ed.ac.uk/CGI/man-cgi?glob+7"&gt;Unix Man Page&lt;/a&gt; and &lt;a href="http://en.wikipedia.org/wiki/Glob_%28programming%29"&gt;Wikipedia Page&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;See &lt;em&gt;"What happens?"&lt;/em&gt;&lt;/h4&gt;
+&lt;p&gt;To see the general status of &lt;em&gt;"Which file have been modified but unstatged"&lt;/em&gt; or &lt;em&gt;"Which file have
+been staged but uncommited?"&lt;/em&gt;, use:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git statue
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;For more detailed information about what actually changed inside files, use &lt;code&gt;diff&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;See the difference between &lt;strong&gt;Working Directory&lt;/strong&gt; and &lt;strong&gt;Staging Area&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git diff
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;See the difference between &lt;strong&gt;Staging&lt;/strong&gt; and &lt;strong&gt;Repository(Commited)&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git diff --staged
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Now Commit&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git commit  
+# Will open a editor to edit the &amp;quot;Commiting Message&amp;quot;
+
+git commit -a  
+# Will makes Git automatically stage every file that is already tracked  
+before doing the commit, letting you skip the git add part
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Remove files&lt;/h4&gt;
+&lt;p&gt;Remove from tracked file list:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git rm FileName
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Remove from staged directory (file is kept in working directory):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git rm --cached FileName
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Deleting files on harddrive doesn't delete them from git's tracked file list.
+Instead ther are marked "delete" when you type &lt;code&gt;git status&lt;/code&gt;&lt;/p&gt;
+&lt;h4&gt;Moving Files&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Note :&lt;/strong&gt; "Rename" == "Moving to the &lt;em&gt;Same&lt;/em&gt; directory"&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git mv file_from file_to
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Above is equal to:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;mv file_from file_to
+git rm file_from
+git add file_to
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;2.3 Git Basics - Undoing Things&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;See &lt;/em&gt;: &lt;a href="http://git-scm.com/book/en/Git-Basics-Undoing-Things"&gt;Git book- chapter 2.4&lt;/a&gt;&lt;/p&gt;
+&lt;h4&gt;Git Command&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Change last commit  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git commit --amend
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This command takes your staging area and uses it for the commit. If you’ve made no
+changes since your last commit (for instance, you run this command immediately after
+your previous commit), then your snapshot will look exactly the same and all you’ll 
+change is your commit message. The same commit-message editor fires up, but it already
+contains the message of your previous commit. You can edit the message the same as
+always, but it overwrites your previous commit.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Unstage File&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git reset HEAD &amp;lt;file&amp;gt;...
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Unmodifyed a File&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git checkout -- &amp;lt;file&amp;gt;...  
+# Note: This cannot be undone since the file hasn&amp;#39;t be commited
+and therefore not recorded by git.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3 Branching&lt;/h2&gt;
+&lt;h3&gt;3.1 What a Branch Is&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;See :&lt;/em&gt; &lt;a href="http://git-scm.com/book/en/Git-Branching-What-a-Branch-Is"&gt; Git book - chapter 3.1&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note :&lt;/strong&gt; Here I tried to make everything simple but if you wnat a true picture
+of how  branch works in Git, please refer to the original document.&lt;/p&gt;
+&lt;p&gt;Git take &lt;strong&gt;snapshot&lt;/strong&gt; of every version (commit) of your files. A &lt;strong&gt;Branch&lt;/strong&gt; is just a 
+diverged series of snapshots. Think of a tree which start with a &lt;strong&gt;master&lt;/strong&gt; trunk, then
+it can stretches out different &lt;strong&gt;branches&lt;/strong&gt;. All this branches are linked with their 
+parent (either a &lt;strong&gt;master&lt;/strong&gt; trunk or a derived &lt;strong&gt;branch&lt;/strong&gt;) with &lt;strong&gt;nodes&lt;/strong&gt; - the mother 
+snapshot they all share. To go back to a older version or another branch, just trace 
+back to the &lt;em&gt;mother snapshot&lt;/em&gt; and choose a different route.&lt;/p&gt;
+&lt;p&gt;Diagram of branches (named in &lt;em&gt;pointer&lt;/em&gt; style):&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Branch" src="http://git-scm.com/figures/18333fig0309-tn.png" /&gt;&lt;/p&gt;
+&lt;h3&gt;3.2 Basic Branching and Merging&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;See :&lt;/em&gt; &lt;a href="http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging0"&gt;Git book - chapter 3.2&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Git commands:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Create a branch:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git branch NAME
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Switch to a branch:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git checkout NAME
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create and Switch (shortened):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git checkout -b iss53 #equal:git branch iss53 \ git checkout iss53
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Delete a branch:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git branch -d NAME
+# Note: Delete a branch. The branch must be fully merged in its upstream branch, or in HEAD if no upstream was set with --track or --set-upstream.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Merge a branch:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git merge NAME 
+# Note: the &amp;quot;NAME&amp;quot; branch will be merged into current branch you are working on.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Note :&lt;/strong&gt; &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Switch (chekout):&lt;/p&gt;
+&lt;p&gt;Git resets your working directory to look like the snapshot of the commit that the 
+branch you check out points to. It adds, removes, and modifies files automatically 
+to make sure your working copy is what the branch looked like on your last commit 
+to it.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Merge:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;"Fast-forward":&lt;/p&gt;
+&lt;p&gt;When the commit pointed to by the branch you merged in is directly upstream of 
+the commit you’re on, Git moves the pointer forward. To phrase that another way,
+when you try to merge one commit with a commit that can be reached by following
+the first commit’s history, Git simplifies things by moving the pointer forward
+because there is no divergent work to merge together — this is called a "fast 
+forward".&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Resolve Conflicts:&lt;/p&gt;
+&lt;p&gt;If you changed the same part of the same file differently in the two branches you’re merging together, Git won’t be able to merge them cleanly. Git has paused the process while you should resolve the conflict. Now you should see which files are unmerged at any point after a merge conflict running &lt;code&gt;git status&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Git adds standard conflict-resolution markers to the files that have conflicts, so when you open them you can manually resolve those conflicts. Your file contains a section that looks something like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD
+contact : email.support@github.com&amp;lt;br&amp;gt;
+=======
+please contact us at support@github.com&amp;lt;br&amp;gt;
+&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; iss53
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This means the version in &lt;strong&gt;HEAD&lt;/strong&gt; (The branch where you are working in, which is what you had checked out when you ran your merge command) is the top part of that block (everything above the &lt;code&gt;=======&lt;/code&gt;), while the version in your &lt;strong&gt;iss53&lt;/strong&gt; branch looks like everything in the bottom part. In order to resolve the conflict, you have to either choose one side or the other or merge the contents yourself. You resovle conflicts by editing and then staging the file.&lt;/p&gt;
+&lt;p&gt;After you’ve resolved each of these sections in each conflicted file, run &lt;code&gt;git add&lt;/code&gt; to add each file to mark it as resolved. Staging the file marks it as resolved in Git. &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;If you want to use a graphical tool to resolve these issues, you can run &lt;code&gt;git mergetool&lt;/code&gt;, which fires up an appropriate visual merge tool and walks you through the conflicts. After you exit the merge tool, Git asks you if the merge was successful. If you tell the script that it was, it stages the file to mark it as resolved for you.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;If you’re happy with that, and you verify that everything that had conflicts has been staged, you can type `git commit` to finalize the merge commit.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;3.3 Working with remote branch&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;See :&lt;/em&gt;&lt;a href="http://git-scm.com/book/en/Git-Branching-Remote-Branches"&gt;Git book - chapter 3.5&lt;/a&gt; 
+as well as &lt;a href="http://git-scm.com/book/en/Git-Basics-Working-with-Remotes"&gt;Git book - chapter 2.5&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;What ? :&lt;/strong&gt; Remote branches are just branches pointed to remote serves, taking the form of &lt;code&gt;(remote)/(branch)&lt;/code&gt; except that you can not move them as fre as the local one. However, remote branches can be modified without noticing, so please synchronize it frequently.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;See Status&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git remote command
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;It lists the shortnames of each remote handle you’ve specified. If you’ve cloned your repository, you should at least see origin — that is the default name Git gives to the server you cloned from.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git remote -v
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;It shows you the URL that Git has stored for the shortname to be expanded to.  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git remote show [remote-name]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;It lists the URL for the remote repository as well as the tracking branch information. &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Add&lt;br /&gt;
+        git remote add [shortname] [url]&lt;br /&gt;
+    e.g.&lt;br /&gt;
+        git remote add pb git://github.com/paulboone/ticgit.git&lt;br /&gt;
+    Now you can use the string &lt;em&gt;pb&lt;/em&gt; on the command line in lieu of the whole URL.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Fetch&lt;br /&gt;
+        git fetch [remote-name]&lt;br /&gt;
+    e.g.&lt;br /&gt;
+        git fetch pb&lt;br /&gt;
+&lt;strong&gt;Note :&lt;/strong&gt; The fetch command pulls the data to your local repository — it doesn’t automatically merge it with any of your work or modify what you’re currently working on. You only have an &lt;code&gt;origin/remote&lt;/code&gt; pointer that you can’t modify. You have to merge it manually into your work when you’re ready.  &lt;/p&gt;
+&lt;p&gt;To merge this work into your current working branch, you can run &lt;code&gt;git merge origin/remote&lt;/code&gt;. If you want your own remote branch that you can work on, you can base it off your remote branch:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git checkout -b remote_in_local origin/remote
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Push to Upstream&lt;br /&gt;
+        git push [remote-name] [branch-name]&lt;br /&gt;
+    This command works only if you cloned from a server to which you have write
+    access and if nobody has pushed in the meantime. If you and someone else clone
+    at the same time and they push upstream and then you push upstream, your push
+    will rightly be rejected. You’ll have to pull down their work first and
+    incorporate it into yours before you’ll be allowed to push. &lt;/p&gt;
+&lt;p&gt;You can push a local branch into a remote branch that is named differently.  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git push [remotename] [localbranch]:[remotebranch]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Like, if you didn’t want it to be called &lt;em&gt;"aaaaa"&lt;/em&gt; on the remote, you could instead run:   &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git push origin aaaaa:awesomebranch
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;to push your local &lt;em&gt;"aaaaa"&lt;/em&gt; branch to the &lt;em&gt;"awesomebranch"&lt;/em&gt; branch on the remote project.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Rename  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git remote rename OLD_NAME NEW_NAME
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Remove local&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git remote rm paul [remote-name]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;It removes a reference for the remote branch.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Delete Remote Branch&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git push [remotename] :[branch]  
+# Here, you just leave the LocalBranch&amp;#39;s name empty!
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;e.g, If you want to delete your serverfix branch from the server, you run the following:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git push origin :serverfix
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt;  A way to remember this command is by recalling the &lt;code&gt;git push [remotename] [localbranch]:[remotebranch]&lt;/code&gt; syntax that we went over a bit earlier. If you leave off the [localbranch] portion, then you’re basically saying, “Take nothing on my side and make it be [remotebranch].”&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Clone it.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; git clone [url]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If you clone from this, Git automatically names it origin for you, pulls down all its data, creates a pointer to where its master branch is, and names it origin/master locally; and you can’t move it. Git also gives you your own master branch starting at the same place as origin’s master branch, so you have something to work from. See:&lt;br /&gt;
+&lt;img alt="Clone Remote" src="http://git-scm.com/figures/18333fig0322-tn.png" /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Tracking Branch&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;em&gt;See:&lt;/em&gt; &lt;a href="http://git-scm.com/book/en/Git-Branching-Remote-Branches#Tracking-Branches"&gt;Git book - 3.5 Tracking Branches&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Using tracking branches can really save you some effort. *&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Tracking branches are local branches that have a direct relationship to a remote branch. If you’re on a tracking branch and type git push, Git automatically knows which server and branch to push to. Also, running git pull while on one of these branches fetechs all remote references and automatically merges in the corresponding remote branch.&lt;/p&gt;
+&lt;p&gt;Check out:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git chekcout --track RemoteName/BranchName
+# Or, below gives it a new name
+git checkout -b NewName RemoteName/BranchName
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;3.4 Rebasing&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;See:&lt;/em&gt; &lt;a href="http://git-scm.com/book/en/Git-Branching-Rebasing"&gt;Git book - 3.6 Rebase&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;In effect, rebasing is the same as merge, and the whole process is very alike. You have to &lt;em&gt;rebase&lt;/em&gt; --&amp;gt; &lt;em&gt;solve confilicts&lt;/em&gt; --&amp;gt; &lt;em&gt;git add to mark solved&lt;/em&gt; --&amp;gt; &lt;em&gt;continue rebase&lt;/em&gt;. However, rebase eliminate the number of different branches and thus makes the history of coding more clear and concise.&lt;/p&gt;
+&lt;p&gt;Commands:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git rebase branchToBeBased # Here may exists conflicts.
+git rebase --continue # Contine after solving the conflicts.
+git rebase --skip # Skip the patch.
+git rebase --abort # Give up this rebasing.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;More detailed information: &lt;a href="http://git-scm.com/docs/git-rebase"&gt;Git Manual - Rebase&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;4. Github&lt;/h2&gt;
+&lt;h3&gt;4.1 Add your local file to Github&lt;/h3&gt;
+&lt;p&gt;First, you should setting up an account in Github. It's rather easy.&lt;/p&gt;
+&lt;p&gt;Then, if you want to push a local repository to Github. First create an empty one on Github and then add it to your local git remote branch by:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git remote AName UrlToRemoteRepo
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Then push:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git push AName LocalBranch
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;4.2 Fork others' and contribute&lt;/h3&gt;
+&lt;p&gt;To contribute to other's project, you should: &lt;em&gt;Fork his project by &lt;code&gt;git checkout&lt;/code&gt; or Fork button on Github&lt;/em&gt; --&amp;gt; &lt;em&gt;Push your modifications to your own Github&lt;/em&gt; --&amp;gt; &lt;em&gt;Make a Pull Request on Github to Contribute&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;There is a green button on your repo's page called &lt;strong&gt;Compare, review, create a pull request&lt;/strong&gt;. You just need to click it and adjust something, fill some commit message. Then Github will take care of the pull request on its serve.&lt;/p&gt;
+&lt;h3&gt;4.3 Access Github by SSH&lt;/h3&gt;
+&lt;p&gt;See: &lt;a href="https://help.github.com/articles/generating-ssh-keys"&gt;Generate SSH Keys - Github Doc&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Git support SSH link. By this, Git can control the access ability. When you checkout something on Github by simple url, you would not have write access to the remote branch. If you try to push, git will ask for your username and password on Github.&lt;/p&gt;
+&lt;p&gt;In order to have write access, you would need a personal SSH key. SSH key helps to identify users without a user account and password combination.&lt;/p&gt;
+&lt;p&gt;To generate ssh key, you should have some ssh client in your computer. If you install Git from the official source, it will install a Git Bash, where it provide a &lt;code&gt;ssh-keygen&lt;/code&gt; to generate ssh keys.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ssh-keygen -t rsa -C &amp;quot;YourEmail@Address.com&amp;quot;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This will create a ssh key of your own and ask you for where to store and a passphrase.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Something about Passphrase&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;Why do passphrases matter?: &lt;/p&gt;
+&lt;p&gt;From: &lt;a href="https://help.github.com/articles/generating-ssh-keys"&gt;Generate SSH Keys - Github Doc&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Passwords aren't very secure. If you use one that's easy to remember, it's easier to guess or brute-force (try many options until one works). If you use one that's random, it's hard to remember, and thus you're more inclined to write it down. Both of these are Very Bad Things™.&lt;/p&gt;
+&lt;p&gt;This is why you're using SSH keys. But, using a key without a passphrase is basically the same as writing down that random password. Anyone who gains access to your computer has gained access to every system you use that key with. This is also a Very Bad Thing™. The solution is to add a passphrase to the SSH key, for an extra layer of security.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;But I don't want to enter a long passphrase every time I use the key!&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Neither do we! Thankfully, there's a nifty little tool called ssh-agent that can securely save your passphrase so you don't have to re-enter it. If you're on OSX Leopard or later, your keys can be saved in the system's keychain, which makes your life even easier. Unfortunately, it takes a little work to get it up and running on Windows.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;Then, copy the public key where you store you key and paste it into you Github's "Account Settings" --&amp;gt; "SSH Keys". Don't confuse the public with the private key. Public key usually stores in file name &lt;em&gt;xxx.pub&lt;/em&gt; while private is usually the same name but without a file extension &lt;em&gt;.pub&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Next, clone the repo with SSH url (or Git URL):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git clone git@github.com:we-taper/vim-pathogen.git
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Then, you will have write access to this repo with passphrase of your SSH key.&lt;/p&gt;
+&lt;h3&gt;4.3 Collaborate directly by Github Account&lt;/h3&gt;
+&lt;p&gt;You can also add other Github Account to your collaborate of this repo. This is much more convenient than the above SSH method.&lt;/p&gt;
+&lt;p&gt;On Github, there is a &lt;em&gt;plus&lt;/em&gt; button on right-top corner where you can add Collaborators to this repo. Clicked and have fun!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;To Be Conitnued&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">we.taper</dc:creator><pubDate>Sat, 29 Mar 2014 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:,2014-03-29:git-book-note.html</guid><category>Git</category></item><item><title>Using Pelican and Github to Blog - Configuration</title><link>/using-pelican-and-github-to-blog-configuration.html</link><description>&lt;h1&gt;Configuration File&lt;/h1&gt;
+&lt;p&gt;Pelican is rather simple to configure. Please refer to the original document for more detailed instructions : &lt;a href="http://docs.getpelican.com/en/3.3.0/settings.html#basic-settings"&gt;Settings - Pelican&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Here's what I did:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; The settings should be changed mainly in the pelican configuration file.&lt;br /&gt;
+&lt;em&gt;How to locate the configuration?&lt;/em&gt;: If you have &lt;em&gt;kick start&lt;/em&gt; your website using quick starter, you will find the auto-generated configuration file &lt;code&gt;pelicanconf.py&lt;/code&gt; in your website directory. Otherwise, create one with name you like.&lt;/p&gt;
+&lt;h3&gt;What I have changed.&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;AUTHOR = &amp;#39;xxxx&amp;#39;
+SITENAME = &amp;quot;Your Blog&amp;#39;s Name&amp;quot;
+# See, &amp;#39; and &amp;quot;, both can be used for String literals. These is the feature of Python.
+
+USE_FOLDER_AS_CATEGORY = &amp;#39;True&amp;#39;
+# Blogroll
+LINKS =  ((&amp;#39;Name&amp;#39;, &amp;#39;http://linkaddress.com/&amp;#39;),)
+
+# Social widget
+SOCIAL = ((&amp;quot;E-Mail name&amp;quot;, &amp;#39;xxx@xx.com&amp;#39;),)
+
+TIMEZONE = &amp;#39;Asia/Shanghai&amp;#39;
+
+# Set the maximum length (in words) of summary.
+SUMMARY_MAX_LENGTH = 10
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Configure Themes&lt;/h2&gt;
+&lt;p&gt;Changing themes in pelican can be quite convenient. Just download the theme and setting up in Pelican cofiguration file. &lt;/p&gt;
+&lt;h3&gt;Where to find themes?&lt;/h3&gt;
+&lt;p&gt;Several methods: &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Try Google. &lt;/li&gt;
+&lt;li&gt;Copy other's website. &lt;/li&gt;
+&lt;li&gt;Download themes in pelican's github page:&lt;a href="https://github.com/getpelican/pelican-themes"&gt;Pelican Themes&lt;/a&gt;. Here's a website to preview these themes: &lt;a href="http://pelicanthemes.com"&gt;Pelican themes&lt;/a&gt; (In fact, this website is just a previewer of screenshot.png located inside the pelican-themes repository.)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; When cloning pelican-themes, make sure to add &lt;code&gt;--recursive&lt;/code&gt; option to git so that all submodules linked by these repository will be cloned (Othervise you will find some folders empty after cloning). And this might take some time so the best policy would be have a look of the screenshot first directly inside github.&lt;/p&gt;
+&lt;p&gt;I personally recommand the &lt;strong&gt;brownstone&lt;/strong&gt; or &lt;strong&gt;cebong&lt;/strong&gt; theme.&lt;/p&gt;
+&lt;h3&gt;Pelican-themes&lt;/h3&gt;
+&lt;p&gt;Pelican provide a built-in theme manager which you can assess by command:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pelican-themes -h  # This calles the help.
+pelican-themes -l  # This lists all the themes installed.
+pelican-themes -vl # The -v (verbose) gives us more detailed information to the output - here it lists the place where themes locate.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;There exist, by default, two themes in pelican - &lt;em&gt;notmyidea&lt;/em&gt; and &lt;em&gt;simple&lt;/em&gt;. You can install additional theme by running command&lt;/p&gt;
+&lt;p&gt;See more at &lt;a href="http://docs.getpelican.com/en/3.3.0/settings.html#basic-settings"&gt;Pelican Doc - Pelican-theme&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; I don't recommend you to install themes for compatibility reasons: If you switch to another computer or OS, you will have to reinstall these themes so that pelican can recognize them. Instead, you can copy the theme you want into blog folder and push them to github. Therefore, when you clone your own blog some elsewhere, you theme will always be ready for use.&lt;/p&gt;
+&lt;h3&gt;Setting up themes in Pelican configuration&lt;/h3&gt;
+&lt;p&gt;To specify a theme:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;THEME = &amp;quot;Name Of Theme Installed&amp;quot;
+# You can view installed themes by pelican-themes - vl
+# Or, if you don&amp;#39;t want to install, type:
+THEME = &amp;quot;Path To Theme&amp;quot;
+# Path can either be relative or absolute.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;For more details, please visit: &lt;a href="docs.getpelican.com/en/3.3.0/settings.html#themes"&gt;Pelican Doc - themes&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Using Disqus&lt;/h2&gt;
+&lt;p&gt;You can add commenting functionality suppport by add Disqus to your blog. Disqus is a blog comment hosting service for websites and online communities that uses a networked platform. See &lt;a href="http://en.wikipedia.org/wiki/Disqus"&gt;Wikipedia Disqus&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Register an account on Disqus&lt;/li&gt;
+&lt;li&gt;On Disqus, choose &lt;em&gt;"Add Disqus to Your Site"&lt;/em&gt; and finish the process.&lt;/li&gt;
+&lt;li&gt;Find your shorname, which is ususally the same as in : &lt;code&gt;http://xxx.disqus.com/&lt;/code&gt; (xxx is your shortname).&lt;/li&gt;
+&lt;li&gt;In Pelican configuration file, add following:&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;DISQUS_SITENAME = &amp;quot;Your Short Name Here&amp;quot;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Done!&lt;/p&gt;
+&lt;h1&gt;Something about Editing Blogs&lt;/h1&gt;
+&lt;h2&gt;Link to internal content.&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;See :&lt;/em&gt;&lt;a href="http://docs.getpelican.com/en/3.3.0/getting_started.html#linking-to-internal-content"&gt;Linking to internal content&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Replace URL with these:&lt;/p&gt;
+&lt;p&gt;To file:     &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;{filename}path/to/file
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To tags:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;{tag}tagname
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To Category:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;{category}foobar
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Pelican does not support referenced link of this type.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;{filaname}&lt;/code&gt; is actually &lt;code&gt;{filaname}&lt;/code&gt;, don't put some real file name here or pelican will recognize it as Category name.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Creating Pages&lt;/h2&gt;
+&lt;p&gt;In Pelican, user can generate some special webpage which will have its own link in your homepage like the traditional &lt;em&gt;About Me&lt;/em&gt; page seen in most blogs.&lt;/p&gt;
+&lt;p&gt;To do this, you simple put webpage of these kind inside a special folder named &lt;code&gt;pages&lt;/code&gt;. All webpage there will have its own link on your homepage.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">we.taper</dc:creator><pubDate>Sun, 23 Mar 2014 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:,2014-03-23:using-pelican-and-github-to-blog-configuration.html</guid><category>Pelican</category><category>unFinished</category><category>unPolished</category></item><item><title>Vim IDE Note (last update: 2013-03-08)</title><link>/vim-ide-note-last-update-2013-03-08.html</link><description>&lt;h1&gt;Vim IDE Note&lt;/h1&gt;
+&lt;p&gt;Here's how I turned VIM into a modern IDE.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Content&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Overall&lt;ul&gt;
+&lt;li&gt;Plugin Management - Pathogen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Java Part&lt;ul&gt;
+&lt;li&gt;Java code completion - VJDE&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Overall&lt;/h2&gt;
+&lt;h3&gt;Plugin Management - Pathogen&lt;/h3&gt;
+&lt;p&gt;Download from github: &lt;a href="https://github.com/tpope/vim-pathogen"&gt;https://github.com/tpope/vim-pathogen&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Extract to &lt;code&gt;~/.vim/autoload&lt;/code&gt; or &lt;code&gt;%homepath%\vimfiles\autoload&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Edit &lt;code&gt;vimrc&lt;/code&gt;, add following:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;quot; For Pathogen Plugin manager
+call pathogen#infect() &amp;quot; Infect so that pathogen auto-install all plugins
+call pathogen#helptags() &amp;quot; Build up things inside &amp;#39;doc&amp;#39; directory.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Then add plugins into &lt;code&gt;bundle&lt;/code&gt; folder inside vimfiles. Pathogen will does everything else for you.
+Java Part&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3&gt;Java code completion - VJDE&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; To make the bes to modern IDE like Eclipse, I strongly suggest you to try &lt;a href="http://eclim.org"&gt;eclim&lt;/a&gt;, a great tool which embed vim directly into Eclipse.&lt;/p&gt;
+&lt;p&gt;Using Script: &lt;a href="http://www.vim.org/scripts/script.php?script_id=1213"&gt;Vim JDE&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Download and extract to into &lt;code&gt;bundle&lt;/code&gt; folder inside default folder (e.g. &lt;code&gt;~/.vim&lt;/code&gt; under Linux) within a new &lt;code&gt;vjde&lt;/code&gt; folder (so we can manage plugins better).&lt;/p&gt;
+&lt;p&gt;Then when editing Java files we can use &lt;Ctrl+x&gt;&lt;Ctrl+u&gt; to invode auto completion (vjde will find all possible methods/fields inside).&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">we.taper</dc:creator><pubDate>Sat, 08 Mar 2014 11:00:00 +0800</pubDate><guid isPermaLink="false">tag:,2014-03-08:vim-ide-note-last-update-2013-03-08.html</guid><category>IDE</category><category>Vim</category></item><item><title>UTF 8 BOM Detection in Java</title><link>/utf-8-bom-detection-in-java.html</link><description>&lt;h1&gt;UTF 8 BOM Detection in Java&lt;/h1&gt;
+&lt;p&gt;Have you ever encountered like this: Reading a file encoded in UTF-8, but always found it starts with a mysterious character which may be printed as "?" into screen but is not seen in any text editor. This is caused by the BOM of UTF-8 files.&lt;/p&gt;
+&lt;h2&gt;What is BOM?&lt;/h2&gt;
+&lt;p&gt;See this: &lt;a href="http://en.wikipedia.org/wiki/Byte_order_mark"&gt;Wikipedia BOM&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;BOM is, put simply, some marks used to identify the encoding of text, but it is not necessarily required in UTF-8 standard, see:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;While there is obviously no need for a byte order signature when using UTF-8, there are occasions when processes convert UTF-16 or UTF-32 data containing a byte order mark into UTF-8. When represented in UTF-8, the byte order mark turns into the byte sequence. Its usage at the beginning of a UTF-8 data stream is neither required nor recommended by the Unicode Standard, but its presence does not affect conformance to the UTF-8 encoding scheme. Identification of the byte sequence at the beginning of a data stream can, however, be taken as a near-certain indication that the data stream is using the UTF-8 encoding scheme.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href="http://www.unicode.org/versions/Unicode6.0.0/ch03.pdf"&gt;Link To Document&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Plus: &lt;a href="http://www.zhihu.com/question/20167122"&gt;A discussion on ZhiHu&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;How to Deal with BOM&lt;/h2&gt;
+&lt;p&gt;There could be many ways to do it but I found a simple solution. I figured out the unicode representation of BOM is &lt;code&gt;\uFEFF&lt;/code&gt;. Therefore, if any UTF-8 file started with character &lt;code&gt;\uFEFF&lt;/code&gt;, just remove the first character from it will sovle this problem.&lt;/p&gt;
+&lt;h2&gt;How to Write files without BOM&lt;/h2&gt;
+&lt;p&gt;Well, most text editors under Windows will automatically add BOMs to your UTF-8 files because this is favoured by Microsoft, the only exception I know of is notepad++, a great text editor for programmers (other exception? Feel free to inform me by E-mail). So basically you have to live with it on Windows.&lt;/p&gt;
+&lt;p&gt;Things get much better in Linux. With UTF-8 everywhere, Linux never use this BOM to identify a UTF-8-based file from ANSI-based file. Maybe I will never got to worry about BOM in Linux. Thanks for Microsoft's stupid idea to remind me of BOMs.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">we.taper</dc:creator><pubDate>Thu, 06 Mar 2014 23:00:00 +0800</pubDate><guid isPermaLink="false">tag:,2014-03-06:utf-8-bom-detection-in-java.html</guid><category>Java</category><category>UTF-8</category></item><item><title>Read Different Encoding in Java</title><link>/read-different-encoding-in-java.html</link><description>&lt;h1&gt;Read Different Encoding in Java&lt;/h1&gt;
+&lt;p&gt;Encoding could be quite a problem when reading text-based files. The Java &lt;code&gt;Scanner&lt;/code&gt; can constructed with specified encoding: &lt;code&gt;new Scanner (InputStream, Encoding)&lt;/code&gt;. However, this doesn't help when we don't know the encoding of files programs are reading. So we have to detect the encoding before reading it.&lt;/p&gt;
+&lt;h2&gt;1. Detect Encoding&lt;/h2&gt;
+&lt;p&gt;There is a method in InputStreamReader called &lt;code&gt;getEncoding();&lt;/code&gt;. However, it never return the correct encoding of file but rather the encoding used by this stream, which is always GBK on my machine.&lt;/p&gt;
+&lt;p&gt;I found a library on Internet to detect encodings: &lt;a href="http://code.google.com/p/juniversalchardet/"&gt;juniversalchardet&lt;/a&gt; which  is a Java port of 'universalchardet', the encoding detector library of Mozilla. &lt;/p&gt;
+&lt;p&gt;Using it is quite straight forward if you have previous experience with using external packages. Read the &lt;code&gt;ReadMe&lt;/code&gt; file inside downloaded source archive and here you go.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;License Note:&lt;/strong&gt; The library is subject to the Mozilla Public License Version 1.1. Alternatively, the library may be used under the terms of either the GNU General Public License Version 2 or later, or the GNU Lesser General Public License 2.1 or later.&lt;/p&gt;
+&lt;p&gt;However, this library failed to get the encoding of my files too many times, so I found another project powered by IBM and used by many Companies: &lt;a href="http://site.icu-project.org/"&gt;ICU - International Components for Unicode&lt;/a&gt;. License is quite complicated though, the library is open-sourced.&lt;/p&gt;
+&lt;p&gt;Using is also very simple. My example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;public static String getEncoding(File textFile) throws FileNotFoundException, IOException {
+    com.ibm.icu.text.CharsetDetector cd = new com.ibm.icu.text.CharsetDetector();
+    java.io.FileInputStream fis = new java.io.FileInputStream(textFile);
+    java.io.BufferedInputStream bis = new java.io.BufferedInputStream(fis);
+    cd.setText(bis);
+    CharsetMatch cm = cd.detect();
+    return cm.getName();
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; The &lt;code&gt;InputStream&lt;/code&gt; must support &lt;code&gt;mark&lt;/code&gt;, i.e. the &lt;code&gt;InputStream.markSupported()&lt;/code&gt; must return &lt;code&gt;true&lt;/code&gt;. Support &lt;code&gt;mark&lt;/code&gt; or not is invariant for a specified stream, e.g. &lt;code&gt;BufferedInputStream&lt;/code&gt; supports while &lt;code&gt;FileInputStream&lt;/code&gt; doesn't support.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;See :&lt;/strong&gt; &lt;a href="http://stackoverflow.com/questions/499010/java-how-to-determine-the-correct-charset-encoding-of-a-stream"&gt;StackOverflaw - Java : How to determine the correct charset encoding of a stream&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">we.taper</dc:creator><pubDate>Tue, 04 Mar 2014 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:,2014-03-04:read-different-encoding-in-java.html</guid><category>Java</category></item><item><title>Transform to reStructuredText</title><link>/transform-to-restructuredtext.html</link><description>&lt;h1&gt;Transform to reStructuredText&lt;/h1&gt;
+&lt;p&gt;Because the Markdown language no longer satisfy my requirements, I started to learn reStructuredText,
+another markup language initially built for writing python documentation just like in javadoc or etc.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; &lt;/p&gt;
+&lt;p&gt;I have already given up reStructuredText and switched back to markdown. Thus this file will not be udpated.&lt;/p&gt;
+&lt;p&gt;It is not that markdown has been updated with more features. It is because reStructuredText relies on too many external packages, and it is not popular enough to give us easy access on all platforms and web browsers. For example, the edito ReText (mentioned below) is complicated to setup on windows. Also, there is no firefox plugin to view reStructuredText. All these violates the principle of K.I.S.S. and I decided to fall back to markdown. If needed, I will write sophisticated documents using &lt;em&gt;Latex&lt;/em&gt; and publish the pdf output.&lt;/p&gt;
+&lt;h2&gt;Prepare some Editors&lt;/h2&gt;
+&lt;h3&gt;For Windows&lt;/h3&gt;
+&lt;p&gt;Because I have an Windows 8 OS on my PC, there is much trouble to get me some ready-to-use reStructuredText
+editors. After some search, found:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://sourceforge.net/p/retext/home/ReText/"&gt;ReText&lt;/a&gt;, a WYSIWYG reStructuredText editor (also supports
+  Markdown, what a surprise!)&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://rst.ninjs.org/"&gt;Online reStructuredText Editor&lt;/a&gt;, well, Internet is a great tool for those who
+  does not want to bother installing software. But for me, Internet access sometimes could be troublesome.&lt;/li&gt;
+&lt;li&gt;Also &lt;a href="http://markitup.jaysalvat.com/home/"&gt;MarkItUp&lt;/a&gt;, a universal markup jQuery editor. I don't know 
+  jQuery but this is interesting.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Install ReText&lt;/h4&gt;
+&lt;p&gt;ReText is written in python using PyQT4, so theoretically it could run on any OS. It could be downloaded
+from sourceforge's &lt;a href="http://sourceforge.net/p/retext/home/ReText/"&gt;homepage&lt;/a&gt;, or from &lt;a href="http://sourceforge.net/p/retext/git/"&gt;git&lt;/a&gt;.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Basic Requirements&lt;/p&gt;
+&lt;p&gt;Package needed:&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://python.org/"&gt;python&lt;/a&gt; — we recommend using version 3.2 or higher&lt;br /&gt;
+&lt;a href="http://www.riverbankcomputing.co.uk/software/pyqt/intro"&gt;python-qt4&lt;/a&gt;&lt;br /&gt;
+&lt;a href="http://pypi.python.org/pypi/Markups"&gt;python-markups&lt;/a&gt;  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Install python(Skipped);&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install python-qt4&lt;/p&gt;
+&lt;p&gt;There exits PyQT4 Windows installers :&lt;a href="http://www.riverbankcomputing.co.uk/software/pyqt/download"&gt;Find it here&lt;/a&gt;. Be careful to choose the corresponding edition.&lt;/p&gt;
+&lt;p&gt;Follow the installation guide and installing could be just "clicks".&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install python-markups&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;easy_install -i  http://pypi.douban.com/simple/ markups
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Note: &lt;code&gt;-i  http://pypi.douban.com/simple/&lt;/code&gt; for better speed in China.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Some recommended packages in &lt;em&gt;README&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;We also recommend having these packages installed:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://packages.python.org/Markdown/"&gt;python-markdown&lt;/a&gt; — for Markdown
+  language support&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://docutils.sourceforge.net/"&gt;python-docutils&lt;/a&gt; — for reStructuredText
+  language support&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://pypi.python.org/pypi/pyenchant"&gt;python-enchant&lt;/a&gt; — for spell checking
+  support&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Since installation maybe just a line of code &lt;code&gt;pip install xxx&lt;/code&gt; or &lt;code&gt;easy_install xxx&lt;/code&gt;, I skipped this part.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run ReText&lt;/p&gt;
+&lt;p&gt;Running a python program is simple. After downloading and unpackaging the source code, you just have you tell python to start this program by:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python retext.py
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Then everything done and enjoy it.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;After words: To be honest, ReText is really ... too simple, the real time display is too troublesome - you have to scroll the webpage yourself to go to the editing place. Even the online editor (metioned above) is far better.&lt;/p&gt;
+&lt;h3&gt;For Linux&lt;/h3&gt;
+&lt;h4&gt;Also ReText&lt;/h4&gt;
+&lt;h5&gt;Ubuntu PPA Source&lt;/h5&gt;
+&lt;p&gt;PPA Link: &lt;a href="https://launchpad.net/~mitya57/+archive/ppa"&gt;PPA for Dmitry Shachnev&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;HowTo Add PPA Source?&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo add-apt-repository ppa:user/ppa-name  
+sudo apt-get update  
+sudo apt-get install xxx
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;So now:&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo add-apt-repository ppa:mitya57/ppa  
+sudo apt-get update  
+sudo apt-get install
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Note :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;ReText is provided in ubuntu source, there is no need to add extra ppa-source!&lt;/p&gt;
+&lt;p&gt;Installed Package:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python3-markups (version 0.3-1) will be installed  
+python3-pyqt4 (version 4.10.3-1ubuntu1) will be installed  
+python3-sip (version 4.15.2-1ubuntu1) will be installed  
+retext (version 4.1.0-1) will be installed
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;However, extra packages are required to parse files.Please choose the right version of package. For example, following package does not meet the requirements:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;docutils-common (version 0.11-2) will be installed  
+python-docutils (version 0.11-2) will be installed  
+python-enchant (version 1.6.5-2build1) will be installed  
+python-markdown (version 2.3.1-1) will be installed  
+python-roman (version 1.4.0-2ubuntu1) will be installed
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Instead, I should install the version for python 3:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Installed packages:  
+python3-docutils (0.11-2)  
+python3-enchant (1.6.5-2build1)  
+python3-markdown (2.3.1-1)   
+python3-roman (1.4.0-2ubuntu1)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;reStructuredText Syntax&lt;/h2&gt;
+&lt;p&gt;Compared with Markdown, reStructuredText is rather big and comprehensive. There are many good documents to read, I personally suggest:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="http://docutils.sourceforge.net/docs/user/rst/quickstart.html"&gt;A quick start&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;The &lt;a href="http://docutils.sourceforge.net/docs/user/rst/quickref.html"&gt;Quick Reference&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;And crack the &lt;a href="http://docutils.sourceforge.net/docs/user/rst/cheatsheet.txt"&gt;Cheat Sheet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;A good Introduction in Chinese &lt;a href="http://jwch.sdut.edu.cn/book/rst.html"&gt;reStructuredText简明教程&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Another Introduction in Chinese &lt;a href="http://gsnippet.googlecode.com/svn/blog/html/reStructuredTEXT.html"&gt;reStructuredText 简明教程&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Some Notes&lt;/h2&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">we.taper</dc:creator><pubDate>Sun, 02 Mar 2014 14:00:00 +0800</pubDate><guid isPermaLink="false">tag:,2014-03-02:transform-to-restructuredtext.html</guid><category>Markup Language</category></item><item><title>English Word of the Day</title><link>/english-word-of-the-day.html</link><description>&lt;dl class="docutils"&gt;
+&lt;dt&gt;Morpheus&lt;/dt&gt;
+&lt;dd&gt;The Greek God of dreams&lt;/dd&gt;
+&lt;dt&gt;Blue&lt;/dt&gt;
+&lt;dd&gt;Sad feelings, without hope.&lt;/dd&gt;
+&lt;dt&gt;curve wrecker&lt;/dt&gt;
+&lt;dd&gt;你懂的&lt;/dd&gt;
+&lt;dt&gt;Remedy&lt;/dt&gt;
+&lt;dd&gt;A cure to something, either problems or dieases.&lt;/dd&gt;
+&lt;dt&gt;Post Holiday Blues&lt;/dt&gt;
+&lt;dd&gt;A kind of diease you must have known.&lt;/dd&gt;
+&lt;dt&gt;党委书记&lt;/dt&gt;
+&lt;dd&gt;secretary of the Party committee&lt;/dd&gt;
+&lt;dt&gt;小康社会&lt;/dt&gt;
+&lt;dd&gt;Well-off Society&lt;/dd&gt;
+&lt;/dl&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">we.taper</dc:creator><pubDate>Sun, 02 Mar 2014 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:,2014-03-02:english-word-of-the-day.html</guid><category>English</category></item><item><title>Let's Begin the Journey of rsStructuredText</title><link>/lets-begin-the-journey-of-rsstructuredtext.html</link><description>&lt;div class="section" id="section-one-title-explorer-l1"&gt;
+&lt;h2&gt;Section One - Title Explorer - L1&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Will reports error when Line Wrapper Mismatch&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="section" id="l1-1-text-decorationdddd"&gt;
+&lt;h3&gt;L1.1 Text Decorationdddd&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;emphasis with italics&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;emphasis with &amp;lt;strong&amp;gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;cite&gt;What is interpreted text?&lt;/cite&gt;&lt;/p&gt;
+&lt;p&gt;&lt;cite&gt;It, said: The rendering and meaning of interpreted text is domain- or application-dependent. It can be used for things like index entries or explicit descriptive markup (like program identifiers).&lt;/cite&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;inline literal&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;It said,Normally rendered as monospaced text. spaces should be preserved, but line breaks will not be.&lt;/tt&gt;&lt;/p&gt;
+&lt;!-- ``Cannot end "Inline Literal with space(s) like this `` --&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="l1-2-linkss"&gt;
+&lt;h2&gt;L1.2 Linkss&lt;/h2&gt;
+&lt;p&gt;reference: &lt;a class="reference external" href="http://www.python.org"&gt;to&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;anonymous &lt;a class="reference external" href="http://baidu.com"&gt;link&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Learn about `Fold-in`, `Call-out` form&lt;/strong&gt; &lt;a class="reference external" href="http://docutils.sourceforge.net/docs/user/rst/quickref.html#hyperlink-targets"&gt;Link&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Embedded Link: &lt;a class="reference external" href="http://www.google.com/"&gt;Google&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Internal Hyperlink &lt;a class="reference internal" href="#target"&gt;Target&lt;/a&gt;.&lt;/p&gt;
+&lt;p id="target"&gt;Example.&lt;/p&gt;
+&lt;p&gt;Indirect Target:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Becareful about blanks&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Some modifications made to above texts:&lt;/p&gt;
+&lt;p&gt;Embedded Link: &lt;cite&gt;Google &amp;lt;http://www.google.com/&amp;gt;&lt;/cite&gt; _.&lt;/p&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">we.taper</dc:creator><pubDate>Sun, 02 Mar 2014 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:,2014-03-02:lets-begin-the-journey-of-rsstructuredtext.html</guid></item><item><title>MS Windows "cmd" Command Note</title><link>/ms-windows-cmd-command-note.html</link><description>&lt;p&gt;Convention:&lt;/p&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;# with overline, for parts&lt;/div&gt;
+&lt;div class="line"&gt;* with overline, for chapters&lt;/div&gt;
+&lt;div class="line"&gt;=, for sections&lt;/div&gt;
+&lt;div class="line"&gt;-, for subsections&lt;/div&gt;
+&lt;div class="line"&gt;^, for subsubsections&lt;/div&gt;
+&lt;div class="line"&gt;&amp;quot;, for paragraphs&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id1"&gt;
+&lt;h2&gt;2014-02-26&lt;/h2&gt;
+&lt;p&gt;Because I don't know how to open a file by a batch script. I studied the grammar of batch file in windows.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;%: 批处理变量引导符&lt;/dt&gt;
+&lt;dd&gt;这个百分号严格来说是算不上命令的，它只是批处理中的参数而已（多个%一起使用的情况除外）
+引用变量用%var%，调用程序外部参数用%1至%9等等
+%0  %1  %2  %3  %4  %5  %6  %7  %8  %9  %*为命令行传递给批处理的参数
+%0 批处理文件本身，包括完整的路径和扩展名
+%1 第一个参数
+%9 第九个参数
+%* 从第一个参数开始的所有参数
+参数%0具有特殊的功能，可以调用批处理自身，以达到批处理本身循环的目的，也可以复制文件自身等等。
+&lt;em&gt;Note:&lt;/em&gt; Dealing with %var% could be toublesome, I just use %1 to gets the first parameter.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This is a script to show the first parameter:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+&amp;#64;echo off
+echo %1
+pause
+&lt;/pre&gt;
+&lt;p&gt;So to open &amp;quot;.rst&amp;quot; file with ReText:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+cd /d d:\Apps\ReText-4.1.1\
+python retext.py %1
+&lt;/pre&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">we.taper</dc:creator><pubDate>Sun, 02 Mar 2014 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:,2014-03-02:ms-windows-cmd-command-note.html</guid><category>MS Windows</category><category>Batch</category></item><item><title>Markdown Showcase</title><link>/Markdown%20Showcase.html</link><description>&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Please view the source file for this webpage, otherwise you will never get the feeling that I have when I wrote this document.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h1&gt;Show how to use Markdown&lt;/h1&gt;
+&lt;h1&gt;This is a title, level 1&lt;/h1&gt;
+&lt;h2&gt;Next level title, level 2&lt;/h2&gt;
+&lt;h2&gt;Paragraph&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Intro&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I
+am
+on the same
+line.&lt;/p&gt;
+&lt;p&gt;I am on two&lt;br /&gt;
+lines.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Can you figure out why?&lt;/p&gt;
+&lt;h2&gt;Code blocks&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;public static void main(){
+    System.out.printf(&amp;quot;Hello Markdown!&amp;quot;);
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And a code inside text &lt;code&gt;println("I love she");&lt;/code&gt; Do you know who is &lt;code&gt;she&lt;/code&gt;?&lt;/p&gt;
+&lt;p&gt;A code to display "`":&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;This is ` used to add in-text code blocks&lt;/code&gt;.&lt;/p&gt;
+&lt;h3&gt;HTML codes&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt; Yes!! &lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#8212; is the decimal-encoded equivalent of &amp;mdash;&lt;/p&gt;
+&lt;h2&gt;For those who are tired of HTML escape mark&lt;/h2&gt;
+&lt;p&gt;See this: &amp;amp;copy, isn't it simple. And another &lt;em&gt;AT&amp;amp;T&lt;/em&gt;. Yeah!&lt;/p&gt;
+&lt;div class="footer"&gt;
+    &amp;copy; 2004 Foo Corporation
+&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;link:&lt;/em&gt;&lt;a href="http://www.google.com/"&gt;http://www.google.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;E-Mail:&lt;/em&gt;&lt;a href="&amp;#109;&amp;#97;&amp;#105;&amp;#108;&amp;#116;&amp;#111;&amp;#58;&amp;#119;&amp;#101;&amp;#46;&amp;#116;&amp;#97;&amp;#112;&amp;#101;&amp;#114;&amp;#64;&amp;#115;&amp;#111;&amp;#109;&amp;#101;&amp;#119;&amp;#104;&amp;#101;&amp;#114;&amp;#101;&amp;#46;&amp;#99;&amp;#111;&amp;#109;"&gt;&amp;#119;&amp;#101;&amp;#46;&amp;#116;&amp;#97;&amp;#112;&amp;#101;&amp;#114;&amp;#64;&amp;#115;&amp;#111;&amp;#109;&amp;#101;&amp;#119;&amp;#104;&amp;#101;&amp;#114;&amp;#101;&amp;#46;&amp;#99;&amp;#111;&amp;#109;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;(Actually I don't quite understand HTML, but it's fun!)&lt;/em&gt;&lt;/p&gt;
+&lt;h2&gt;Let's construct some list:&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;List one;&lt;/li&gt;
+&lt;li&gt;Oops, a wrong but acceptable;&lt;/li&gt;
+&lt;li&gt;Oh, this is cool.&lt;/li&gt;
+&lt;li&gt;Wow, the Markdown interpreter is really intelligent.&lt;/li&gt;
+&lt;li&gt;This may spoil me.&lt;/li&gt;
+&lt;li&gt;Let's get back to the right way.&lt;/li&gt;
+&lt;li&gt;Yes.(should be 7)&lt;/li&gt;
+&lt;li&gt;Another list 1&lt;/li&gt;
+&lt;li&gt;2&lt;/li&gt;
+&lt;li&gt;3&lt;ul&gt;
+&lt;li&gt;Indent.&lt;/li&gt;
+&lt;li&gt;Let's have dinner.&lt;ul&gt;
+&lt;li&gt;More indent!&lt;/li&gt;
+&lt;li&gt;
+&lt;blockquote&gt;
+&lt;p&gt;And mix things together. (This seems to failed)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;System.out.print("Text");&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;1. I'm bit tired.
+3. Yes.&lt;/p&gt;
+&lt;h2&gt;Quotation&lt;/h2&gt;
+&lt;p&gt;Let me learn from the masters:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Quote: &lt;em&gt;Keep It Simple Stupid&lt;/em&gt; -&amp;gt; &lt;strong&gt;K.I.S.S&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;And This: &lt;em&gt;Learn from your failure&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;And: &lt;strong&gt;Look for the masters&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;See how to escape special characters: * A star! * Another star.&lt;/p&gt;
+&lt;h2&gt;***&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;h2&gt;At last, Let's get some visual image.&lt;/h2&gt;
+&lt;h3&gt;Pictures&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;A inline picture&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Replace text if no picture" src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/logo_white_fe6da1ec.png" title="Optional title" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;A referenced picture&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Again, replace text: unsupported png" src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/logo_white_fe6da1ec.png" title="Title" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Picture With Link&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.google.com.hk"&gt;&lt;img alt="IMAGE TEXT HERE" src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/logo_white_fe6da1ec.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Links&lt;/h3&gt;
+&lt;p&gt;I love Google:&lt;a href="http://www.google.com.hk/" title="Google's Title"&gt;Google&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Three types of links&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;In-line: look above!&lt;/li&gt;
+&lt;li&gt;Referenced:&lt;ol&gt;
+&lt;li&gt;&lt;a href="http://www.google.co.jp/" title="Google Japan"&gt;Text_1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.google.co.uk/" title="Google UK"&gt;Text_1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.google.com/" title="Google Original"&gt;Text_3&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;You will understand how I love Google when you clicked the above links.&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Some Syntax of HTML&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Use &amp;lt; br &amp;gt; to do "line feed"&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;Last but not least, Escape The Markers&lt;/h1&gt;
+&lt;p&gt;*literal asterisks*&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Markdown&lt;/strong&gt; 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    \   反斜线
+    `   反引号
+    *   星号
+    _   底线
+    {}  花括号
+    []  方括号
+    ()  括弧
+    #   井字号
+    +   加号
+    -   减号
+    .   英文句点
+    !   惊叹号
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;Thanks&lt;/h1&gt;
+&lt;p&gt;Who has taught me:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;wowubuntu.com&lt;/em&gt; : &lt;a href="http://wowubuntu.com/markdown/" title="wowubuntu"&gt;wowubuntu&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Other Websites found via Google&lt;/li&gt;
+&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">we.taper</dc:creator><pubDate>Fri, 21 Feb 2014 14:00:00 +0800</pubDate><guid isPermaLink="false">tag:,2014-02-21:Markdown Showcase.html</guid><category>Markup Language</category></item><item><title>Markdown Tips</title><link>/Markdown%20Tips.html</link><description>&lt;h1&gt;Markdown Tips&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Using Markdown On Notepad++&lt;/p&gt;
+&lt;p&gt;At first I want to using markdown inside Vim. However, the 
+configuration and learning cost force me to turn to notepad++.
+After some search, found two plugins:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;ViSimulator - Make notepad++ vim-like.
+    Provide some basic functions, enough for me. Available at
+    &lt;a href="http://sourceforge.net/apps/mediawiki/notepad-plus/index.php?title=Plugin_Central"&gt;Notepad++ Plugin Site&lt;/a&gt; as well as the built-in
+    Plugin Manager.&lt;/li&gt;
+&lt;li&gt;NppMarkdown - Preview markdown instantly inside notepad++.
+    Good. Although the parsing engine doesn't recognize "#"
+    as title mark. Alse, referenced link also not support. Pity.
+    Available at &lt;a href="http://sourceforge.net/apps/mediawiki/notepad-plus/index.php?title=Plugin_Central"&gt;Notepad++ Plugin Site&lt;/a&gt;.  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Installing is quite stright forward, guidance available at: &lt;a href="http://sourceforge.net/apps/mediawiki/notepad-plus/index.php?title=Plugin_Central"&gt;Np++ Wiki - Plugin&lt;/a&gt;&lt;br /&gt;
+(Actually, a little guess would be enough to install plugins.)  &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Markup Language Translator&lt;/p&gt;
+&lt;p&gt;A tool to translate between different markup languages: &lt;a href="http://marksy.arc90.com/"&gt;_Marksy&lt;/a&gt;
+(Also available as a Chrome Plugin)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;On Chrome:&lt;/p&gt;
+&lt;p&gt;A very good editor: &lt;em&gt;Minimalist Markdown Editor&lt;/em&gt; on Chrome Apps store.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">we.taper</dc:creator><pubDate>Fri, 21 Feb 2014 14:00:00 +0800</pubDate><guid isPermaLink="false">tag:,2014-02-21:Markdown Tips.html</guid><category>Markup Language</category><category>unFinished</category></item><item><title>Python Study Note (Last update: 2014-2-21)</title><link>/Python%20Study%20Note.html</link><description>&lt;h1&gt;Python Study Note&lt;/h1&gt;
+&lt;h2&gt;2014-02-17&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;About Unicode&lt;/strong&gt;
+&lt;em&gt;(python 3.3)&lt;/em&gt;
+When using &lt;code&gt;\xxx&lt;/code&gt; to display Unicode characters, the encoding of the source file
+also counts. e.g, if you type:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    s = &amp;#39;\xc4&amp;#39;
+    print(s)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In a GBK based file, interpreter says:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    Error:
+    UnicodeEncodeError: &amp;#39;gbk&amp;#39; codec can&amp;#39;t encode character &amp;#39;\xc4&amp;#39; in 
+    position 2: illegal multibyte sequence
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;On the other hand, inside a UTF-8 file:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &amp;#39;Ä&amp;#39;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;About Statements&lt;/strong&gt;
+&lt;em&gt;Refer to: Page 320, Learning Python 5th, O'Reilly, ISBN: 978-1-449-35573-9&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Statements" src="Statement_In_Python.png" title="Statements in Python" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Statements_2" src="Statement_In_Python_2.png" title="Statements in Python" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;About ++/--&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;In python, there is no ++/-- operator, see &lt;a href="http://stackoverflow.com/questions/3654830/why-are-there-no-and-operators-in-python"&gt;Stack Overflow&lt;/a&gt; and 
+&lt;a href="http://norvig.com/python-iaq.html"&gt;Python IAQ&lt;/a&gt; for more. &lt;/p&gt;
+&lt;p&gt;However &lt;code&gt;++x&lt;/code&gt; makes sense, which means &lt;code&gt;+(+(x))&lt;/code&gt;,
+so basically it's simply &lt;code&gt;x&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;About Assignment Statements&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Refer to: Page 340, Learning Python 5th, O'Reilly, ISBN: 978-1-449-35573-9&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Assignment Statements" src="Assignment_Statements.png" title="Assignment Statements Examples" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Argumented Assignment, Performance&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;If the subject is mutable and supports this operation, an augmented assignment 
+may run even quicker by choosing an in-place update operation instead of an 
+object copy. &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;About Divide and Mod&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;See the difference of &lt;code&gt;3/10&lt;/code&gt; and &lt;code&gt;3//10&lt;/code&gt;. &lt;code&gt;/&lt;/code&gt; means divide and result in decimal number, &lt;code&gt;//&lt;/code&gt; means "mod" and results in integer. (A new feature in python 3)&lt;/p&gt;
+&lt;h2&gt;2014-02-26&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;The strange loop:else&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;Try this code:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;x = 1
+while x &amp;lt; 3:
+    x = int( input(&amp;#39;Int(try &amp;gt; 3 and = 1):&amp;#39;) )
+    if x == 1:
+        break
+else:
+    print(&amp;#39;Wow!&amp;#39;)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And see this two article:&lt;a href="http://nedbatchelder.com/blog/201110/forelse.html"&gt;For/else&lt;/a&gt;,&lt;a href="http://bbs.csdn.net/topics/350231499"&gt;python的while loop中的else多余吗？&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;else&lt;/code&gt; will only be executed when &lt;code&gt;for&lt;/code&gt; loop finishes normally or &lt;code&gt;while&lt;/code&gt; loop is entered but not &lt;code&gt;break&lt;/code&gt;ed.    &lt;/p&gt;
+&lt;p&gt;Python really wants to keep code simple.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">we.taper</dc:creator><pubDate>Fri, 21 Feb 2014 14:00:00 +0800</pubDate><guid isPermaLink="false">tag:,2014-02-21:Python Study Note.html</guid><category>Python</category></item><item><title>Using Jekyll and Github to Blog v0.1 (Failed)</title><link>/Using%20Jekyll%20and%20Github%20to%20Blog.html</link><description>&lt;h1&gt;Using Jekyll and Github to Blog v0.1 (Failed)&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Note :&lt;/strong&gt;&lt;br /&gt;
+At last, i got myself furious by using Jykell. Ruby and Python's Pygments modulus 
+just don't work with each other. And installing these softwares on windows is just
+another nightmare for me. If you are a windows user, I sincerely advise you stop
+trying Jekyll now! Another option is: Pelican!&lt;br /&gt;
+If you really want to continue, please do refer to my recommended blogs and websites
+before you start rock, especially the &lt;a href="https://github.com/juthilo/run-jekyll-on-windows/#install-the-jekyll-gem"&gt;official guide&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;What??&lt;/h2&gt;
+&lt;p&gt;Jekyll is a static website generator. Github Page is a service provided by github.com which hosts user-uploaded static websites and display them, for &lt;strong&gt;free&lt;/strong&gt;! This two combined - &lt;strong&gt;A Free Web blog host under perfect control&lt;/strong&gt;. (Note: Everything on Github is open unless you purchase some plans. So there is no privacy concerns - You simply don't put private content on it!)&lt;/p&gt;
+&lt;p&gt;Github officially support Jykell. Everything hosted on Github Pages will be processed by Jykell. Since standard HTML files is also Jykell capable, you can use Github Pages without Jykell of course.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note :&lt;/em&gt; &lt;/p&gt;
+&lt;p&gt;This is a hardcore, time-consuming task which require much patience and time. Never try this if you are not a geek.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note 2:&lt;/em&gt; &lt;/p&gt;
+&lt;p&gt;Because I want to blog something but is tired of using existing blog services, I searched for a bit and find Jekyll 
+as well as Hyde. They are both "static webpage generator" (See: &lt;a href="https://github.com/hyde/hyde"&gt;Wikipedia Static Webpage&lt;/a&gt;). Jekyll is based on Ruby while Hyde is based on python. There are two excellent articles comparing these two engines: 1.&lt;a href="http://www.distractable.net/tech/static-site-generators-jekyll-vs-hyde"&gt;Static Website Generators - Jekyll vs Hyde&lt;/a&gt;, and 2.&lt;a href="http://philipm.at/2011/jekyll_vs_hyde.html"&gt;Jekyll vs. Hyde - A Comparison Of Two Static Site Generators&lt;/a&gt; (Both stored in my Evernote for backup). &lt;/p&gt;
+&lt;p&gt;I choosed Jekyll because:  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;It is under active development, the &lt;a href="https://github.com/jekyll/jekyll"&gt;Github Jekyll&lt;/a&gt; has many recent commits just days ago. The last commit of Hyde is somewhat 6 months ago!  &lt;/li&gt;
+&lt;li&gt;There are many default templetes that I can simply &lt;code&gt;git clone xxx&lt;/code&gt; to use for Jykell. As for Hyde, few were found.  &lt;/li&gt;
+&lt;li&gt;Author of Jekyll is also co-founder of Github! Therefore the future maintenance is guaranteed.  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Pre-requirements (Important)&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Installed Ruby&lt;br /&gt;
+    For simplicity, I choosed &lt;a href="http://rubyinstaller.org"&gt;RubyInstaller&lt;/a&gt; to install Ruby on my Windows. Once installed, you will got a powerful tool: &lt;code&gt;gem&lt;/code&gt; to install ruby modulus.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Switch &lt;strong&gt;gem&lt;/strong&gt; Source to &lt;em&gt;http://ruby.taobao.org/&lt;/em&gt; to improve downloading speed. &lt;br /&gt;
+    See: &lt;a href="http://ruby.taobao.org/"&gt;RubyGems 镜像 - 淘宝网&lt;/a&gt; for more.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Installed DevKit 
+    Otherwise you can't just install Jykell with bundle (see below). See &lt;a href="https://github.com/oneclick/rubyinstaller/wiki/Development-Kit"&gt;Github DevKit&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Installed Python&lt;br /&gt;
+    Compared with Ruby, installing python on windows is just simple. As for Linux and Mac, they already have python come within system. See: &lt;a href="http://www.python.org/download/"&gt;Python Download&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Let's Rock&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Installed Bundler&lt;br /&gt;
+    Yet another ruby modulus installation tool. Recommended on &lt;a href="https://help.github.com/articles/using-jekyll-with-pages#installing-jekyll"&gt;Github Official help&lt;/a&gt;. It said,&lt;em&gt;"You can still install Jekyll with the command gem install github-pages, but you may run into trouble down the line."&lt;/em&gt;, But I haven't tried that.
+    Follow the tips on &lt;a href="https://help.github.com/articles/using-jekyll-with-pages#installing-jekyll"&gt;Github Official help&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install Jekyll with Bundler&lt;br /&gt;
+    Just folow tips on &lt;a href="https://help.github.com/articles/using-jekyll-with-pages#installing-jekyll"&gt;Github Official help&lt;/a&gt;. Becareful that your should &lt;code&gt;cd&lt;/code&gt; into the directory where the &lt;code&gt;Gemfile&lt;/code&gt; exists, or you will always get a &lt;code&gt;Bundler::GemfileNotFound&lt;/code&gt; error. Also, remember to change the source to ruby.taobao.org as mentioned in &lt;strong&gt;Pre-requirements&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install easy_install and Pygments
+    Using the right python (2.7.x) and install Pygments through easy_install scripts. 
+    See &lt;a href="https://pypi.python.org/pypi/setuptools#windows"&gt;Link 1&lt;/a&gt; to install easy_install and find easy_install inside python 
+    installation directory (usually under folder "Scripts"), run &lt;code&gt;easy_install Pygments&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Cook the Git Book&lt;br /&gt;
+    Learn about git from &lt;a href="http://git-scm.com/book/en/"&gt;Git Guide&lt;/a&gt;, I also wrote an article about it: &lt;a href="/git-book-note.html"&gt;My Git Guide&lt;/a&gt;
+    &lt;!-- Here is a internal link to Git Book Note.md --&gt; &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Clone others' work&lt;br /&gt;
+    Well, My time is limited (I've already spent a whole day on it). And open source is fascinating. Why not copy?&lt;/p&gt;
+&lt;p&gt;Some personal recommendations:&lt;br /&gt;
+1. &lt;a href="https://github.com/JeremyWei/jeremywei.github.com"&gt;https://github.com/JeremyWei/jeremywei.github.com&lt;/a&gt;
+2. &lt;a href="http://www.madhur.co.in"&gt;http://www.madhur.co.in&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;A really good List of Websites build on Jekyll:&lt;a href="https://github.com/jekyll/jekyll/wiki/Sites"&gt;Jekyll Sites&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Some Notes to solve problems:&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Note :&lt;/strong&gt; The error message below have been simplified to save space. Watch your error output carefully, perhaps mine solution applies to your too!&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Error: &lt;code&gt;... fileutils.rb:247:in&lt;/code&gt;mkdir': Invalid argument ...`  &lt;/p&gt;
+&lt;p&gt;Problem: The new versioin of jekyll (&amp;gt;1.4.2) isn't stable enough! Downgrade!&lt;br /&gt;
+Solution:
+    gem uninstall jekyll&lt;br /&gt;
+    gem install jekyll --version "=1.4.2"&lt;br /&gt;
+See: &lt;a href="http://stackoverflow.com/questions/21137096/jekyll-error-running-jekyll-serve"&gt;StackOverflow Ask&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Error:  &lt;code&gt;Liquid Exception: Failed to get header. in xxx.markdown&lt;/code&gt; &lt;br /&gt;
+or &lt;code&gt;spawn.rb:162: warning: cannot close fd before spawn&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Problem: &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The new version of pygments.rb (&amp;gt;0.5.0) doesn't cooperate with this Jekyll. Downgrade!&lt;br /&gt;
+Note: According the official guide (&lt;a href="https://github.com/juthilo/run-jekyll-on-windows/#install-the-jekyll-gem"&gt;Link&lt;/a&gt;), version 0.5.0 and o.5.4 are OK.&lt;/li&gt;
+&lt;li&gt;The new Python 3 don't work with Jekyll. Use Python 2.7.5.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Solution:
+1.
+        gem uninstall pygments.rb&lt;br /&gt;
+        gem install pygments.rb --version "=0.5.0"&lt;br /&gt;
+2. Install Python 2.7.x (remember to install Pygments later)&lt;br /&gt;
+    You can with both 2.7.x and 3.x version installed but use %PATH% environment to change the default python intepretor. Google about "Changing Path on Windows"&lt;/p&gt;
+&lt;p&gt;See: &lt;a href="http://stackoverflow.com/questions/17364028/jekyll-on-windows-pygments-not-working"&gt;Jekyll on Windows: Pygments not working&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Note: Do not install Ruby in a complicated path including characters like "(", ")", etc. I got errors when doing so. Instead installing to the default "X:\Rubyxx\" is OK.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Some Good Articles to help you smooth through this process:&lt;/h2&gt;
+&lt;h1&gt;Resources&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;A blog by 阮一峰&lt;a href="http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html"&gt;搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门&lt;/a&gt;&lt;br /&gt;
+    Contains much about how to setup standard Jekyll websites. Good for those who want to hack the Websites themselves.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A blog teaches installing Jykell on Windows:&lt;a href="http://www.madhur.co.in/blog/2011/09/01/runningjekyllwindows.html"&gt;Running Jekyll on Windows&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A comprehensive tutor to run Jykell on Windows (also Official): &lt;a href="https://github.com/juthilo/run-jekyll-on-windows/#install-the-jekyll-gem"&gt;How to Run Jekyll on Windows&lt;/a&gt;
+    &lt;strong&gt;Recommended!&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="http://site.douban.com/196781/widget/notes/12161495/note/264946576/"&gt;写作环境搭建(git+github+markdown+jekyll)&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="http://beiyuu.com/github-pages/"&gt;使用Github Pages建独立博客&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="http://blog.skydark.info/programming/2012/03/23/play-with-jekyll/"&gt;Play with Jekyll&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="http://www.cnblogs.com/yevon/p/3310857.html"&gt;完善本地搭建的jekyll环境(Windows)&lt;/a&gt;
+    &lt;strong&gt;Recommended!&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="http://www.cnblogs.com/aleda/articles/Jekyll-in-Windows-following-Chinese-encoding-problem-solutions.html"&gt;Jekyll在Windows下面中文编码问题解决方案&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">we.taper</dc:creator><pubDate>Fri, 21 Feb 2014 14:00:00 +0800</pubDate><guid isPermaLink="false">tag:,2014-02-21:Using Jekyll and Github to Blog.html</guid><category>Jykell</category><category>unPolished</category></item><item><title>Using Pelican and Github to Blog - Start</title><link>/using-pelican-and-github-to-blog-start.html</link><description>&lt;h1&gt;1. Install Pelican&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Note :&lt;/strong&gt; Before reading this article, a quick scan over 
+&lt;a href="/Using Jekyll and Github to Blog.html"&gt;Jykell Install&lt;/a&gt; would be very helpful in building a basic knowledge.
+&lt;!-- Here's a internal link to Using Jekyll and Github to Blog (Failed).md --&gt;&lt;/p&gt;
+&lt;h2&gt;1.1 What, &lt;em&gt;"Static Website"&lt;/em&gt; ?&lt;/h2&gt;
+&lt;p&gt;See: &lt;a href="http://en.wikipedia.org/wiki/Website#Static_website"&gt;Wikipedia: Static Website&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;1.2 Which static website generator?&lt;/h2&gt;
+&lt;p&gt;A great website: &lt;a href="http://staticsitegenerators.net/"&gt;Static Site Generators - The definitive listing of Static Site Generators&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I choose: Pelican, because it's the best one written in python. Getting those written
+in Ruby run on windows could be a nightmare. &lt;/p&gt;
+&lt;h2&gt;1.3 Install&lt;/h2&gt;
+&lt;p&gt;See: &lt;a href="http://pip.readthedocs.org/en/latest/installing.html"&gt;Installation pip&lt;/a&gt; and &lt;a href="http://docs.getpelican.com/en/3.6.3/quickstart.html"&gt;Quick Start for Pelican&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;1.3.1 with &lt;em&gt;easy_install&lt;/em&gt;&lt;/h3&gt;
+&lt;p&gt;I Tried install pelican through &lt;strong&gt;pip&lt;/strong&gt; but failed. &lt;strong&gt;pip&lt;/strong&gt; reports Failure every time I tried.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; Now pip is bundled in default with python installer on Windows (2016/05/27). Se the next section for installing with &lt;strong&gt;pip&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;So I switched to &lt;strong&gt;easy_install&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;See &lt;a href="https://pypi.python.org/pypi/setuptools#windows"&gt;Link 1&lt;/a&gt; to install easy_install. Then find easy_install inside python 
+    installation directory (usually under folder "Scripts"), &lt;/p&gt;
+&lt;p&gt;Some WARNINGs:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;==========================================================================
+WARNING: The C extension could not be compiled, speedups are not enabled.
+Failure information, if any, is above.
+Retrying the build without the C extension now.
+
+==========================================================================
+WARNING: The C extension could not be compiled, speedups are not enabled.
+Plain-Python installation succeeded.
+==========================================================================
+Adding MarkupSafe 0.18 to easy-install.pth file
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;It seemed everything work fine. So I ignored above warnings.&lt;/p&gt;
+&lt;p&gt;Then I install &lt;em&gt;Markdown&lt;/em&gt; package to support markdown syntax&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;easy_install Markdown
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;There seemed to be a problem on my Windows 8. Easy_install downloaded the installed but failed to
+run it. So I run it manually. (Discovered the downloaded folder inside the errors
+reported by &lt;strong&gt;easy_install&lt;/strong&gt;)&lt;/p&gt;
+&lt;h3&gt;1.3.2 with &lt;em&gt;pip&lt;/em&gt;&lt;/h3&gt;
+&lt;p&gt;Simply run the command:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install pelican markdown
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Wow, &lt;em&gt;pip&lt;/em&gt; is really simple to use. It works just like &lt;em&gt;apt-get install&lt;/em&gt; in Ubuntu, despite that the version bundled with python install is so old that the &lt;em&gt;pip&lt;/em&gt; suggests me to upgrade it. For simplicity, I ignore this suggestion.&lt;/p&gt;
+&lt;h1&gt;2. Configure&lt;/h1&gt;
+&lt;h2&gt;2.1 Learn Markdown (or something else)&lt;/h2&gt;
+&lt;p&gt;Pelican supports many simply-markup language including markdown and reStructured Text etc. I chose markdown because I have previous experience with them. See &lt;a href="/Markdown Showcase.html"&gt;my markdown show 
+case&lt;/a&gt;. Choose whatever you like by Google it.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Important&lt;/strong&gt;: Store your files in UTF-8 encoding, otherwise there might be problem for pelican to generate the output. If you don't know what &lt;code&gt;encoding&lt;/code&gt; means, then you are not the intended reader for this article. Please turn to other popular blogging website.&lt;/p&gt;
+&lt;h2&gt;2.2 Learn Pelican&lt;/h2&gt;
+&lt;h2&gt;2.2.1 Kick Start&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;See:&lt;/em&gt; &lt;a href="http://docs.getpelican.com/en/3.3.0/getting_started.html#basic-usage"&gt;Basic Usage&lt;/a&gt; and &lt;a href="http://docs.getpelican.com/en/3.3.0/getting_started.html#kickstart-your-site"&gt;Kickstart Your Site&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You can create a skeleton project via the pelican-quickstart command, which 
+begins by asking some questions about your site:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pelican-quickstart
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Then view the output page:   &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;firefox(or something else) output\index.html
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;However, because the above method may have trouble locating your CSS and other
+linked assets, running a simple web server using Python will often provide a 
+more reliable previewing experience:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd output &amp;amp;&amp;amp; python -m SimpleHTTPServer
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;em&gt;Note :&lt;/em&gt; In python 3, modulus &lt;code&gt;SimpleHTTPServer&lt;/code&gt; has been replaced by &lt;code&gt;http.server&lt;/code&gt;.&lt;/p&gt;
+&lt;h3&gt;2.2.2 Push to Github Pages&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Change the output directory:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Because the I want to use git to control my blogs, I setup something.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Put the files to be read by pelican into a sub folder where html files are generated. Now,
+website generated by Pelican reside in the parent folder and the content read by Pelican is in
+a sub folder. This seperates the websites and files to be read by Pelican and in the mean time
+allow both Github Page to read file &lt;code&gt;index.html&lt;/code&gt; as well as Pelican to read its files without
+interface each other.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Change the output directory to parent folder.
+    In default setting file &lt;code&gt;pelicanconf.py&lt;/code&gt;, add:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;OUTPUT_PATH = &amp;#39;../&amp;#39;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Generate files.&lt;/p&gt;
+&lt;p&gt;Skipped.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Push to Github&lt;/p&gt;
+&lt;p&gt;Follow guide &lt;a href="http://pages.github.com/"&gt;Here&lt;/a&gt; to create a "User or organization site".&lt;/p&gt;
+&lt;p&gt;Then clone the the source, copy your prepared Pelican generated websites (including where you store
+the files read by Pelican) to the cloned folder. Commit and Push and Done with your first blog!&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;2.2.3 Using other's themes.&lt;/h3&gt;
+&lt;p&gt;Some websites built on Pelican:&lt;a href="https://github.com/getpelican/pelican/wiki/Powered-by-Pelican"&gt;Powered by Pelican&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Some good themes:&lt;br /&gt;
+Site:&lt;a href="http://omphalosskeptic.github.io"&gt;http://omphalosskeptic.github.io&lt;/a&gt;&lt;br /&gt;
+Source: &lt;a href="https://github.com/omphalosskeptic/omphalosskeptic.github.io"&gt;https://github.com/omphalosskeptic/omphalosskeptic.github.io&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;Site: &lt;a href="http://kylefuller.co.uk/"&gt;http://kylefuller.co.uk/&lt;/a&gt;&lt;br /&gt;
+Source: &lt;a href="https://github.com/kylef/kylefuller.co.uk"&gt;https://github.com/kylef/kylefuller.co.uk&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;More&lt;/h3&gt;
+&lt;p&gt;Detailed settings of Pelican can be seen here:&lt;a href="http://docs.getpelican.com/en/3.3.0/settings.html"&gt;Pelican Settings&lt;/a&gt;&lt;/p&gt;
+&lt;h1&gt;Resources&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Recommend&lt;/strong&gt; &lt;a href="http://docs.getpelican.com/en/3.3.0/"&gt;Pelican Official Doc&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Recommend&lt;/strong&gt; Some cases you can learn from [Powered by Pelican]
+(https://github.com/getpelican/pelican/wiki/Powered-by-Pelican)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;Problem Solver:&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;In Pelican: &lt;code&gt;'utf-8' codec can't decode byte 0xbe in position 2458: invalid start byte&lt;/code&gt;&lt;br /&gt;
+&lt;strong&gt;Why:&lt;/strong&gt; Some files are stored in encoding GBK (or something else other than 
+UTF-8) which is not supported by Pelican by default. Since python (and almost everything else) suppports utf-8, use some text
+editor (mine is notepad++) to change encoding to utf-8. [SOLVED]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;Tips&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;Pelican does not provide a overall view of tags or categories already exist. However, you can find all the tags and categories in the output folder easily.
+&lt;strong&gt;&lt;em&gt;To Be Continued&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">we.taper</dc:creator><pubDate>Fri, 21 Feb 2014 02:00:00 +0800</pubDate><guid isPermaLink="false">tag:,2014-02-21:using-pelican-and-github-to-blog-start.html</guid><category>Pelican</category><category>unFinished</category><category>unPolished</category></item></channel></rss>
