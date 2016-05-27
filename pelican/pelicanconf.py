@@ -29,13 +29,13 @@ LINKS =  (('Pelican', 'http://getpelican.com/'),
           ('My Previous Blog', 'http://ovelinux.blog.sohu.com/'),)
 
 # Social widget (Theme dependent)
-SOCIAL = (("My E-Mail (Don't click, copy link and alter it to correct form, thx)", 'we.taper[WhateverInsideIsUseless]qq.com'),)
+SOCIAL = (("My E-Mail (Don't click, copy link and alter it to correct form, thx)", 'we.taper[WhateverInsideIsUseless]gmail.com'),)
 
 #----------------------------------------------------------------------------------
 # Appearence
 
 # Change theme.
-THEME = "themes/cebong"
+# THEME = "themes/cebong"
 
 # Set the posts (in summary) displayed per page. (Otherwise, all posts in that category will be displayed)
 DEFAULT_PAGINATION = 7

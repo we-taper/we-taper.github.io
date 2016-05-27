@@ -8,18 +8,22 @@ A **K.I.S.S** version:
 
 A complicated version:
 
- I am Taper, currently a student in South University of Science and Technology of China (formerly SUSTC). Majorly I:
-	* Explorer the world from the perspective of physics
-	* Read math books that interests me.
-
- I have various hobbies:
-
-* Coding: 
-
-	* amateur level: python, Mathematica, ruby
-	* better: java and Matlab
-* Classical Music
-
+>  I am Taper, currently a student in South University of Science and Technology of China (formerly SUSTC). 
+> 
+> Majorly I:
+> 
+> * Explorer the world from the perspective of physics
+> * Read math books that interests me.
+> 
+>  I have various hobbies:
+> 
+> * Coding: 
+> 
+> 	* amateur level: python, Mathematica, ruby
+> 	* better: java and Matlab
+> 
+> * Classical Music
+> 
 Interested? Please contact me by [Email](we.taper{at}gmail.com).
 
 Rough Structure of this site:

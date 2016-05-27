@@ -1,49 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>UTF 8 BOM Detection in Java</title>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="/theme/css/main.css" type="text/css" />
+        <title>UTF 8 BOM Detection in Java</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
-                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-
-        <!--[if lte IE 7]>
-                <link rel="stylesheet" type="text/css" media="all" href="/css/ie.css"/>
-                <script src="/js/IE8.js" type="text/javascript"></script><![endif]-->
-
-        <!--[if lt IE 7]>
-                <link rel="stylesheet" type="text/css" media="all" href="/css/ie6.css"/><![endif]-->
-
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
 </head>
 
 <body id="index" class="home">
 <a href="https://github.com/we-taper">
-<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
+<img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
 </a>
         <header id="banner" class="body">
-                <h1><a href="">A Blog  <strong>about Coding.</strong></a></h1>
-                <nav>
-                    <a href="/pages/who-am-i.html">Who am I?</a>&nbsp;
-                    <a href="/category/blogging.html">Blogging</a>&nbsp;
-                    <a href="/category/coursenote.html">CourseNote</a>&nbsp;
-                    <a href="/category/programming.html">Programming</a>&nbsp;
-                </nav>
+                <h1><a href="/">A Blog  <strong>about Coding.</strong></a></h1>
+                <nav><ul>
+                    <li><a href="/pages/who-am-i.html">Who am I?</a></li>
+                    <li><a href="/category/blogging.html">Blogging</a></li>
+                    <li><a href="/category/coursenote.html">CourseNote</a></li>
+                    <li class="active"><a href="/category/programming.html">Programming</a></li>
+                </ul></nav>
         </header><!-- /#banner -->
 <section id="content" class="body">
   <article>
     <header>
       <h1 class="entry-title">
-        <a href="utf-8-bom-detection-in-java.html" rel="bookmark"
+        <a href="/utf-8-bom-detection-in-java.html" rel="bookmark"
            title="Permalink to UTF 8 BOM Detection in Java">UTF 8 BOM Detection in Java</a></h1>
     </header>
 
     <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2014-03-06T23:00:00+08:00">
-                周四 06 三月 2014
+                Published: 周四 06 三月 2014
         </abbr>
-<p>tags: <a href="/tag/java.html">Java</a><a href="/tag/utf-8.html">UTF-8</a></p></footer><!-- /.post-info -->      <h1>UTF 8 BOM Detection in Java</h1>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/wetaper.html">we.taper</a>
+        </address>
+<p>In <a href="/category/programming.html">Programming</a>.</p>
+<p>tags: <a href="/tag/java.html">Java</a> <a href="/tag/utf-8.html">UTF-8</a> </p>
+</footer><!-- /.post-info -->      <h1>UTF 8 BOM Detection in Java</h1>
 <p>Have you ever encountered like this: Reading a file encoded in UTF-8, but always found it starts with a mysterious character which may be printed as "?" into screen but is not seen in any text editor. This is caused by the BOM of UTF-8 files.</p>
 <h2>What is BOM?</h2>
 <p>See this: <a href="http://en.wikipedia.org/wiki/Byte_order_mark">Wikipedia BOM</a></p>
@@ -59,18 +58,6 @@
 <p>Well, most text editors under Windows will automatically add BOMs to your UTF-8 files because this is favoured by Microsoft, the only exception I know of is notepad++, a great text editor for programmers (other exception? Feel free to inform me by E-mail). So basically you have to live with it on Windows.</p>
 <p>Things get much better in Linux. With UTF-8 everywhere, Linux never use this BOM to identify a UTF-8-based file from ANSI-based file. Maybe I will never got to worry about BOM in Linux. Thanks for Microsoft's stupid idea to remind me of BOMs.</p>
     </div><!-- /.entry-content -->
-    <div class="comments">
-      <h2>Comments !</h2>
-      <div id="disqus_thread"></div>
-      <script type="text/javascript">
-        var disqus_identifier = "utf-8-bom-detection-in-java.html";
-        (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://taper.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-      </script>
-    </div>
 
   </article>
 </section>
@@ -85,18 +72,18 @@
                 <div class="social">
                         <h2>social</h2>
                         <ul>
-                            <li><a href="/" type="application/atom+xml" rel="alternate">atom feed</a></li>
 
-                            <li><a href="we.taper[WhateverInsideIsUseless]qq.com">My E-Mail (Don't click, copy link and alter it to correct form, thx)</a></li>
+                            <li><a href="we.taper[WhateverInsideIsUseless]gmail.com">My E-Mail (Don't click, copy link and alter it to correct form, thx)</a></li>
                         </ul>
                 </div><!-- /.social -->
         </section><!-- /#extras -->
 
         <footer id="contentinfo" class="body">
                 <address id="about" class="vcard body">
-                     Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>. Theme is using <a href="http://github.com/getpelican/pelican-themes" target="_blank">cebong</a>.
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
                 </address><!-- /#about -->
 
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
         </footer><!-- /#contentinfo -->
 
 <script type="text/javascript">
@@ -104,7 +91,7 @@
     (function () {
         var s = document.createElement('script'); s.async = true;
         s.type = 'text/javascript';
-        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
 </script>
