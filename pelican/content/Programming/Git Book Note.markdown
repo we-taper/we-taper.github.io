@@ -49,6 +49,10 @@ I personally like the git plugin *EGit* (found on Eclipse Market) for Eclipse si
 *See  * [Git book - chapter 1.5](http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup)
 
 Since I don't want to consider too much about git, skip this.
+Update: At least, I update my default name by:
+
+Code:
+	git config --global user.name "we.taper"
 
 ###1.3 Get help
 -------------
