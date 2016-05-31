@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>A Blog</title><link>/</link><description>about coding &amp; physics</description><lastBuildDate>Wed, 28 May 2014 00:00:00 +0800</lastBuildDate><item><title>About resume by Career Development Center in Shuren College</title><link>/about-resume-by-career-development-center-in-shuren-college.html</link><description>&lt;h1&gt;About resume&lt;/h1&gt;
+<rss version="2.0"><channel><title>A Blog</title><link>/</link><description>about coding &amp; physics</description><lastBuildDate>Tue, 31 May 2016 23:00:00 +0800</lastBuildDate><item><title>Feynman_diagram Part I - Interaction Picture v0.1</title><link>/feynman_diagram-part-i-interaction-picture-v01.html</link><description>&lt;h1&gt;Feynman_diagram Part I - Interaction Picture&lt;/h1&gt;
+&lt;h2&gt;v0.1&lt;/h2&gt;
+&lt;p&gt;This is links to a prelimary writting. It is started as a work to fulfill the requirement of a course in &lt;em&gt;SUSTC&lt;/em&gt; (now called &lt;em&gt;SUSTech&lt;/em&gt;) named &lt;em&gt;Solid State Theory&lt;/em&gt;. However, only the first part is finished. The upcoming part (including &lt;em&gt;Green Function&lt;/em&gt; and &lt;em&gt;Feynman Diagram&lt;/em&gt;, at least) is expected to be finished during this summer vacation.&lt;/p&gt;
+&lt;p&gt;&lt;a href="/pdfs/Feynman_diagram Part I - Interaction Picture v0.1.pdf"&gt;The first version&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">we.taper</dc:creator><pubDate>Tue, 31 May 2016 23:00:00 +0800</pubDate><guid isPermaLink="false">tag:,2016-05-31:feynman_diagram-part-i-interaction-picture-v01.html</guid><category>unFinished</category><category>unPolished</category></item><item><title>About resume by Career Development Center in Shuren College</title><link>/about-resume-by-career-development-center-in-shuren-college.html</link><description>&lt;h1&gt;About resume&lt;/h1&gt;
 &lt;p&gt;By Career Development Center - Shuren College&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Type of resume:&lt;/li&gt;
@@ -1466,7 +1469,7 @@ Source: &lt;a href="https://github.com/kylef/kylefuller.co.uk"&gt;https://github
 &lt;p&gt;Detailed settings of Pelican can be seen here:&lt;a href="http://docs.getpelican.com/en/3.3.0/settings.html"&gt;Pelican Settings&lt;/a&gt;&lt;/p&gt;
 &lt;h1&gt;Resources&lt;/h1&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Recommend&lt;/strong&gt; &lt;a href="http://docs.getpelican.com/en/3.3.0/"&gt;Pelican Official Doc&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Recommend&lt;/strong&gt; &lt;a href="http://docs.getpelican.com/"&gt;Pelican Official Doc&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Recommend&lt;/strong&gt; Some cases you can learn from [Powered by Pelican]
 (https://github.com/getpelican/pelican/wiki/Powered-by-Pelican)&lt;/li&gt;
 &lt;/ul&gt;
@@ -1481,4 +1484,15 @@ editor (mine is notepad++) to change encoding to utf-8. [SOLVED]&lt;/li&gt;
 &lt;ol&gt;
 &lt;li&gt;Pelican does not provide a overall view of tags or categories already exist. However, you can find all the tags and categories in the output folder easily.
 &lt;strong&gt;&lt;em&gt;To Be Continued&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Link to local webpages etc:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[a link relative to the current file]({filename}category/article1.rst)
+[a link relative to the content root]({filename}/category/article1.rst)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Notice that the root directory is taken to be the &lt;code&gt;content&lt;/code&gt; directory.
+See more at:&lt;a href="http://docs.getpelican.com/en/3.6.3/content.html#linking-to-internal-content"&gt;Pelican Doc: Linking to internal content&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: this method could only link to webpages (i.e. markdown documents). To link to other files, see:&lt;a href="http://docs.getpelican.com/en/3.6.3/content.html#linking-to-static-files"&gt;Pelican Doc:Linking to static files&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">we.taper</dc:creator><pubDate>Fri, 21 Feb 2014 02:00:00 +0800</pubDate><guid isPermaLink="false">tag:,2014-02-21:using-pelican-and-github-to-blog-start.html</guid><category>Pelican</category><category>unFinished</category><category>unPolished</category></item></channel></rss>

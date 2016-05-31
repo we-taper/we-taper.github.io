@@ -155,7 +155,7 @@ Detailed settings of Pelican can be seen here:[Pelican Settings][pel_help_set]
 
 # Resources
 
-* **Recommend** [Pelican Official Doc](http://docs.getpelican.com/en/3.3.0/)
+* **Recommend** [Pelican Official Doc](http://docs.getpelican.com/)
 * **Recommend** Some cases you can learn from [Powered by Pelican]
 (https://github.com/getpelican/pelican/wiki/Powered-by-Pelican)
 
@@ -171,6 +171,19 @@ editor (mine is notepad++) to change encoding to utf-8. [SOLVED]
 
 1. Pelican does not provide a overall view of tags or categories already exist. However, you can find all the tags and categories in the output folder easily.
 ***To Be Continued***
+2. Link to local webpages etc:
+
+		[a link relative to the current file]({filename}category/article1.rst)
+		[a link relative to the content root]({filename}/category/article1.rst)
+	Notice that the root directory is taken to be the `content` directory.
+	See more at:[Pelican Doc: Linking to internal content][pdltic]
+
+	**Note**: this method could only link to webpages (i.e. markdown documents). To link to other files, see:[Pelican Doc:Linking to static files][pdltsf]
+
+[pdltic]:http://docs.getpelican.com/en/3.6.3/content.html#linking-to-internal-content
+[pdltsf]:http://docs.getpelican.com/en/3.6.3/content.html#linking-to-static-files
+
+
 
 
 [wiki_sw]:http://en.wikipedia.org/wiki/Website#Static_website

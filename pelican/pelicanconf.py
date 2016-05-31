@@ -48,6 +48,9 @@ SUMMARY_MAX_LENGTH = 10
 # Set output path to parent folder
 OUTPUT_PATH = '../'
 
+# Linking to various types of files
+# http://docs.getpelican.com/en/3.6.3/content.html#linking-to-static-files
+STATIC_PATHS = ['images', 'pdfs']
 
 #----------------------------------------------------------------------------------
 # Others

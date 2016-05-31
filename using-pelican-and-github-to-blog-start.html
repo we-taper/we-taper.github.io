@@ -19,7 +19,8 @@
                 <nav><ul>
                     <li><a href="/pages/who-am-i.html">Who am I?</a></li>
                     <li class="active"><a href="/category/blogging.html">Blogging</a></li>
-                    <li><a href="/category/coursenote.html">CourseNote</a></li>
+                    <li><a href="/category/many-boby-physics.html">Many Boby Physics</a></li>
+                    <li><a href="/category/misc-course-notes.html">Misc Course Notes</a></li>
                     <li><a href="/category/programming.html">Programming</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
@@ -160,7 +161,7 @@ Source: <a href="https://github.com/kylef/kylefuller.co.uk">https://github.com/k
 <p>Detailed settings of Pelican can be seen here:<a href="http://docs.getpelican.com/en/3.3.0/settings.html">Pelican Settings</a></p>
 <h1>Resources</h1>
 <ul>
-<li><strong>Recommend</strong> <a href="http://docs.getpelican.com/en/3.3.0/">Pelican Official Doc</a></li>
+<li><strong>Recommend</strong> <a href="http://docs.getpelican.com/">Pelican Official Doc</a></li>
 <li><strong>Recommend</strong> Some cases you can learn from [Powered by Pelican]
 (https://github.com/getpelican/pelican/wiki/Powered-by-Pelican)</li>
 </ul>
@@ -175,6 +176,17 @@ editor (mine is notepad++) to change encoding to utf-8. [SOLVED]</li>
 <ol>
 <li>Pelican does not provide a overall view of tags or categories already exist. However, you can find all the tags and categories in the output folder easily.
 <strong><em>To Be Continued</em></strong></li>
+<li>
+<p>Link to local webpages etc:</p>
+<div class="highlight"><pre><span></span>[a link relative to the current file]({filename}category/article1.rst)
+[a link relative to the content root]({filename}/category/article1.rst)
+</pre></div>
+
+
+<p>Notice that the root directory is taken to be the <code>content</code> directory.
+See more at:<a href="http://docs.getpelican.com/en/3.6.3/content.html#linking-to-internal-content">Pelican Doc: Linking to internal content</a></p>
+<p><strong>Note</strong>: this method could only link to webpages (i.e. markdown documents). To link to other files, see:<a href="http://docs.getpelican.com/en/3.6.3/content.html#linking-to-static-files">Pelican Doc:Linking to static files</a></p>
+</li>
 </ol>
     </div><!-- /.entry-content -->
 
